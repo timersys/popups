@@ -1,0 +1,182 @@
+/* This stylesheet is used to style the admin option form of the plugin. */
+/*---------------------------------------------------------------------------------------------
+	Tables
+---------------------------------------------------------------------------------------------*/
+#spu-rules > .inside {
+	padding: 0;
+}
+table.spu_table {
+	border: 0 none;
+	background: #fff;
+}
+
+table.spu_table tbody tr td {
+	padding: 13px 15px;
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 0 none;
+}
+
+table.spu_table tbody tr td.label {
+	width: 24%;
+	vertical-align: top;
+	background: #F9F9F9;
+	border-top: 1px solid #f0f0f0;
+    border-right: 1px solid #E1E1E1;
+}
+
+table.spu_table > tbody > tr:first-child > td,
+table.spu_table > tbody > tr:first-child > td.label {
+	border-top: 0 none;
+}
+
+table.spu_table td.label ul.hl {
+	margin: 20px 0 0;
+}
+table.spu_table td.label ul.hl li {
+	margin: 0 3px 0 0;
+	
+}
+
+table.spu_table td.label ul.hl li a.acf-button {
+	font-size: 12px;
+	padding: 6px 10px;
+	font-weight: normal;
+}
+
+table.spu_table tbody tr td.label label {
+	display: block;
+	font-size: 13px;
+	line-height: 1.4em;
+	font-weight: bold;
+	padding: 0;
+	margin: 0 0 3px;
+	color: #333;
+}
+
+table.spu_table tbody tr td.label label span.required {
+	color: #f00;
+	display: inline;
+	margin-left: 3px;
+}
+
+
+table.spu_table tbody tr td.label p {
+	display: block;
+	font-size: 12px;
+	line-height: 1.4em;
+	padding: 0 !important;
+	margin: 3px 0 0 !important;
+	font-style: normal;
+	line-height: 16px;
+	color: #899194;
+}
+
+table.spu_table input[type="text"],
+table.spu_table input[type="number"],
+table.spu_table textarea,
+table.spu_table select{
+	width: 99.95%;
+	padding: 3px 5px;
+	outline: none;
+}
+
+table.spu_table select {
+	padding: 2px;
+}
+
+table.spu_table select option {
+	padding: 3px;
+}
+
+table.spu_table input[type="text"]:focus,
+table.spu_table textarea:focus,
+table.spu_table select:focus {
+	border-color:#98B6CB;
+}
+#spu-options .no-top-margin{ 
+	margin-top:0 !important; 
+}
+
+#spu-options .wp-picker-clear, #spu-options div.wp-picker-holder, #spu-options .wp-picker-input-wrap { 
+	background:white; 
+	z-index: 999 !important; 
+	position: absolute !important; 
+}
+.spu-label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+#spu-options .wp-picker-container{ white-space: nowrap; }
+input#spu-width {
+	width: 90px;
+}
+/*---------------------------------------------------------------------------------------------
+*
+*  Rules
+*
+*---------------------------------------------------------------------------------------------*/
+
+#spu-rules .inside {
+	margin: 0;
+	padding: 0;
+}
+
+#spu-rules .rules-groups {
+	padding: 5px 0;
+} 
+
+#spu-rules h4 {
+	margin: 15px 0 5px;
+}
+
+#spu-rules .rules-group {
+	margin: 0 0 15px;
+}
+
+#spu-rules .rules-group h4 {
+	margin: 0 0 3px;;
+}
+
+#spu-rules .rules-group table.spu_table tbody tr td {
+	padding: 4px;
+	border: 0 none;
+}
+
+#spu-rules .rules-group td.param {
+	width: 40%;
+}
+
+#spu-rules .rules-group td.operator {
+	width: 20%;
+}
+
+#spu-rules .rules-group td.add {
+	width: 40px;
+}
+
+#spu-rules .rules-group td.remove {
+	width: 18px;
+	vertical-align: middle;
+}
+
+#spu-rules .rules-group tr .rules-remove-rule {
+	display: none;
+}
+
+#spu-rules .rules-group tr:hover .rules-remove-rule {
+	display: block;
+}
+
+.spu-loading{
+	   height: 16px;
+    margin: 10px auto;
+    padding: 6px;
+    width: 16px;
+}
+
+
+/* Don't allow user to delete the first field group */
+#spu-rules .rules-group:first-child tr:first-child:hover .rules-remove-rule {
+	display: none;
+}

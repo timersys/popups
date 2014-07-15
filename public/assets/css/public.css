@@ -1,0 +1,120 @@
+/* This stylesheet is used to style the public-facing components of the plugin. */
+html, 
+body { 
+	min-height: 100% !important; 
+	height: auto !important; 
+}
+.spu-bg{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 99999;
+}
+.spu-box { 
+	position:fixed; 
+	min-width: 320px;
+	z-index: 999999;
+	-moz-box-shadow: 0 0 10px 1px #666;
+	-webkit-box-shadow: 0 0 10px 1px #666;
+	box-shadow: 0 0 10px 1px #666;
+	padding: 25px;
+	margin: 10px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+/** Some basic css for box content**/
+.spu-box h1{
+	margin: 1.414285714rem 0;
+	font-size: 1.4em;
+}	
+.spu-box h2{
+	margin: 1.414285714rem 0;
+	font-size: 1.2em;
+}	
+.spu-box h3{
+	margin: 1.414285714rem 0;
+	font-size: 1.0em;
+}	
+.spu-box p{
+	margin: 0 0 1.414285714rem;
+}
+
+/** end basic style**/
+.spu-box.spu-top-left{ 
+	top: 0; left: 0; bottom: auto; right: auto;
+}
+
+.spu-box.spu-top-right{ 
+	top: 0; right: 0; bottom: auto; left: auto;
+}
+
+.spu-box.spu-bottom-left{ 
+	bottom: 0; left: 0; top: auto; right: auto;
+}
+
+.spu-box.spu-bottom-right{ 
+	bottom: 0; right: 0; top: auto; left: auto;
+}
+
+.spu-content > *:first-child {	
+	margin-top: 0; padding-top: 0;
+}
+
+.spu-content > *:last-child {
+	margin-bottom:0; padding-bottom:0;
+}
+
+.spu-close{ 
+	position:absolute; 
+	right:5px; 
+	top:5px;
+	height:20px;
+	width:20px;
+	text-align:center;
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+	font-size: 21px;
+	font-weight: bold;
+	line-height: 1;
+	text-shadow: 0 1px 0 #fff;
+	opacity: .3;
+	filter: alpha(opacity=30);
+}
+
+.spu-close:hover, .spu-close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+	opacity: .6;
+	filter: alpha(opacity=60);
+}
+.spu-shortcode {
+ 	float: left;
+}
+.spu-total-4 .spu-shortcode{
+	width:24%;
+	margin-left:.5%;
+}
+
+.spu-total-3 .spu-shortcode{
+	width:28%;
+	margin-left:5.3%;
+}
+
+.spu-total-2 .spu-shortcode{
+	width:14%;
+	margin-left:20%;
+}
+
+.spu-total-1 .spu-shortcode{
+	margin:0 37.5%;
+	width:auto;
+}

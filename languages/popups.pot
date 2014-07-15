@@ -1,0 +1,522 @@
+# Copyright (C) 2013 TODO
+# This file is distributed under the same license as the TODO package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Popups\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
+"POT-Creation-Date: 2014-07-14 22:20-0300\n"
+"PO-Revision-Date: 2014-07-14 22:21-0300\n"
+"Last-Translator: Damian Logghe <info@timersys.com>\n"
+"Language-Team: Timersys <info@timersys.com>\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-social-popup-admin.php:115
+msgctxt "post type general name"
+msgid "Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:116
+msgctxt "post type singular name"
+msgid "Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:117
+msgctxt "admin menu"
+msgid "Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:118
+msgctxt "add new on admin bar"
+msgid "Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:119
+msgctxt "Popups"
+msgid "Add New"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:120
+msgid "Add New Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:121
+msgid "New Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:122
+msgid "Edit Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:123
+msgid "View Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:124
+msgid "All Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:125
+msgid "Search Popups"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:126
+msgid "Parent Popups:"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:127
+msgid "No Popups found."
+msgstr ""
+
+#: admin/class-social-popup-admin.php:128
+msgid "No Popups found in Trash."
+msgstr ""
+
+#: admin/class-social-popup-admin.php:158
+msgid "PopUp Shortcodes"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:167
+msgid "PopUp Display Rules"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:176
+msgid "Display Options"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:185
+msgid "Need support?"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:193
+msgid "Donate $10, $20 or $50"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:201
+msgid "About the developer"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:385 admin/views/metabox-rules.php:33
+#: admin/views/metabox-rules.php:136
+msgid "or"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:403
+msgid "Settings"
+msgstr ""
+
+#: admin/includes/class-spu-upgrade.php:104
+msgid "What's new"
+msgstr ""
+
+#: admin/includes/class-spu-upgrade.php:115
+msgid "credits"
+msgstr ""
+
+#: admin/views/metabox-donate.php:6
+msgid "If you like this plugin, consider supporting it by donating."
+msgstr ""
+
+#: admin/views/metabox-donate.php:8
+msgid "Donate with PayPal"
+msgstr ""
+
+#: admin/views/metabox-donate.php:10
+msgid "Some other ways to support this plugin"
+msgstr ""
+
+#: admin/views/metabox-donate.php:12
+msgid "Leave a  &#9733;&#9733;&#9733;&#9733;&#9733; review on WordPress.org"
+msgstr ""
+
+#: admin/views/metabox-donate.php:13
+msgid "Write about Popups on your blog"
+msgstr ""
+
+#: admin/views/metabox-donate.php:14
+msgid "Tweet about Popups"
+msgstr ""
+
+#: admin/views/metabox-donate.php:15
+msgid "Vote \"works\" on the WordPress.org plugin page"
+msgstr ""
+
+#: admin/views/metabox-help.php:6
+msgid ""
+"You have three social shortcodes to use that will print a Facebook like, a "
+"Google+ Follow and a Twitter follow. Check the available options and default "
+"values:"
+msgstr ""
+
+#: admin/views/metabox-help.php:11
+msgid "View Facebook Options"
+msgstr ""
+
+#: admin/views/metabox-help.php:13
+msgid "Your facebook page url"
+msgstr ""
+
+#: admin/views/metabox-help.php:14
+msgid "standard, box_count, button - Default: button_count"
+msgstr ""
+
+#: admin/views/metabox-help.php:15 admin/views/metabox-help.php:16
+msgid "true - Default: False"
+msgstr ""
+
+#: admin/views/metabox-help.php:17
+msgid "recommend - Default: Like"
+msgstr ""
+
+#: admin/views/metabox-help.php:24
+msgid "View Google+ Options"
+msgstr ""
+
+#: admin/views/metabox-help.php:26
+msgid "Your Google+ url"
+msgstr ""
+
+#: admin/views/metabox-help.php:27
+msgid "small, standard, tall Default: medium"
+msgstr ""
+
+#: admin/views/metabox-help.php:28
+msgid "inline, none - Default: bubble"
+msgstr ""
+
+#: admin/views/metabox-help.php:34
+msgid "View Twitter Options"
+msgstr ""
+
+#: admin/views/metabox-help.php:36
+msgid "Your Twitter user - Default chifliiiii"
+msgstr ""
+
+#: admin/views/metabox-help.php:37
+msgid "false Default: true"
+msgstr ""
+
+#: admin/views/metabox-help.php:38
+msgid "large - Default: \"\""
+msgstr ""
+
+#: admin/views/metabox-help.php:40
+msgid "The button text - Default: Follow @chifliiiii"
+msgstr ""
+
+#: admin/views/metabox-links.php:6
+msgid "My name is"
+msgstr ""
+
+#: admin/views/metabox-links.php:6
+msgid "I develop WordPress plugins and themes."
+msgstr ""
+
+#: admin/views/metabox-links.php:7
+#, php-format
+msgid ""
+"Take a look at my <a href=\"%s\">site</a> to see my other plugins or hire "
+"me. Subscribe to get updates!"
+msgstr ""
+
+#: admin/views/metabox-options.php:9
+msgid "Box Position"
+msgstr ""
+
+#: admin/views/metabox-options.php:12
+msgid "Centered"
+msgstr ""
+
+#: admin/views/metabox-options.php:13
+msgid "Top Left"
+msgstr ""
+
+#: admin/views/metabox-options.php:14
+msgid "Top Right"
+msgstr ""
+
+#: admin/views/metabox-options.php:15
+msgid "Bottom Left"
+msgstr ""
+
+#: admin/views/metabox-options.php:16
+msgid "Bottom Right"
+msgstr ""
+
+#: admin/views/metabox-options.php:22
+msgid "Trigger action"
+msgstr ""
+
+#: admin/views/metabox-options.php:26
+msgid "seconds after page load"
+msgstr ""
+
+#: admin/views/metabox-options.php:27
+msgid "of page height"
+msgstr ""
+
+#: admin/views/metabox-options.php:36
+msgid "Animation"
+msgstr ""
+
+#: admin/views/metabox-options.php:38
+msgid "Fade In"
+msgstr ""
+
+#: admin/views/metabox-options.php:39
+msgid "Slide In"
+msgstr ""
+
+#: admin/views/metabox-options.php:40
+msgid "Slide will only apply when popup is on the corners"
+msgstr ""
+
+#: admin/views/metabox-options.php:45
+msgid "Cookie expiration days"
+msgstr ""
+
+#: admin/views/metabox-options.php:48
+msgid "After closing the box, how many days should it stay hidden?"
+msgstr ""
+
+#: admin/views/metabox-options.php:53
+msgid "Auto-hide?"
+msgstr ""
+
+#: admin/views/metabox-options.php:55 admin/views/metabox-options.php:64
+msgid "Yes"
+msgstr ""
+
+#: admin/views/metabox-options.php:56 admin/views/metabox-options.php:65
+msgid "No"
+msgstr ""
+
+#: admin/views/metabox-options.php:57
+#, php-format
+msgid ""
+"Hide box again when visitors scroll back up? Only works when Trigger action "
+"is set to % of page height"
+msgstr ""
+
+#: admin/views/metabox-options.php:62
+msgid "Enable test mode?"
+msgstr ""
+
+#: admin/views/metabox-options.php:66
+msgid ""
+"If test mode is enabled, the box will show up regardless of whether a cookie "
+"has been set. (To admins only)"
+msgstr ""
+
+#: admin/views/metabox-options.php:71
+msgid "Appearance"
+msgstr ""
+
+#: admin/views/metabox-options.php:74
+msgid "Background opacity"
+msgstr ""
+
+#: admin/views/metabox-options.php:77
+msgid "Leave at 0 for no background. Max value is 1"
+msgstr ""
+
+#: admin/views/metabox-options.php:83
+msgid "Background color"
+msgstr ""
+
+#: admin/views/metabox-options.php:87
+msgid "Text color"
+msgstr ""
+
+#: admin/views/metabox-options.php:91
+msgid "Box width"
+msgstr ""
+
+#: admin/views/metabox-options.php:97
+msgid "Border color"
+msgstr ""
+
+#: admin/views/metabox-options.php:101
+msgid "Border width"
+msgstr ""
+
+#: admin/views/metabox-rules.php:19
+msgid "Rules"
+msgstr ""
+
+#: admin/views/metabox-rules.php:20
+msgid "Create a set of rules to determine where the popup will show"
+msgstr ""
+
+#: admin/views/metabox-rules.php:31
+msgid "Show this popup if"
+msgstr ""
+
+#: admin/views/metabox-rules.php:45
+msgid "User"
+msgstr ""
+
+#: admin/views/metabox-rules.php:46
+msgid "User role"
+msgstr ""
+
+#: admin/views/metabox-rules.php:47
+msgid "User is logged"
+msgstr ""
+
+#: admin/views/metabox-rules.php:48
+msgid "User never left a comment"
+msgstr ""
+
+#: admin/views/metabox-rules.php:49
+msgid "User came via a search engine"
+msgstr ""
+
+#: admin/views/metabox-rules.php:50
+msgid "User did not arrive via another page on your site"
+msgstr ""
+
+#: admin/views/metabox-rules.php:52 admin/views/metabox-rules.php:53
+msgid "Post"
+msgstr ""
+
+#: admin/views/metabox-rules.php:54
+msgid "Post Type"
+msgstr ""
+
+#: admin/views/metabox-rules.php:55
+msgid "Post Category"
+msgstr ""
+
+#: admin/views/metabox-rules.php:56
+msgid "Post Format"
+msgstr ""
+
+#: admin/views/metabox-rules.php:57
+msgid "Post Status"
+msgstr ""
+
+#: admin/views/metabox-rules.php:58
+msgid "Post Taxonomy"
+msgstr ""
+
+#: admin/views/metabox-rules.php:60 admin/views/metabox-rules.php:61
+msgid "Page"
+msgstr ""
+
+#: admin/views/metabox-rules.php:62
+msgid "Page Type"
+msgstr ""
+
+#: admin/views/metabox-rules.php:63
+msgid "Page Parent"
+msgstr ""
+
+#: admin/views/metabox-rules.php:64
+msgid "Page Template"
+msgstr ""
+
+#: admin/views/metabox-rules.php:66
+msgid "Other"
+msgstr ""
+
+#: admin/views/metabox-rules.php:67
+msgid "Mobile / Tablets"
+msgstr ""
+
+#: admin/views/metabox-rules.php:91
+msgid "is equal to"
+msgstr ""
+
+#: admin/views/metabox-rules.php:92
+msgid "is not equal to"
+msgstr ""
+
+#: admin/views/metabox-rules.php:123
+msgid "and"
+msgstr ""
+
+#: admin/views/metabox-rules.php:138
+msgid "Add rule group"
+msgstr ""
+
+#: admin/views/metabox-support.php:6
+#, php-format
+msgid ""
+"If you need support please go to the WordPress.org <a href=\"%s\">support "
+"forums</a>"
+msgstr ""
+
+#: includes/class-spu-helper.php:131
+msgid "All Pages"
+msgstr ""
+
+#: includes/class-spu-helper.php:132
+msgid "Front Page"
+msgstr ""
+
+#: includes/class-spu-helper.php:133
+msgid "Posts Page"
+msgstr ""
+
+#: includes/class-spu-helper.php:134
+msgid "Top Level Page (parent of 0)"
+msgstr ""
+
+#: includes/class-spu-helper.php:135
+msgid "Parent Page (has children)"
+msgstr ""
+
+#: includes/class-spu-helper.php:136
+msgid "Child Page (has parent)"
+msgstr ""
+
+#: includes/class-spu-helper.php:144
+msgid "Default Template"
+msgstr ""
+
+#: includes/class-spu-helper.php:222
+msgid "Publish"
+msgstr ""
+
+#: includes/class-spu-helper.php:223
+msgid "Pending Review"
+msgstr ""
+
+#: includes/class-spu-helper.php:224
+msgid "Draft"
+msgstr ""
+
+#: includes/class-spu-helper.php:225
+msgid "Future"
+msgstr ""
+
+#: includes/class-spu-helper.php:226
+msgid "Private"
+msgstr ""
+
+#: includes/class-spu-helper.php:227
+msgid "Revision"
+msgstr ""
+
+#: includes/class-spu-helper.php:228
+msgid "Trash"
+msgstr ""
+
+#: includes/class-spu-helper.php:241
+msgid "Super Admin"
+msgstr ""
+
+#: includes/class-spu-helper.php:256 includes/class-spu-helper.php:262
+#: includes/class-spu-helper.php:268 includes/class-spu-helper.php:274
+#: includes/class-spu-helper.php:280
+msgid "True"
+msgstr ""
