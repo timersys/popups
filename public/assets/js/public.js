@@ -154,7 +154,7 @@ jQuery(window).load(function() {
 
 						// remove listen event if box shouldn't be hidden again
 						if( ! autoHide ) {
-							$(window).unbind('scroll', checkBoxCriteria);
+							$(window).unbind('scroll', triggerHeightCheck);
 						}
 						//if is a centered popup, center it
 						if( $box.hasClass('spu-centered') ) {

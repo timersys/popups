@@ -328,7 +328,7 @@ class SocialPopup {
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
 		wp_register_script( 'spu-public', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/sdk.js#xfbml=1&version=v2.0', array('jquery'),$this->WPB_VERSION,FALSE);
+		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'),$this->WPB_VERSION,FALSE);
 		wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'),$this->WPB_VERSION,FALSE);
 		wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'),$this->WPB_VERSION,FALSE);
 	}
