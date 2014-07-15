@@ -2,24 +2,17 @@
 /**
  * Popups.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Popups
+ * @author    Damian Logghe <info@timersys.com>
  * @license   GPL-2.0+
  * @link      http://example.com
  * @copyright 2014 Your Name or Company Name
  */
 
 /**
- * Plugin class. This class should ideally be used to work with the
- * public-facing side of the WordPress site.
- *
- * If you're interested in introducing administrative or dashboard
- * functionality, then refer to `class-plugin-name-admin.php`
- *
- * @TODO: Rename this class to a proper name for your plugin.
- *
- * @package Plugin_Name
- * @author  Your Name <email@example.com>
+ * Public Class of the plugin
+ * @package Popups
+ * @author  Damian Logghe <info@timersys.com>
  */
 class SocialPopup {
 

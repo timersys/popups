@@ -17,6 +17,7 @@ The new Popups plugin can display multiple popups. Is the perfect solution to in
 
 
 There are multiple display filters that can be combined:
+
 * Show popup on specific pages, templates, posts, etc
 * Filter user from search engines
 * Filter users that never commented
