@@ -252,37 +252,16 @@ class Spu_Helper {
 				break;
 			
 			case "logged_user" :
-				
-				$choices = array('true' => __( 'True',  self::$plugin_slug ) );
-			
-				break;			
-
-			case "mobile" :
-								
-				$choices = array('true' => __( 'True',  self::$plugin_slug ) );
-			
-				break;		
-
+			case "mobiles" :
+			case "tablets" :
 			case "left_comment" :
-								
-				$choices = array('true' => __( 'True',  self::$plugin_slug ) );
-			
-				break;		
-
 			case "search_engine" :
-								
-				$choices = array('true' => __( 'True',  self::$plugin_slug ) );
-			
-				break;		
-
 			case "same_site" :
-								
+												
 				$choices = array('true' => __( 'True',  self::$plugin_slug ) );
 			
 				break;
 				
-				
-
 				
 		}
 		
