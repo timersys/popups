@@ -29,19 +29,22 @@ There are multiple display filters that can be combined:
 
 = Available Settings =
 
-* You can also configure background opacity.
 * Choose from 5 different popup locations
+* Trigger popup after X seconds or after scrolling % of page
+* Auto hide the popup if the user scroll up
 * Change font color, background, borders, etc
+* You can also configure background opacity.
 * Days until popup shows again
+
 
 
 = Plugin's Official Site =
 
-Popups ([http://wp.timersys.com/free-plugins/social-popup/](http://wp.timersys.com/free-plugins/social-popup/))
+Popups ([http://wp.timersys.com/free-plugins/social-popup/](http://wp.timersys.com/free-plugins/popups/))
 
 = Github = 
 
-Fork me in https://github.com/timersys/social-popup/
+Fork me in https://github.com/timersys/popups/
 
 = Increase your twitter followers  =
 
