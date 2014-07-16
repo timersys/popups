@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '1.0.1';
 
 	/**
 	 * Popups to use acrros files
@@ -516,7 +516,7 @@ class SocialPopup {
 			// run filters on content
 			$content = apply_filters( 'spu/popup/content', $content, $box );
 
-			$auto_hide_small_screens = apply_filters('spu/popup/auto_hide_small_screens', true, $box->ID );
+			
 			?>
 			<style type="text/css">
 				#spu-<?php echo $box->ID; ?> {
@@ -528,12 +528,6 @@ class SocialPopup {
 				#spu-bg-<?php echo $box->ID; ?> {
 					opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
 				}
-
-				<?php if($auto_hide_small_screens) { ?>
-					@media only screen and (max-width: 480px) {
-						#spu-<?php echo $box->ID; ?> { display: none !important; }
-					}
-				<?php } ?>
 			</style>
 			<div class="spu-bg" id="spu-bg-<?php echo $box->ID; ?>"></div>
 			<div class="spu-box spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo $total_shortcodes[$box->ID];?>" id="spu-<?php echo $box->ID; ?>" 
