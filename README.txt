@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,6 +61,13 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 
 == Changelog ==
+
+= 1.0.1 = 
+
+* Fixed mobile/tablets display rule and splitted in two new rules
+* Changed cookie script to a small one
+* Now public js is server minified
+* Removed min-width from the popup
 
 = 1.0.0 = 
 

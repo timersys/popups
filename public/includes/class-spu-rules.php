@@ -25,13 +25,6 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/search_engine', array($this, 'rule_match_search_engine'), 10, 2);
 		add_filter('spu/rules/rule_match/same_site', array($this, 'rule_match_same_site'), 10, 2);
 
-		
-		// Page
-		add_filter('spu/rules/rule_match/page', array($this, 'rule_match_post'), 10, 2);
-		add_filter('spu/rules/rule_match/page_type', array($this, 'rule_match_page_type'), 10, 2);
-		add_filter('spu/rules/rule_match/page_parent', array($this, 'rule_match_page_parent'), 10, 2);
-		add_filter('spu/rules/rule_match/page_template', array($this, 'rule_match_page_template'), 10, 2);
-		
 		// Post
 		add_filter('spu/rules/rule_match/post_type', array($this, 'rule_match_post_type'), 10, 2);
 		add_filter('spu/rules/rule_match/post', array($this, 'rule_match_post'), 10, 2);
@@ -40,6 +33,15 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/post_status', array($this, 'rule_match_post_status'), 10, 2);
 		add_filter('spu/rules/rule_match/taxonomy', array($this, 'rule_match_taxonomy'), 10, 2);
 		
+		// Page
+		add_filter('spu/rules/rule_match/page', array($this, 'rule_match_post'), 10, 2);
+		add_filter('spu/rules/rule_match/page_type', array($this, 'rule_match_page_type'), 10, 2);
+		add_filter('spu/rules/rule_match/page_parent', array($this, 'rule_match_page_parent'), 10, 2);
+		add_filter('spu/rules/rule_match/page_template', array($this, 'rule_match_page_template'), 10, 2);
+
+		//Other
+		add_filter('spu/rules/rule_match/mobiles', array($this, 'rule_match_mobiles'), 10, 2);
+		add_filter('spu/rules/rule_match/tablets', array($this, 'rule_match_tablets'), 10, 2);
 
 		
 	}
@@ -123,6 +125,51 @@ class Spu_Rules
 			return !is_user_logged_in();
 
 		}	
+
+	}	
+
+	/**
+	 * [rule_match_mobiles description]
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_mobiles( $match, $rule ) {
+
+		require_once 'Mobile_Detect.php';
+		$detect = new Mobile_Detect;
+
+		if ( $rule['operator'] == "==" ) {
+			
+			return $detect->isMobile();
+
+		} else {
+
+			return !$detect->isMobile();
+
+		}	
+
+	}
+	/**
+	 * [rule_match_tablets description]
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_tablets( $match, $rule ) {
+
+		require_once 'Mobile_Detect.php';
+		$detect = new Mobile_Detect;
+
+		if ( $rule['operator'] == "==" ) {
+			
+			return $detect->isTablet();
+
+		} else {
+
+			return !$detect->isTablet();
+
+		}		
 
 	}
 	

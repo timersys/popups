@@ -1,106 +1,10 @@
 jQuery(window).load(function() {
-
-	/*!
-	 * jQuery Cookie Plugin v1.4.0
-	 * https://github.com/carhartl/jquery-cookie
-	 *
-	 * Copyright 2013 Klaus Hartl
-	 * Released under the MIT license
-	 */
-	(function($) {
-
-		if($.cookie) { return; }
-
-		var pluses = /\+/g;
-
-		function encode(s) {
-			return config.raw ? s : encodeURIComponent(s);
-		}
-
-		function decode(s) {
-			return config.raw ? s : decodeURIComponent(s);
-		}
-
-		function stringifyCookieValue(value) {
-			return encode(config.json ? JSON.stringify(value) : String(value));
-		}
-
-		function parseCookieValue(s) {
-			if (s.indexOf('"') === 0) {
-				s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
-			}
-
-			try {
-				s = decodeURIComponent(s.replace(pluses, ' '));
-				return config.json ? JSON.parse(s) : s;
-			} catch(e) {}
-		}
-
-		function read(s, converter) {
-			var value = config.raw ? s : parseCookieValue(s);
-			return $.isFunction(converter) ? converter(value) : value;
-		}
-
-		var config = $.cookie = function (key, value, options) {
-
-			// Write
-			if (value !== undefined && !$.isFunction(value)) {
-				options = $.extend({}, config.defaults, options);
-
-				if (typeof options.expires === 'number') {
-					var days = options.expires, t = options.expires = new Date();
-					t.setTime(+t + days * 864e+5);
-				}
-
-				return (document.cookie = [
-					encode(key), '=', stringifyCookieValue(value),
-					options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-					options.path    ? '; path=' + options.path : '',
-					options.domain  ? '; domain=' + options.domain : '',
-					options.secure  ? '; secure' : ''
-				].join(''));
-			}
-
-			// Read
-			var result = key ? undefined : {};
-			var cookies = document.cookie ? document.cookie.split('; ') : [];
-
-			for (var i = 0, l = cookies.length; i < l; i++) {
-				var parts = cookies[i].split('=');
-				var name = decode(parts.shift());
-				var cookie = parts.join('=');
-
-				if (key && key === name) {
-					result = read(cookie, value);
-					break;
-				}
-
-				if (!key && (cookie = read(cookie)) !== undefined) {
-					result[name] = cookie;
-				}
-			}
-
-			return result;
-		};
-
-		config.defaults = {};
-
-		$.removeCookie = function (key, options) {
-			if ($.cookie(key) === undefined) {
-				return false;
-			}
-
-			$.cookie(key, '', $.extend({}, options, { expires: -1 }));
-			return !$.cookie(key);
-		};
-
-	})(jQuery);
-
 	window.SPU = (function($) {
 
 		var windowHeight 	= $(window).height();
 		var isAdmin 		= spuvar.is_admin;
 		var $boxes 			= [];
+
 
 		//remove paddings and margins from first and last items inside box
 		$(".spu-content").children().first().css({
@@ -116,13 +20,42 @@ jQuery(window).load(function() {
 
 
 			// vars
-			var $box = $(this);
-			var triggerMethod = $box.data('trigger');
-			var animation = $box.data('animation');
-			var timer = 0;
-			var testMode = (parseInt($box.data('test-mode')) === 1);
-			var id = $box.data('box-id');
-			var autoHide = (parseInt($box.data('auto-hide')) === 1);
+			var $box 			= $(this);
+			var triggerMethod 	= $box.data('trigger');
+			var animation 		= $box.data('animation');
+			var timer 			= 0;
+			var testMode 		= (parseInt($box.data('test-mode')) === 1);
+			var id 				= $box.data('box-id');
+			var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
+			var advancedClose   = (parseInt($box.data('advanced-close')) === 1);
+			var secondsClose    = parseInt($box.data('seconds-close'));
+
+			if ( advancedClose ) {
+				//close with esc
+				$(document).keyup(function(e) {
+					if (e.keyCode == 27) {
+						toggleBox( id, false );
+					}
+				});
+				//close on ipads // iphones
+				var ua = navigator.userAgent,
+				event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
+				
+				$('body').on(event, function (ev) {
+					
+					toggleBox( id, false );
+				});
+				//not on the box
+				$('#' + id ).click(function(event) {
+					event.stopPropagation();
+				});
+			}
+			// Seconds left to close
+			// if( secondsClose > 0 )
+			// {
+			// 	spu_count= defaults.s_to_close;
+			// 	spu_counter = setInterval(function(){spu_timer(defaults)}, 1000);
+			// }
 
 			//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
 			$box.hide().css('left','');
@@ -177,14 +110,19 @@ jQuery(window).load(function() {
 				}
 
 				timer = window.setTimeout(function() { 
-					centerBox( id );
+					//if is a centered popup, center it
+					if( $box.hasClass('spu-centered') ) {
+
+						centerBox( id );
+							
+					}
 					toggleBox( id, true );					
 
 				}, triggerSeconds * 1000);
 			}
 
 			// show box if cookie not set or if in test mode
-			var cookieValue = $.cookie( 'spu_box_' + id );
+			var cookieValue = readCookie( 'spu_box_' + id );
 
 			if( cookieValue == undefined || ( isAdmin && testMode ) ) {
 				
@@ -221,9 +159,9 @@ jQuery(window).load(function() {
 				}	
 
 				// set cookie
-				var boxCookieTime = parseInt( $box.data('cookie') );
-				if(boxCookieTime > 0) {
-					$.cookie('spu_box_' + id, true, { expires: boxCookieTime, path: '/' });
+				var days = parseInt( $box.data('cookie') );
+				if( days > 0 ) {
+					createCookie( 'spu_box_' + id, true, days );
 				}
 				
 			});
@@ -291,4 +229,25 @@ jQuery(window).load(function() {
 	})(window.jQuery);
 
 });
+/**
+ * Cookie functions
+ */
+function createCookie(name, value, days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		var expires = "; expires=" + date.toGMTString();
+	} else var expires = "";
+	document.cookie = name + "=" + value + expires + "; path=/";
+}
 
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+	}
+	return null;
+}

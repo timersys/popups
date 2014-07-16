@@ -319,11 +319,11 @@ class SocialPopup {
 	 */
 	public function register_scripts() {
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
-		wp_register_script( 'spu-public', plugins_url( 'assets/js/public.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
+		wp_register_script( 'spu-public', plugins_url( 'assets/js/min/public-ck.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'),$this->WPB_VERSION,FALSE);
-		wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'),$this->WPB_VERSION,FALSE);
-		wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'),$this->WPB_VERSION,FALSE);
+		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
 	}
 
 	/**
@@ -540,7 +540,8 @@ class SocialPopup {
 			 data-box-id="<?php echo $box->ID ; ?>" data-trigger="<?php echo esc_attr( $opts['trigger'] ); ?>"
 			 data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
 			 data-animation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 
-			 data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" style="left:-99999px">
+			 data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-advanced-close="true"
+			 style="left:-99999px">
 				<div class="spu-content"><?php echo $content; ?></div>
 				<span class="spu-close">&times;</span>
 			</div>

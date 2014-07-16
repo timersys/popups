@@ -64,7 +64,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 								'page_template'	=>	__("Page Template", $this->plugin_slug ),
 							),
 							__("Other", $this->plugin_slug ) => array(
-								'mobile'		=>	__("Mobile / Tablets", $this->plugin_slug ),
+								'mobiles'		=>	__("Mobile Phone", $this->plugin_slug ),
+								'tablets'		=>	__("Tablet", $this->plugin_slug ),
 							)
 						);
 								

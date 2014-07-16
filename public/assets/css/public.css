@@ -15,8 +15,7 @@ body {
 	z-index: 99999;
 }
 .spu-box { 
-	position:fixed; 
-	min-width: 320px;
+	position:fixed;
 	z-index: 999999;
 	-moz-box-shadow: 0 0 10px 1px #666;
 	-webkit-box-shadow: 0 0 10px 1px #666;
