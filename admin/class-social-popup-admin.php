@@ -304,6 +304,7 @@ class SocialPopup_Admin {
 		unset( $_POST['spu'] );
 
 		// sanitize settings
+		$opts['css']['width']	 	 = sanitize_text_field( $opts['css']['width'] );
 		$opts['css']['bgopacity']	 = sanitize_text_field( $opts['css']['bgopacity'] );
 		$opts['css']['border_width'] = absint( sanitize_text_field( $opts['css']['border_width'] ) );
 		$opts['cookie'] 			 = absint( sanitize_text_field( $opts['cookie'] ) );
@@ -311,7 +312,7 @@ class SocialPopup_Admin {
 
 
 		// save box settings
-		update_post_meta( $post_id, 'spu_options', $opts );
+		update_post_meta( $post_id, 'spu_options', apply_filters( 'spu/metaboxes/sanitized_options', $opts ) );
 
 		// Start with rules
 		if( isset($_POST['spu_rules']) && is_array($_POST['spu_rules']) )
@@ -330,7 +331,7 @@ class SocialPopup_Admin {
 				}
 			}
 
-			update_post_meta( $post_id, 'spu_rules', $groups_a );	
+			update_post_meta( $post_id, 'spu_rules', apply_filters( 'spu/metaboxes/sanitized_rules', $groups_a ) );
 			unset( $_POST['spu_rules'] );
 		}
 
