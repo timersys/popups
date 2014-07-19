@@ -46,7 +46,7 @@ jQuery(window).load(function() {
 					toggleBox( id, false );
 				});
 				//not on the box
-				$('#' + id ).click(function(event) {
+				$('.spu-box' ).click(function(event) {
 					event.stopPropagation();
 				});
 			}

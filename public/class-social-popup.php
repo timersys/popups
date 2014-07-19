@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.1';
+	const VERSION = '1.0.2';
 
 	/**
 	 * Popups to use acrros files
@@ -318,8 +318,15 @@ class SocialPopup {
 	 * @since    1.0.0
 	 */
 	public function register_scripts() {
+
+		$js_url = plugins_url( 'assets/js/min/public-ck.js', __FILE__ );
+
+		if( defined( 'SPU_DEBUG_MODE' ) ) {
+			$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
+		}
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
-		wp_register_script( 'spu-public', plugins_url( 'assets/js/min/public-ck.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
+		
+		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
 		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
 		wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
@@ -412,8 +419,18 @@ class SocialPopup {
 			'width'			=> '',
 		), $atts ) );
 		
+		$layout = strtolower( trim( $layout ) );
+		$action = strtolower( trim( $action ) );
 
-		return '<div class="spu-facebook spu-shortcode"><div class="fb-like" data-width="'.$width.'" data-href="'.$href.'" data-layout="'.$layout.'" data-action="'.$action.'" data-show-faces="'.$show_faces.'" data-share="'.$share.'"></div></div>';
+		// to avoid problems
+		if( 'standard' != $layout || 'box_count' != $layout || 'button_count' != $layout || 'button' != $layout ) {
+			$layout = 'button_count';
+		}
+		if( 'like' != $action || 'recommend' != $action ) {
+			$action = 'like';
+		}
+
+		return '<div class="spu-facebook spu-shortcode"><div class="fb-like" data-width="'.strtolower( trim( $width ) ).'" data-href="'. $href .'" data-layout="'.$layout.'" data-action="'.$action.'" data-show-faces="'.strtolower( trim( $show_faces ) ).'" data-share="'.strtolower( trim( $share ) ).'"></div></div>';
 
 	}
 
@@ -433,7 +450,7 @@ class SocialPopup {
 			'text'	 		=> 'Follow @chifliiiii', 
 		), $atts ) );
 	
-		return '<div class="spu-twitter spu-shortcode"><a href="https://twitter.com/'.$user.'" class="twitter-follow-button" data-show-count="'.$show_count.'" data-size="'.$size.'"></a></div>';
+		return '<div class="spu-twitter spu-shortcode"><a href="https://twitter.com/'.$user.'" class="twitter-follow-button" data-show-count="'.strtolower( trim( $show_count ) ).'" data-size="'.strtolower( trim( $size ) ).'"></a></div>';
 
 	}
 
@@ -449,7 +466,18 @@ class SocialPopup {
 			'annotation' 	=> 'bubble', //inline none
 			'url' 			=> 'https://plus.google.com/u/0/103508783120806246698/posts', //inline none
 		), $atts ) );
-		
+
+		$size 		= strtolower( trim( $size ) );
+		$annotation = strtolower( trim( $annotation ) );
+
+		//to avoid problems
+		if( 'medium' != $size || 'small' != $size || 'standard' != $size || 'tall' != $size ) {
+			$size = 'medium';
+		}		
+		if( 'bubble' != $annotation || 'inline' != $annotation || 'none' != $annotation ) {
+			$annotation = 'bubble';
+		}
+
 		return '<div class="spu-google spu-shortcode"><div class="g-plusone" data-callback="googleCB" data-onendinteraction="closeGoogle" data-recommendations="false" data-annotation="'.$annotation.'" data-size="'.$size.'" data-href="'.$url.'"></div></div>';
 	
 	}
@@ -534,7 +562,7 @@ class SocialPopup {
 			 data-box-id="<?php echo $box->ID ; ?>" data-trigger="<?php echo esc_attr( $opts['trigger'] ); ?>"
 			 data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
 			 data-animation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 
-			 data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-advanced-close="true"
+			 data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-advanced-close="1"
 			 style="left:-99999px">
 				<div class="spu-content"><?php echo $content; ?></div>
 				<span class="spu-close">&times;</span>

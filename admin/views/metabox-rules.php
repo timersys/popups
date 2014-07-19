@@ -124,7 +124,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 						<a href="#" class="rules-add-rule button"><?php _e("and", $this->plugin_slug ); ?></a>
 					</td>
 					<td class="remove">
-						<a href="#" class="rules-remove-rule acf-button-remove"></a>
+						<a href="#" class="rules-remove-rule rules-remove-rule">-</a>
 					</td>
 					</tr>
 					<?php endforeach; ?>

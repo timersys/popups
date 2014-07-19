@@ -37,7 +37,7 @@ table.spu_table td.label ul.hl li {
 	
 }
 
-table.spu_table td.label ul.hl li a.acf-button {
+table.spu_table td.label ul.hl li a.spu-button {
 	font-size: 12px;
 	padding: 6px 10px;
 	font-weight: normal;
@@ -166,10 +166,20 @@ input#spu-width {
 
 #spu-rules .rules-group tr:hover .rules-remove-rule {
 	display: block;
+	padding: 0 7px;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
+#spu-rules .rules-group .rules-remove-rule:hover {
+	color: red;
+}	
 
 .spu-loading{
-	   height: 16px;
+	height: 16px;
     margin: 10px auto;
     padding: 6px;
     width: 16px;

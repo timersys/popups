@@ -71,8 +71,7 @@ class SocialPopup_Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
 		// Add an action link pointing to the options page.
-		$plugin_basename = plugin_basename( plugin_dir_path( realpath( dirname( __FILE__ ) ) ) . $this->plugin_slug . '.php' );
-		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
+		add_filter( 'plugin_action_links_' . SPU_PLUGIN_HOOK, array( $this, 'add_action_links' ) );
 
 		//Filters for rules
 		add_filter('spu/get_post_types', array($this, 'get_post_types'), 1, 3);
@@ -112,7 +111,7 @@ class SocialPopup_Admin {
 	function register_cpt() {
 		
 		$labels = array(
-			'name'               => _x( 'Popups', 'post type general name', $this->plugin_slug ),
+			'name'               => _x( 'Popups v' . SocialPopup::VERSION , 'post type general name', $this->plugin_slug ),
 			'singular_name'      => _x( 'Popups', 'post type singular name', $this->plugin_slug ),
 			'menu_name'          => _x( 'Popups', 'admin menu', $this->plugin_slug ),
 			'name_admin_bar'     => _x( 'Popups', 'add new on admin bar', $this->plugin_slug ),
@@ -190,7 +189,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-donate',
-			__( 'Donate $10, $20 or $50', $this->plugin_slug ),
+			__( 'Donate & support', $this->plugin_slug ),
 			array( $this, 'metabox_donate' ),
 			'spucpt',
 			'side'
@@ -356,6 +355,7 @@ class SocialPopup_Admin {
 			return;
 		}
 		wp_enqueue_style( 'spu-admin-css', plugins_url( 'assets/css/admin.css', __FILE__ ) , '', SocialPopup::VERSION );
+		wp_enqueue_style( 'wp-color-picker' );
 	
 	}
 
@@ -376,6 +376,7 @@ class SocialPopup_Admin {
 		if ( get_post_type() !== 'spucpt' || !in_array( $pagenow, array( 'post-new.php', 'post.php' ) ) ) {
 			return;
 		}
+		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_script( 'spu-admin-js', plugins_url( 'assets/js/admin.js', __FILE__ ) , '', SocialPopup::VERSION );
 		wp_localize_script( 'spu-admin-js', 'spu_js', 
 				array( 
@@ -400,7 +401,7 @@ class SocialPopup_Admin {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'edit.php?post_type=spucpt' ) . '">' . __( 'Add a Popup', $this->plugin_slug ) . '</a>'
 			),
 			$links
 		);
