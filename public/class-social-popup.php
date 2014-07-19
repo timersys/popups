@@ -563,9 +563,10 @@ class SocialPopup {
 			 data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
 			 data-animation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 
 			 data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-advanced-close="1"
-			 style="left:-99999px">
+			 style="left:-99999px" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs );?>>
 				<div class="spu-content"><?php echo $content; ?></div>
 				<span class="spu-close">&times;</span>
+				<span class="spu-timer"></span>
 			</div>
 			<?php
 
