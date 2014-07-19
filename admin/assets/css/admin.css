@@ -111,6 +111,11 @@ table.spu_table select:focus {
 input#spu-width {
 	width: 90px;
 }
+
+h3.spu-title {
+	border-bottom: 1px solid #ccc;
+	font-size: 18px !important;
+}
 /*---------------------------------------------------------------------------------------------
 *
 *  Rules

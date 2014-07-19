@@ -4,7 +4,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 
 <table class="form-table">
 	
-	<?php do_action( 'spu/metaboxes/before_display_options' );?>
+	<?php do_action( 'spu/metaboxes/before_display_options', $opts );?>
 	<tr valign="top">
 		<th><label for="spu_position"><?php _e( 'Box Position', $this->plugin_slug ); ?></label></th>
 		<td>
@@ -14,6 +14,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				<option value="top-right" <?php selected($opts['css']['position'], 'top-right'); ?>><?php _e( 'Top Right', $this->plugin_slug ); ?></option>
 				<option value="bottom-left" <?php selected($opts['css']['position'], 'bottom-left'); ?>><?php _e( 'Bottom Left', $this->plugin_slug ); ?></option>
 				<option value="bottom-right" <?php selected($opts['css']['position'], 'bottom-right'); ?>><?php _e( 'Bottom Right', $this->plugin_slug ); ?></option>
+				<?php do_action( 'spu/metaboxes/positions', $opts );?>
 			</select>
 		</td>
 		<td colspan="2"></td>
@@ -25,19 +26,20 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				
 					<option value="seconds" <?php selected($opts['trigger'], 'seconds'); ?>><?php _e( 'seconds after page load', $this->plugin_slug ); ?></option>
 					<option value="percentage" <?php selected($opts['trigger'], 'percentage'); ?>>% <?php _e( 'of page height', $this->plugin_slug ); ?></option>
-					<?php do_action( 'spu/metaboxes/trigger_options' );?>
+					<?php do_action( 'spu/metaboxes/trigger_options', $opts );?>
 			</select>
 		</td>
 		<td>
-			<input type="number" class="spu-trigger-number" name="spu[trigger_number]" min="0" max="100" value="<?php echo esc_attr($opts['trigger_number']); ?>"  />
+			<input type="number" class="spu-trigger-number" name="spu[trigger_number]" min="0" value="<?php echo esc_attr($opts['trigger_number']); ?>"  />
+			<?php do_action( 'spu/metaboxes/trigger_values', $opts );?>
 		</td>
 	</tr>
 	<tr valign="top">
 	<th><label><?php _e( 'Animation', $this->plugin_slug ); ?></label></th>
 		<td colspan="3">
 			<label><input type="radio" name="spu[animation]" value="fade" <?php checked($opts['animation'], 'fade'); ?> /> <?php _e( 'Fade In', $this->plugin_slug ); ?></label> &nbsp;
-			<label><input type="radio" name="spu[animation]" value="slide" <?php checked($opts['animation'], 'slide'); ?> /> <?php _e( 'Slide In', $this->plugin_slug ); ?></label>
-			<?php do_action( 'spu/metaboxes/animations', $otps );?>
+			<label><input type="radio" name="spu[animation]" value="slide" <?php checked($opts['animation'], 'slide'); ?> /> <?php _e( 'Slide In', $this->plugin_slug ); ?></label> &nbsp;
+			<?php do_action( 'spu/metaboxes/animations', $opts );?>
 			<p class="help"><?php _e( 'Slide will only apply when popup is on the corners', $this->plugin_slug ); ?></p>
 		</td>
 	</tr>
@@ -67,12 +69,12 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'If test mode is enabled, the box will show up regardless of whether a cookie has been set. (To admins only)', $this->plugin_slug ); ?></p>
 		</td>
 	</tr>
-	<?php do_action( 'spu/metaboxes/after_display_options' );?>
+	<?php do_action( 'spu/metaboxes/after_display_options', $opts );?>
 </table>
 
 <h3 class="spu-title"><?php _e( 'Appearance', $this->plugin_slug ); ?></h3>
 <table class="form-table">
-	<?php do_action( 'spu/metaboxes/before_appearance_options' );?>
+	<?php do_action( 'spu/metaboxes/before_appearance_options', $opts );?>
 	<tr valign="top">
 		<th><label for="spu_bgopacity"><?php _e( 'Background opacity', $this->plugin_slug ); ?></label></th>
 		<td colspan="3">
@@ -106,7 +108,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		</td>
 		<td></td>
 	</tr>
-	<?php do_action( 'spu/metaboxes/after_appearance_options' );?>
+	<?php do_action( 'spu/metaboxes/after_appearance_options', $opts );?>
 </table>
 
 <?php wp_nonce_field( 'spu_options', 'spu_options_nonce' ); ?>
