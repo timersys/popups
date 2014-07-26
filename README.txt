@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -21,11 +21,12 @@ There are multiple display filters that can be combined:
 * Show popup on specific pages, templates, posts, etc
 * Filter user from search engines
 * Filter users that never commented
-* Filter users via specific referrer
+* Filter users that arrived via another page on your site
 * Filter users via roles
 * Show popup to logged / non logged users
 * Show or not to mobile and tablet users
-
+* Show depending on post type, post template, post name, post format, post status and post taxonomy
+* Show depending on page template, if page is parent, page name, page type
 
 = Available Settings =
 
@@ -46,6 +47,10 @@ Popups ([http://wp.timersys.com/free-plugins/social-popup/](http://wp.timersys.c
 
 Fork me in https://github.com/timersys/popups/
 
+= Install Multiple plugins at once with WpFavs  =
+
+Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
+
 = Increase your twitter followers  =
 
 Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.org/extend/plugins/twitter-like-box-reloaded/](http://wordpress.org/extend/plugins/twitter-like-box-reloaded/))
@@ -62,8 +67,21 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 3. Go to Popups menu and add as many popups as needed
 
+== Screenshots ==
+
+1. Popups Front end with default settings
+2. Popups Back end - visual editor
+3. Popups Back end - display rules and options
+4. Popups Back end - appearance
+
 
 == Changelog ==
+
+= 1.0.3 = 
+
+* Fixed bug with popup on mobiles devices
+* Css fixed for better alignment of social networks
+* Added filters and actions for a future premium version of the plugin
 
 = 1.0.2 = 
 
@@ -84,10 +102,3 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 * Recoded from scratch. This is a totally new plugin
 * Multiple popups are available now handled with custom post types
-
-
-
-== Screenshots ==
-
-1. Popups Front end
-2. Popups Back end

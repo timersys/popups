@@ -97,7 +97,11 @@ body {
 }
 .spu-shortcode {
  	float: left;
+ 	line-height: normal !important;
 }
+.spu-shortcode iframe{
+	max-width: 1200px;
+}	
 .spu-total-4 .spu-shortcode{
 	width:24%;
 	margin-left:.5%;

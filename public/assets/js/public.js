@@ -22,7 +22,6 @@ jQuery(window).load(function() {
 			// vars
 			var $box 			= $(this);
 			var triggerMethod 	= $box.data('trigger');
-			var animation 		= $box.data('animation');
 			var timer 			= 0;
 			var testMode 		= (parseInt($box.data('test-mode')) === 1);
 			var id 				= $box.data('box-id');
@@ -42,11 +41,11 @@ jQuery(window).load(function() {
 				event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
 				
 				$('body').on(event, function (ev) {
-					
+					console.log(event.target);
 					toggleBox( id, false );
 				});
 				//not on the box
-				$('.spu-box' ).click(function(event) {
+				$('.spu-box' ).on(event, function(event) {
 					event.stopPropagation();
 				});
 			}

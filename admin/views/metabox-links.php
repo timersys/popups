@@ -5,4 +5,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 <p><?php _e( 'My name is', $this->plugin_slug );?> <a href="http://twitter.com/chifliiiii">Damian Logghe</a>. <?php _e( 'I develop WordPress plugins and themes.', $this->plugin_slug );?></p>
 <p><?php printf(__( 'Take a look at my <a href="%s">site</a> to see my other plugins or hire me. Subscribe to get updates!', $this->plugin_slug ), 'http://wp.timersys.com/');?></p>
-<p><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FTimersys%2F146687622031640&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=249344005267053" scrolling="no" frameborder="0" style="border:none; width: 100%; overflow:hidden; height: 80px;" allowTransparency="true"></iframe></p>
+<h4><?php _e( 'Other plugins I built:', $this->plugin_slug );?></h4>
+<ul>
+	<li> <a href="http://wordpress.org/plugins/wpfavs/" target="_blank">Wp Favs</a> - <?php _e( 'Install multiple plugins and create collections', $this->plugin_slug );?></li>
+	<li> <a href="http://wordpress.org/plugins/twitter-like-box-reloaded/" target="_blank">Twitter like Box</a> - <?php _e( 'Like Facebook like box but for Twitter', $this->plugin_slug );?></li>
+	<li> <a href="http://wordpress.org/plugins/wp-social-invitations" target="_blank">Wordpress Social Invitations</a> - <?php _e( 'Invite your network friends and import contacts', $this->plugin_slug );?></li>
+</ul>	
