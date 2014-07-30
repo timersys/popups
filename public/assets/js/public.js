@@ -156,12 +156,6 @@ jQuery(window).load(function() {
 					// unbind 
 					$(window).unbind( 'scroll', triggerHeightCheck );
 				}	
-
-				// set cookie
-				var days = parseInt( $box.data('cookie') );
-				if( days > 0 ) {
-					createCookie( 'spu_box_' + id, true, days );
-				}
 				
 			});
 			
@@ -197,6 +191,15 @@ jQuery(window).load(function() {
 			// is box already at desired visibility?
 			if( ( show === true && $box.is( ":visible" ) ) || ( show === false && $box.is( ":hidden" ) ) ) {
 				return false;
+			}
+
+			//if we are closing , set cookie
+			if( show === false) {
+				// set cookie
+				var days = parseInt( $box.data('cookie') );
+				if( days > 0 ) {
+					createCookie( 'spu_box_' + id, true, days );
+				}
 			}
 
 			// show box

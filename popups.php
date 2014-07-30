@@ -11,7 +11,7 @@
  * @socialpopup
  * Plugin Name:       Popups
  * Plugin URI:        http://www.timersys.com/free-plugins/social-popup/
- * Version: 		  1.0.3
+ * Version: 		  1.0.4
  * Description: 	  This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
  * Author: 			  Damian Logghe
  * Author URI:        http://wp.timersys.com
