@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.0.4';
+	const VERSION = '1.0.5';
 
 	/**
 	 * Popups to use acrros files
@@ -328,9 +328,21 @@ class SocialPopup {
 		
 		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
-		wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
-		wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
+		if( ! defined( 'SPU_UNLOAD_FB_JS') ) {
+
+			wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
+
+		}
+		if( ! defined( 'SPU_UNLOAD_TW_JS') ) {
+		
+			wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
+		
+		}
+		if( ! defined( 'SPU_UNLOAD_GO_JS') ) {
+			
+			wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
+
+		}	
 	}
 
 	/**
@@ -423,10 +435,10 @@ class SocialPopup {
 		$action = strtolower( trim( $action ) );
 
 		// to avoid problems
-		if( 'standard' != $layout || 'box_count' != $layout || 'button_count' != $layout || 'button' != $layout ) {
+		if( 'standard' != $layout && 'box_count' != $layout && 'button_count' != $layout && 'button' != $layout ) {
 			$layout = 'button_count';
 		}
-		if( 'like' != $action || 'recommend' != $action ) {
+		if( 'like' != $action && 'recommend' != $action ) {
 			$action = 'like';
 		}
 
@@ -471,10 +483,10 @@ class SocialPopup {
 		$annotation = strtolower( trim( $annotation ) );
 
 		//to avoid problems
-		if( 'medium' != $size || 'small' != $size || 'standard' != $size || 'tall' != $size ) {
+		if( 'medium' != $size && 'small' != $size && 'standard' != $size && 'tall' != $size ) {
 			$size = 'medium';
 		}		
-		if( 'bubble' != $annotation || 'inline' != $annotation || 'none' != $annotation ) {
+		if( 'bubble' != $annotation && 'inline' != $annotation && 'none' != $annotation ) {
 			$annotation = 'bubble';
 		}
 

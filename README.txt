@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
 Tested up to: 3.9.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -74,8 +74,21 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 3. Popups Back end - display rules and options
 4. Popups Back end - appearance
 
+== FAQ ==
+
+= Can I remove js for Facebook, Twitter or Google if I already loaded mine? =
+Yes you can add the ([following codes](https://gist.github.com/timersys/8453614472d07122098b)) into your functions.php
+
+= Can I use the uncommpresed popups JS in my site ? =
+Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.0.5 = 
+
+* Changed to only admins users can edit/create popups
+* Fixed error that facebook layout were not working properly
+* Added the ability to remove JS from facebook, twitter, and google by using variables
 
 = 1.0.4 = 
 
