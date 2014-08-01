@@ -74,7 +74,7 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 3. Popups Back end - display rules and options
 4. Popups Back end - appearance
 
-== FAQ ==
+== Frequently Asked Questions ==
 
 = Can I remove js for Facebook, Twitter or Google if I already loaded mine? =
 Yes you can add the ([following codes](https://gist.github.com/timersys/8453614472d07122098b)) into your functions.php
