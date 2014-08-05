@@ -29,7 +29,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 </ul>
 <p><strong>Twitter:</strong></p>
 <p>
-[spu-twitter user="" show_count="" size="" lang="" text=""]
+[spu-twitter user="" show_count="" size="" lang=""]
 </p>
 <a href="tw-opts" onclick="jQuery('#tw-opts').slideToggle();return false;"><?php _e( 'View Twitter Options', $this->plugin_slug );?></a>
 <ul id="tw-opts" style="display:none;">
@@ -37,5 +37,4 @@ if ( !defined( 'ABSPATH' ) ) exit;
 	<li><b>show_count:</b> <?php _e( 'false Default value: true', $this->plugin_slug );?></li>
 	<li><b>size:</b> <?php _e( 'large <b>Default value:</b> ""', $this->plugin_slug );?></li>
 	<li><b>lang:</b> </li>
-	<li><b>text:</b> <?php _e( 'The button text <b>Default value:</b> Follow @chifliiiii', $this->plugin_slug );?></li>
 </ul>

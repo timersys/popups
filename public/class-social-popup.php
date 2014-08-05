@@ -330,7 +330,7 @@ class SocialPopup {
 		
 		if( ! defined( 'SPU_UNLOAD_FB_JS') ) {
 
-			wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_bloginfo('language').'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
+			wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_locale().'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
 
 		}
 		if( ! defined( 'SPU_UNLOAD_TW_JS') ) {
@@ -459,10 +459,9 @@ class SocialPopup {
 			'show_count' 	=> 'true', // false
 			'size' 			=> '', // large
 			'lang' 			=> '',
-			'text'	 		=> 'Follow @chifliiiii', 
 		), $atts ) );
 	
-		return '<div class="spu-twitter spu-shortcode"><a href="https://twitter.com/'.$user.'" class="twitter-follow-button" data-show-count="'.strtolower( trim( $show_count ) ).'" data-size="'.strtolower( trim( $size ) ).'"></a></div>';
+		return '<div class="spu-twitter spu-shortcode"><a href="https://twitter.com/'.$user.'" class="twitter-follow-button" data-show-count="'.strtolower( trim( $show_count ) ).'" data-size="'.strtolower( trim( $size ) ).'" data-lang="'.$lang.'"></a></div>';
 
 	}
 
