@@ -28,6 +28,50 @@ jQuery(window).load(function() {
 			var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
 			var advancedClose   = (parseInt($box.data('advanced-close')) === 1);
 			var secondsClose    = parseInt($box.data('seconds-close'));
+			
+			//correct widths of sharing icons
+			$('.spu-google').width($('.spu-google').width()-20);
+			$('.spu-twitter').width($('.spu-twitter').width()-12);
+			//center spu-shortcodes
+			var swidth 		= 0;
+			var free_width 	= 0;
+			var cwidth 		= $(this).find(".spu-content").width();
+			var total  		= $box.data('total'); //total of shortcodes used
+			if( total ){ 
+			
+				//calculate total width of shortcodes all togheter
+				$(this).find(".spu-shortcode").each(function(){
+					swidth = swidth + $(this).width();
+				});
+				//available space to split margins
+				free_width = cwidth - swidth;
+
+			}
+			if( free_width > 0 ) {
+				//leave some margin
+				$(this).find(".spu-shortcode").each(function(){
+					if( total == 3) {
+
+						$(this).css('margin-left',(free_width / (total-1)));
+					
+					} else {
+					
+						$(this).css('margin-left',(free_width / 2 ));
+					
+					}
+
+				});
+				//remove margin when neccesary
+				if( total == 2) {
+
+					$(this).find(".spu-shortcode").last().css('margin-left',0);
+
+				} else if( total == 3) {
+
+					$(this).find(".spu-shortcode").first().css('margin-left',0);
+				
+				}
+			}
 
 			if ( advancedClose ) {
 				//close with esc

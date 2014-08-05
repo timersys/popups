@@ -371,7 +371,7 @@ class Spu_Helper {
 				'bgopacity'			=> '0.5',
 				'background_color'	=> '#eeeeee',
 				'color'				=> '#333',
-				'width'				=> '400px',
+				'width'				=> '600px',
 				'border_color'		=> '#555',
 				'border_width'		=> '8',
 			),
