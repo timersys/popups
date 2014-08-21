@@ -26,6 +26,9 @@ body {
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }
+.spu-box.spu-centered{
+	margin: 0;
+}
 /** Some basic css for box content**/
 .spu-box h1{
 	margin: 1.414285714rem 0;
@@ -101,23 +104,9 @@ body {
 }
 .spu-shortcode iframe{
 	max-width: 1200px;
-}	
-.spu-total-4 .spu-shortcode{
-	width:24%;
-	margin-left:.5%;
 }
-
-.spu-total-3 .spu-shortcode{
-	width:28%;
-	margin-left:5.3%;
-}
-
-.spu-total-2 .spu-shortcode{
-	width:14%;
-	margin-left:20%;
-}
-
-.spu-total-1 .spu-shortcode{
-	margin:0 37.5%;
-	width:auto;
+@media only screen and (max-width: 620px) {
+	.spu-box {
+		left: 0 !important;
+	}
 }
