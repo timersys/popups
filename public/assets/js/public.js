@@ -204,7 +204,18 @@ jQuery(window).load(function() {
 			});
 			
 			// add link listener for this box
-			$('a[href="#' + $box.attr('id') +'"]').click(function() { toggleBox(id, true); return false; });
+			$('a[href="#' + $box.attr('id') +'"]').click(function() { 
+				
+				//if is a centered popup, center it
+				if( $box.hasClass('spu-centered') ) {
+
+					centerBox( id );
+					
+				}				
+				
+				toggleBox(id, true); 
+				return false;
+			});
 
 		});
 		//function that center popup on screen
