@@ -12,9 +12,24 @@ SPU_ADMIN = (function ( $ ) {
 		//Thanks to scoll triggered boxes plugin for this piece of javascript
 		$('#spu-options input.spu-color-field').wpColorPicker({ change: applyStyles, clear: applyStyles });
 		$("#spu-options :input").not(".spu-color-field").change(applyStyles);
+
+		//Toogle trigger boxes on init
+		checkTriggerMethod( $("#spu_trigger").val() );
 		
+		//Toogle trigger boxes on change
+		$("#spu_trigger").change(function(){
+			checkTriggerMethod( $(this).val() );
+		})
+
 	});
 
+	function checkTriggerMethodP( val ) {
+		if( val == 'percentage') {
+			$('tr.auto_hide').fadeIn('fast');
+		} else {
+			$('tr.auto_hide').fadeOut('fast');
+		}
+	}
 
 	// functions
 	function getPxValue($el, retval) 
