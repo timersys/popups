@@ -165,7 +165,7 @@ jQuery(window).load(function() {
 			}
 
 			// show box if cookie not set or if in test mode
-			var cookieValue = readCookie( 'spu_box_' + id );
+			var cookieValue = spuReadCookie( 'spu_box_' + id );
 
 			if( cookieValue == undefined || ( isAdmin && testMode ) ) {
 				
@@ -253,7 +253,7 @@ jQuery(window).load(function() {
 				// set cookie
 				var days = parseInt( $box.data('cookie') );
 				if( days > 0 ) {
-					createCookie( 'spu_box_' + id, true, days );
+					spuCreateCookie( 'spu_box_' + id, true, days );
 				}
 			}
 
@@ -289,7 +289,7 @@ jQuery(window).load(function() {
 /**
  * Cookie functions
  */
-function createCookie(name, value, days) {
+function spuCreateCookie(name, value, days) {
 	if (days) {
 		var date = new Date();
 		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -298,7 +298,7 @@ function createCookie(name, value, days) {
 	document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-function readCookie(name) {
+function spuReadCookie(name) {
 	var nameEQ = name + "=";
 	var ca = document.cookie.split(';');
 	for (var i = 0; i < ca.length; i++) {
