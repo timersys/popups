@@ -27,7 +27,10 @@ jQuery(window).load(function() {
 			var id 				= $box.data('box-id');
 			var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
 			var advancedClose   = (parseInt($box.data('advanced-close')) === 1);
-			var secondsClose    = parseInt($box.data('seconds-close'));
+			var secondsClose    = parseInt($box.data('seconds-close'));			
+			var triggerSeconds 	= parseInt( $box.data('trigger-number'), 10 );
+			var triggerPercentage = ( triggerMethod == 'percentage' ) ? ( parseInt( $box.data('trigger-number'), 10 ) / 100 ) : 0.8;
+			var triggerHeight 	= ( triggerPercentage * $(document).height() );
 			
 			//correct widths of sharing icons
 			$('.spu-google').width($('.spu-google').width()-20);
@@ -105,14 +108,6 @@ jQuery(window).load(function() {
 
 			// add box to global boxes array
 			$boxes[id] = $box;
-
-
-			if(triggerMethod == 'seconds') {
-				var triggerSeconds = parseInt( $box.data('trigger-number'), 10 );
-			} else {
-				var triggerPercentage = ( triggerMethod == 'percentage' ) ? ( parseInt( $box.data('trigger-number'), 10 ) / 100 ) : 0.8;
-				var triggerHeight = ( triggerPercentage * $(document).height() );
-			}
 
 			// functions that check % of height
 			var triggerHeightCheck = function() 
@@ -246,7 +241,7 @@ jQuery(window).load(function() {
 				centerBox( id );
 				
 			}
-			
+
 			// show box
 			var animation = $box.data('animation');
 
