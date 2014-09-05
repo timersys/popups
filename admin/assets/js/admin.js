@@ -23,7 +23,7 @@ SPU_ADMIN = (function ( $ ) {
 
 	});
 
-	function checkTriggerMethodP( val ) {
+	function checkTriggerMethod( val ) {
 		if( val == 'percentage') {
 			$('tr.auto_hide').fadeIn('fast');
 		} else {
