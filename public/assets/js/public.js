@@ -132,12 +132,7 @@ jQuery(window).load(function() {
 						if( ! autoHide ) {
 							$(window).unbind('scroll', triggerHeightCheck);
 						}
-						//if is a centered popup, center it
-						if( $box.hasClass('spu-centered') ) {
 
-							centerBox( id );
-							
-						}
 						toggleBox( id, true );
 					} else {
 						toggleBox( id, false );
@@ -153,12 +148,7 @@ jQuery(window).load(function() {
 				}
 
 				timer = window.setTimeout(function() { 
-					//if is a centered popup, center it
-					if( $box.hasClass('spu-centered') ) {
 
-						centerBox( id );
-							
-					}
 					toggleBox( id, true );					
 
 				}, triggerSeconds * 1000);
@@ -206,13 +196,6 @@ jQuery(window).load(function() {
 			// add link listener for this box
 			$('a[href="#' + $box.attr('id') +'"]').click(function() { 
 				
-				//if is a centered popup, center it
-				if( $box.hasClass('spu-centered') ) {
-
-					centerBox( id );
-					
-				}				
-				
 				toggleBox(id, true); 
 				return false;
 			});
@@ -256,7 +239,14 @@ jQuery(window).load(function() {
 					spuCreateCookie( 'spu_box_' + id, true, days );
 				}
 			}
+			
+			//if is a centered popup, center it
+			if( $box.hasClass('spu-centered') ) {
 
+				centerBox( id );
+				
+			}
+			
 			// show box
 			var animation = $box.data('animation');
 
