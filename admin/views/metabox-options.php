@@ -34,7 +34,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<?php do_action( 'spu/metaboxes/trigger_values', $opts );?>
 		</td>
 	</tr>
-	<tr valign="top auto_hide">
+	<tr valign="top" class="auto_hide">
 		<th><label for="spu_auto_hide"><?php _e( 'Auto-hide?', $this->plugin_slug ); ?></label></th>
 		<td colspan="3">
 			<label><input type="radio" id="spu_auto_hide_1" name="spu[auto_hide]" value="1" <?php checked($opts['auto_hide'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
