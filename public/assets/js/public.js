@@ -26,7 +26,6 @@ jQuery(window).load(function() {
 			var testMode 		= (parseInt($box.data('test-mode')) === 1);
 			var id 				= $box.data('box-id');
 			var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
-			var advancedClose   = (parseInt($box.data('advanced-close')) === 1);
 			var secondsClose    = parseInt($box.data('seconds-close'));			
 			var triggerSeconds 	= parseInt( $box.data('trigger-number'), 10 );
 			var triggerPercentage = ( triggerMethod == 'percentage' ) ? ( parseInt( $box.data('trigger-number'), 10 ) / 100 ) : 0.8;
@@ -76,26 +75,26 @@ jQuery(window).load(function() {
 				}
 			}
 
-			if ( advancedClose ) {
-				//close with esc
-				$(document).keyup(function(e) {
-					if (e.keyCode == 27) {
-						toggleBox( id, false );
-					}
-				});
-				//close on ipads // iphones
-				var ua = navigator.userAgent,
-				event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
-				
-				$('body').on(event, function (ev) {
-					console.log(event.target);
+			
+			//close with esc
+			$(document).keyup(function(e) {
+				if (e.keyCode == 27) {
 					toggleBox( id, false );
-				});
-				//not on the box
-				$('.spu-box' ).on(event, function(event) {
-					event.stopPropagation();
-				});
-			}
+				}
+			});
+			//close on ipads // iphones
+			var ua = navigator.userAgent,
+			event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
+			
+			$('body').on(event, function (ev) {
+				console.log(event.target);
+				toggleBox( id, false );
+			});
+			//not on the box
+			$('.spu-box' ).on(event, function(event) {
+				event.stopPropagation();
+			});
+			
 			// Seconds left to close
 			// if( secondsClose > 0 )
 			// {
