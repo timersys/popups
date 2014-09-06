@@ -387,6 +387,7 @@ class SocialPopup {
 				if( has_shortcode( $spu->post_content, 'spu-google' ) ){
 					$google = true;
 					$total_shortcodes[$spu->ID]++;
+					$total_shortcodes['google'] = true;
 				}
 			}
 		}
