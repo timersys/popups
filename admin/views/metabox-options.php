@@ -46,9 +46,11 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 	<tr valign="top">
 	<th><label><?php _e( 'Animation', $this->plugin_slug ); ?></label></th>
 		<td colspan="3">
-			<label><input type="radio" name="spu[animation]" value="fade" <?php checked($opts['animation'], 'fade'); ?> /> <?php _e( 'Fade In', $this->plugin_slug ); ?></label> &nbsp;
-			<label><input type="radio" name="spu[animation]" value="slide" <?php checked($opts['animation'], 'slide'); ?> /> <?php _e( 'Slide In', $this->plugin_slug ); ?></label> &nbsp;
-			<?php do_action( 'spu/metaboxes/animations', $opts );?>
+			<select id="spu_animation" name="spu[animation]" class="widefat">
+				<option value="fade" <?php checked($opts['animation'], 'fade'); ?> > <?php _e( 'Fade In', $this->plugin_slug ); ?></option>
+				<option value="slide" <?php checked($opts['animation'], 'slide'); ?> > <?php _e( 'Slide In', $this->plugin_slug ); ?></option>
+				<?php do_action( 'spu/metaboxes/animations', $opts );?>
+			</select>
 			<p class="help"><?php _e( 'Slide will only apply when popup is on the corners', $this->plugin_slug ); ?></p>
 		</td>
 	</tr>

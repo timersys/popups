@@ -94,13 +94,6 @@ jQuery(window).load(function() {
 			$('.spu-box' ).on(event, function(event) {
 				event.stopPropagation();
 			});
-			
-			// Seconds left to close
-			// if( secondsClose > 0 )
-			// {
-			// 	spu_count= defaults.s_to_close;
-			// 	spu_counter = setInterval(function(){spu_timer(defaults)}, 1000);
-			// }
 
 			//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
 			$box.hide().css('left','');
