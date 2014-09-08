@@ -555,4 +555,15 @@ class SocialPopup {
 
 	}
 
+	/**
+	 * Return plugin settings
+	 * @return array
+	 * @since  1.1
+	 */
+	function get_settings() {
+
+		return $this->spu_settings;
+
+	}
+
 }

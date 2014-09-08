@@ -43,6 +43,12 @@ class SocialPopup_Admin {
 	protected $plugin_screen_hook_suffix = null;
 
 	/**
+	 * Plugins settings
+	 * @var array
+	 */
+	protected $spu_settings = array();
+
+	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
 	 * settings page and menu.
 	 *
@@ -57,7 +63,9 @@ class SocialPopup_Admin {
 		//settings name
 		$this->options_name		= $this->plugin_slug .'_settings';
         
-					
+        //load settings
+		$this->spu_settings 	= $plugin->get_settings();
+
 		//Register cpt
 		add_action( 'init', array( $this, 'register_cpt' ) );
 
@@ -551,5 +559,6 @@ class SocialPopup_Admin {
 
 		return $args;
 	}	
+
 
 }
