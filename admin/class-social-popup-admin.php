@@ -61,6 +61,9 @@ class SocialPopup_Admin {
 		//Register cpt
 		add_action( 'init', array( $this, 'register_cpt' ) );
 
+		// add settings page
+		add_action('admin_menu' , array( $this, 'add_settings_menu' ) );
+		
 		//Add our metaboxes
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		//Save metaboxes
@@ -158,6 +161,34 @@ class SocialPopup_Admin {
 	
 	}
 
+	/**
+	 * Add menu for Settings page of the plugin
+	 * @since  1.1
+	 * @return  void
+	 */
+	public function add_settings_menu() {
+
+		add_submenu_page('edit.php?post_type=spucpt', 'Settings', 'Settings', 'edit_posts', 'spu_settings', array( $this, 'settings_page' ) );
+	
+	}
+
+	/**
+	 * Settings page of the plugin
+	 * @since  1.1
+	 * @return  void
+	 */	
+	public function settings_page(){
+
+		if (  isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
+
+			update_option( 'spu_settings' , esc_sql( $_POST['spu_settings'] ) );
+		
+		}	
+		$opts = apply_filters('spu/settings_page/opts', get_option( 'spu_settings' ) );
+
+		include 'views/settings-page.php';
+
+	}
 	/**
 	 * Register the metaboxes for our cpt and remove others
 	 */

@@ -35,10 +35,6 @@ class SocialPopup {
 	const PLUGIN_NAME = 'Popups';
 
 	/**
-	 * @TODO - Rename "plugin-name" to the name your your plugin
-	 *
-	 * Unique identifier for your plugin.
-	 *
 	 *
 	 * The variable name is used as the text domain when internationalizing strings
 	 * of text. Its value should match the Text Domain file header in the main
@@ -49,6 +45,12 @@ class SocialPopup {
 	 * @var      string
 	 */
 	protected $plugin_slug = 'spu';
+
+	/**
+	 * Plugins settings
+	 * @var array
+	 */
+	protected $spu_settings = array();
 
 	/**
 	 * Instance of this class.
@@ -84,6 +86,8 @@ class SocialPopup {
 			'upgrade_version'	=> '1.6.4.3',
 		);	
 
+		$this->spu_settings = apply_filters('spu/settings_page/opts', get_option( 'spu_settings' ) );
+
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
@@ -101,6 +105,7 @@ class SocialPopup {
 
 		//FILTERS
 		add_filter('spu/get_info', array($this, 'get_info'), 1, 1);
+
 		//spu content function
 		add_filter( 'spu/popup/content', 'wptexturize') ;
 		add_filter( 'spu/popup/content', 'convert_smilies' );
@@ -321,24 +326,26 @@ class SocialPopup {
 
 		$js_url = plugins_url( 'assets/js/min/public-ck.js', __FILE__ );
 
-		if( defined( 'SPU_DEBUG_MODE' ) ) {
+		$opts = $this->spu_settings;
+
+		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
 			$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
 		}
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
 		
 		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
-		if( ! defined( 'SPU_UNLOAD_FB_JS') ) {
+		if( ! defined( 'SPU_UNLOAD_FB_JS')  || !empty( $opts['facebook'] ) ) {
 
 			wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_locale().'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
 
 		}
-		if( ! defined( 'SPU_UNLOAD_TW_JS') ) {
+		if( ! defined( 'SPU_UNLOAD_TW_JS')  || !empty( $opts['google'] ) ) {
 		
 			wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 		
 		}
-		if( ! defined( 'SPU_UNLOAD_GO_JS') ) {
+		if( ! defined( 'SPU_UNLOAD_GO_JS')  || !empty( $opts['twitter'] ) ) {
 			
 			wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
 
@@ -397,7 +404,7 @@ class SocialPopup {
 			
 			wp_enqueue_script('spu-public');
 			wp_enqueue_style('spu-public-css');
-			wp_localize_script( 'spu-public', 'spuvar', array( 'is_admin' => current_user_can( 'administrator' ) ) );
+			wp_localize_script( 'spu-public', 'spuvar', array( 'is_admin' => current_user_can( 'administrator' ), 'disable_style' => $this->spu_settings['shortcodes_style'] ) );
 
 			if( $facebook ){
 				wp_enqueue_script( 'spu-facebook' );

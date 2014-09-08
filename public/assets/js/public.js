@@ -34,12 +34,13 @@ jQuery(window).load(function() {
 			//correct widths of sharing icons
 			$('.spu-google').width($('.spu-google').width()-20);
 			$('.spu-twitter').width($('.spu-twitter').width()-12);
+			
 			//center spu-shortcodes
 			var swidth 		= 0;
 			var free_width 	= 0;
 			var cwidth 		= $(this).find(".spu-content").width();
 			var total  		= $box.data('total'); //total of shortcodes used
-			if( total ){ 
+			if( total && ! spuvar.disable_style ){ 
 			
 				//calculate total width of shortcodes all togheter
 				$(this).find(".spu-shortcode").each(function(){
