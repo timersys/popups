@@ -76,7 +76,7 @@ class Spu_Helper {
 			case "page":
 				
 				$post_type = 'page';
-				$posts = get_posts(array(
+				$args = array(
 					'posts_per_page'			=>	-1,
 					'post_type'					=> $post_type,
 					'orderby'					=> 'menu_order title',
@@ -84,7 +84,9 @@ class Spu_Helper {
 					'post_status'				=> 'any',
 					'suppress_filters'			=> false,
 					'update_post_meta_cache'	=> false,
-				));
+				);
+
+				$posts = get_posts( apply_filters('spu/rules/page_args', $args ) );
 				
 				if( $posts )
 				{
@@ -162,13 +164,13 @@ class Spu_Helper {
 				{
 					foreach( $post_types as $post_type )
 					{
-						
-						$posts = get_posts(array(
+						$args  = array(
 							'numberposts' => '-1',
 							'post_type' => $post_type,
 							'post_status' => array('publish', 'private', 'draft', 'inherit', 'future'),
 							'suppress_filters' => false,
-						));
+						);
+						$posts = get_posts(apply_filters('spu/rules/post_args', $args ));
 						
 						if( $posts)
 						{
@@ -200,7 +202,8 @@ class Spu_Helper {
 			
 			case "post_category" :
 				
-				$category_ids = get_all_category_ids();
+				$ids 			= get_all_category_ids();
+				$category_ids 	= apply_filters('spu/rules/category_ids', $ids );
 		
 				foreach($category_ids as $cat_id) 
 				{
