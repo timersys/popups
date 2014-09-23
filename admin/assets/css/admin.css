@@ -189,8 +189,14 @@ h3.spu-title {
     padding: 6px;
     width: 16px;
 }
-
-
+div#spu-premium {
+	border: 2px solid #999;
+	box-shadow: 7px 11px 13px -3px #ccc;
+}
+div#spu-premium li{
+	list-style: square;
+	margin-left: 30px;
+}
 /* Don't allow user to delete the first field group */
 #spu-rules .rules-group:first-child tr:first-child:hover .rules-remove-rule {
 	display: none;

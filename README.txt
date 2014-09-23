@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
-Tested up to: 3.9.2
-Stable tag: 1.0.7
+Tested up to: 4.0.0
+Stable tag: 1.1
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ Increase your followers ratio 40% with the new Popups - Multiple popup options, 
 
 == Description ==
 
-The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message. 
+The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message in a simple popup. 
 
 
 There are multiple display filters that can be combined:
@@ -37,6 +37,9 @@ There are multiple display filters that can be combined:
 * You can also configure background opacity.
 * Days until popup shows again
 
+= Premium Version = 
+
+Check the **new premium version** available in ([http://wp.timersys.com/popups/](http://wp.timersys.com/popups/))
 
 
 = Plugin's Official Site =
@@ -83,6 +86,15 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.1 =
+
+* Added settings page
+* Added option to disable auto style of shortcodes
+* Plugin compatible with Popups Premium 
+* Minor bugfixes
+* Js improvement
+
 
 = 1.0.7 = 
 
