@@ -340,12 +340,12 @@ class SocialPopup {
 			wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_locale().'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
 
 		}
-		if( ! defined( 'SPU_UNLOAD_TW_JS')  && empty( $opts['google'] ) ) {
+		if( ! defined( 'SPU_UNLOAD_TW_JS')  && empty( $opts['twitter'] ) ) {
 		
 			wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 		
 		}
-		if( ! defined( 'SPU_UNLOAD_GO_JS')  && empty( $opts['twitter'] ) ) {
+		if( ! defined( 'SPU_UNLOAD_GO_JS')  && empty( $opts['google'] ) ) {
 			
 			wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
 
