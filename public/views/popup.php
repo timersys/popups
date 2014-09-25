@@ -24,6 +24,12 @@ $content 	= $box->post_content;
 // run filters on content
 $content = apply_filters( 'spu/popup/content', $content, $box );
 
+// Qtranslate support 
+if ( function_exists('qtrans_useCurrentLanguageIfNotFoundShowAvailable') ) {
+	$content = qtrans_useCurrentLanguageIfNotFoundShowAvailable( $content );
+}
+
+
 do_action( 'spu/popup/before_popup', $box, $opts, $css);
 
 ?>
