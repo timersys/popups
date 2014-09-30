@@ -93,7 +93,7 @@ jQuery(window).load(function() {
 				toggleBox( id, false );
 			});
 			//not on the box
-			$('.spu-box' ).on(event, function(event) {
+			$('body' ).on(event,'.spu-box', function(event) {
 				event.stopPropagation();
 			});
 
@@ -190,6 +190,7 @@ jQuery(window).load(function() {
 			});
 
 		});
+	
 		//function that center popup on screen
 		function centerBox( id ) {
 			var $box 			= $boxes[id];
@@ -226,6 +227,7 @@ jQuery(window).load(function() {
 				}
 			}
 		}
+		
 		//function that show/hide box
 		function toggleBox( id, show ) {
 			var $box 	= $boxes[id];
@@ -260,7 +262,7 @@ jQuery(window).load(function() {
 				
 			
 				// show box
-				var animation = $box.data('animation');
+				var animation = $box.data('spuanimation');
 
 				if( animation === 'fade' ) {
 					$box.fadeToggle( 'slow' );
@@ -269,7 +271,7 @@ jQuery(window).load(function() {
 				}
 				
 			}
-			if( $bgopa > 0 ){
+			if( show === true && $bgopa > 0 ){
 				$bg.fadeIn();
 			} else {
 				$bg.fadeOut();
