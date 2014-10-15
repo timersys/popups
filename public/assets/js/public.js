@@ -265,18 +265,19 @@ jQuery(window).load(function() {
 					centerBox( id );
 					
 				}
-				
 			
-				// show box
-				var animation = $box.data('spuanimation');
-
-				if( animation === 'fade' ) {
-					$box.fadeToggle( 'slow' );
-				} else {
-					$box.slideToggle( 'slow' );
-				}
-				
 			}
+			
+			// show box
+			var animation = $box.data('spuanimation');
+
+			if( animation === 'fade' ) {
+				$box.fadeToggle( 'slow' );
+			} else {
+				$box.slideToggle( 'slow' );
+			}
+				
+			//background
 			if( show === true && $bgopa > 0 ){
 				$bg.fadeIn();
 			} else {
