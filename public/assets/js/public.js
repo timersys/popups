@@ -18,6 +18,12 @@ jQuery(window).load(function() {
 		// loop through boxes
 		$(".spu-box").each(function() {
 
+			// move to parent in safe mode
+			if( spuvar.safe_mode ){
+
+				$(this).prependTo('body');
+				
+			}
 
 			// vars
 			var $box 			= $(this);

@@ -18,6 +18,14 @@
 				
 			</tr>
 			<tr valign="top" class="">
+				<th><label for="safe"><?php _e( 'Enable safe mode?', $this->plugin_slug ); ?></label></th>
+				<td colspan="3">
+					<label><input type="checkbox" id="safe" name="spu_settings[safe]" value="1" <?php checked($opts['safe'], 1); ?> /> 
+					<p class="help"><?php _e( 'Will move all popups to top of the screen.', $this->plugin_slug ); ?></p>
+				</td>
+				
+			</tr>
+			<tr valign="top" class="">
 				<th><label for="style"><?php _e( 'Remove shortcodes style', $this->plugin_slug ); ?></label></th>
 				<td colspan="3">
 					<label><input type="checkbox" id="style" name="spu_settings[shortcodes_style]" value="1" <?php checked($opts['shortcodes_style'], 1); ?> /> 
