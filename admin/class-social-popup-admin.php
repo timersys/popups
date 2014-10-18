@@ -160,15 +160,15 @@ class SocialPopup_Admin {
 			'rewrite'            => array( 'slug' => 'spucpt' ),
 			'capability_type'    => 'post',
 			'capabilities' => array(
-		        'publish_posts' 		=> 'manage_options',
-		        'edit_posts' 			=> 'manage_options',
-		        'edit_others_posts' 	=> 'manage_options',
-		        'delete_posts' 			=> 'manage_options',
-		        'delete_others_posts' 	=> 'manage_options',
-		        'read_private_posts' 	=> 'manage_options',
-		        'edit_post' 			=> 'manage_options',
-		        'delete_post' 			=> 'manage_options',
-		        'read_post' 			=> 'manage_options',
+		        'publish_posts' 		=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'edit_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'edit_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'delete_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'delete_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'read_private_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'edit_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'delete_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+		        'read_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 		    ),
 			'has_archive'        => false,
 			'hierarchical'       => false,
@@ -188,7 +188,7 @@ class SocialPopup_Admin {
 	 */
 	public function add_settings_menu() {
 
-		add_submenu_page('edit.php?post_type=spucpt', 'Settings', 'Settings', 'edit_posts', 'spu_settings', array( $this, 'settings_page' ) );
+		add_submenu_page('edit.php?post_type=spucpt', 'Settings', 'Settings', apply_filters( 'spu/settings_page/roles', 'manage_options'), 'spu_settings', array( $this, 'settings_page' ) );
 	
 	}
 
