@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
-Tested up to: 4.0.0
-Stable tag: 1.1.1
+Tested up to: 4.0
+Stable tag: 1.2
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,10 +37,18 @@ There are multiple display filters that can be combined:
 * You can also configure background opacity.
 * Days until popup shows again
 
-= Premium Version = 
-
-Check the **new premium version** available in ([http://wp.timersys.com/popups/](http://wp.timersys.com/popups/))
-
+> <strong>Premium Version</strong><br>
+> 
+> Check the **new premium version** available in ([http://wp.timersys.com/popups/](http://wp.timersys.com/popups/))
+>
+> * 8 New animations effects
+> * Exit Intent technology
+> * New trigger methods
+> * Timer for auto closing
+> * Ability to disable close button
+> * Ability to disable Advanced close methods like esc or clicking outside of the popup
+> * Premium support
+> 
 
 = Plugin's Official Site =
 
@@ -86,6 +94,16 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.2 =
+
+* Fixed permissions to edit popups settings
+* Update Mobile detect class
+* Added safe mode
+* Added js to fix facebook width bug "failed to resize in 45s"
+* Added qTranslate support
+* Fixed bug when disabling shortcodes js in settings page
+* General js fixes
 
 = 1.1.1 =
 
