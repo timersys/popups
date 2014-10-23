@@ -223,14 +223,20 @@ class Spu_Rules
 	 */
 	function rule_match_same_site( $match, $rule ) {
 
-		$ref = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : '';
+		
+		$ref = (isset($_SERVER['HTTP_REFERER'])) ?  $_SERVER['HTTP_REFERER']  : '';
 
 		$internal = str_replace( array( 'http://','https://' ), '', site_url() );
 		
+
 		if( $rule['operator'] == "==" ) {
-			return preg_match( '~' . $internal . '~i', $ref );
-		} else {
+
 			return !preg_match( '~' . $internal . '~i', $ref );
+
+		} else {
+
+			return preg_match( '~' . $internal . '~i', $ref );
+
 		}	
 
 	}
