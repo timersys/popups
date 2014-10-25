@@ -380,21 +380,22 @@ class SocialPopup {
 				$matches = true;
 				$spu_matches[] = $spu->ID;
 				
-				$total_shortcodes[$spu->ID] = 0;
+				$total_shortcodes[$spu->ID] 	= array();
+				$total_shortcodes[$spu->ID][0] 	= 0;
 
 				//if we have matches we check for shortcodes to add scripts later
 				if( has_shortcode( $spu->post_content, 'spu-facebook' ) ){
 					$facebook = true;
-					$total_shortcodes[$spu->ID]++;
+					$total_shortcodes[$spu->ID][0]++;
 				}				
 				if( has_shortcode( $spu->post_content, 'spu-twitter' ) ){
 					$twitter = true;
-					$total_shortcodes[$spu->ID]++;
+					$total_shortcodes[$spu->ID][0]++;
 				}			
 				if( has_shortcode( $spu->post_content, 'spu-google' ) ){
 					$google = true;
-					$total_shortcodes[$spu->ID]++;
-					$total_shortcodes['google'] = true;
+					$total_shortcodes[$spu->ID][0]++;
+					$total_shortcodes[$spu->ID]['google'] = true;
 				}
 			}
 		}

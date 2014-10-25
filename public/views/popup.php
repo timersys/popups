@@ -45,7 +45,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 	}
 </style>
 <div class="spu-bg" id="spu-bg-<?php echo $box->ID; ?>"></div>
-<div class="spu-box spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo $total_shortcodes[$box->ID];?> <?php echo isset( $total_shortcodes['google'] ) ? 'spu-gogl' : '';?>" id="spu-<?php echo $box->ID; ?>" 
+<div class="spu-box spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo $total_shortcodes[$box->ID][0];?> <?php echo isset( $total_shortcodes[$box->ID]['google'] ) ? 'spu-gogl' : '';?>" id="spu-<?php echo $box->ID; ?>" 
  data-box-id="<?php echo $box->ID ; ?>" data-trigger="<?php echo esc_attr( $opts['trigger'] ); ?>"
  data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
  data-spuanimation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 
