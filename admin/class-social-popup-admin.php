@@ -10,7 +10,7 @@
  */
 
 
-define( SPU_ADMIN_DIR , plugin_dir_path(__FILE__) );
+define( 'SPU_ADMIN_DIR' , plugin_dir_path(__FILE__) );
 
 // Include Helper class
 include_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
