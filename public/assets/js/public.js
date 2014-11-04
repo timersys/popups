@@ -194,6 +194,26 @@ jQuery(window).load(function() {
 				toggleBox(id, true); 
 				return false;
 			});
+            // Add generic form tracking
+             $box.find('form:not(".wpcf7-form, .gravity-form")').submit( function(e){
+             	e.preventDefault();
+                var submit = true;
+                toggleBox(id, false );
+
+                return submit;
+             });
+
+            // CF7 support
+            $('body').on('mailsent.wpcf7', function(){
+         
+            	toggleBox(id, false ); 
+            }); 
+
+            // Gravity forms support (only AJAX mode)
+            $(document).on('gform_confirmation_loaded', function(){
+            	
+            	toggleBox(id, false ); 
+            });
 
 		});
 	
@@ -320,3 +340,67 @@ function spuReadCookie(name) {
 	}
 	return null;
 }
+
+/** 
+ * Social Callbacks
+ */
+
+jQuery(function($) {
+   var SPUfb = false;
+
+   var FbTimer = setInterval(function(){
+        if( typeof FB !== 'undefined' && ! SPUfb) {
+            subscribeFbEvent();
+
+        }
+    },1000);
+
+	if ( typeof twttr !== 'undefined') {
+		twttr.ready(function(twttr) {
+			twttr.events.bind('tweet', twitterCB);
+			twttr.events.bind('follow', twitterCB);
+		});
+	}
+
+
+    function subscribeFbEvent(){
+        FB.Event.subscribe('edge.create', function(href, html_element) {
+            var box_id = $(html_element).parents('.spu-box').data('box-id');
+            if( box_id) {
+                SPU.hide(box_id);
+                //Track the conversion.
+                SPU.track( box_id, true);
+            }
+        });
+        SPUfb = true;
+        clearInterval(FbTimer);
+    }
+	function twitterCB(intent_event) {
+
+		var box_id = $(intent_event.target).parents('.spu-box').data('box-id');
+		
+		if( box_id) {
+			SPU.hide(box_id);		
+		}
+	}
+});
+function googleCB(a) {
+
+	if( "on" == a.state ) {
+
+		var box_id = jQuery('.spu-gogl').data('box-id');
+		if( box_id) {
+			SPU.hide(box_id);			
+		}
+	}
+}
+function closeGoogle(a){
+	if( "confirm" == a.type )
+	{
+		var box_id = jQuery('.spu-gogl').data('box-id');
+		if( box_id) {
+			SPU.hide(box_id);
+	
+		}
+	}
+}	
