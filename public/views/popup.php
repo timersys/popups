@@ -11,13 +11,14 @@
 
 ?><!-- Popups v<?php echo self::VERSION; ?> - http://wordpress.org/plugins/social-popup/--><?php
 $box = get_post( $spu_id );
+$helper = new Spu_Helper;
 
 // has box with this id been found?
 if ( ! $box instanceof WP_Post || $box->post_status !== 'publish' ) {
 	return; 
 }
 
-$opts 		= Spu_Helper::get_box_options( $box->ID );
+$opts 		= $helper->get_box_options( $box->ID );
 $css 		= $opts['css'];
 $content 	= $box->post_content;
 $data_attrs	= '';
