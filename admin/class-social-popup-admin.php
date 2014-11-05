@@ -56,6 +56,15 @@ class SocialPopup_Admin {
 	 * @var      bool
 	 */
 	protected $premium = false;
+
+	/**
+	 * Helper function
+	 *
+	 * @since    1.1
+	 *
+	 * @var      bool
+	 */
+	protected $helper = '';
 	
 	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
@@ -68,6 +77,9 @@ class SocialPopup_Admin {
 
 		$plugin = SocialPopup::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
+
+		// helper funcs
+		$this->helper = new Spu_Helper;
 
 		//settings name
 		$this->options_name		= $this->plugin_slug .'_settings';
@@ -101,7 +113,7 @@ class SocialPopup_Admin {
 		add_filter('spu/get_taxonomies', array($this, 'get_taxonomies'), 1, 3);
 
 		//AJAX Actions	
-		add_action('wp_ajax_spu/field_group/render_rules', array( 'Spu_Helper', 'ajax_render_rules' ) );
+		add_action('wp_ajax_spu/field_group/render_rules', array( $this->helper, 'ajax_render_rules' ) );
 
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
@@ -308,7 +320,7 @@ class SocialPopup_Admin {
 	 */
 	public function popup_rules( $post, $metabox ) {
 
-		$groups = apply_filters('spu/metaboxes/get_box_rules', Spu_Helper::get_box_rules( $post->ID ), $post->ID);
+		$groups = apply_filters('spu/metaboxes/get_box_rules', $this->helper->get_box_rules( $post->ID ), $post->ID);
 
 		include 'views/metabox-rules.php';
 	}	
@@ -320,7 +332,7 @@ class SocialPopup_Admin {
 	 */
 	public function popup_options( $post, $metabox ) {
 		
-		$opts = apply_filters('spu/metaboxes/get_box_options', Spu_Helper::get_box_options( $post->ID ), $post->ID );
+		$opts = apply_filters('spu/metaboxes/get_box_options', $this->helper->get_box_options( $post->ID ), $post->ID );
 
 		include 'views/metabox-options.php';
 	}
