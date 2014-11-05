@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
 Tested up to: 4.0
-Stable tag: 1.2
+Stable tag: 1.2.1
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -41,6 +41,8 @@ There are multiple display filters that can be combined:
 > 
 > Check the **new premium version** available in ([http://wp.timersys.com/popups/](http://wp.timersys.com/popups/))
 >
+> * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
+> * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
 > * Exit Intent technology
 > * New trigger methods
@@ -94,6 +96,14 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.2.1 =
+
+* Added support for Contact Form 7, Gravity Forms and most of other generic forms
+* Added function to close popup when user actually follow/like
+* Fixed undefined notices
+
+
 
 = 1.2 =
 
