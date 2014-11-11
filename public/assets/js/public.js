@@ -194,6 +194,10 @@ jQuery(window).load(function() {
 				toggleBox(id, true); 
 				return false;
 			});
+
+			// add class to the gravity form if they exist within the box
+			$box.find('.gform_wrapper form').addClass('gravity-form');
+
             // Add generic form tracking
              $box.find('form:not(".wpcf7-form, .gravity-form")').submit( function(e){
              	e.preventDefault();
