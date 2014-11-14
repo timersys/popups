@@ -95,8 +95,12 @@ jQuery(window).load(function() {
 			event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
 			
 			$('body').on(event, function (ev) {
-				console.log(event.target);
-				toggleBox( id, false );
+				// test that event is user triggered and not programatically
+				if( ev.which ) {
+
+					toggleBox( id, false );
+					
+				}				
 			});
 			//not on the box
 			$('body' ).on(event,'.spu-box', function(event) {
