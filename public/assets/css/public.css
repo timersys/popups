@@ -108,5 +108,7 @@ body {
 @media only screen and (max-width: 620px) {
 	.spu-box {
 		left: 0 !important;
+		top: 100px !important;
+		position: absolute !important;
 	}
 }
