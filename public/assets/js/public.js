@@ -205,8 +205,23 @@ jQuery(window).load(function() {
             // Add generic form tracking
              $box.find('form:not(".wpcf7-form, .gravity-form")').submit( function(e){
              	e.preventDefault();
-                var submit = true;
-                toggleBox(id, false );
+                
+                var submit 	= true,
+                form 		= $(this),
+                data 	 	= form.serialize(),
+                url  	 	= form.attr('action'),
+                success_cb 	= function (data){
+                	var response = $(data).filter('#spu-'+ id ).html();
+                	$('#spu-' + id ).html(response);
+                	// give 2 seconds for response
+                	setTimeout( function(){
+
+                		toggleBox(id, false );
+                		
+                	}, 2000);
+                }
+                // Send form by ajax and replace popup with response
+                request(data, url, success_cb, '', 'html');
 
                 return submit;
              });
