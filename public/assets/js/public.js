@@ -1,4 +1,4 @@
-jQuery(window).load(function() {
+
 	window.SPU = (function($) {
 
 		var windowHeight 	= $(window).height();
@@ -328,19 +328,52 @@ jQuery(window).load(function() {
 			}
 			return show;
 		}
+		// AJAX REQUESTS
+       	function request(data, url, success_cb, error_cb){
+            // Prepare variables.
+            var ajax       = {
+                    url:      spuvar.ajax_url,
+                    data:     data,
+                    cache:    false,
+                    type:     'POST',
+                    dataType: 'json',
+                    timeout:  30000
+                },
+                success_cb = success_cb || false,
+                error_cb   = error_cb   || false;
 
-	return {
-		show: function( box_id ) {
-			return toggleBox( box_id, true );
-		},
-		hide: function( box_id ) {
-			return toggleBox( box_id, false );
+            // Set ajax url is supplied
+            if ( url ) {
+                ajax.url = url;
+            }
+            // Set success callback if supplied.
+            if ( success_cb ) {
+                ajax.success = success_cb;
+            }
+
+            // Set error callback if supplied.
+            if ( error_cb ) {
+                ajax.error = error_cb;
+            }
+
+            // Make the ajax request.
+            $.ajax(ajax);
+    	}
+		return {
+			show: function( box_id ) {
+				return toggleBox( box_id, true );
+			},
+			hide: function( box_id ) {
+				return toggleBox( box_id, false );
+			},
+			request: function( data, url, success_cb, error_cb ) {
+				return request( data, url, success_cb, error_cb );
+			}
 		}
-	}
 
 	})(window.jQuery);
 
-});
+
 /**
  * Cookie functions
  */
