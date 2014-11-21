@@ -250,7 +250,10 @@ class Spu_Rules
 	
 	function rule_match_post_type( $match, $rule )
 	{
-		$post_type = get_post_type( );
+		
+
+		$post_type = $this->get_post_type();
+
 
         if( $rule['operator'] == "==" )
         {
@@ -275,7 +278,7 @@ class Spu_Rules
 	function rule_match_post( $match, $rule )
 	{
 		global $post;
-		$post_id = $post->ID;
+		$post_id = isset( $post->ID ) ? $post->ID : '';
 		
         if($rule['operator'] == "==")
         {
@@ -301,8 +304,12 @@ class Spu_Rules
 	{
 		global $post;
 
+		$post_id 		= isset( $post->ID ) ? $post->ID : '';
 
-		$post = get_post( $post->ID );
+		$post 			= get_post( $post_id );
+
+		$post_parent 	= isset( $post->post_parent ) ? $post->post_parent : ''; 
+		$post_type 		= $this->get_post_type();
 		        
         if( $rule['value'] == 'front_page') {
         	
@@ -312,11 +319,11 @@ class Spu_Rules
 
 		        if($rule['operator'] == "==") {
 		       
-		        	$match = ( $front_page == $post->ID );
+		        	$match = ( $front_page == $post_id );
 		       
 		        } elseif($rule['operator'] == "!=") {
 		       
-		        	$match = ( $front_page != $post->ID );
+		        	$match = ( $front_page != $post_id );
 		       
 		        }
 	      	} else {
@@ -341,11 +348,11 @@ class Spu_Rules
 	        if( $posts_page !== 0 ) {
 		        if($rule['operator'] == "==") {
 		        	
-		        	$match = ( $posts_page == $post->ID );
+		        	$match = ( $posts_page == $post_id );
 		       
 		        } elseif($rule['operator'] == "!=") {
 		        
-		        	$match = ( $posts_page != $post->ID );
+		        	$match = ( $posts_page != $post_id );
 		       
 		        }
 	    	} else {
@@ -364,7 +371,7 @@ class Spu_Rules
 	        
         }
         elseif( $rule['value'] == 'top_level') {
-        	$post_parent = $post->post_parent;
+        	$post_parent = $post_parent;
         	if( $options['page_parent'] )
         	{
 	        	$post_parent = $options['page_parent'];
@@ -384,8 +391,8 @@ class Spu_Rules
         elseif( $rule['value'] == 'parent') {
         
         	$children = get_pages(array(
-        		'post_type' => $post->post_type,
-        		'child_of' =>  $post->ID,
+        		'post_type' => $post_type,
+        		'child_of' =>  $post_id,
         	));
         	
 	        
@@ -400,7 +407,7 @@ class Spu_Rules
         }
         elseif( $rule['value'] == 'child') {
         
-        	$post_parent = $post->post_parent;
+        	$post_parent = $post_parent;
         	if( $options['page_parent'] )
         	{
 	        	$post_parent = $options['page_parent'];
@@ -523,7 +530,7 @@ class Spu_Rules
 
 		
 		// post type
-		$post_type = get_post_type( $post->ID );
+		$post_type = $this->get_post_type();
 		
 		// vars
 		$taxonomies = get_object_taxonomies( $post_type );
@@ -638,7 +645,7 @@ class Spu_Rules
 			return false;
 		}
 			
-		$post_type = get_post_type( $post->ID );
+		$post_type = $this->get_post_type();
 			
 	
 		// does post_type support 'post-format'
@@ -734,7 +741,7 @@ class Spu_Rules
 		
 		
 		// post type
-		$post_type = get_post_type( $post->ID );
+		$post_type = $this->get_post_type();
 		
 		// vars
 		$taxonomies = get_object_taxonomies( $post_type );
@@ -798,7 +805,21 @@ class Spu_Rules
         
     }
     
- 
+ 	/**
+ 	 * Helper function to get post type
+ 	 * @since 1.2.3
+ 	 * @return  string
+ 	 * 
+ 	 */
+ 	function get_post_type(){
+ 		global $wp_query;
+
+		$post_type = get_post_type();
+
+		$post_type = empty( $post_type ) ? $wp_query->query_vars['post_type'] : $post_type;
+
+		return $post_type;
+ 	}
 			
 }
 
