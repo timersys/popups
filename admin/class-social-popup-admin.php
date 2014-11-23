@@ -344,7 +344,10 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function metabox_donate( $post, $metabox ) {
-		include 'views/metabox-donate.php';
+		
+		$donate_metabox = apply_filters( 'spu/metaboxes/donate_metabox', dirname(__FILE__) . '/views/metabox-donate.php' );
+		
+		include $donate_metabox;
 	}
 	/**
 	 * Include the metabox view for support box
@@ -353,7 +356,10 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function metabox_support( $post, $metabox ) {
-		include 'views/metabox-support.php';
+		
+		$support_metabox = apply_filters( 'spu/metaboxes/support_metabox', dirname(__FILE__) . '/views/metabox-support.php' );
+		
+		include $support_metabox;
 	}
 
 	/**
@@ -363,7 +369,10 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function metabox_links( $post, $metabox ) {
-		include 'views/metabox-links.php';
+		
+		$links_metabox = apply_filters( 'spu/metaboxes/links_metabox', dirname(__FILE__) . '/views/metabox-links.php' );
+		
+		include $links_metabox;
 	}
 
 	/**
