@@ -218,7 +218,7 @@
 
                 		toggleBox(id, false );
                 		
-                	}, 2000);
+                	}, spuvar.seconds_confirmation_close);
                 }
                 // Send form by ajax and replace popup with response
                 request(data, url, success_cb, '', 'html');

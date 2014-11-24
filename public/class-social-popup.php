@@ -407,9 +407,10 @@ class SocialPopup {
 			wp_enqueue_style('spu-public-css');
 			wp_localize_script( 'spu-public', 'spuvar', 
 				array( 
-					'is_admin' 		=> current_user_can( 'administrator' ), 
-					'disable_style' => @$this->spu_settings['shortcodes_style'], 
-					'safe_mode'		=> @$this->spu_settings['safe'] 
+					'is_admin' 						=> current_user_can( 'administrator' ), 
+					'disable_style' 				=> @$this->spu_settings['shortcodes_style'], 
+					'safe_mode'						=> @$this->spu_settings['safe'],
+					'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
 				) 
 			);
 
