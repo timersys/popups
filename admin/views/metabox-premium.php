@@ -2,6 +2,17 @@
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
 ?>
+<?php
+
+$today 		= strtotime(date("Y-m-d H:i:s"));
+$blackbegin = strtotime("2014-11-28");
+$blackend 	= strtotime("2014-12-02");
+if($today > $blackbegin && $today < $blackend) : ?>
+	<div class="alert-premium">
+		<p><strong>Happy Black Friday!</strong> Get any Timersys Plugin with a 40% discount using the <code>BLACKFRIDAY</code> coupon code </p>
+	</div>	
+<?php endif;?>
+	
 <p><?php _e( 'Take the best WordPress Popups plugin to the next level with Popups Premium extension.', $this->plugin_slug );?></p>
 <h2><?php _e( 'Popups Premium Features:', $this->plugin_slug );?></h2>
 <ul>

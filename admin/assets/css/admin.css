@@ -1,4 +1,13 @@
 /* This stylesheet is used to style the admin option form of the plugin. */
+/*----------
+	Alerts
+---------------*/
+.alert-premium {
+	border: 4px solid #dd3d36;
+	padding: 10px;
+	text-align: center;
+	margin: 15px;
+}	
 /*---------------------------------------------------------------------------------------------
 	Tables
 ---------------------------------------------------------------------------------------------*/
