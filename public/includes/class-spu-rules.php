@@ -814,9 +814,9 @@ class Spu_Rules
  	function get_post_type(){
  		global $wp_query;
 
-		$post_type = get_post_type();
+		$post_type = $wp_query->query_vars['post_type'] ;
 
-		$post_type = empty( $post_type ) ? $wp_query->query_vars['post_type'] : $post_type;
+		$post_type = empty( $post_type ) ? get_post_type() : $post_type; 
 
 		return $post_type;
  	}
