@@ -40,7 +40,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 		background: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
 		<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
 		<?php if ( !empty( $css['border_color'] ) && !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); ?>;<?php } ?>
-		max-width: <?php echo ( !empty( $css['width'] ) ) ?  esc_attr( $css['width'] ) : 'auto'; ?>;
+		width: <?php echo ( !empty( $css['width'] ) ) ?  esc_attr( $css['width'] ) : 'auto'; ?>;
 	}
 	#spu-bg-<?php echo $box->ID; ?> {
 		opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
