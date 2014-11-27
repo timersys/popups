@@ -213,7 +213,7 @@ class SocialPopup_Admin {
 
 		if (  isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
 
-			update_option( 'spu_settings' , esc_sql( $_POST['spu_settings'] ) );
+			update_option( 'spu_settings' , esc_sql( @$_POST['spu_settings'] ) );
 		
 		}	
 		$opts = apply_filters('spu/settings_page/opts', get_option( 'spu_settings' ) );
