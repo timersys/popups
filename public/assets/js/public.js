@@ -1,3 +1,4 @@
+jQuery(window).load(function() {
 
 	window.SPU = (function($) {
 
@@ -14,7 +15,6 @@
 			'margin-bottom': 0,
 			'padding-bottom': 0
 		});
-		$(".spu-box").load( function(){
 
 			// loop through boxes
 			$(".spu-box").each(function() {
@@ -245,7 +245,7 @@
 	            });
 
 			});
-		});
+		
 	
 		//function that center popup on screen
 		function centerBox( id ) {
@@ -379,7 +379,7 @@
 		}
 
 	})(window.jQuery);
-
+});
 
 /**
  * Cookie functions
