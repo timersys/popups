@@ -14,230 +14,232 @@
 			'margin-bottom': 0,
 			'padding-bottom': 0
 		});
+		var $boxes = $(".spu-box").imagesLoaded( function(){
 
-		// loop through boxes
-		$(".spu-box").each(function() {
+			// loop through boxes
+			$boxes.each(function() {
 
-			// move to parent in safe mode
-			if( spuvar.safe_mode ){
+				// move to parent in safe mode
+				if( spuvar.safe_mode ){
 
-				$(this).prependTo('body');
+					$(this).prependTo('body');
+					
+				}
+
+				// vars
+				var $box 			= $(this);
+				var triggerMethod 	= $box.data('trigger');
+				var timer 			= 0;
+				var testMode 		= (parseInt($box.data('test-mode')) === 1);
+				var id 				= $box.data('box-id');
+				var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
+				var secondsClose    = parseInt($box.data('seconds-close'));			
+				var triggerSeconds 	= parseInt( $box.data('trigger-number'), 10 );
+				var triggerPercentage = ( triggerMethod == 'percentage' ) ? ( parseInt( $box.data('trigger-number'), 10 ) / 100 ) : 0.8;
+				var triggerHeight 	= ( triggerPercentage * $(document).height() );
 				
-			}
-
-			// vars
-			var $box 			= $(this);
-			var triggerMethod 	= $box.data('trigger');
-			var timer 			= 0;
-			var testMode 		= (parseInt($box.data('test-mode')) === 1);
-			var id 				= $box.data('box-id');
-			var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
-			var secondsClose    = parseInt($box.data('seconds-close'));			
-			var triggerSeconds 	= parseInt( $box.data('trigger-number'), 10 );
-			var triggerPercentage = ( triggerMethod == 'percentage' ) ? ( parseInt( $box.data('trigger-number'), 10 ) / 100 ) : 0.8;
-			var triggerHeight 	= ( triggerPercentage * $(document).height() );
-			
-			facebookFix( $box );
-			//correct widths of sharing icons
-			$('.spu-google').width($('.spu-google').width()-20);
-			$('.spu-twitter').width($('.spu-twitter').width()-12);
-			
-			//center spu-shortcodes
-			var swidth 		= 0;
-			var free_width 	= 0;
-			var cwidth 		= $(this).find(".spu-content").width();
-			var total  		= $box.data('total'); //total of shortcodes used
-			if( total && ! spuvar.disable_style ){ 
-			
-				//calculate total width of shortcodes all togheter
-				$(this).find(".spu-shortcode").each(function(){
-					swidth = swidth + $(this).width();
-				});
-				//available space to split margins
-				free_width = cwidth - swidth;
-
-			}
-			if( free_width > 0 ) {
-				//leave some margin
-				$(this).find(".spu-shortcode").each(function(){
-					if( total == 3) {
-
-						$(this).css('margin-left',(free_width / (total-1)));
-					
-					} else {
-					
-						$(this).css('margin-left',(free_width / 2 ));
-					
-					}
-
-				});
-				//remove margin when neccesary
-				if( total == 2) {
-
-					$(this).find(".spu-shortcode").last().css('margin-left',0);
-
-				} else if( total == 3) {
-
-					$(this).find(".spu-shortcode").first().css('margin-left',0);
+				facebookFix( $box );
+				//correct widths of sharing icons
+				$('.spu-google').width($('.spu-google').width()-20);
+				$('.spu-twitter').width($('.spu-twitter').width()-12);
 				
+				//center spu-shortcodes
+				var swidth 		= 0;
+				var free_width 	= 0;
+				var cwidth 		= $(this).find(".spu-content").width();
+				var total  		= $box.data('total'); //total of shortcodes used
+				if( total && ! spuvar.disable_style ){ 
+				
+					//calculate total width of shortcodes all togheter
+					$(this).find(".spu-shortcode").each(function(){
+						swidth = swidth + $(this).width();
+					});
+					//available space to split margins
+					free_width = cwidth - swidth;
+
 				}
-			}
+				if( free_width > 0 ) {
+					//leave some margin
+					$(this).find(".spu-shortcode").each(function(){
+						if( total == 3) {
 
-			
-			//close with esc
-			$(document).keyup(function(e) {
-				if (e.keyCode == 27) {
-					toggleBox( id, false );
-				}
-			});
-			//close on ipads // iphones
-			var ua = navigator.userAgent,
-			event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
-			
-			$('body').on(event, function (ev) {
-				// test that event is user triggered and not programatically
-				if( ev.which ) {
-
-					toggleBox( id, false );
-					
-				}				
-			});
-			//not on the box
-			$('body' ).on(event,'.spu-box', function(event) {
-				event.stopPropagation();
-			});
-
-			//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
-			$box.hide().css('left','');
-
-			// add box to global boxes array
-			$boxes[id] = $box;
-
-			// functions that check % of height
-			var triggerHeightCheck = function() 
-			{
-				if(timer) { 
-					clearTimeout(timer); 
-				}
-
-				timer = window.setTimeout(function() { 
-					var scrollY = $(window).scrollTop();
-					var triggered = ((scrollY + windowHeight) >= triggerHeight);
-
-					// show box when criteria for this box is matched
-					if( triggered ) {
-
-						// remove listen event if box shouldn't be hidden again
-						if( ! autoHide ) {
-							$(window).unbind('scroll', triggerHeightCheck);
+							$(this).css('margin-left',(free_width / (total-1)));
+						
+						} else {
+						
+							$(this).css('margin-left',(free_width / 2 ));
+						
 						}
 
-						toggleBox( id, true );
-					} else {
+					});
+					//remove margin when neccesary
+					if( total == 2) {
+
+						$(this).find(".spu-shortcode").last().css('margin-left',0);
+
+					} else if( total == 3) {
+
+						$(this).find(".spu-shortcode").first().css('margin-left',0);
+					
+					}
+				}
+
+				
+				//close with esc
+				$(document).keyup(function(e) {
+					if (e.keyCode == 27) {
 						toggleBox( id, false );
 					}
-
-				}, 100);
-			}
-			// function that show popup after X secs
-			var triggerSecondsCheck = function() 
-			{
-				if(timer) { 
-					clearTimeout(timer); 
-				}
-
-				timer = window.setTimeout(function() { 
-
-					toggleBox( id, true );					
-
-				}, triggerSeconds * 1000);
-			}
-
-			// show box if cookie not set or if in test mode
-			var cookieValue = spuReadCookie( 'spu_box_' + id );
-
-			if( cookieValue == undefined || ( isAdmin && testMode ) ) {
+				});
+				//close on ipads // iphones
+				var ua = navigator.userAgent,
+				event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
 				
-				if(triggerMethod == 'seconds') {
-					triggerSecondsCheck();
-				} else {
-					$(window).bind( 'scroll', triggerHeightCheck );
-					// init, check box criteria once
-					triggerHeightCheck();
-				}	
+				$('body').on(event, function (ev) {
+					// test that event is user triggered and not programatically
+					if( ev.which ) {
 
-				// shows the box when hash refers to a box
-				if(window.location.hash && window.location.hash.length > 0) {
+						toggleBox( id, false );
+						
+					}				
+				});
+				//not on the box
+				$('body' ).on(event,'.spu-box', function(event) {
+					event.stopPropagation();
+				});
 
-					var hash = window.location.hash;
-					var $element;
+				//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
+				$box.hide().css('left','');
 
-					if( hash.substring(1) === $box.attr( 'id' ) ) {
-						setTimeout(function() {
-							toggleBox( id, true );
-						}, 100);
+				// add box to global boxes array
+				$boxes[id] = $box;
+
+				// functions that check % of height
+				var triggerHeightCheck = function() 
+				{
+					if(timer) { 
+						clearTimeout(timer); 
 					}
+
+					timer = window.setTimeout(function() { 
+						var scrollY = $(window).scrollTop();
+						var triggered = ((scrollY + windowHeight) >= triggerHeight);
+
+						// show box when criteria for this box is matched
+						if( triggered ) {
+
+							// remove listen event if box shouldn't be hidden again
+							if( ! autoHide ) {
+								$(window).unbind('scroll', triggerHeightCheck);
+							}
+
+							toggleBox( id, true );
+						} else {
+							toggleBox( id, false );
+						}
+
+					}, 100);
 				}
-			}	/* end check cookie */
+				// function that show popup after X secs
+				var triggerSecondsCheck = function() 
+				{
+					if(timer) { 
+						clearTimeout(timer); 
+					}
 
-			$box.find(".spu-close").click(function() {
+					timer = window.setTimeout(function() { 
 
-				// hide box
-				toggleBox( id, false );
+						toggleBox( id, true );					
 
-				if(triggerMethod == 'percentage') {
-					// unbind 
-					$(window).unbind( 'scroll', triggerHeightCheck );
-				}	
+					}, triggerSeconds * 1000);
+				}
+
+				// show box if cookie not set or if in test mode
+				var cookieValue = spuReadCookie( 'spu_box_' + id );
+
+				if( cookieValue == undefined || ( isAdmin && testMode ) ) {
+					
+					if(triggerMethod == 'seconds') {
+						triggerSecondsCheck();
+					} else {
+						$(window).bind( 'scroll', triggerHeightCheck );
+						// init, check box criteria once
+						triggerHeightCheck();
+					}	
+
+					// shows the box when hash refers to a box
+					if(window.location.hash && window.location.hash.length > 0) {
+
+						var hash = window.location.hash;
+						var $element;
+
+						if( hash.substring(1) === $box.attr( 'id' ) ) {
+							setTimeout(function() {
+								toggleBox( id, true );
+							}, 100);
+						}
+					}
+				}	/* end check cookie */
+
+				$box.find(".spu-close").click(function() {
+
+					// hide box
+					toggleBox( id, false );
+
+					if(triggerMethod == 'percentage') {
+						// unbind 
+						$(window).unbind( 'scroll', triggerHeightCheck );
+					}	
+					
+				});
 				
+				// add link listener for this box
+				$('a[href="#' + $box.attr('id') +'"]').click(function() { 
+					
+					toggleBox(id, true); 
+					return false;
+				});
+
+				// add class to the gravity form if they exist within the box
+				$box.find('.gform_wrapper form').addClass('gravity-form');
+
+	            // Add generic form tracking
+	             $box.find('form:not(".wpcf7-form, .gravity-form")').submit( function(e){
+	             	e.preventDefault();
+	                
+	                var submit 	= true,
+	                form 		= $(this),
+	                data 	 	= form.serialize(),
+	                url  	 	= form.attr('action'),
+	                success_cb 	= function (data){
+	                	var response = $(data).filter('#spu-'+ id ).html();
+	                	$('#spu-' + id ).html(response);
+	                	// give 2 seconds for response
+	                	setTimeout( function(){
+
+	                		toggleBox(id, false );
+	                		
+	                	}, spuvar.seconds_confirmation_close);
+	                }
+	                // Send form by ajax and replace popup with response
+	                request(data, url, success_cb, '', 'html');
+
+	                return submit;
+	             });
+
+	            // CF7 support
+	            $('body').on('mailsent.wpcf7', function(){
+	         
+	            	toggleBox(id, false ); 
+	            }); 
+
+	            // Gravity forms support (only AJAX mode)
+	            $(document).on('gform_confirmation_loaded', function(){
+	            	
+	            	toggleBox(id, false ); 
+	            });
+
 			});
-			
-			// add link listener for this box
-			$('a[href="#' + $box.attr('id') +'"]').click(function() { 
-				
-				toggleBox(id, true); 
-				return false;
-			});
-
-			// add class to the gravity form if they exist within the box
-			$box.find('.gform_wrapper form').addClass('gravity-form');
-
-            // Add generic form tracking
-             $box.find('form:not(".wpcf7-form, .gravity-form")').submit( function(e){
-             	e.preventDefault();
-                
-                var submit 	= true,
-                form 		= $(this),
-                data 	 	= form.serialize(),
-                url  	 	= form.attr('action'),
-                success_cb 	= function (data){
-                	var response = $(data).filter('#spu-'+ id ).html();
-                	$('#spu-' + id ).html(response);
-                	// give 2 seconds for response
-                	setTimeout( function(){
-
-                		toggleBox(id, false );
-                		
-                	}, spuvar.seconds_confirmation_close);
-                }
-                // Send form by ajax and replace popup with response
-                request(data, url, success_cb, '', 'html');
-
-                return submit;
-             });
-
-            // CF7 support
-            $('body').on('mailsent.wpcf7', function(){
-         
-            	toggleBox(id, false ); 
-            }); 
-
-            // Gravity forms support (only AJAX mode)
-            $(document).on('gform_confirmation_loaded', function(){
-            	
-            	toggleBox(id, false ); 
-            });
-
 		});
 	
 		//function that center popup on screen
