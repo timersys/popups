@@ -13,6 +13,11 @@ Increase your followers ratio 40% with the new Popups - Multiple popup options, 
 
 == Description ==
 
+> <strong>Black Friday Plus!</strong><br>
+> 
+> Check our ([Black Friday Offer](https://wp.timersys.com/black-friday-plus/))
+> 
+
 The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message in a simple popup. 
 
 
