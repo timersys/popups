@@ -14,10 +14,10 @@
 			'margin-bottom': 0,
 			'padding-bottom': 0
 		});
-		var $boxes = $(".spu-box").imagesLoaded( function(){
+		$(".spu-box").load( function(){
 
 			// loop through boxes
-			$boxes.each(function() {
+			$(".spu-box").each(function() {
 
 				// move to parent in safe mode
 				if( spuvar.safe_mode ){
@@ -46,7 +46,8 @@
 				//center spu-shortcodes
 				var swidth 		= 0;
 				var free_width 	= 0;
-				var cwidth 		= $(this).find(".spu-content").width();
+				var boxwidth	= $box.width();
+				var cwidth 		= $box.find(".spu-content").width();
 				var total  		= $box.data('total'); //total of shortcodes used
 				if( total && ! spuvar.disable_style ){ 
 				
@@ -84,6 +85,10 @@
 					}
 				}
 
+				// Check if box width is less that window
+				if( boxwidth > $(window).width() ){
+					$box.css('cssText',  'max-width:'+$box.css('width')+';width:auto !important;');
+				}
 				
 				//close with esc
 				$(document).keyup(function(e) {

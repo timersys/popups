@@ -331,10 +331,11 @@ class SocialPopup {
 		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
 			$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
 		}
+
+
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
 		
-		wp_register_script( 'images-loaded', plugins_url( 'assets/js/min/imagesloaded.pkgd.min.js', __FILE__ ), array( 'jquery' ), self::VERSION, true );
-		wp_register_script( 'spu-public', $js_url, array( 'jquery','images-loaded' ), self::VERSION, true );
+		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
 		if(  !defined( 'SPU_UNLOAD_FB_JS')  && empty( $opts['facebook'] ) ) {
 
@@ -405,7 +406,6 @@ class SocialPopup {
 
 			
 			wp_enqueue_script('spu-public');
-			wp_enqueue_script('images-loaded');
 			wp_enqueue_style('spu-public-css');
 			wp_localize_script( 'spu-public', 'spuvar', 
 				array( 
