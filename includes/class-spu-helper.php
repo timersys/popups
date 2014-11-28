@@ -35,11 +35,11 @@ class Spu_Helper {
 		);
 		
 		$is_ajax = false;
+		
 		if( isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'spu_nonce') )
 		{
 			$is_ajax = true;
 		}
-		
 		
 		// Is AJAX call?
 		if( $is_ajax )

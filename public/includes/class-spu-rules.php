@@ -559,7 +559,7 @@ class Spu_Rules
         {
         	$match = false;
         	
-        	if($terms)
+        	if(!empty($terms))
 			{
 				if( in_array($rule['value'], $terms) )
 				{
