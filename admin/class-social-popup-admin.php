@@ -216,7 +216,17 @@ class SocialPopup_Admin {
 			update_option( 'spu_settings' , esc_sql( @$_POST['spu_settings'] ) );
 		
 		}	
-		$opts = apply_filters('spu/settings_page/opts', get_option( 'spu_settings' ) );
+		
+		$defaults = array(
+			'debug' 			=> '',
+			'safe'  			=> '',
+			'shortcodes_style'  => '',
+			'facebook'  		=> '',
+			'google'  			=> '',
+			'twitter'  			=> '',
+		);
+
+		$opts = apply_filters('spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
 
 		include 'views/settings-page.php';
 
