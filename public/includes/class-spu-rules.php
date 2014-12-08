@@ -56,13 +56,6 @@ class Spu_Rules
 	function check_rules( $rules = '' )
 	{
 		
-		// Parse values
-		#$options = apply_filters( 'spu/parse_types' );
-			
-		
-		// find all acf objects
-		#$acfs = apply_filters('spu/get_field_groups', array());
-		
 		//if no rules, add the box
 		$add_box = true;
 
