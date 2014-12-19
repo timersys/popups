@@ -186,7 +186,7 @@ jQuery(window).load(function() {
 				}
 			}	/* end check cookie */
 
-			$box.find(".spu-close").click(function() {
+			$box.find(".spu-close-popup").click(function() {
 
 				// hide box
 				toggleBox( id, false );

@@ -54,7 +54,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
  data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-total="<?php echo $total_shortcodes[$box->ID][0];?>"
  style="left:-99999px" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts);?>>
 	<div class="spu-content"><?php echo $content; ?></div>
-	<span class="spu-close">&times;</span>
+	<span class="spu-close spu-close-popup">&times;</span>
 	<span class="spu-timer"></span>
 </div>
 <!-- / Popups Box -->
