@@ -9,13 +9,23 @@
 	<form name="spu-settings" method="post">
 		<table class="form-table">
 			<?php do_action( 'spu/settings_page/before' ); ?>
+
+			<tr valign="top" class="">
+				<th><label for="ajax_mode"><?php _e( 'Ajax mode?', $this->plugin_slug ); ?></label></th>
+				<td colspan="3">
+					<label><input type="checkbox" id="ajax_mode" name="spu_settings[ajax_mode]" value="1" <?php checked(@$opts['ajax_mode'], 1); ?> />
+					<p class="help"><?php _e( 'Load popups using ajax. Compatible with cache plugins', $this->plugin_slug ); ?></p>
+				</td>
+				
+			</tr>
+
 			<tr valign="top" class="">
 				<th><label for="debug"><?php _e( 'Enable Debug mode?', $this->plugin_slug ); ?></label></th>
 				<td colspan="3">
-					<label><input type="checkbox" id="debug" name="spu_settings[debug]" value="1" <?php checked(@$opts['debug'], 1); ?> /> 
+					<label><input type="checkbox" id="debug" name="spu_settings[debug]" value="1" <?php checked(@$opts['debug'], 1); ?> />
 					<p class="help"><?php _e( 'Will use uncompressed js', $this->plugin_slug ); ?></p>
 				</td>
-				
+
 			</tr>
 			<tr valign="top" class="">
 				<th><label for="safe"><?php _e( 'Enable safe mode?', $this->plugin_slug ); ?></label></th>
