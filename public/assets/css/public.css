@@ -4,6 +4,9 @@ body {
 	min-height: 100% !important; 
 	height: auto !important; 
 }
+.spu-box, .spu-box *{
+	box-sizing: border-box;
+}
 .spu-bg{
 	position: fixed;
 	width: 100%;
@@ -25,6 +28,7 @@ body {
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
+	max-width: 100%;
 }
 .spu-box.spu-centered{
 	margin: 0;
@@ -105,6 +109,15 @@ body {
 .spu-shortcode iframe{
 	max-width: 1200px;
 }
+.spu_shortcodes{
+	zoom: 1;
+}
+
+.spu_shortcodes:before, 
+.spu_shortcodes:after { content: ""; display: table; }
+.spu_shortcodes:after { clear: both; }
+
+
 @media only screen and (max-width: 620px) {
 	.spu-box {
 		left: 0 !important;
