@@ -460,6 +460,13 @@ class SocialPopup_Admin {
 		} else {
 			delete_post_meta( $post_id, 'spu_social' );
 		}
+		if( has_shortcode( $post->post_content, 'gravityform' ) ) {
+			preg_match('/\[gravityform id="([0-9]+)".*\]/i', $post->post_content, $matches);
+			if( !empty( $matches[1] ) )
+				update_post_meta( $post_id, 'spu_gravity', $matches[1]);
+		} else {
+			delete_post_meta( $post_id, 'spu_gravity' );
+		}
 
 		// save box settings
 		update_post_meta( $post_id, 'spu_options', apply_filters( 'spu/metaboxes/sanitized_options', $opts ) );
