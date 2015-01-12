@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.2.2.2';
+	const VERSION = '1.2.3';
 
 	/**
 	 * Popups to use acrros files
@@ -104,8 +104,8 @@ class SocialPopup {
 			//print boxes
 			add_action( 'wp_footer', array( $this, 'print_boxes' ) );
 		}
-		add_action( 'wp_ajax_spu_load', array( $this, 'print_boxes' ) );
-		add_action( 'wp_ajax_nopriv_spu_load', array( $this, 'print_boxes' ) );
+		add_action( 'init', array( $this, 'register_spu_ajax' ), 10 );
+
 		//FILTERS
 		add_filter('spu/get_info', array($this, 'get_info'), 1, 1);
 
@@ -391,6 +391,7 @@ class SocialPopup {
 				'safe_mode'						=> @$this->spu_settings['safe'],
 				'ajax_mode'						=> @$this->spu_settings['ajax_mode'],
 				'ajax_url'						=> admin_url('admin-ajax.php'),
+				'site_url'						=> site_url(),
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
@@ -439,8 +440,14 @@ class SocialPopup {
 			}
 
 		}
-		wp_localize_script( 'spu-public', 'spuvar_social', $spuvar_social);
+		wp_localize_script( 'jquery', 'spuvar_social', $spuvar_social);
 
+		//also include gravity forms if needed
+		if( $gf = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_gravity' " ) ) {
+
+			gravity_form_enqueue_scripts($gf, true);
+
+		}
 	}
 
 	/**
@@ -602,12 +609,35 @@ class SocialPopup {
 
 	/**
 	 * Load necessary files
+	 * @since  1.2.3
 	 */
 	private function load_dependencies(){
 		// Include Helper class
 		require_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
 		// Include Rules Class
 		require_once( SPU_PLUGIN_DIR . 'public/includes/class-spu-rules.php' );
+	}
+
+	/**
+	 * Custom ajax hook. Wp_ajax won't let us do_shortcode for example
+	 * @return  mixed Prints all spus
+	 */
+	function register_spu_ajax() {
+  		
+  		if( is_admin() )
+  			return;
+
+	  	if ( empty( $_POST['spu_action'] ) || $_POST['spu_action'] != 'spu_load' ) {
+    		
+    		return;
+	  
+	  	} 
+	  	
+	  	define( 'DOING_AJAX', TRUE );
+
+  		$this->print_boxes();	
+
+  		die();		
 	}
 
 }

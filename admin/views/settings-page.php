@@ -14,7 +14,7 @@
 				<th><label for="ajax_mode"><?php _e( 'Ajax mode?', $this->plugin_slug ); ?></label></th>
 				<td colspan="3">
 					<label><input type="checkbox" id="ajax_mode" name="spu_settings[ajax_mode]" value="1" <?php checked(@$opts['ajax_mode'], 1); ?> />
-					<p class="help"><?php _e( 'Load popups using ajax. Compatible with cache plugins', $this->plugin_slug ); ?></p>
+					<p class="help"><?php _e( 'Load popups using ajax. Compatible with cache plugins, but might not work with all plugins', $this->plugin_slug ); ?></p>
 				</td>
 				
 			</tr>

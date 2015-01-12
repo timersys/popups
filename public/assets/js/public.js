@@ -386,7 +386,7 @@ if( spuvar.ajax_mode ) {
     error_cb 	= function (data, error, errorThrown){
         console.log('Problem loading popups - error: ' + error + ' - ' + errorThrown);
     }
-    request(data, false, success_cb, error_cb, 'html');
+    request(data, spuvar.site_url , success_cb, error_cb, 'html');
 } else {
 
 	jQuery(window).load(function() {
@@ -508,44 +508,44 @@ function spuReadCookie(name) {
 		}
 	}
 
-function googleCB(a) {
+	function googleCB(a) {
 
-	if( "on" == a.state ) {
+		if( "on" == a.state ) {
 
-		var box_id = jQuery('.spu-gogl').data('box-id');
-		if( box_id) {
-			SPU.hide(box_id);			
+			var box_id = jQuery('.spu-gogl').data('box-id');
+			if( box_id) {
+				SPU.hide(box_id);			
+			}
 		}
 	}
-}
-function closeGoogle(a){
-	if( "confirm" == a.type )
-	{
-		var box_id = jQuery('.spu-gogl').data('box-id');
-		if( box_id) {
-			SPU.hide(box_id);
-	
+	function closeGoogle(a){
+		if( "confirm" == a.type )
+		{
+			var box_id = jQuery('.spu-gogl').data('box-id');
+			if( box_id) {
+				SPU.hide(box_id);
+		
+			}
 		}
 	}
-}
-function reload_socials(){
-	if( spuvar_social.facebook ) {
+	function reload_socials(){
+		if( spuvar_social.facebook ) {
 
-	    // reload fb
-    	try{
-        	FB.XFBML.parse(); 
-    	}catch(ex){}
+		    // reload fb
+	    	try{
+	        	FB.XFBML.parse(); 
+	    	}catch(ex){}
+		}
+	    if( spuvar_social.google ){
+
+	    	// reload google 
+	    	gapi.plusone.go();
+	    
+	    }
+	    if( spuvar_social.twitter ){
+
+	    	//reload twitter
+	    	twttr.widgets.load();
+	    }
 	}
-    if( spuvar_social.google ){
-
-    	// reload google 
-    	gapi.plusone.go();
-    
-    }
-    if( spuvar_social.twitter ){
-
-    	//reload twitter
-    	twttr.widgets.load();
-    }
-}
 })(jQuery);
