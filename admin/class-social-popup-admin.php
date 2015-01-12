@@ -98,8 +98,9 @@ class SocialPopup_Admin {
 		
 		//Add our metaboxes
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+
 		//Save metaboxes
-		add_action( 'save_post', array( $this, 'save_meta_options' ), 20 );
+		add_action( 'save_post_spucpt', array( $this, 'save_meta_options' ), 20 );
 
 		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -386,9 +387,13 @@ class SocialPopup_Admin {
 	}
 
 	/**
-	* Saves popup options and rules
-	*/
-	public function save_meta_options( $post_id ) {		
+	 * Saves popup options and rules
+	 *
+	 * @param $post_id
+	 * @param $post
+	 * @param $update
+	 */
+	public function save_meta_options( $post_id ) {
 		// Verify that the nonce is set and valid.
 		if ( !isset( $_POST['spu_options_nonce'] ) || ! wp_verify_nonce( $_POST['spu_options_nonce'], 'spu_options' ) ) {
 			return $post_id;
@@ -416,9 +421,10 @@ class SocialPopup_Admin {
 			return $post_id;
 		}
 
-		$post = get_post( $post_id );
 		$opts = $_POST['spu'];
 		unset( $_POST['spu'] );
+
+		$post = get_post($post_id);
 
 		// sanitize settings
 		$opts['css']['width']	 	 = sanitize_text_field( $opts['css']['width'] );
@@ -427,6 +433,33 @@ class SocialPopup_Admin {
 		$opts['cookie'] 			 = absint( sanitize_text_field( $opts['cookie'] ) );
 		$opts['trigger_number'] 	 = absint( sanitize_text_field( $opts['trigger_number'] ) );
 
+		// Check for social shortcodes and update post meta ( we check later if we need to enqueue any social js)
+		$total_shortcodes =0;
+		if( has_shortcode( $post->post_content, 'spu-facebook' ) ){
+			$total_shortcodes++;
+			update_post_meta( $post_id, 'spu_fb', true );
+		} else {
+			delete_post_meta( $post_id, 'spu_fb');
+		}
+		if( has_shortcode( $post->post_content, 'spu-twitter' ) ){
+			$total_shortcodes++;
+			update_post_meta( $post_id, 'spu_tw', true );
+		} else {
+			delete_post_meta( $post_id, 'spu_tw');
+		}
+		if( has_shortcode( $post->post_content, 'spu-google' ) ){
+			$total_shortcodes++;
+			$opts['google'] = true;
+			update_post_meta( $post_id, 'spu_google', true );
+		} else {
+			delete_post_meta( $post_id, 'spu_google');
+		}
+		// save total shortcodes (for auto styling)
+		if( $total_shortcodes ){
+			update_post_meta( $post_id, 'spu_social', $total_shortcodes );
+		} else {
+			delete_post_meta( $post_id, 'spu_social' );
+		}
 
 		// save box settings
 		update_post_meta( $post_id, 'spu_options', apply_filters( 'spu/metaboxes/sanitized_options', $opts ) );
@@ -434,8 +467,6 @@ class SocialPopup_Admin {
 		// Start with rules
 		if( isset($_POST['spu_rules']) && is_array($_POST['spu_rules']) )
 		{
-			
-
 			// clean array keys
 			$groups = array_values( $_POST['spu_rules'] );
 			foreach($groups as $group_id => $group )
@@ -444,7 +475,7 @@ class SocialPopup_Admin {
 				{
 					// clean array keys
 					$groups_a[] = array_values( $group );
-		
+
 				}
 			}
 
@@ -452,7 +483,6 @@ class SocialPopup_Admin {
 			unset( $_POST['spu_rules'] );
 		}
 
-		#$this->flush_rules();
 	}
 	/**
 	 * Register and enqueue admin-specific style sheet.
