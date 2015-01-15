@@ -387,9 +387,9 @@ class SocialPopup {
 		wp_localize_script( 'spu-public', 'spuvar',
 			array(
 				'is_admin' 						=> current_user_can( 'administrator' ),
-				'disable_style' 				=> @$this->spu_settings['shortcodes_style'],
-				'safe_mode'						=> @$this->spu_settings['safe'],
-				'ajax_mode'						=> @$this->spu_settings['ajax_mode'],
+				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? $this->spu_settings['shortcodes_style'] : '',
+				'safe_mode'						=> isset( $this->spu_settings['safe'] ) ? $this->spu_settings['safe'] : '',
+				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? $this->spu_settings['ajax_mode'] :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
 				'site_url'						=> site_url(),
 				'pid'						    => get_queried_object_id(),

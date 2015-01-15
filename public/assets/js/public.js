@@ -374,7 +374,7 @@ if( spuvar.ajax_mode ) {
         referrer : document.referrer,
         action	: 'spu_load',
     }
-    var success_cb = function(response) {
+    ,success_cb = function(response) {
     	
     	$('body').append(response);
 
