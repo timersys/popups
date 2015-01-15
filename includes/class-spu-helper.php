@@ -202,14 +202,8 @@ class Spu_Helper {
 			
 			case "post_category" :
 				
-				$ids 			= get_all_category_ids();
-				$category_ids 	= apply_filters('spu/rules/category_ids', $ids );
-		
-				foreach($category_ids as $cat_id) 
-				{
-				  $cat_name = get_cat_name($cat_id);
-				  $choices[$cat_id] = $cat_name;
-				}
+				$categories 	= get_terms('category', array('get' => 'all', 'fields' => 'id=>name' ) );
+				$choices	= apply_filters('spu/rules/categories', $categories );	
 				
 				break;
 			

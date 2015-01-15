@@ -379,7 +379,7 @@ class Spu_Rules
         elseif( $rule['value'] == 'posts_page') {
         
 	        $posts_page = (int) get_option('page_for_posts');
-	        
+
 	        if( $posts_page !== 0 ) {
 		        if($rule['operator'] == "==") {
 		        	
@@ -390,18 +390,33 @@ class Spu_Rules
 		        	$match = ( $posts_page != $post_id );
 		       
 		        }
-	    	} else {
-	      		
-	      		if($rule['operator'] == "==") {
-		       
-		        	$match = is_home();
-		       
-		        } elseif($rule['operator'] == "!=") {
-		       
-		        	$match = !is_home();
-		       
-		        }
+	    	} else {	      		
+	      		// if doing ajax is_home won't work so we do a workaround
+	      		if( defined( 'DOING_AJAX') ) {
+	      		    	
+		      		
+		      		if($rule['operator'] == "==") {
+			       
+			        	$match = ( 0 === $posts_page && $post_id == 0 );
+			       
+			        } elseif($rule['operator'] == "!=") {
+			       
+			        	$match = !( 0 === $posts_page && $post_id == 0 );
+			       
+			        }
+	      			
 
+	      		} else {
+		      		if($rule['operator'] == "==") {
+			       
+			        	$match = is_home();
+			       
+			        } elseif($rule['operator'] == "!=") {
+			       
+			        	$match = !is_home();
+			       
+			        }
+				}		   		
 	    	}
 	        
         }
@@ -852,8 +867,8 @@ class Spu_Rules
 
 		$post_type = isset( $wp_query->query_vars['post_type'] ) ? $wp_query->query_vars['post_type'] : '';
 
-		$post_type = empty( $post_type ) ? get_post_type() : ''; 
-
+		$post_type = empty( $post_type ) ? get_post_type($this->post_id) : ''; 
+	
 		return $post_type;
  	}
 			
