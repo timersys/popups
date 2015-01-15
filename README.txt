@@ -101,7 +101,8 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 == Changelog ==
 
 = 1.2.3.1 =
-* Hotfixes, i had a problem with brances please update
+
+* Hotfix- Bug with ajax mode & testmode preventing plugin to work. Please update
 
 = 1.2.3 =
 
