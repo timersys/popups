@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
-Tested up to: 4.0.1
-Stable tag: 1.2.2.2
+Tested up to: 4.1
+Stable tag: 1.2.3
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,10 +13,6 @@ Increase your followers ratio 40% with the new Popups - Multiple popup options, 
 
 == Description ==
 
-> <strong>Black Friday Plus!</strong><br>
-> 
-> Check our ([Black Friday Offer](https://wp.timersys.com/black-friday-plus/))
-> 
 
 The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message in a simple popup. 
 
@@ -41,6 +37,8 @@ There are multiple display filters that can be combined:
 * Change font color, background, borders, etc
 * You can also configure background opacity.
 * Days until popup shows again
+* Ajax mode to make popups cache compatible
+* Shortcodes for social networks available
 
 > <strong>Premium Version</strong><br>
 > 
@@ -101,6 +99,14 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.2.3 =
+
+* Added Ajax mode in settings page to make popups compatible with cache plugins
+* Added a close button shortcode
+* Fixed bug with settings page
+* Fixed bug detecting triggered clicks on iphone 6
+* Some other minor bugfixes
 
 = 1.2.2.2 =
 

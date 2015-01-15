@@ -3,7 +3,8 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 ?>
 
-<p><?php _e( 'You have three social shortcodes to use that will print a Facebook like, a Google+ Follow and a Twitter follow. Check the available options and default values:', $this->plugin_slug );?></p>
+<p><?php _e( 'You have three social shortcodes to use that will print a Facebook like, a Google+ Follow and a Twitter follow. Check the available options and <strong>configure them with your social accounts</strong>:', $this->plugin_slug );?></p>
+
 <p><strong>Facebook:</strong></p>
 <p>
 [spu-facebook href="" layout="" show_faces="" share="" action="" width=""]
@@ -24,7 +25,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <a href="go-opts" onclick="jQuery('#go-opts').slideToggle();return false;"><?php _e( 'View Google+ Options', $this->plugin_slug );?></a>
 <ul id="go-opts" style="display:none;">
 	<li><b>url:</b> <?php _e( 'Your Google+ url', $this->plugin_slug );?></li>
-	<li><b>size:</b> <?php _e( 'small, standard, tall Default value: medium', $this->plugin_slug );?></li>
+	<li><b>size:</b> <?php _e( 'small, standard, tall <b>Default value:</b> medium', $this->plugin_slug );?></li>
 	<li><b>annotation:</b> <?php _e( 'inline, none <b>Default value:</b> bubble', $this->plugin_slug );?></li>
 </ul>
 <p><strong>Twitter:</strong></p>
@@ -34,7 +35,18 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <a href="tw-opts" onclick="jQuery('#tw-opts').slideToggle();return false;"><?php _e( 'View Twitter Options', $this->plugin_slug );?></a>
 <ul id="tw-opts" style="display:none;">
 	<li><b>user:</b> <?php _e( 'Your Twitter user <b>Default chifli</b>iiii', $this->plugin_slug );?></li>
-	<li><b>show_count:</b> <?php _e( 'false Default value: true', $this->plugin_slug );?></li>
+	<li><b>show_count:</b> <?php _e( 'false <b>Default value:</b> true', $this->plugin_slug );?></li>
 	<li><b>size:</b> <?php _e( 'large <b>Default value:</b> ""', $this->plugin_slug );?></li>
 	<li><b>lang:</b> </li>
+</ul>
+<h3 style="padding-left:0;margin: 20px 0;"><strong><?php _e('Other available Shortcodes:', $this->plugin_slug );?><strong></h3>
+<p><strong>Close Button:</strong></p>
+<p>
+[spu-close class="" text="" align=""]
+</p>
+<a href="close-opts" onclick="jQuery('#close-opts').slideToggle();return false;"><?php _e( 'View Close shortcode Options', $this->plugin_slug );?></a>
+<ul id="close-opts" style="display:none;">
+	<li><b>class:</b> <?php _e( 'Pass a custom class to style your button', $this->plugin_slug );?></li>
+	<li><b>text:</b> <?php _e( 'Button label - <b>Default value:</b> Close', $this->plugin_slug );?></li>
+	<li><b>align:</b> <?php _e( 'left, right, center, none - <b>Default value:</b> center', $this->plugin_slug );?></li>
 </ul>

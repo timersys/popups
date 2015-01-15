@@ -8,7 +8,18 @@
 
 class Spu_Rules
 {
-
+	/**
+	 * post id used to check rules
+	 * @var int
+	 */
+	protected $post_id;
+	
+	/**
+	 * referred using in ajax calls
+	 * @var string
+	 */
+	protected $referrer;
+	
 	/*
 	*  __construct
 	*  Add all the filters to use later
@@ -16,7 +27,7 @@ class Spu_Rules
 	
 	function __construct()
 	{
-
+		global $post;
 		
 		// User
 		add_filter('spu/rules/rule_match/user_type', array($this, 'rule_match_user_type'), 10, 2);
@@ -43,6 +54,18 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/mobiles', array($this, 'rule_match_mobiles'), 10, 2);
 		add_filter('spu/rules/rule_match/tablets', array($this, 'rule_match_tablets'), 10, 2);
 
+		$this->post_id 	= isset( $post->ID ) ? $post->ID : '';
+		$this->referrer = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
+ 
+		if( defined('DOING_AJAX') ) {
+
+			if( isset( $_REQUEST['pid'] ) ) {
+				$this->post_id = $_REQUEST['pid'];
+			}
+			if( isset( $_REQUEST['referrer'] ) ) {
+				$this->referrer = $_REQUEST['referrer'];
+			}
+		}
 		
 	}
 	
@@ -193,7 +216,7 @@ class Spu_Rules
 	 */
 	function rule_match_search_engine( $match, $rule ) {
 
-		$ref = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
+		$ref = $this->referrer;
 
 		$SE = apply_filters( 'spu/rules/search_engines', array('/search?', '.google.', 'web.info.com', 'search.', 'del.icio.us/search', 'soso.com', '/search/', '.yahoo.', '.bing.' ) );
 
@@ -217,7 +240,7 @@ class Spu_Rules
 	function rule_match_same_site( $match, $rule ) {
 
 		
-		$ref = (isset($_SERVER['HTTP_REFERER'])) ?  $_SERVER['HTTP_REFERER']  : '';
+		$ref = $this->referrer;
 
 		$internal = str_replace( array( 'http://','https://' ), '', site_url() );
 		
@@ -270,8 +293,8 @@ class Spu_Rules
 	
 	function rule_match_post( $match, $rule )
 	{
-		global $post;
-		$post_id = isset( $post->ID ) ? $post->ID : '';
+		
+		$post_id = $this->post_id;
 		
         if($rule['operator'] == "==")
         {
@@ -295,19 +318,20 @@ class Spu_Rules
 	
 	function rule_match_page_type( $match, $rule )
 	{
-		global $post;
+		
 
-		$post_id 		= isset( $post->ID ) ? $post->ID : '';
+		$post_id 		= $this->post_id;
 
 		$post 			= get_post( $post_id );
 
 		$post_parent 	= isset( $post->post_parent ) ? $post->post_parent : ''; 
+		
 		$post_type 		= $this->get_post_type();
 		        
         if( $rule['value'] == 'front_page') {
         	
 	        $front_page = (int) get_option('page_on_front');
-	      
+
 	      	if( $front_page !== 0 ) {
 
 		        if($rule['operator'] == "==") {
@@ -320,16 +344,34 @@ class Spu_Rules
 		       
 		        }
 	      	} else {
+	      		// if doing ajax is_home won't work so we do a workaround
+	      		if( defined( 'DOING_AJAX') ) {
+	      		
+			      	$front_page = get_option( 'show_on_front' );	
+		      		
+		      		if($rule['operator'] == "==") {
+			       
+			        	$match = ( 'posts' == $front_page && $post_id == 0 );
+			       
+			        } elseif($rule['operator'] == "!=") {
+			       
+			        	$match = !( 'posts' == $front_page && $post_id == 0 );
+			       
+			        }
+	      			
 
-	      		if($rule['operator'] == "==") {
-		       
-		        	$match = is_home();
-		       
-		        } elseif($rule['operator'] == "!=") {
-		       
-		        	$match = !is_home();
-		       
-		        }
+	      		} else {
+	      			
+		      		if($rule['operator'] == "==") {
+			       
+			        	$match = is_home();
+			       
+			        } elseif($rule['operator'] == "!=") {
+			       
+			        	$match = !is_home();
+			       
+			        }
+	      		}
 
 	      	}
 	        
@@ -364,7 +406,8 @@ class Spu_Rules
 	        
         }
         elseif( $rule['value'] == 'top_level') {
-        	$post_parent = $post_parent;
+        	
+        	
         	if( $options['page_parent'] )
         	{
 	        	$post_parent = $options['page_parent'];
@@ -435,16 +478,16 @@ class Spu_Rules
 	
 	function rule_match_page_parent( $match, $rule )
 	{
-		global $post;
+		
 		// validation
-		if( !$post->ID )
+		if( !$this->post_id )
 		{
 			return false;
 		}
 		
 		
 		// vars
-		$post = get_post( $post->ID );
+		$post = get_post( $this->post_id );
 		
 		$post_parent = $post->post_parent;
     	if( $options['page_parent'] )
@@ -476,14 +519,14 @@ class Spu_Rules
 	
 	function rule_match_page_template( $match, $rule )
 	{
-		global $post;
+		
 
-		$page_template = get_post_meta( $post->ID, '_wp_page_template', true );
+		$page_template = get_post_meta( $this->post_id, '_wp_page_template', true );
 
 		
 		if( ! $page_template ) {
 			
-			if( 'page' == get_post_type( $post->ID ) ) {
+			if( 'page' == get_post_type( $this->post_id ) ) {
 
 				$page_template = "default";
 
@@ -513,10 +556,10 @@ class Spu_Rules
 	
 	function rule_match_post_category( $match, $rule )
 	{
-		global $post;
+		
 
 		// validate
-		if( !$post->ID )
+		if( !$this->post_id )
 		{
 			return false;
 		}
@@ -528,7 +571,7 @@ class Spu_Rules
 		// vars
 		$taxonomies = get_object_taxonomies( $post_type );
 
-		$all_terms = get_the_terms( $post->ID, 'category' );
+		$all_terms = get_the_terms( $this->post_id, 'category' );
 		if($all_terms)
 		{
 			foreach($all_terms as $all_term)
@@ -630,10 +673,10 @@ class Spu_Rules
 	
 	function rule_match_post_format( $match, $rule )
 	{
-		global $post;
+		
 		
 		// validate
-		if( !$post->ID )
+		if( !$this->post_id )
 		{
 			return false;
 		}
@@ -644,7 +687,7 @@ class Spu_Rules
 		// does post_type support 'post-format'
 		if( post_type_supports( $post_type, 'post-formats' ) )
 		{
-			$post_format = get_post_format( $post->ID );
+			$post_format = get_post_format( $this->post_id );
 			
 			if( $post_format === false )
 			{
@@ -679,17 +722,17 @@ class Spu_Rules
 	
 	function rule_match_post_status( $match, $rule )
 	{
-		global $post;
+		
 
 		// validate
-		if( !$post->ID )
+		if( !$this->post_id )
 		{
 			return false;
 		}
 		
 					
 		// vars
-		$post_status = get_post_status( $post->ID );
+		$post_status = get_post_status( $this->post_id );
 	    
 	    
 	    // auto-draft = draft
@@ -725,9 +768,9 @@ class Spu_Rules
 	
 	function rule_match_taxonomy( $match, $rule )
 	{
-		global $post;
+		
 		// validate
-		if( !$post->ID )
+		if( !$this->post_id )
 		{
 			return false;
 		}
@@ -743,7 +786,7 @@ class Spu_Rules
     	{
         	foreach( $taxonomies as $tax )
 			{
-				$all_terms = get_the_terms( $post->ID, $tax );
+				$all_terms = get_the_terms( $this->post_id, $tax );
 				if($all_terms)
 				{
 					foreach($all_terms as $all_term)
@@ -807,9 +850,9 @@ class Spu_Rules
  	function get_post_type(){
  		global $wp_query;
 
-		$post_type = $wp_query->query_vars['post_type'] ;
+		$post_type = isset( $wp_query->query_vars['post_type'] ) ? $wp_query->query_vars['post_type'] : '';
 
-		$post_type = empty( $post_type ) ? get_post_type() : $post_type; 
+		$post_type = empty( $post_type ) ? get_post_type() : ''; 
 
 		return $post_type;
  	}
