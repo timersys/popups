@@ -163,7 +163,7 @@ var SPU = function() {
 		// show box if cookie not set or if in test mode
 		var cookieValue = spuReadCookie( 'spu_box_' + id );
 
-		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && $box.testMode ) ) {
+		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) ) {
 			
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
@@ -371,22 +371,20 @@ if( spuvar.ajax_mode ) {
 
     var data = {
         pid : spuvar.pid,
-        referrer : document.referrer,
-        action	: 'spu_load',
+        referrer : document.referrer
     }
     ,success_cb = function(response) {
     	
     	$('body').append(response);
-
     	reload_socials();
-
     	SPU();
+    	
     	
     },
     error_cb 	= function (data, error, errorThrown){
         console.log('Problem loading popups - error: ' + error + ' - ' + errorThrown);
     }
-    request(data, spuvar.site_url , success_cb, error_cb, 'html');
+    request(data, spuvar.ajax_mode_url , success_cb, error_cb, 'html');
 } else {
 
 	jQuery(window).load(function() {
