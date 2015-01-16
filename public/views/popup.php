@@ -52,7 +52,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
  data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
  data-spuanimation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 
  data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-total="<?php echo get_post_meta($box->ID, 'spu_social',true);?>"
- style="left:-99999px" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts);?>>
+ style="left:-99999px !important;" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts);?>>
 	<div class="spu-content"><?php echo $content; ?></div>
 	<span class="spu-close spu-close-popup">&times;</span>
 	<span class="spu-timer"></span>
