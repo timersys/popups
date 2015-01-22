@@ -17,6 +17,18 @@ body {
 	display: none;
 	z-index: 99999;
 }
+.spu-box:before,
+.spu-box:after {
+    content:"";
+    display:table;
+}
+.spu-box:after {
+    clear:both;
+}
+/* Triggers "haslayout" for IE6/7 */
+.spu-box {
+    zoom:1;
+}
 .spu-box { 
 	position:fixed;
 	z-index: 999999;
@@ -119,9 +131,13 @@ body {
 
 
 @media only screen and (max-width: 620px) {
-	.spu-box {
+	.spu-box.taller-than-viewport {
 		left: 0 !important;
 		top: 100px !important;
 		position: absolute !important;
+	}
+
+	.spu-box{
+		margin: 0;
 	}
 }

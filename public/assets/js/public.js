@@ -47,7 +47,7 @@ var SPU = function() {
 		//center spu-shortcodes
 		var swidth 		= 0;
 		var free_width 	= 0;
-		var boxwidth	= $box.width();
+		var boxwidth	= $box.outerWidth();
 		var cwidth 		= $box.find(".spu-content").width();
 		var total  		= $box.data('total'); //total of shortcodes used
 
@@ -261,17 +261,43 @@ var SPU = function() {
 	
 
 	//function that center popup on screen
-	function centerBox( id ) {
+	function fixSize( id ) {
 		var $box 			= $boxes[id];
 		var windowWidth 	= $(window).width();
 		var windowHeight 	= $(window).height();
-		var popupHeight 	= $box.height();
-		var popupWidth 		= $box.width();
-		$box.css({
-			"position": "fixed",
-			"top": windowHeight / 2 - popupHeight / 2,
-			"left": windowWidth / 2 - popupWidth / 2
-		});
+		var popupHeight 	= $box.outerHeight();
+		var popupWidth 		= $box.outerWidth();
+		var intentWidth		= $box.data('width');
+		var left 			= 0;
+		var top 			= windowHeight / 2 - popupHeight / 2;
+		var position 		= 'fixed';
+		var currentScroll   = $(document).scrollTop();
+
+		if( $box.hasClass('spu-centered') ){
+			if( intentWidth < windowWidth ) {
+				left = windowWidth / 2 - popupWidth / 2;
+			}
+			$box.css({
+				"left": 	left,
+				"position": position,
+				"top": 		top,
+			});
+		}
+
+		// if popup is higher than viewport we need to make it absolute
+		if( (popupHeight + 50) > windowHeight ) {
+			position 	= 'absolute';
+			top 		= currentScroll;
+			
+			$box.css({
+				"position": position,
+				"top": 		top,
+				"bottom": 	"auto",
+				//"right": 	"auto",
+				//"left": 	"auto",
+			});
+		}
+
 	}
 
 	//facebookBugFix
@@ -322,17 +348,16 @@ var SPU = function() {
 			}
 		} else {
 
-			//if is a centered popup, center it
-			if( $box.hasClass('spu-centered') ) {
-				//bind for resize
-				$(window).resize(function(){
-					
-					centerBox( id );
-
-				});
-				centerBox( id );
+			
+			//bind for resize
+			$(window).resize(function(){
 				
-			}
+				fixSize( id );
+
+			});
+			fixSize( id );
+				
+			
 		
 		}
 		

@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.2.3.1';
+	const VERSION = '1.2.3.2';
 
 	/**
 	 * Popups to use acrros files
@@ -97,8 +97,8 @@ class SocialPopup {
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
 		// Register public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ), 1 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ));
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		if( !isset($this->spu_settings['ajax_mode'] ) ) {
 			//print boxes

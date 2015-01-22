@@ -22,6 +22,7 @@ $opts 		= $helper->get_box_options( $box->ID );
 $css 		= $opts['css'];
 $content 	= $box->post_content;
 $data_attrs	= '';
+$width 		= !empty( $css['width'] )  ?  $css['width']  : '';
 
 // run filters on content
 $content = apply_filters( 'spu/popup/content', $content, $box );
@@ -40,7 +41,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 		background: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
 		<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
 		<?php if ( !empty( $css['border_color'] ) && !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); ?>;<?php } ?>
-		width: <?php echo ( !empty( $css['width'] ) ) ?  esc_attr( $css['width'] ) : 'auto'; ?>;
+		width: <?php echo ( !empty( $width ) ) ?  esc_attr( $width ) : 'auto'; ?>;
 	}
 	#spu-bg-<?php echo $box->ID; ?> {
 		opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
@@ -52,7 +53,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
  data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
  data-spuanimation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 
  data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-total="<?php echo get_post_meta($box->ID, 'spu_social',true);?>"
- style="left:-99999px !important;" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts);?>>
+ style="left:-99999px !important;" data-width="<?php echo esc_attr(str_replace('px', '', $width)); ?>" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts);?>>
 	<div class="spu-content"><?php echo $content; ?></div>
 	<span class="spu-close spu-close-popup">&times;</span>
 	<span class="spu-timer"></span>
