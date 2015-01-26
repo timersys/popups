@@ -363,17 +363,32 @@ class SocialPopup {
 
 		//Grab all popups ids
 		$spu_ids = $wpdb->get_results( "SELECT ID, post_content FROM $wpdb->posts WHERE post_type='spucpt' AND post_status='publish'");
+		
 		foreach( $spu_ids as $spu ) {
 			
-			$rules = get_post_meta( $spu->ID, 'spu_rules' ,true );
+			$spu_id = $this->get_real_spu_id($spu->ID);
+			
+			$rules 	= get_post_meta( $spu_id, 'spu_rules' ,true );
 
-			$match = $spu_rules->check_rules( $rules );
+			$match  = $spu_rules->check_rules( $rules );
 			if( $match ) {
-				$spu_matches[] = $spu->ID;
+				$spu_matches[] = $spu_id;
 			}
 		}
 
 		return $spu_matches;
+	}
+
+	/**
+	 * Used to get wpml real ids if wpml installed
+	 * @param  int $id popup id
+	 * @return int     return id
+	 */
+	function get_real_spu_id($id) {
+		if( !function_exists('icl_object_id') )	
+			return $id;
+
+		return icl_object_id($id,'spucpt');
 	}
 
 	/**
