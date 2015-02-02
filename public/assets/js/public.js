@@ -1,7 +1,7 @@
 (function($){
     "use strict";
 
-var SPU = function() {
+var SPU_master = function() {
 
 	var windowHeight 	= $(window).height();
 	var isAdmin 		= spuvar.is_admin;
@@ -42,7 +42,7 @@ var SPU = function() {
 		facebookFix( $box );
 		//correct widths of sharing icons
 		$('.spu-google').width($('.spu-google').width()-20);
-		$('.spu-twitter').width($('.spu-twitter').width()-12);
+		$('.spu-twitter').width($('.spu-twitter ').width()-50);
 		
 		//center spu-shortcodes
 		var swidth 		= 0;
@@ -67,15 +67,8 @@ var SPU = function() {
 		if( free_width > 0 ) {
 			//leave some margin
 			$(this).find(".spu-shortcode").each(function(){
-				if( total == 3) {
-
-					$(this).css('margin-left',(free_width / (total-1)));
 				
-				} else {
-				
-					$(this).css('margin-left',(free_width / 2 ));
-				
-				}
+				$(this).css('margin-left',(free_width / 2 ));
 
 			});
 			//remove margin when neccesary
@@ -402,7 +395,7 @@ if( spuvar.ajax_mode ) {
     	
     	$('body').append(response);
     	reload_socials();
-    	SPU();
+    	window.SPU = SPU_master();
     	
     	
     },
@@ -414,7 +407,7 @@ if( spuvar.ajax_mode ) {
 
 	jQuery(window).load(function() {
 
-		SPU();
+		window.SPU = SPU_master();
 	
 	});
 }
@@ -515,8 +508,6 @@ function spuReadCookie(name) {
             var box_id = $(html_element).parents('.spu-box').data('box-id');
             if( box_id) {
                 SPU.hide(box_id);
-                //Track the conversion.
-                SPU.track( box_id, true);
             }
         });
         SPUfb = true;
