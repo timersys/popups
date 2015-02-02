@@ -104,6 +104,8 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 
 * Improved popup center
 * Improved popup in mobile for different effects / positions / popup sizes
+* WPML compatibility ( Sitepress Multilanguage )
+* Fixed javascript error preventing some basics functions as closing popup on fb like
 
 
 = 1.2.3.1 =
