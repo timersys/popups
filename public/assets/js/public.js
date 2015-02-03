@@ -205,8 +205,7 @@ var SPU_master = function() {
         // Add generic form tracking
         $box.on('submit','form:not(".wpcf7-form, .gravity-form")', function(e){
          	e.preventDefault();
-            // track event
-            track( id, true );
+
             
             var submit 	= true,
             form 		= $(this),
