@@ -395,7 +395,7 @@ if( spuvar.ajax_mode ) {
     	
     	$('body').append(response);
     	window.SPU = SPU_master();
-		SPU_clean_action_forms(); //remove spu_Action from forms
+		SPU_reload_forms(); //remove spu_Action from forms
     	
     },
     error_cb 	= function (data, error, errorThrown){
@@ -559,10 +559,14 @@ function SPU_reload_socials(){
 		twttr.widgets.load();
 	}
 }
-function SPU_clean_action_forms(){
+function SPU_reload_forms(){
+	// Clear actions
 	$('.spu-box form').each( function(){
 		var action = $(this).attr('action');
 		$(this).attr('action' , action.replace('?spu_action=spu_load',''));
 	});
+	if ($.fn.wpcf7InitForm) {
+		$('.spu-box div.wpcf7 > form').wpcf7InitForm();
+	}
 }
 })(jQuery);
