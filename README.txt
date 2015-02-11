@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 1.2.3.2
+Stable tag: 1.2.3.3
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -63,6 +63,10 @@ Popups ([http://wp.timersys.com/free-plugins/social-popup/](http://wp.timersys.c
 
 Fork me in https://github.com/timersys/popups/
 
+= Available Languages = 
+
+* Serbo-Croatian - Borisa - http://www.webhostinghub.com/
+
 = Install Multiple plugins at once with WpFavs  =
 
 Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
@@ -99,6 +103,11 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.2.3.3 =
+
+* Added Serbo-Croatian language
+* Removed track function from premium plugin that was causing error on form submission
 
 = 1.2.3.2 =
 
