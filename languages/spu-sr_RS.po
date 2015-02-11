@@ -1,0 +1,2086 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title> Popups - en_EN - Poedit Export </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body bgcolor='#FFFFFF'>
+<h1> Popups : en_EN</h1>
+<table align=center border=1 cellspacing=2 cellpadding=4>
+<tr><th colspan=2>Project info</th></tr>
+<tr><td>Project name and version:</td><td>Popups</td></tr>
+<tr><td>Language:</td><td>en_EN</td></tr>
+<tr><td>Team:</td><td>Timersys</td></tr>
+<tr><td>Team's email address:</td><td><a href="mailto:info@timersys.com">info@timersys.com</a></td></tr>
+<tr><td>Charset:</td><td>UTF-8</td></tr>
+</table>
+Translated: 0 of 158 (0 %)  â€¢  Remaining: 158
+<table border=1 cellspacing=2 cellpadding=4>
+<tr>
+<th>
+Source
+</th>
+<th>
+Translation
+</th>
+<th>
+Notes
+</th>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Popups v  [ post type general name ]
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Popups  [ post type singular name ]
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Popups  [ admin menu ]
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Popups  [ add new on admin bar ]
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Add New  [ Popups ]
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Add New Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+New Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Edit Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+View Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+All Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Search Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Parent Popups:
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+No Popups found.
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+No Popups found in Trash.
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Popups Premium
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+PopUp Shortcodes
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+PopUp Display Rules
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Display Options
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Need support?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Donate &amp; support
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+About the developer
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+or
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Add a Popup
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+What's new
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+credits
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+If you like this plugin, consider supporting it by donating.
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Donate with PayPal
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Some other ways to support this plugin
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Leave a  &amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733;&amp;#9733; review on WordPress.org
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Write about Popups on your blog
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Tweet about Popups
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Vote \"works\" on the WordPress.org plugin page
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+You have three social shortcodes to use that will print a Facebook like, a Google+ Follow and a Twitter follow. Check the available options and &lt;strong&gt;configure them with your social accounts&lt;/strong&gt;:
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+View Facebook Options
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Your facebook page url
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+standard, box_count, button &lt;b&gt;Default value:&lt;/b&gt; button_count
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+true &lt;b&gt;Default value:&lt;/b&gt; false
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+recommend &lt;b&gt;Default value:&lt;/b&gt; like
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+View Google+ Options
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Your Google+ url
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+small, standard, tall &lt;b&gt;Default value:&lt;/b&gt; medium
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+inline, none &lt;b&gt;Default value:&lt;/b&gt; bubble
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+View Twitter Options
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Your Twitter user &lt;b&gt;Default chifli&lt;/b&gt;iiii
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+false &lt;b&gt;Default value:&lt;/b&gt; true
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+large &lt;b&gt;Default value:&lt;/b&gt; \"\"
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Other available Shortcodes:
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+View Close shortcode Options
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Pass a custom class to style your button
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Button label - &lt;b&gt;Default value:&lt;/b&gt; Close
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+left, right, center, none - &lt;b&gt;Default value:&lt;/b&gt; center
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+My name is
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+I develop WordPress plugins and themes.
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Take a look at my &lt;a href=\"%s\"&gt;site&lt;/a&gt; to see my other plugins or hire me. Subscribe to get updates!
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Other plugins I built:
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Install multiple plugins and create collections
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Like Facebook like box but for Twitter
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Invite your network friends and import contacts
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Box Position
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Centered
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Top Left
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Top Right
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Bottom Left
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Bottom Right
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Trigger action
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+seconds after page load
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+of page height
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Auto-hide?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Yes
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+No
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Hide box again when visitors scroll back up? Only works when Trigger action is set to % of page height
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Animation
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Fade In
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Slide In
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Slide will only apply when popup is on the corners
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Cookie expiration days
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+After closing the box, how many days should it stay hidden?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Enable test mode?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+If test mode is enabled, the box will show up regardless of whether a cookie has been set. (To admins only)
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Appearance
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Background opacity
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Leave at 0 for no background. Max value is 1
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Background color
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Text color
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Box width
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Border color
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Border width
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Take the best WordPress Popups plugin to the next level with Popups Premium extension.
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Popups Premium Features:
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Track impressions and Conversions of social likes/follow and forms submissions like Contact Form 7, Gravity forms, etc
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Track impressions and Conversions also in Google Analytics
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Exit Intent technology
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+8 New animations effects
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+New trigger methods
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Timer for auto closing
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Ability to disable close button
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Ability to disable Advanced close methods like esc or clicking outside of the popup
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Premium support
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Buy Now!
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Rules
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Create a set of rules to determine where the popup will show
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Show this popup if
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+User
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+User role
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+User is logged
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+User never left a comment
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+User came via a search engine
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+User did not arrive via another page on your site
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Post
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Post Type
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Post Category
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Post Format
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Post Status
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Post Taxonomy
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Page
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Page Type
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Page Parent
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Page Template
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Other
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Mobile Phone
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Tablet
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+is equal to
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+is not equal to
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+and
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Add rule group
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+You are using Popups plugin v%s
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+If you need support please go to the WordPress.org &lt;a href=\"%s\"&gt;support forums&lt;/a&gt;
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Ajax mode?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Load popups using ajax. Compatible with cache plugins, but might not work with all plugins
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Enable Debug mode?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Will use uncompressed js
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Enable safe mode?
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Will move all popups to top of the screen.
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Remove shortcodes style
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+By default the plugin will apply some style to shortcodes. Check here if you want to manually style them
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Unload Facebook javascript
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+If you use your own Facebook script, check this
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Unload Google javascript
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+If you use your own Google script, check this
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Unload Twitter javascript
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+If you use your own Twitter script, check this
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Save settings
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+All Pages
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Front Page
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Posts Page
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Top Level Page (parent of 0)
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Parent Page (has children)
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Child Page (has parent)
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Default Template
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Publish
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Pending Review
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Draft
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Future
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Private
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Revision
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+Trash
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#A5EAEF'>
+<td>
+Super Admin
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+<tr bgcolor='#9CDEE3'>
+<td>
+True
+</td>
+<td>
+ 
+</td>
+<td>
+<font size="-1">
+ 
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>
