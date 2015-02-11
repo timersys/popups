@@ -108,6 +108,7 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 
 * Added Serbo-Croatian language
 * Removed track function from premium plugin that was causing error on form submission
+* Fixed error that was preventing form submission in ajax mode
 
 = 1.2.3.2 =
 

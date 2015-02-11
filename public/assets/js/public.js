@@ -7,6 +7,7 @@ var SPU_master = function() {
 	var isAdmin 		= spuvar.is_admin;
 	var $boxes 			= [];
 
+	SPU_reload_socials();
 
 	//remove paddings and margins from first and last items inside box
 	$(".spu-content").children().first().css({
@@ -393,9 +394,8 @@ if( spuvar.ajax_mode ) {
     ,success_cb = function(response) {
     	
     	$('body').append(response);
-    	reload_socials();
     	window.SPU = SPU_master();
-    	
+		SPU_clean_action_forms(); //remove spu_Action from forms
     	
     },
     error_cb 	= function (data, error, errorThrown){
@@ -483,82 +483,86 @@ function spuReadCookie(name) {
 /** 
  * Social Callbacks
  */
+var SPUfb = false;
 
+var FbTimer = setInterval(function(){
+	if( typeof FB !== 'undefined' && ! SPUfb) {
+		subscribeFbEvent();
 
-   var SPUfb = false;
-
-   var FbTimer = setInterval(function(){
-        if( typeof FB !== 'undefined' && ! SPUfb) {
-            subscribeFbEvent();
-
-        }
-    },1000);
-
-	if ( typeof twttr !== 'undefined') {
-		twttr.ready(function(twttr) {
-			twttr.events.bind('tweet', twitterCB);
-			twttr.events.bind('follow', twitterCB);
-		});
 	}
+},1000);
+
+if ( typeof twttr !== 'undefined') {
+	twttr.ready(function(twttr) {
+		twttr.events.bind('tweet', twitterCB);
+		twttr.events.bind('follow', twitterCB);
+	});
+}
 
 
-    function subscribeFbEvent(){
-        FB.Event.subscribe('edge.create', function(href, html_element) {
-            var box_id = $(html_element).parents('.spu-box').data('box-id');
-            if( box_id) {
-                SPU.hide(box_id);
-            }
-        });
-        SPUfb = true;
-        clearInterval(FbTimer);
-    }
-	function twitterCB(intent_event) {
-
-		var box_id = $(intent_event.target).parents('.spu-box').data('box-id');
-		
+function subscribeFbEvent(){
+	FB.Event.subscribe('edge.create', function(href, html_element) {
+		var box_id = $(html_element).parents('.spu-box').data('box-id');
 		if( box_id) {
-			SPU.hide(box_id);		
+			SPU.hide(box_id);
+		}
+	});
+	SPUfb = true;
+	clearInterval(FbTimer);
+}
+function twitterCB(intent_event) {
+
+	var box_id = $(intent_event.target).parents('.spu-box').data('box-id');
+
+	if( box_id) {
+		SPU.hide(box_id);
+	}
+}
+
+function googleCB(a) {
+
+	if( "on" == a.state ) {
+
+		var box_id = jQuery('.spu-gogl').data('box-id');
+		if( box_id) {
+			SPU.hide(box_id);
 		}
 	}
+}
+function closeGoogle(a){
+	if( "confirm" == a.type )
+	{
+		var box_id = jQuery('.spu-gogl').data('box-id');
+		if( box_id) {
+			SPU.hide(box_id);
 
-	function googleCB(a) {
-
-		if( "on" == a.state ) {
-
-			var box_id = jQuery('.spu-gogl').data('box-id');
-			if( box_id) {
-				SPU.hide(box_id);			
-			}
 		}
 	}
-	function closeGoogle(a){
-		if( "confirm" == a.type )
-		{
-			var box_id = jQuery('.spu-gogl').data('box-id');
-			if( box_id) {
-				SPU.hide(box_id);
-		
-			}
-		}
+}
+function SPU_reload_socials(){
+	if( spuvar_social.facebook ) {
+
+		// reload fb
+		try{
+			FB.XFBML.parse();
+		}catch(ex){}
 	}
-	function reload_socials(){
-		if( spuvar_social.facebook ) {
+	if( spuvar_social.google ){
 
-		    // reload fb
-	    	try{
-	        	FB.XFBML.parse(); 
-	    	}catch(ex){}
-		}
-	    if( spuvar_social.google ){
+		// reload google
+		gapi.plusone.go();
 
-	    	// reload google 
-	    	gapi.plusone.go();
-	    
-	    }
-	    if( spuvar_social.twitter ){
-
-	    	//reload twitter
-	    	twttr.widgets.load();
-	    }
 	}
+	if( spuvar_social.twitter ){
+
+		//reload twitter
+		twttr.widgets.load();
+	}
+}
+function SPU_clean_action_forms(){
+	$('.spu-box form').each( function(){
+		var action = $(this).attr('action');
+		$(this).attr('action' , action.replace('?spu_action=spu_load',''));
+	});
+}
 })(jQuery);
