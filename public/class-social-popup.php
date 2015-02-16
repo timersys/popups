@@ -455,7 +455,8 @@ class SocialPopup {
 			}
 
 		}
-		wp_localize_script( 'jquery', 'spuvar_social', $spuvar_social);
+		wp_localize_script( 'spu-public', 'spuvar_social', $spuvar_social);
+		wp_localize_script( 'spup-public', 'spuvar_social', $spuvar_social);
 
 		//also include gravity forms if needed
 		if( $gf = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_gravity' " ) ) {
