@@ -84,7 +84,8 @@ class SocialPopup {
 			'hook'				=> SPU_PLUGIN_HOOK,
 			'version'			=> self::VERSION,
 			'upgrade_version'	=> '1.6.4.3',
-		);	
+			'wpml_lang'	        => defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '',
+		);
 
 		$this->load_dependencies();
 
@@ -362,33 +363,35 @@ class SocialPopup {
 		$spu_rules = new Spu_Rules();
 
 		//Grab all popups ids
-		$spu_ids = $wpdb->get_results( "SELECT ID, post_content FROM $wpdb->posts WHERE post_type='spucpt' AND post_status='publish'");
-		
-		foreach( $spu_ids as $spu ) {
-			
-			$spu_id = $this->get_real_spu_id($spu->ID);
-			
-			$rules 	= get_post_meta( $spu_id, 'spu_rules' ,true );
+		$spu_ids = $this->get_spu_ids();
 
-			$match  = $spu_rules->check_rules( $rules );
-			if( $match ) {
-				$spu_matches[] = $spu_id;
+		if( !empty($spu_ids) ) {
+			foreach ( $spu_ids as $spu ) {
+
+				$rules = get_post_meta( $spu->ID, 'spu_rules', true );
+
+				$match = $spu_rules->check_rules( $rules );
+				if ( $match ) {
+					$spu_matches[] = $spu->ID;
+				}
 			}
 		}
-
 		return $spu_matches;
 	}
 
 	/**
-	 * Used to get wpml real ids if wpml installed
-	 * @param  int $id popup id
-	 * @return int     return id
+	 * Return array of popups ids
 	 */
-	function get_real_spu_id($id) {
-		if( !function_exists('icl_object_id') )	
-			return $id;
-
-		return icl_object_id($id,'spucpt');
+	function get_spu_ids() {
+		global $wpdb;
+		// IF wpml is active and spucpt is translated get correct ids for language
+		if( function_exists('icl_object_id') ) {
+			$spu_ids = $this->get_wpml_ids();
+			if(!empty($spu_ids)) {
+				return $spu_ids;
+			}
+		}
+		return $wpdb->get_results( "SELECT ID, post_content FROM $wpdb->posts WHERE post_type='spucpt' AND post_status='publish'");
 	}
 
 	/**
@@ -406,7 +409,7 @@ class SocialPopup {
 				'safe_mode'						=> isset( $this->spu_settings['safe'] ) ? $this->spu_settings['safe'] : '',
 				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? $this->spu_settings['ajax_mode'] :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
-				'ajax_mode_url'					=> site_url('/?spu_action=spu_load'),
+				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
@@ -420,7 +423,7 @@ class SocialPopup {
 	 * @since   1.3
 	 */
 	private function enqueue_social_shortcodes(){
-		global $wpdb;
+		global $wpdb,$spuvar_social;
 
 		$spuvar_social = '';
 
@@ -456,7 +459,7 @@ class SocialPopup {
 
 		}
 		wp_localize_script( 'spu-public', 'spuvar_social', $spuvar_social);
-		wp_localize_script( 'spup-public', 'spuvar_social', $spuvar_social);
+
 
 		//also include gravity forms if needed
 		if( $gf = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_gravity' " ) ) {
@@ -636,18 +639,42 @@ class SocialPopup {
 	 * @return  mixed Prints all spus
 	 */
 	function register_spu_ajax() {
-  		
-	  	if ( empty( $_REQUEST['spu_action'] ) || $_REQUEST['spu_action'] != 'spu_load' ) 
+
+	  	if ( empty( $_REQUEST['spu_action'] ) || $_REQUEST['spu_action'] != 'spu_load' )
     		return;
-	 	
-	  	
+
 	  	define( 'DOING_AJAX', TRUE );
 
-	  
   		$this->print_boxes();	
-  		
 
-  		die();		
+  		die();
+	}
+
+
+	/**
+	 * Return popups for current language
+	 * @return bool | array of ids
+	 */
+	protected function get_wpml_ids( ) {
+		global $wpdb;
+		$wpml_settings = get_option( 'icl_sitepress_settings', true);
+
+		if ( ! empty( $wpml_settings['custom_posts_sync_option']['spucpt'] ) ) {
+
+			$sql = "select DISTINCT * from $wpdb->posts as a
+ 					LEFT JOIN {$wpdb->prefix}icl_translations as b
+					ON a.ID = b.element_id
+					WHERE a.post_status = 'publish'
+					AND a.post_type = 'spucpt'
+					AND b.language_code = '" . esc_sql( ICL_LANGUAGE_CODE ) . "'
+					GROUP BY ID";
+
+			$ids = $wpdb->get_results( $sql );
+			if( !empty($ids) )
+				return $ids;
+		}
+
+		return false;
 	}
 
 }
