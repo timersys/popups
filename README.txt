@@ -108,6 +108,7 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 
 * Fixed spuvar_social undefined when not using wordpress jquery
 * Fixed wpml support in ajax mode
+* Added trigger events in javascript so devs can hook in
 
 = 1.2.3.3 =
 
