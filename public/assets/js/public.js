@@ -235,18 +235,20 @@ var SPU_master = function() {
             // Send form by ajax and replace popup with response
             request(data, url, success_cb, error_cb, 'html');
 
+            $box.trigger('spu_form_submitted', [id]);
+
             return submit;
          });
 
         // CF7 support
         $('body').on('mailsent.wpcf7', function(){
-     
+            $box.trigger('spu_form_submitted', [id]);
         	toggleBox(id, false ); 
         }); 
 
         // Gravity forms support (only AJAX mode)
         $(document).on('gform_confirmation_loaded', function(){
-        	
+            $box.trigger('spu_form_submitted', [id]);
         	toggleBox(id, false ); 
         });
 
@@ -339,9 +341,9 @@ var SPU_master = function() {
 			if( days > 0 ) {
 				spuCreateCookie( 'spu_box_' + id, true, days );
 			}
+            $box.trigger('spu_box_close', [id]);
 		} else {
-
-			
+            $box.trigger('spu_box_open', [id]);
 			//bind for resize
 			$(window).resize(function(){
 				
@@ -410,8 +412,6 @@ if( spuvar.ajax_mode ) {
 	
 	});
 }
-
-
 
     /**
      * Ajax requests
