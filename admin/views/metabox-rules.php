@@ -114,7 +114,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 						$args = array(
 							'group_id' 		=> $group_id,
 							'rule_id' 		=> $rule_id,
-							'value' 		=> $rule['value'],
+							'value' 		=> !empty($rule['value']) ? $rule['value'] : '',
 							'name'			=> 'spu_rules[' . $group_id . '][' . $rule_id . '][value]',
 							'param'			=> $rule['param']
 						);

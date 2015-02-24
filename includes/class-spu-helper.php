@@ -328,7 +328,7 @@ class Spu_Helper {
 		{
 			foreach( $choices as $key => $value )
 			{
-				if( $optgroup )
+				if( isset($optgroup) )
 				{
 					// this select is grouped with optgroup
 					if($key != '') echo '<optgroup label="'.$key.'">';
