@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups
 Requires at least: 3.6
-Tested up to: 4.1
-Stable tag: 1.2.3.3
+Tested up to: 4.1.1
+Stable tag: 1.2.3.4
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -112,6 +112,8 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 * Fixed spuvar_social undefined when not using wordpress jquery
 * Fixed wpml support in ajax mode
 * Added trigger events in javascript so devs can hook in
+* Added geotargeting support in popups using [Geotargeting plugin](http://wp.timersys.com/geotargeting/)
+* Fixed undefined variable in admin
 
 = 1.2.3.3 =
 
