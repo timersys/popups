@@ -266,9 +266,14 @@ class Spu_Helper {
 		// allow custom rules rules
 		$choices = apply_filters( 'spu/rules/rule_values/' . $options['param'], $choices );
 
-		self::print_select( $choices, $options );
-		
-		
+		if( $options['param'] == 'referrer' ) {
+			self::print_textfield( $options );
+		} else {
+			self::print_select( $choices, $options );
+		}
+
+
+
 		// ajax?
 		if( $is_ajax )
 		{
@@ -352,6 +357,14 @@ class Spu_Helper {
 
 		echo '</select>';
 
+	}
+
+	/**
+	 * Prints a text field rule
+	 * @param $options
+	 */
+	static function print_textfield( $options ) {
+		echo '<input type="text" name="'.$options['name'].'" value="'.$options['value'].'" id="spu_rule_'.$options['group_id'].'_rule_'.$options['rule_id'].'" />';
 	}
 
 	/**

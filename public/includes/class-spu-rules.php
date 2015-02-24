@@ -53,6 +53,7 @@ class Spu_Rules
 		//Other
 		add_filter('spu/rules/rule_match/mobiles', array($this, 'rule_match_mobiles'), 10, 2);
 		add_filter('spu/rules/rule_match/tablets', array($this, 'rule_match_tablets'), 10, 2);
+		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
 
 		$this->post_id 	= isset( $post->ID ) ? $post->ID : '';
 		$this->referrer = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
@@ -225,6 +226,24 @@ class Spu_Rules
 				
 				return  $rule['operator'] == "==" ? true : false;
 			}			
+		}
+
+		return $rule['operator'] == "==" ? false : true;
+
+	}
+
+	/**
+	 * Check for user referrer
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_referrer( $match, $rule ) {
+
+		$ref = $this->referrer;
+
+		if ( strpos( $ref,$rule['value'] ) !==false ){
+			return  $rule['operator'] == "==" ? true : false;
 		}
 
 		return $rule['operator'] == "==" ? false : true;
