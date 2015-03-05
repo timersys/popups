@@ -395,6 +395,28 @@ class Spu_Rules
 	      	}
 	        
         }
+        elseif( $rule['value'] == 'category_page') {
+	        if($rule['operator'] == "==") {
+
+		        $match = is_category();
+
+	        } elseif($rule['operator'] == "!=") {
+
+		        $match = !is_category();
+
+	        }
+        }
+        elseif( $rule['value'] == 'archive_page') {
+	        if($rule['operator'] == "==") {
+
+		        $match = is_archive();
+
+	        } elseif($rule['operator'] == "!=") {
+
+		        $match = !is_archive();
+
+	        }
+        }
         elseif( $rule['value'] == 'posts_page') {
         
 	        $posts_page = (int) get_option('page_for_posts');
