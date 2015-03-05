@@ -95,7 +95,7 @@ class SocialPopup_Admin {
 
 		// add settings page
 		add_action('admin_menu' , array( $this, 'add_settings_menu' ) );
-		
+
 		//Add our metaboxes
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
@@ -205,33 +205,36 @@ class SocialPopup_Admin {
 	
 	}
 
+
+
 	/**
 	 * Settings page of the plugin
 	 * @since  1.1
 	 * @return  void
 	 */	
-	public function settings_page(){
+	public function settings_page() {
 
-		if (  isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
+		if ( isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
 
-			update_option( 'spu_settings' , esc_sql( @$_POST['spu_settings'] ) );
-		
-		}	
-		
+			update_option( 'spu_settings', esc_sql( @$_POST['spu_settings'] ) );
+
+		}
+
 		$defaults = array(
-			'debug' 			=> '',
-			'safe'  			=> '',
-			'shortcodes_style'  => '',
-			'facebook'  		=> '',
-			'google'  			=> '',
-			'twitter'  			=> '',
+			'debug'            => '',
+			'safe'             => '',
+			'shortcodes_style' => '',
+			'facebook'         => '',
+			'google'           => '',
+			'twitter'          => '',
 		);
 
-		$opts = apply_filters('spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
+		$opts = apply_filters( 'spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
 
 		include 'views/settings-page.php';
 
 	}
+
 	/**
 	 * Register the metaboxes for our cpt and remove others
 	 */
@@ -310,7 +313,7 @@ class SocialPopup_Admin {
 	 */
 	public function popup_premium( $post, $metabox ) {
 
-		include 'views/metabox-premium.php';
+		include 'views/metaboxes/metabox-premium.php';
 	}
 
 	/**
@@ -321,7 +324,7 @@ class SocialPopup_Admin {
 	 */
 	public function popup_help( $post, $metabox ) {
 
-		include 'views/metabox-help.php';
+		include 'views/metaboxes/metabox-help.php';
 	}	
 	/**
 	 * Include the metabox view for popup rules
@@ -333,7 +336,7 @@ class SocialPopup_Admin {
 
 		$groups = apply_filters('spu/metaboxes/get_box_rules', $this->helper->get_box_rules( $post->ID ), $post->ID);
 
-		include 'views/metabox-rules.php';
+		include 'views/metaboxes/metabox-rules.php';
 	}	
 	/**
 	 * Include the metabox view for popup options
@@ -345,7 +348,7 @@ class SocialPopup_Admin {
 		
 		$opts = apply_filters('spu/metaboxes/get_box_options', $this->helper->get_box_options( $post->ID ), $post->ID );
 
-		include 'views/metabox-options.php';
+		include 'views/metaboxes/metabox-options.php';
 	}
 
 	/**
@@ -356,7 +359,7 @@ class SocialPopup_Admin {
 	 */
 	public function metabox_donate( $post, $metabox ) {
 		
-		$donate_metabox = apply_filters( 'spu/metaboxes/donate_metabox', dirname(__FILE__) . '/views/metabox-donate.php' );
+		$donate_metabox = apply_filters( 'spu/metaboxes/donate_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-donate.php' );
 		
 		include $donate_metabox;
 	}
@@ -368,7 +371,7 @@ class SocialPopup_Admin {
 	 */
 	public function metabox_support( $post, $metabox ) {
 		
-		$support_metabox = apply_filters( 'spu/metaboxes/support_metabox', dirname(__FILE__) . '/views/metabox-support.php' );
+		$support_metabox = apply_filters( 'spu/metaboxes/support_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-support.php' );
 		
 		include $support_metabox;
 	}
@@ -381,7 +384,7 @@ class SocialPopup_Admin {
 	 */
 	public function metabox_links( $post, $metabox ) {
 		
-		$links_metabox = apply_filters( 'spu/metaboxes/links_metabox', dirname(__FILE__) . '/views/metabox-links.php' );
+		$links_metabox = apply_filters( 'spu/metaboxes/links_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-links.php' );
 		
 		include $links_metabox;
 	}
@@ -601,12 +604,14 @@ class SocialPopup_Admin {
 		return $post_types;
 		
 	}
-	
+
 	/**
 	 * Get taxonomies. Used in filters rules
-	 * @param  array  $choices      [description]
+	 *
+	 * @param  array $choices [description]
 	 * @param  boolean $simple_value [description]
-	 * @return [type]                [description]
+	 *
+	 * @return array [type]                [description]
 	 */
 	function get_taxonomies( $choices, $simple_value = false ) {	
 		
@@ -662,7 +667,6 @@ class SocialPopup_Admin {
 		$args['setup'] = 'function(ed) { if(typeof SPU_ADMIN === \'undefined\') { return; } ed.onInit.add(SPU_ADMIN.onTinyMceInit); }';
 
 		return $args;
-	}	
-
+	}
 
 }

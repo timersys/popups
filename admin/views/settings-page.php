@@ -5,7 +5,11 @@
  */
 ?>
 <div class="wrap">
-	<h2>Popups <?php echo SocialPopup::VERSION;?></h2>
+	<h2>Popups <?php echo SocialPopup::VERSION;
+		if( class_exists('PopupsP') ){
+			echo ' - Premium: ', PopupsP::VERSION;
+		}
+		?></h2>
 	<form name="spu-settings" method="post">
 		<table class="form-table">
 			<?php do_action( 'spu/settings_page/before' ); ?>
