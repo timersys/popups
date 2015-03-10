@@ -204,7 +204,7 @@ var SPU_master = function() {
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 
         // Add generic form tracking
-        $box.on('submit','form:not(".wpcf7-form, .gravity-form")', function(e){
+        $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form")', function(e){
          	e.preventDefault();
 
             
@@ -250,6 +250,14 @@ var SPU_master = function() {
         $(document).on('gform_confirmation_loaded', function(){
             $box.trigger('spu.form_submitted', [id]);
         	toggleBox(id, false ); 
+        });
+
+        // Infusion Software - not ajax
+        $box.on('submit','.infusion-form', function(e){
+            e.preventDefault();
+            $box.trigger('spu.form_submitted', [id]);
+        	toggleBox(id, false );
+            this.submit();
         });
 
 	});
