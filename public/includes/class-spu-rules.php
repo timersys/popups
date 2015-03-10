@@ -38,6 +38,7 @@ class Spu_Rules
 
 		// Post
 		add_filter('spu/rules/rule_match/post_type', array($this, 'rule_match_post_type'), 10, 2);
+		add_filter('spu/rules/rule_match/post_id', array($this, 'rule_match_post'), 10, 2);
 		add_filter('spu/rules/rule_match/post', array($this, 'rule_match_post'), 10, 2);
 		add_filter('spu/rules/rule_match/post_category', array($this, 'rule_match_post_category'), 10, 2);
 		add_filter('spu/rules/rule_match/post_format', array($this, 'rule_match_post_format'), 10, 2);

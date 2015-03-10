@@ -268,7 +268,7 @@ class Spu_Helper {
 		// allow custom rules rules
 		$choices = apply_filters( 'spu/rules/rule_values/' . $options['param'], $choices );
 
-		if( $options['param'] == 'referrer' ) {
+		if( $options['param'] == 'referrer' || $options['param'] == 'post_id' ) {
 			self::print_textfield( $options );
 		} else {
 			self::print_select( $choices, $options );

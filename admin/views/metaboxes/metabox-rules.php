@@ -51,6 +51,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 							),
 							__("Post", $this->plugin_slug ) => array(
 								'post'			=>	__("Post", $this->plugin_slug ),
+								'post_id'		=>	__("Post ID", $this->plugin_slug ),
 								'post_type'		=>	__("Post Type", $this->plugin_slug ),
 								'post_category'	=>	__("Post Category", $this->plugin_slug ),
 								'post_format'	=>	__("Post Format", $this->plugin_slug ),
