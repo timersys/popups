@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
 Tested up to: 4.1.1
-Stable tag: 1.2.3.4
+Stable tag: 1.2.3.5
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -110,6 +110,9 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 = 1.2.3.5 =
 
 * Added IFS (infusion soft) support
+* Added display rule - Post ID
+* Added display rule - Categories / Archives
+* Now both version are shown if you use premium
 
 = 1.2.3.4 =
 

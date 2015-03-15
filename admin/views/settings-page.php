@@ -7,7 +7,7 @@
 <div class="wrap">
 	<h2>Popups <?php echo SocialPopup::VERSION;
 		if( class_exists('PopupsP') ){
-			echo ' - Premium: ', PopupsP::VERSION;
+			echo ' - Premium v', PopupsP::VERSION;
 		}
 		?></h2>
 	<form name="spu-settings" method="post">

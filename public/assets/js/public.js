@@ -399,7 +399,9 @@ if( spuvar.ajax_mode ) {
 
     var data = {
         pid : spuvar.pid,
-        referrer : document.referrer
+        referrer : document.referrer,
+        is_category : spuvar.is_category,
+        is_archive : spuvar.is_archive
     }
     ,success_cb = function(response) {
     	

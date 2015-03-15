@@ -145,9 +145,13 @@ class SocialPopup_Admin {
 	 * @return void
 	 */
 	function register_cpt() {
-		
+
+		$name = 'Popups v' . SocialPopup::VERSION;
+		if( class_exists('PopupsP') ){
+			$name .= ' - Premium v'. PopupsP::VERSION;
+		}
 		$labels = array(
-			'name'               => _x( 'Popups v' . SocialPopup::VERSION , 'post type general name', $this->plugin_slug ),
+			'name'               => $name,
 			'singular_name'      => _x( 'Popups', 'post type singular name', $this->plugin_slug ),
 			'menu_name'          => _x( 'Popups', 'admin menu', $this->plugin_slug ),
 			'name_admin_bar'     => _x( 'Popups', 'add new on admin bar', $this->plugin_slug ),

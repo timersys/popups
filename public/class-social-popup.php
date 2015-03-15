@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.2.3.4';
+	const VERSION = '1.2.3.5';
 
 	/**
 	 * Popups to use acrros files
@@ -412,6 +412,8 @@ class SocialPopup {
 				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
+				'is_category'				    => is_category(),
+				'is_archive'				    => is_archive(),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
 			)
 		);
