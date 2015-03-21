@@ -4,116 +4,112 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Popups\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
-"POT-Creation-Date: 2015-01-26 10:24-0300\n"
-"PO-Revision-Date: 2015-01-26 10:24-0300\n"
+"POT-Creation-Date: 2015-03-20 09:51-0300\n"
+"PO-Revision-Date: 2015-03-20 09:51-0300\n"
 "Last-Translator: Damian Logghe <info@timersys.com>\n"
 "Language-Team: Timersys <info@timersys.com>\n"
 "Language: en_EN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.8\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
 "esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-social-popup-admin.php:150
-msgctxt "post type general name"
-msgid "Popups v"
-msgstr ""
-
-#: admin/class-social-popup-admin.php:151
+#: admin/class-social-popup-admin.php:155
 msgctxt "post type singular name"
 msgid "Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:152
+#: admin/class-social-popup-admin.php:156
 msgctxt "admin menu"
 msgid "Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:153
+#: admin/class-social-popup-admin.php:157
 msgctxt "add new on admin bar"
 msgid "Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:154
+#: admin/class-social-popup-admin.php:158
 msgctxt "Popups"
 msgid "Add New"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:155
+#: admin/class-social-popup-admin.php:159
 msgid "Add New Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:156
+#: admin/class-social-popup-admin.php:160
 msgid "New Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:157
+#: admin/class-social-popup-admin.php:161
 msgid "Edit Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:158
+#: admin/class-social-popup-admin.php:162
 msgid "View Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:159
+#: admin/class-social-popup-admin.php:163
 msgid "All Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:160
+#: admin/class-social-popup-admin.php:164
 msgid "Search Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:161
+#: admin/class-social-popup-admin.php:165
 msgid "Parent Popups:"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:162
+#: admin/class-social-popup-admin.php:166
 msgid "No Popups found."
 msgstr ""
 
-#: admin/class-social-popup-admin.php:163
+#: admin/class-social-popup-admin.php:167
 msgid "No Popups found in Trash."
 msgstr ""
 
-#: admin/class-social-popup-admin.php:244
+#: admin/class-social-popup-admin.php:251
 msgid "Popups Premium"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:255
+#: admin/class-social-popup-admin.php:262
 msgid "PopUp Shortcodes"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:264
+#: admin/class-social-popup-admin.php:271
 msgid "PopUp Display Rules"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:273
+#: admin/class-social-popup-admin.php:280
 msgid "Display Options"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:282
+#: admin/class-social-popup-admin.php:289
 msgid "Need support?"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:290
+#: admin/class-social-popup-admin.php:297
 msgid "Donate & support"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:298
+#: admin/class-social-popup-admin.php:305
 msgid "About the developer"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:541 admin/views/metabox-rules.php:33
-#: admin/views/metabox-rules.php:137
+#: admin/class-social-popup-admin.php:548
+#: admin/views/metaboxes/metabox-rules.php:33
+#: admin/views/metaboxes/metabox-rules.php:139
 msgid "or"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:559
+#: admin/class-social-popup-admin.php:566
 msgid "Add a Popup"
 msgstr ""
 
@@ -125,496 +121,510 @@ msgstr ""
 msgid "credits"
 msgstr ""
 
-#: admin/views/metabox-donate.php:6
+#: admin/views/metaboxes/metabox-donate.php:6
 msgid "If you like this plugin, consider supporting it by donating."
 msgstr ""
 
-#: admin/views/metabox-donate.php:8
+#: admin/views/metaboxes/metabox-donate.php:8
 msgid "Donate with PayPal"
 msgstr ""
 
-#: admin/views/metabox-donate.php:10
+#: admin/views/metaboxes/metabox-donate.php:10
 msgid "Some other ways to support this plugin"
 msgstr ""
 
-#: admin/views/metabox-donate.php:12
+#: admin/views/metaboxes/metabox-donate.php:12
 msgid "Leave a  &#9733;&#9733;&#9733;&#9733;&#9733; review on WordPress.org"
 msgstr ""
 
-#: admin/views/metabox-donate.php:13
+#: admin/views/metaboxes/metabox-donate.php:13
 msgid "Write about Popups on your blog"
 msgstr ""
 
-#: admin/views/metabox-donate.php:14
+#: admin/views/metaboxes/metabox-donate.php:14
 msgid "Tweet about Popups"
 msgstr ""
 
-#: admin/views/metabox-donate.php:15
+#: admin/views/metaboxes/metabox-donate.php:15
 msgid "Vote \"works\" on the WordPress.org plugin page"
 msgstr ""
 
-#: admin/views/metabox-help.php:6
+#: admin/views/metaboxes/metabox-help.php:6
 msgid ""
 "You have three social shortcodes to use that will print a Facebook like, a "
 "Google+ Follow and a Twitter follow. Check the available options and "
 "<strong>configure them with your social accounts</strong>:"
 msgstr ""
 
-#: admin/views/metabox-help.php:12
+#: admin/views/metaboxes/metabox-help.php:12
 msgid "View Facebook Options"
 msgstr ""
 
-#: admin/views/metabox-help.php:14
+#: admin/views/metaboxes/metabox-help.php:14
 msgid "Your facebook page url"
 msgstr ""
 
-#: admin/views/metabox-help.php:15
+#: admin/views/metaboxes/metabox-help.php:15
 msgid "standard, box_count, button <b>Default value:</b> button_count"
 msgstr ""
 
-#: admin/views/metabox-help.php:16 admin/views/metabox-help.php:17
+#: admin/views/metaboxes/metabox-help.php:16
+#: admin/views/metaboxes/metabox-help.php:17
 msgid "true <b>Default value:</b> false"
 msgstr ""
 
-#: admin/views/metabox-help.php:18
+#: admin/views/metaboxes/metabox-help.php:18
 msgid "recommend <b>Default value:</b> like"
 msgstr ""
 
-#: admin/views/metabox-help.php:25
+#: admin/views/metaboxes/metabox-help.php:25
 msgid "View Google+ Options"
 msgstr ""
 
-#: admin/views/metabox-help.php:27
+#: admin/views/metaboxes/metabox-help.php:27
 msgid "Your Google+ url"
 msgstr ""
 
-#: admin/views/metabox-help.php:28
+#: admin/views/metaboxes/metabox-help.php:28
 msgid "small, standard, tall <b>Default value:</b> medium"
 msgstr ""
 
-#: admin/views/metabox-help.php:29
+#: admin/views/metaboxes/metabox-help.php:29
 msgid "inline, none <b>Default value:</b> bubble"
 msgstr ""
 
-#: admin/views/metabox-help.php:35
+#: admin/views/metaboxes/metabox-help.php:35
 msgid "View Twitter Options"
 msgstr ""
 
-#: admin/views/metabox-help.php:37
+#: admin/views/metaboxes/metabox-help.php:37
 msgid "Your Twitter user <b>Default chifli</b>iiii"
 msgstr ""
 
-#: admin/views/metabox-help.php:38
+#: admin/views/metaboxes/metabox-help.php:38
 msgid "false <b>Default value:</b> true"
 msgstr ""
 
-#: admin/views/metabox-help.php:39
+#: admin/views/metaboxes/metabox-help.php:39
 msgid "large <b>Default value:</b> \"\""
 msgstr ""
 
-#: admin/views/metabox-help.php:42
+#: admin/views/metaboxes/metabox-help.php:42
 msgid "Other available Shortcodes:"
 msgstr ""
 
-#: admin/views/metabox-help.php:47
+#: admin/views/metaboxes/metabox-help.php:47
 msgid "View Close shortcode Options"
 msgstr ""
 
-#: admin/views/metabox-help.php:49
+#: admin/views/metaboxes/metabox-help.php:49
 msgid "Pass a custom class to style your button"
 msgstr ""
 
-#: admin/views/metabox-help.php:50
+#: admin/views/metaboxes/metabox-help.php:50
 msgid "Button label - <b>Default value:</b> Close"
 msgstr ""
 
-#: admin/views/metabox-help.php:51
+#: admin/views/metaboxes/metabox-help.php:51
 msgid "left, right, center, none - <b>Default value:</b> center"
 msgstr ""
 
-#: admin/views/metabox-links.php:6
+#: admin/views/metaboxes/metabox-links.php:6
 msgid "My name is"
 msgstr ""
 
-#: admin/views/metabox-links.php:6
+#: admin/views/metaboxes/metabox-links.php:6
 msgid "I develop WordPress plugins and themes."
 msgstr ""
 
-#: admin/views/metabox-links.php:7
+#: admin/views/metaboxes/metabox-links.php:7
 #, php-format
 msgid ""
 "Take a look at my <a href=\"%s\">site</a> to see my other plugins or hire "
 "me. Subscribe to get updates!"
 msgstr ""
 
-#: admin/views/metabox-links.php:8
+#: admin/views/metaboxes/metabox-links.php:8
 msgid "Other plugins I built:"
 msgstr ""
 
-#: admin/views/metabox-links.php:10
+#: admin/views/metaboxes/metabox-links.php:10
 msgid "Install multiple plugins and create collections"
 msgstr ""
 
-#: admin/views/metabox-links.php:11
+#: admin/views/metaboxes/metabox-links.php:11
 msgid "Like Facebook like box but for Twitter"
 msgstr ""
 
-#: admin/views/metabox-links.php:12
+#: admin/views/metaboxes/metabox-links.php:12
 msgid "Invite your network friends and import contacts"
 msgstr ""
 
-#: admin/views/metabox-options.php:9
+#: admin/views/metaboxes/metabox-options.php:9
 msgid "Box Position"
 msgstr ""
 
-#: admin/views/metabox-options.php:12
+#: admin/views/metaboxes/metabox-options.php:12
 msgid "Centered"
 msgstr ""
 
-#: admin/views/metabox-options.php:13
+#: admin/views/metaboxes/metabox-options.php:13
 msgid "Top Left"
 msgstr ""
 
-#: admin/views/metabox-options.php:14
+#: admin/views/metaboxes/metabox-options.php:14
 msgid "Top Right"
 msgstr ""
 
-#: admin/views/metabox-options.php:15
+#: admin/views/metaboxes/metabox-options.php:15
 msgid "Bottom Left"
 msgstr ""
 
-#: admin/views/metabox-options.php:16
+#: admin/views/metaboxes/metabox-options.php:16
 msgid "Bottom Right"
 msgstr ""
 
-#: admin/views/metabox-options.php:23
+#: admin/views/metaboxes/metabox-options.php:23
 msgid "Trigger action"
 msgstr ""
 
-#: admin/views/metabox-options.php:27
+#: admin/views/metaboxes/metabox-options.php:27
 msgid "seconds after page load"
 msgstr ""
 
-#: admin/views/metabox-options.php:28
+#: admin/views/metaboxes/metabox-options.php:28
 msgid "of page height"
 msgstr ""
 
-#: admin/views/metabox-options.php:38
+#: admin/views/metaboxes/metabox-options.php:38
 msgid "Auto-hide?"
 msgstr ""
 
-#: admin/views/metabox-options.php:40 admin/views/metabox-options.php:69
+#: admin/views/metaboxes/metabox-options.php:40
+#: admin/views/metaboxes/metabox-options.php:69
 msgid "Yes"
 msgstr ""
 
-#: admin/views/metabox-options.php:41 admin/views/metabox-options.php:70
+#: admin/views/metaboxes/metabox-options.php:41
+#: admin/views/metaboxes/metabox-options.php:70
 msgid "No"
 msgstr ""
 
-#: admin/views/metabox-options.php:42
+#: admin/views/metaboxes/metabox-options.php:42
 #, php-format
 msgid ""
 "Hide box again when visitors scroll back up? Only works when Trigger action "
 "is set to % of page height"
 msgstr ""
 
-#: admin/views/metabox-options.php:47
+#: admin/views/metaboxes/metabox-options.php:47
 msgid "Animation"
 msgstr ""
 
-#: admin/views/metabox-options.php:50
+#: admin/views/metaboxes/metabox-options.php:50
 msgid "Fade In"
 msgstr ""
 
-#: admin/views/metabox-options.php:51
+#: admin/views/metaboxes/metabox-options.php:51
 msgid "Slide In"
 msgstr ""
 
-#: admin/views/metabox-options.php:54
+#: admin/views/metaboxes/metabox-options.php:54
 msgid "Slide will only apply when popup is on the corners"
 msgstr ""
 
-#: admin/views/metabox-options.php:59
+#: admin/views/metaboxes/metabox-options.php:59
 msgid "Cookie expiration days"
 msgstr ""
 
-#: admin/views/metabox-options.php:62
+#: admin/views/metaboxes/metabox-options.php:62
 msgid "After closing the box, how many days should it stay hidden?"
 msgstr ""
 
-#: admin/views/metabox-options.php:67
+#: admin/views/metaboxes/metabox-options.php:67
 msgid "Enable test mode?"
 msgstr ""
 
-#: admin/views/metabox-options.php:71
+#: admin/views/metaboxes/metabox-options.php:71
 msgid ""
 "If test mode is enabled, the box will show up regardless of whether a cookie "
 "has been set. (To admins only)"
 msgstr ""
 
-#: admin/views/metabox-options.php:77
+#: admin/views/metaboxes/metabox-options.php:77
 msgid "Appearance"
 msgstr ""
 
-#: admin/views/metabox-options.php:81
+#: admin/views/metaboxes/metabox-options.php:81
 msgid "Background opacity"
 msgstr ""
 
-#: admin/views/metabox-options.php:84
+#: admin/views/metaboxes/metabox-options.php:84
 msgid "Leave at 0 for no background. Max value is 1"
 msgstr ""
 
-#: admin/views/metabox-options.php:90
+#: admin/views/metaboxes/metabox-options.php:90
 msgid "Background color"
 msgstr ""
 
-#: admin/views/metabox-options.php:94
+#: admin/views/metaboxes/metabox-options.php:94
 msgid "Text color"
 msgstr ""
 
-#: admin/views/metabox-options.php:98
+#: admin/views/metaboxes/metabox-options.php:98
 msgid "Box width"
 msgstr ""
 
-#: admin/views/metabox-options.php:104
+#: admin/views/metaboxes/metabox-options.php:104
 msgid "Border color"
 msgstr ""
 
-#: admin/views/metabox-options.php:108
+#: admin/views/metaboxes/metabox-options.php:108
 msgid "Border width"
 msgstr ""
 
-#: admin/views/metabox-premium.php:16
+#: admin/views/metaboxes/metabox-premium.php:16
 msgid ""
 "Take the best WordPress Popups plugin to the next level with Popups Premium "
 "extension."
 msgstr ""
 
-#: admin/views/metabox-premium.php:17
+#: admin/views/metaboxes/metabox-premium.php:17
 msgid "Popups Premium Features:"
 msgstr ""
 
-#: admin/views/metabox-premium.php:19
+#: admin/views/metaboxes/metabox-premium.php:19
 msgid ""
 "Track impressions and Conversions of social likes/follow and forms "
 "submissions like Contact Form 7, Gravity forms, etc"
 msgstr ""
 
-#: admin/views/metabox-premium.php:20
+#: admin/views/metaboxes/metabox-premium.php:20
 msgid "Track impressions and Conversions also in Google Analytics"
 msgstr ""
 
-#: admin/views/metabox-premium.php:21 admin/views/metabox-premium.php:23
+#: admin/views/metaboxes/metabox-premium.php:21
+#: admin/views/metaboxes/metabox-premium.php:23
 msgid "Exit Intent technology"
 msgstr ""
 
-#: admin/views/metabox-premium.php:22
+#: admin/views/metaboxes/metabox-premium.php:22
 msgid "8 New animations effects"
 msgstr ""
 
-#: admin/views/metabox-premium.php:24
+#: admin/views/metaboxes/metabox-premium.php:24
 msgid "New trigger methods"
 msgstr ""
 
-#: admin/views/metabox-premium.php:25
+#: admin/views/metaboxes/metabox-premium.php:25
 msgid "Timer for auto closing"
 msgstr ""
 
-#: admin/views/metabox-premium.php:26
+#: admin/views/metaboxes/metabox-premium.php:26
 msgid "Ability to disable close button"
 msgstr ""
 
-#: admin/views/metabox-premium.php:27
+#: admin/views/metaboxes/metabox-premium.php:27
 msgid ""
 "Ability to disable Advanced close methods like esc or clicking outside of "
 "the popup"
 msgstr ""
 
-#: admin/views/metabox-premium.php:28
+#: admin/views/metaboxes/metabox-premium.php:28
 msgid "Premium support"
 msgstr ""
 
-#: admin/views/metabox-premium.php:32
+#: admin/views/metaboxes/metabox-premium.php:32
 msgid "Buy Now!"
 msgstr ""
 
-#: admin/views/metabox-rules.php:19
+#: admin/views/metaboxes/metabox-rules.php:19
 msgid "Rules"
 msgstr ""
 
-#: admin/views/metabox-rules.php:20
+#: admin/views/metaboxes/metabox-rules.php:20
 msgid "Create a set of rules to determine where the popup will show"
 msgstr ""
 
-#: admin/views/metabox-rules.php:31
+#: admin/views/metaboxes/metabox-rules.php:31
 msgid "Show this popup if"
 msgstr ""
 
-#: admin/views/metabox-rules.php:45
+#: admin/views/metaboxes/metabox-rules.php:45
 msgid "User"
 msgstr ""
 
-#: admin/views/metabox-rules.php:46
+#: admin/views/metaboxes/metabox-rules.php:46
 msgid "User role"
 msgstr ""
 
-#: admin/views/metabox-rules.php:47
+#: admin/views/metaboxes/metabox-rules.php:47
 msgid "User is logged"
 msgstr ""
 
-#: admin/views/metabox-rules.php:48
+#: admin/views/metaboxes/metabox-rules.php:48
 msgid "User never left a comment"
 msgstr ""
 
-#: admin/views/metabox-rules.php:49
+#: admin/views/metaboxes/metabox-rules.php:49
 msgid "User came via a search engine"
 msgstr ""
 
-#: admin/views/metabox-rules.php:50
+#: admin/views/metaboxes/metabox-rules.php:50
 msgid "User did not arrive via another page on your site"
 msgstr ""
 
-#: admin/views/metabox-rules.php:52 admin/views/metabox-rules.php:53
+#: admin/views/metaboxes/metabox-rules.php:52
+#: admin/views/metaboxes/metabox-rules.php:53
 msgid "Post"
 msgstr ""
 
-#: admin/views/metabox-rules.php:54
+#: admin/views/metaboxes/metabox-rules.php:54
+msgid "Post ID"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-rules.php:55
 msgid "Post Type"
 msgstr ""
 
-#: admin/views/metabox-rules.php:55
+#: admin/views/metaboxes/metabox-rules.php:56
 msgid "Post Category"
 msgstr ""
 
-#: admin/views/metabox-rules.php:56
+#: admin/views/metaboxes/metabox-rules.php:57
 msgid "Post Format"
 msgstr ""
 
-#: admin/views/metabox-rules.php:57
+#: admin/views/metaboxes/metabox-rules.php:58
 msgid "Post Status"
 msgstr ""
 
-#: admin/views/metabox-rules.php:58
+#: admin/views/metaboxes/metabox-rules.php:59
 msgid "Post Taxonomy"
 msgstr ""
 
-#: admin/views/metabox-rules.php:60 admin/views/metabox-rules.php:61
+#: admin/views/metaboxes/metabox-rules.php:61
+#: admin/views/metaboxes/metabox-rules.php:62
 msgid "Page"
 msgstr ""
 
-#: admin/views/metabox-rules.php:62
+#: admin/views/metaboxes/metabox-rules.php:63
 msgid "Page Type"
 msgstr ""
 
-#: admin/views/metabox-rules.php:63
+#: admin/views/metaboxes/metabox-rules.php:64
 msgid "Page Parent"
 msgstr ""
 
-#: admin/views/metabox-rules.php:64
+#: admin/views/metaboxes/metabox-rules.php:65
 msgid "Page Template"
 msgstr ""
 
-#: admin/views/metabox-rules.php:66
+#: admin/views/metaboxes/metabox-rules.php:67
 msgid "Other"
 msgstr ""
 
-#: admin/views/metabox-rules.php:67
+#: admin/views/metaboxes/metabox-rules.php:68
+msgid "Referrer"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-rules.php:69
 msgid "Mobile Phone"
 msgstr ""
 
-#: admin/views/metabox-rules.php:68
+#: admin/views/metaboxes/metabox-rules.php:70
 msgid "Tablet"
 msgstr ""
 
-#: admin/views/metabox-rules.php:92
+#: admin/views/metaboxes/metabox-rules.php:94
 msgid "is equal to"
 msgstr ""
 
-#: admin/views/metabox-rules.php:93
+#: admin/views/metaboxes/metabox-rules.php:95
 msgid "is not equal to"
 msgstr ""
 
-#: admin/views/metabox-rules.php:124
+#: admin/views/metaboxes/metabox-rules.php:126
 msgid "and"
 msgstr ""
 
-#: admin/views/metabox-rules.php:139
+#: admin/views/metaboxes/metabox-rules.php:141
 msgid "Add rule group"
 msgstr ""
 
-#: admin/views/metabox-support.php:6
+#: admin/views/metaboxes/metabox-support.php:6
 #, php-format
 msgid "You are using Popups plugin v%s"
 msgstr ""
 
-#: admin/views/metabox-support.php:7
+#: admin/views/metaboxes/metabox-support.php:7
 #, php-format
 msgid ""
 "If you need support please go to the WordPress.org <a href=\"%s\">support "
 "forums</a>"
 msgstr ""
 
-#: admin/views/settings-page.php:14
+#: admin/views/settings-page.php:18
 msgid "Ajax mode?"
 msgstr ""
 
-#: admin/views/settings-page.php:17
+#: admin/views/settings-page.php:21
 msgid ""
 "Load popups using ajax. Compatible with cache plugins, but might not work "
 "with all plugins"
 msgstr ""
 
-#: admin/views/settings-page.php:23
+#: admin/views/settings-page.php:27
 msgid "Enable Debug mode?"
 msgstr ""
 
-#: admin/views/settings-page.php:26
+#: admin/views/settings-page.php:30
 msgid "Will use uncompressed js"
 msgstr ""
 
-#: admin/views/settings-page.php:31
+#: admin/views/settings-page.php:35
 msgid "Enable safe mode?"
 msgstr ""
 
-#: admin/views/settings-page.php:34
+#: admin/views/settings-page.php:38
 msgid "Will move all popups to top of the screen."
 msgstr ""
 
-#: admin/views/settings-page.php:39
+#: admin/views/settings-page.php:43
 msgid "Remove shortcodes style"
 msgstr ""
 
-#: admin/views/settings-page.php:42
+#: admin/views/settings-page.php:46
 msgid ""
 "By default the plugin will apply some style to shortcodes. Check here if you "
 "want to manually style them"
 msgstr ""
 
-#: admin/views/settings-page.php:47
+#: admin/views/settings-page.php:51
 msgid "Unload Facebook javascript"
 msgstr ""
 
-#: admin/views/settings-page.php:50
+#: admin/views/settings-page.php:54
 msgid "If you use your own Facebook script, check this"
 msgstr ""
 
-#: admin/views/settings-page.php:55
+#: admin/views/settings-page.php:59
 msgid "Unload Google javascript"
 msgstr ""
 
-#: admin/views/settings-page.php:58
+#: admin/views/settings-page.php:62
 msgid "If you use your own Google script, check this"
 msgstr ""
 
-#: admin/views/settings-page.php:63
+#: admin/views/settings-page.php:67
 msgid "Unload Twitter javascript"
 msgstr ""
 
-#: admin/views/settings-page.php:66
+#: admin/views/settings-page.php:70
 msgid "If you use your own Twitter script, check this"
 msgstr ""
 
-#: admin/views/settings-page.php:71
+#: admin/views/settings-page.php:75
 msgid "Save settings"
 msgstr ""
 
@@ -631,53 +641,61 @@ msgid "Posts Page"
 msgstr ""
 
 #: includes/class-spu-helper.php:136
-msgid "Top Level Page (parent of 0)"
+msgid "Category Page"
 msgstr ""
 
 #: includes/class-spu-helper.php:137
-msgid "Parent Page (has children)"
+msgid "Archives Page"
 msgstr ""
 
 #: includes/class-spu-helper.php:138
+msgid "Top Level Page (parent of 0)"
+msgstr ""
+
+#: includes/class-spu-helper.php:139
+msgid "Parent Page (has children)"
+msgstr ""
+
+#: includes/class-spu-helper.php:140
 msgid "Child Page (has parent)"
 msgstr ""
 
-#: includes/class-spu-helper.php:146
+#: includes/class-spu-helper.php:148
 msgid "Default Template"
 msgstr ""
 
-#: includes/class-spu-helper.php:219
+#: includes/class-spu-helper.php:221
 msgid "Publish"
 msgstr ""
 
-#: includes/class-spu-helper.php:220
+#: includes/class-spu-helper.php:222
 msgid "Pending Review"
 msgstr ""
 
-#: includes/class-spu-helper.php:221
+#: includes/class-spu-helper.php:223
 msgid "Draft"
 msgstr ""
 
-#: includes/class-spu-helper.php:222
+#: includes/class-spu-helper.php:224
 msgid "Future"
 msgstr ""
 
-#: includes/class-spu-helper.php:223
+#: includes/class-spu-helper.php:225
 msgid "Private"
 msgstr ""
 
-#: includes/class-spu-helper.php:224
+#: includes/class-spu-helper.php:226
 msgid "Revision"
 msgstr ""
 
-#: includes/class-spu-helper.php:225
+#: includes/class-spu-helper.php:227
 msgid "Trash"
 msgstr ""
 
-#: includes/class-spu-helper.php:238
+#: includes/class-spu-helper.php:240
 msgid "Super Admin"
 msgstr ""
 
-#: includes/class-spu-helper.php:258
+#: includes/class-spu-helper.php:260
 msgid "True"
 msgstr ""
