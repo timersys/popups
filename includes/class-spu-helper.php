@@ -393,6 +393,7 @@ class Spu_Helper {
 			'cookie'			=> '99',
 			'auto_hide'			=> 0,
 			'test_mode'			=> 0,
+			'conversion_close' => '1',
 		);
 		
 		$opts = get_post_meta( $id, 'spu_options', true );

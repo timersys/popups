@@ -210,3 +210,7 @@ div#spu-premium li{
 #spu-rules .rules-group:first-child tr:first-child:hover .rules-remove-rule {
 	display: none;
 }
+#spu-options p.help {
+    font-weight: normal;
+    font-size: .9em !important;
+}

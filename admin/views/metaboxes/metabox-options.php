@@ -41,7 +41,6 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<label><input type="radio" id="spu_auto_hide_0" name="spu[auto_hide]" value="0" <?php checked($opts['auto_hide'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
 			<p class="help"><?php _e( 'Hide box again when visitors scroll back up? Only works when Trigger action is set to % of page height', $this->plugin_slug ); ?></p>
 		</td>
-		
 	</tr>
 	<tr valign="top">
 	<th><label><?php _e( 'Animation', $this->plugin_slug ); ?></label></th>
@@ -69,6 +68,14 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<label><input type="radio" id="spu_test_mode_1" name="spu[test_mode]" value="1" <?php checked($opts['test_mode'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
 			<label><input type="radio" id="spu_test_mode_0" name="spu[test_mode]" value="0" <?php checked($opts['test_mode'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
 			<p class="help"><?php _e( 'If test mode is enabled, the box will show up regardless of whether a cookie has been set. (To admins only)', $this->plugin_slug ); ?></p>
+		</td>
+	</tr>
+	<tr valign="top" class="conversion_close">
+		<th><label for="spu_conversion_close"><?php _e( 'Close on conversion?', $this->plugin_slug ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_conversion_close_1" name="spu[conversion_close]" value="1" <?php checked($opts['conversion_close'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_conversion_close_0" name="spu[conversion_close]" value="0" <?php checked($opts['conversion_close'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php _e( 'If you have a form or social shortcode, by default popup will close on submission/conversion', $this->plugin_slug ); ?></p>
 		</td>
 	</tr>
 	<?php do_action( 'spu/metaboxes/after_display_options', $opts );?>

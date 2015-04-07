@@ -359,26 +359,35 @@ var SPU_master = function() {
 
 			});
 			fixSize( id );
-				
-			
 		
 		}
 		
 		// show box
-		var animation = $box.data('spuanimation');
+		var animation = $box.data('spuanimation'),
+            conversion_close = $box.data('close-on-conversion');
 
-		if( animation === 'fade' ) {
-			$box.fadeToggle( 'slow' );
-		} else {
-			$box.slideToggle( 'slow' );
-		}
-			
-		//background
-		if( show === true && $bgopa > 0 ){
-			$bg.fadeIn();
-		} else {
-			$bg.fadeOut();
-		}
+
+        if (animation === 'fade') {
+            if (show === true) {
+                $box.fadeIn('slow');
+            } else if (show === false && conversion_close ) {
+                $box.fadeOut('slow');
+            }
+        } else {
+            if (show === true ) {
+                $box.slideDown('slow');
+            } else if (show === false && conversion_close ) {
+                $box.slideUp('slow');
+            }
+        }
+
+        //background
+        if (show === true && $bgopa > 0) {
+            $bg.fadeIn();
+        } else if (show === false && conversion_close ) {
+            $bg.fadeOut();
+        }
+
 		return show;
 	}
 
