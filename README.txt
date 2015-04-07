@@ -69,6 +69,7 @@ Fork me in https://github.com/timersys/popups/
 = Available Languages = 
 
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
+* Spanish - Andrew Kurtis - http://www.webhostinghub.com/
 
 = Install Multiple plugins at once with WpFavs  =
 
@@ -106,6 +107,11 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.2.3.6 =
+
+* Added new option to keep popup open on conversion
+* Added spanish language
 
 = 1.2.3.5 =
 
