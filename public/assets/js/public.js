@@ -203,6 +203,13 @@ var SPU_master = function() {
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 
+        // Disable ajax on form by adding .spu-disable-ajax class to it
+        $box.on('submit','form.spu-disable-ajax', function(){
+
+            $box.trigger('spu.form_submitted', [id]);
+            toggleBox(id, false );
+        });
+
         // Add generic form tracking
         $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form")', function(e){
          	e.preventDefault();
