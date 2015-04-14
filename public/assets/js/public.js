@@ -88,7 +88,7 @@ var SPU_master = function() {
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
-				toggleBox( id, false );
+				toggleBox( id, false, false );
 			}
 		});
 		//close on ipads // iphones
@@ -99,7 +99,7 @@ var SPU_master = function() {
 			// test that event is user triggered and not programatically
 			if( ev.originalEvent !== undefined ) {
 
-				toggleBox( id, false );
+				toggleBox( id, false, false );
 				
 			}				
 		});
@@ -133,9 +133,9 @@ var SPU_master = function() {
 						$(window).unbind('scroll', triggerHeightCheck);
 					}
 
-					toggleBox( id, true );
+					toggleBox( id, true, false );
 				} else {
-					toggleBox( id, false );
+					toggleBox( id, false, false );
 				}
 
 			}, 100);
@@ -149,7 +149,7 @@ var SPU_master = function() {
 
 			timer = window.setTimeout(function() { 
 
-				toggleBox( id, true );					
+				toggleBox( id, true, false );
 
 			}, triggerSeconds * 1000);
 		}
@@ -175,7 +175,7 @@ var SPU_master = function() {
 
 				if( hash.substring(1) === $box.attr( 'id' ) ) {
 					setTimeout(function() {
-						toggleBox( id, true );
+						toggleBox( id, true, false );
 					}, 100);
 				}
 			}
@@ -184,7 +184,7 @@ var SPU_master = function() {
 		$box.find(".spu-close-popup").click(function() {
 
 			// hide box
-			toggleBox( id, false );
+			toggleBox( id, false, false );
 
 			if(triggerMethod == 'percentage') {
 				// unbind 
@@ -196,7 +196,7 @@ var SPU_master = function() {
 		// add link listener for this box
 		$('a[href="#' + $box.attr('id') +'"]').click(function() { 
 			
-			toggleBox(id, true); 
+			toggleBox(id, true, false);
 			return false;
 		});
 
@@ -207,11 +207,11 @@ var SPU_master = function() {
         $box.on('submit','form.spu-disable-ajax', function(){
 
             $box.trigger('spu.form_submitted', [id]);
-            toggleBox(id, false );
+            toggleBox(id, false, true );
         });
 
         // Add generic form tracking
-        $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form")', function(e){
+        $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax")', function(e){
          	e.preventDefault();
 
             
@@ -233,7 +233,7 @@ var SPU_master = function() {
                 	// give 2 seconds for response
                 	setTimeout( function(){
 
-                		toggleBox(id, false );
+                		toggleBox(id, false, true );
                 		
                 	}, spuvar.seconds_confirmation_close * 1000);
 
@@ -250,20 +250,20 @@ var SPU_master = function() {
         // CF7 support
         $('body').on('mailsent.wpcf7', function(){
             $box.trigger('spu.form_submitted', [id]);
-        	toggleBox(id, false ); 
+        	toggleBox(id, false, true );
         }); 
 
         // Gravity forms support (only AJAX mode)
         $(document).on('gform_confirmation_loaded', function(){
             $box.trigger('spu.form_submitted', [id]);
-        	toggleBox(id, false ); 
+        	toggleBox(id, false, true );
         });
 
         // Infusion Software - not ajax
         $box.on('submit','.infusion-form', function(e){
             e.preventDefault();
             $box.trigger('spu.form_submitted', [id]);
-        	toggleBox(id, false );
+        	toggleBox(id, false, true );
             this.submit();
         });
 
@@ -332,9 +332,15 @@ var SPU_master = function() {
 			}
 		}
 	}
-	
-	//function that show/hide box
-	function toggleBox( id, show ) {
+
+    /**
+     * Main function to show or hide the popup
+     * @param id int box id
+     * @param show boolean it's hiding or showing?
+     * @param conversion boolean - Its a conversion or we are just closing
+     * @returns {*}
+     */
+    function toggleBox( id, show, conversion ) {
 		var $box 	= $boxes[id];
 		var $bg	 	= $('#spu-bg-'+id);
 		var $bgopa 	= $box.data('bgopa');
@@ -400,10 +406,10 @@ var SPU_master = function() {
 
 	return {
 		show: function( box_id ) {
-			return toggleBox( box_id, true );
+			return toggleBox( box_id, true, false );
 		},
 		hide: function( box_id ) {
-			return toggleBox( box_id, false );
+			return toggleBox( box_id, false, false );
 		},
 		request: function( data, url, success_cb, error_cb ) {
 			return request( data, url, success_cb, error_cb );
