@@ -191,7 +191,9 @@ h3.spu-title {
 #spu-rules .rules-group .rules-remove-rule:hover {
 	color: red;
 }	
-
+/**
+* Other Rules
+*/
 .spu-loading{
 	height: 16px;
     margin: 10px auto;

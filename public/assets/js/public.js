@@ -600,7 +600,9 @@ function SPU_reload_forms(){
 	// Clear actions
 	$('.spu-box form').each( function(){
 		var action = $(this).attr('action');
-		$(this).attr('action' , action.replace('?spu_action=spu_load',''));
+        if( action ){
+            $(this).attr('action' , action.replace('?spu_action=spu_load',''));
+        }
 	});
 	if ($.fn.wpcf7InitForm) {
 		$('.spu-box div.wpcf7 > form').wpcf7InitForm();

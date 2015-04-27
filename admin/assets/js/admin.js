@@ -9,8 +9,11 @@ SPU_ADMIN = (function ( $ ) {
 	$(document).ready(function(){
 		
 		spu.rules.init();
+        var color_field = $('#spu-options input.spu-color-field');
 		//Thanks to scoll triggered boxes plugin for this piece of javascript
-		$('#spu-options input.spu-color-field').wpColorPicker({ change: applyStyles, clear: applyStyles });
+		if( color_field.length ){
+            color_field.wpColorPicker({ change: applyStyles, clear: applyStyles });
+        }
 		$("#spu-options :input").not(".spu-color-field").change(applyStyles);
 
 		//Toogle trigger boxes on init
@@ -51,25 +54,30 @@ SPU_ADMIN = (function ( $ ) {
 	}
 
 	function applyStyles() 
-	{		
+	{
 		var $editor = $("#content_ifr").contents().find('html');
-
+        $editor.trigger('spu_tinymce_init');
 		$editor.css({
-			'background': 'white'
+			'background': '#9C9B9B;'
 		});
-
-		$editor.find("#tinymce").css({
-			'padding': '25px',
-			'background-color': getColor($("#spu-background-color")),
-			'border-color': getColor($("#spu-border-color")),
-			'border-width': getPxValue($("#spu-border-width")),
-			'border-style': 'solid',
-			'display': "inline-block",
-			'width': $("#spu-width").val(),
-			'color': getColor($("#spu-color")),
-			'height': 'auto',
-			'min-width': '200px'
-		});
+        // remove any field that could be there after deactivating premium version
+        $editor.find(".spu-fields-container").remove();
+        // if there is no optin mode load defaults
+        if (typeof spup_js == "undefined" || !spup_js.opts.optin) {
+            $editor.find("#tinymce").css({
+                'padding': '25px',
+                'background-color': getColor($("#spu-background-color")),
+                'border-color': getColor($("#spu-border-color")),
+                'border-width': getPxValue($("#spu-border-width")),
+                'border-style': 'solid',
+                'width': $("#spu-width").val(),
+                'color': getColor($("#spu-color")),
+                'height': 'auto',
+                'min-width': '200px',
+                'max-width': '100%',
+                'margin': '8px auto 0;'
+            });
+        }
 	}
 
 
@@ -256,6 +264,7 @@ SPU_ADMIN = (function ( $ ) {
 	return { 
 		onTinyMceInit: function() {
 			applyStyles();
+
 		}
 	}
 }(jQuery));	
