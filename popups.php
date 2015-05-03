@@ -11,7 +11,7 @@
  * @socialpopup
  * Plugin Name:       Popups - WordPress Popup
  * Plugin URI:        http://www.timersys.com/free-plugins/social-popup/
- * Version: 		  1.2.3.5
+ * Version: 		  1.3.0.1
  * Description: 	  This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
  * Author: 			  Damian Logghe
  * Author URI:        http://wp.timersys.com
@@ -36,6 +36,8 @@ define( 'SPU_PLUGIN_HOOK' , basename( dirname( __FILE__ ) ) . '/' . basename( __
 
 
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-social-popup.php' );
+// Include Helper class
+require_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.

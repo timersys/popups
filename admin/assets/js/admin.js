@@ -60,10 +60,11 @@ SPU_ADMIN = (function ( $ ) {
 		$editor.css({
 			'background': '#9C9B9B;'
 		});
-        // remove any field that could be there after deactivating premium version
-        $editor.find(".spu-fields-container").remove();
+
         // if there is no optin mode load defaults
-        if (typeof spup_js == "undefined" || !spup_js.opts.optin) {
+        if (typeof spup_js == "undefined" || $('#spu_optin').val() == '') {
+            // remove any field that could be there after deactivating premium version
+            $editor.find(".spu-fields-container").remove();
             $editor.find("#tinymce").css({
                 'padding': '25px',
                 'background-color': getColor($("#spu-background-color")),
