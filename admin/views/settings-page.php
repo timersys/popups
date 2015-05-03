@@ -13,14 +13,19 @@
 	<form name="spu-settings" method="post">
 		<table class="form-table">
 			<?php do_action( 'spu/settings_page/before' ); ?>
-
+			<tr valign="top" class="">
+				<th><label for="add_link"><?php _e( 'Affiliate link', $this->plugin_slug ); ?></label></th>
+				<td colspan="3">
+					<label><input type="text" id="add_link" name="spu_settings[aff_link]" value="<?php  echo @$opts['aff_link'];?>" class="regular-text" />
+						<p class="help"><?php echo sprintf(__( 'You can earn money by promoting the plugin! Join <a href="%s">our affiliate program</a> and paste your affiliate link here to earn 35&#37; in commissions . Once entered, it will replace the default "Powered by" on the popups.', $this->plugin_slug ) , 'https://wp.timersys.com/affiliates/'); ?></p>
+				</td>
+			</tr>
 			<tr valign="top" class="">
 				<th><label for="ajax_mode"><?php _e( 'Ajax mode?', $this->plugin_slug ); ?></label></th>
 				<td colspan="3">
 					<label><input type="checkbox" id="ajax_mode" name="spu_settings[ajax_mode]" value="1" <?php checked(@$opts['ajax_mode'], 1); ?> />
 					<p class="help"><?php _e( 'Load popups using ajax. Compatible with cache plugins, but might not work with all plugins', $this->plugin_slug ); ?></p>
 				</td>
-				
 			</tr>
 
 			<tr valign="top" class="">

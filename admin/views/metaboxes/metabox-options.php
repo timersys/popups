@@ -78,6 +78,14 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'If you have a form or social shortcode, by default popup will close on submission/conversion', $this->plugin_slug ); ?></p>
 		</td>
 	</tr>
+	<tr valign="top" class="powered_link">
+		<th><label for="spu_powered_link"><?php _e( 'Show powered by link?', $this->plugin_slug ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_powered_link_1" name="spu[powered_link]" value="1" <?php checked($opts['powered_link'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_powered_link_0" name="spu[powered_link]" value="0" <?php checked($opts['powered_link'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php echo sprintf(__( 'Shows a "powered by" link below your popup. If your affiliate link is set in the <a href="%s">settings</a>, it will be used.', $this->plugin_slug ), admin_url('edit.php?post_type=spucpt&page=spu_settings')); ?></p>
+		</td>
+	</tr>
 	<?php do_action( 'spu/metaboxes/after_display_options', $opts );?>
 </table>
 	<h3 class="spu-title"><?php _e( 'Appearance', $this->plugin_slug ); ?></h3>
