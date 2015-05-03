@@ -36,6 +36,8 @@ define( 'SPU_PLUGIN_HOOK' , basename( dirname( __FILE__ ) ) . '/' . basename( __
 
 
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-social-popup.php' );
+// Include Helper class
+require_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
