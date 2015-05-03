@@ -62,7 +62,7 @@ SPU_ADMIN = (function ( $ ) {
 		});
 
         // if there is no optin mode load defaults
-        if (typeof spup_js == "undefined" || !spup_js.opts.optin) {
+        if (typeof spup_js == "undefined" || $('#spu_optin').val() == '') {
             // remove any field that could be there after deactivating premium version
             $editor.find(".spu-fields-container").remove();
             $editor.find("#tinymce").css({
