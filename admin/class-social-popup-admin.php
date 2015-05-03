@@ -12,9 +12,6 @@
 
 define( 'SPU_ADMIN_DIR' , plugin_dir_path(__FILE__) );
 
-// Include Helper class
-include_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
-
 
 /**
  * Admin Class of the plugin
@@ -118,7 +115,7 @@ class SocialPopup_Admin {
 
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
-
+		add_action( 'admin_init', array( $this, 'editor_styles' ) );
 	}
 
 	/**
@@ -556,7 +553,9 @@ class SocialPopup_Admin {
 
 		wp_localize_script( 'spup-admin-js' , 'spup_js' ,
 				array(
-					'opts'      => $this->helper->get_box_options($box_id)
+					'opts'      => $this->helper->get_box_options($box_id),
+					'spinner'   => SPU_PLUGIN_URL . 'public/assets/img/ajax-loader.gif'
+
 				)
 		);
 	}
@@ -683,4 +682,11 @@ class SocialPopup_Admin {
 		return $args;
 	}
 
+	/**
+	 * Add the stylesheet for optin in editor
+	 * @since 1.2.3.6
+	 */
+	function editor_styles() {
+		add_editor_style( SPU_PLUGIN_URL .'admin/assets/css/editor-style.css' );
+	}
 }
