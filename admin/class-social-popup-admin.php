@@ -687,7 +687,9 @@ class SocialPopup_Admin {
 	 * @since 1.2.3.6
 	 */
 	function editor_styles() {
-		if( get_post_type() == 'spucpt' || (isset( $_GET['post_type']) && $_GET['post_type'] == 'spucpt') ) {
+		$post_type = isset($_GET['post']) ? get_post_type($_GET['post']) : '';
+
+		if( 'spucpt' == $post_type || get_post_type() == 'spucpt' || (isset( $_GET['post_type']) && $_GET['post_type'] == 'spucpt') ) {
 			add_editor_style( SPU_PLUGIN_URL . 'admin/assets/css/editor-style.css' );
 		}
 	}
