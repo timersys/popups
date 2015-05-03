@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
-Tested up to: 4.1.1
-Stable tag: 1.2.3.5
+Tested up to: 4.2.1
+Stable tag: 1.3
 Text Domain: spucpt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -47,6 +47,7 @@ There are multiple display filters that can be combined:
 > 
 > Check the **new premium version** available in ([http://wp.timersys.com/popups/](http://wp.timersys.com/popups/))
 >
+> * Beautiful optin forms for popular mail providers like MailChimp
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
@@ -108,10 +109,15 @@ Yes if you need to debug you can use uncompressed javascript by addings ([this c
 
 == Changelog ==
 
-= 1.2.3.6 =
+= 1.3 =
 
 * Added new option to keep popup open on conversion
 * Added spanish language
+* Added "powered by" link with affiliate support
+* Improved popups style in admin area
+* User can now remove ajax from generic form by added .spu-disable-ajax class
+* Fixed bug when not using social shortcodes
+* Updated core to work with latest premium version
 
 = 1.2.3.5 =
 
