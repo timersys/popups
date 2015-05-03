@@ -216,3 +216,69 @@ div#spu-premium li{
     font-weight: normal;
     font-size: .9em !important;
 }
+
+@font-face {
+    font-family: 'spufont';
+    src:url('../../../public/assets/fonts/spufont.eot?sze5my');
+    src:url('../../../public/assets/fonts/spufont.eot?#iefixsze5my') format('embedded-opentype'),
+    url('../../../public/assets/fonts/spufont.woff?sze5my') format('woff'),
+    url('../../../public/assets/fonts/spufont.ttf?sze5my') format('truetype'),
+    url('../../../public/assets/fonts/spufont.svg?sze5my#spufont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="spu-icon-"], [class*=" spu-icon-"] {
+    font-family: 'spufont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.spu-icon-envelope:before {
+    content: "\f003";
+}
+
+.spu-icon-check:before {
+    content: "\f00c";
+}
+
+.spu-icon-close:before {
+    content: "\f00d";
+}
+
+.spu-icon-eye:before {
+    content: "\f06e";
+}
+
+.spu-icon-gears:before {
+    content: "\f085";
+}
+
+.spu-icon-spinner:before {
+    content: "\f110";
+    animation: spu-rotate 1s infinite linear;
+    -webkit-animation: spu-rotate 1s infinite linear;
+    -o-animation: spu-rotate 1s infinite linear;
+    -moz-animation: spu-rotate 1s infinite linear;
+}
+@keyframes spu-rotate {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        transform: rotate(359deg);
+        opacity: 1;
+    }
+}
