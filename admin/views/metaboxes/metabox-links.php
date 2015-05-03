@@ -8,6 +8,6 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <h4><?php _e( 'Other plugins I built:', $this->plugin_slug );?></h4>
 <ul>
 	<li> <a href="http://wordpress.org/plugins/wpfavs/" target="_blank">Wp Favs</a> - <?php _e( 'Install multiple plugins and create collections', $this->plugin_slug );?></li>
-	<li> <a href="http://wordpress.org/plugins/twitter-like-box-reloaded/" target="_blank">Twitter like Box</a> - <?php _e( 'Like Facebook like box but for Twitter', $this->plugin_slug );?></li>
+	<li> <a href="http://wordpress.org/plugins/geotargeting/" target="_blank">Geotargeting</a> - <?php _e( 'Geotarget your content', $this->plugin_slug );?></li>
 	<li> <a href="http://wordpress.org/plugins/wp-social-invitations" target="_blank">Wordpress Social Invitations</a> - <?php _e( 'Invite your network friends and import contacts', $this->plugin_slug );?></li>
 </ul>	
