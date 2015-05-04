@@ -181,7 +181,7 @@ var SPU_master = function() {
 			}
 		}	/* end check cookie */
 
-		$box.find(".spu-close-popup").click(function() {
+        $box.on('click','.spu-close-popup',function() {
 
 			// hide box
 			toggleBox( id, false, false );
