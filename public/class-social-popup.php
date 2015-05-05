@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.3.0.1';
+	const VERSION = '1.3.0.2';
 
 	/**
 	 * Popups to use acrros files
