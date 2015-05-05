@@ -101,7 +101,7 @@ class SocialPopup {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		if( !isset($this->spu_settings['ajax_mode'] ) ) {
+		if( empty($this->spu_settings['ajax_mode'] ) ) {
 			//print boxes
 			add_action( 'wp_footer', array( $this, 'print_boxes' ) );
 		}
