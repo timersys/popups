@@ -180,7 +180,7 @@ var SPU_master = function() {
 				}
 			}
 		}	/* end check cookie */
-
+        //close popup
         $box.on('click','.spu-close-popup',function() {
 
 			// hide box
@@ -554,7 +554,6 @@ function twitterCB(intent_event) {
 		SPU.hide(box_id);
 	}
 }
-
 function googleCB(a) {
 
 	if( "on" == a.state ) {
