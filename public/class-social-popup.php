@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.3.0.3';
+	const VERSION = SPU_VERSION;
 
 	/**
 	 * Popups to use acrros files
@@ -294,6 +294,14 @@ class SocialPopup {
 			);
 			wp_insert_post( $defaults, $wp_error );
 		}
+
+		$upgrader = new SocialPopup_Upgrader();
+		$upgrader->upgrade_plugin();
+
+		update_option('spu-version', SPU_VERSION);
+
+		do_action( 'spu/activate' );
+
 	}
 
 	/**
