@@ -215,21 +215,26 @@ class SocialPopup_Admin {
 	 */	
 	public function settings_page() {
 
-		$defaults = array(
+		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
+			'aff_link'         => '',
+			'ajax_mode'        => '1',
 			'debug'            => '',
 			'safe'             => '',
 			'shortcodes_style' => '',
 			'facebook'         => '',
 			'google'           => '',
 			'twitter'          => '',
-		);
-		$opts = apply_filters( 'spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
+			'spu_license_key'  => '',
+			'ua_code'          => '',
+			'mc_api'           => '',
+		));
+		$opts = apply_filters( 'spu/settings_page/opts', wp_parse_args(get_option( 'spu_settings', $defaults ), $defaults ) );
+
 
 		if ( isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
-			$opts = array_merge(esc_sql( @$_POST['spu_settings'] ), $opts);
+			$opts = esc_sql( @$_POST['spu_settings'] );
 			update_option( 'spu_settings' , $opts );
 		}
-
 
 
 		include 'views/settings-page.php';

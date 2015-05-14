@@ -23,7 +23,7 @@ class SocialPopup {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '1.3.0.3';
+	const VERSION = SPU_VERSION;
 
 	/**
 	 * Popups to use acrros files
@@ -101,7 +101,7 @@ class SocialPopup {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
-		if( !isset($this->spu_settings['ajax_mode'] ) ) {
+		if( empty($this->spu_settings['ajax_mode'] ) ) {
 			//print boxes
 			add_action( 'wp_footer', array( $this, 'print_boxes' ) );
 		}
@@ -294,6 +294,14 @@ class SocialPopup {
 			);
 			wp_insert_post( $defaults, $wp_error );
 		}
+
+		$upgrader = new SocialPopup_Upgrader();
+		$upgrader->upgrade_plugin();
+
+		update_option('spu-version', SPU_VERSION);
+
+		do_action( 'spu/activate' );
+
 	}
 
 	/**
@@ -341,11 +349,11 @@ class SocialPopup {
 		
 		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', 'http://connect.facebook.net/'.get_locale().'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
 
-		wp_register_script( 'spu-twitter', 'http://platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-twitter', '//platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 		
-		wp_register_script( 'spu-google', 'https://apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-google', '//apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
 
 	}
 
