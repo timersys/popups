@@ -383,13 +383,13 @@ var SPU_master = function() {
         if (animation === 'fade') {
             if (show === true) {
                 $box.fadeIn('slow');
-            } else if (show === false && conversion_close ) {
-                $box.fadeOut('slow');
+            } else if (show === false && ( (conversion_close && conversion ) || !conversion )  ) {
+                    $box.fadeOut('slow');
             }
         } else {
             if (show === true ) {
                 $box.slideDown('slow');
-            } else if (show === false && conversion_close ) {
+            } else if (show === false && ( (conversion_close && conversion ) || !conversion )  ) {
                 $box.slideUp('slow');
             }
         }
