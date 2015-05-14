@@ -217,7 +217,7 @@ class SocialPopup_Admin {
 
 		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
 			'aff_link'         => '',
-			'ajax_mode'        => '',
+			'ajax_mode'        => '1',
 			'debug'            => '',
 			'safe'             => '',
 			'shortcodes_style' => '',
@@ -232,7 +232,7 @@ class SocialPopup_Admin {
 
 
 		if ( isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
-			$opts = wp_parse_args(esc_sql( @$_POST['spu_settings'] ), $defaults);
+			$opts = esc_sql( @$_POST['spu_settings'] );
 			update_option( 'spu_settings' , $opts );
 		}
 
