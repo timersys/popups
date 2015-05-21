@@ -421,6 +421,7 @@ class SocialPopup {
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
 				'is_category'				    => is_category(),
+				'site_url'				        => site_url(),
 				'is_archive'				    => is_archive(),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
 			)

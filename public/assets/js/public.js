@@ -203,6 +203,18 @@ var SPU_master = function() {
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 
+        // check if form action is external and disable ajax
+        var box_form = $box.find('form');
+        if( box_form.length ) {
+            var action = box_form.attr('action'),
+                pattern = new RegExp(spuvar.site_url,"i");
+            if( action.length ) {
+                if (!pattern.test(action))
+                    box_form.addClass('spu-disable-ajax');
+            }
+        }
+
+
         // Disable ajax on form by adding .spu-disable-ajax class to it
         $box.on('submit','form.spu-disable-ajax', function(){
 
@@ -212,63 +224,64 @@ var SPU_master = function() {
 
         // Add generic form tracking
         $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax")', function(e){
-         	e.preventDefault();
+            e.preventDefault();
 
-            
+
             var submit 	= true,
-            form 		= $(this),
-            data 	 	= form.serialize(),
-            url  	 	= form.attr('action'),
-            error_cb 	= function (data, error, errorThrown){
-            	console.log('Spu Form error: ' + error + ' - ' + errorThrown);
-            },	
-            success_cb 	= function (data){
-            	
-            	var response = $(data).filter('#spu-'+ id ).html();
-            	$('#spu-' + id ).html(response);
+                form 		= $(this),
+                data 	 	= form.serialize(),
+                url  	 	= form.attr('action'),
+                error_cb 	= function (data, error, errorThrown){
+                    console.log('Spu Form error: ' + error + ' - ' + errorThrown);
+                },
+                success_cb 	= function (data){
 
-            	// check if an error was returned for m4wp
-            	if( ! $('#spu-' + id ).find('.mc4wp-form-error').length ) {
+                    var response = $(data).filter('#spu-'+ id ).html();
+                    $('#spu-' + id ).html(response);
 
-                	// give 2 seconds for response
-                	setTimeout( function(){
+                    // check if an error was returned for m4wp
+                    if( ! $('#spu-' + id ).find('.mc4wp-form-error').length ) {
 
-                		toggleBox(id, false, true );
-                		
-                	}, spuvar.seconds_confirmation_close * 1000);
+                        // give 2 seconds for response
+                        setTimeout( function(){
 
-                }	
-            };
+                            toggleBox(id, false, true );
+
+                        }, spuvar.seconds_confirmation_close * 1000);
+
+                    }
+                };
             // Send form by ajax and replace popup with response
             request(data, url, success_cb, error_cb, 'html');
 
             $box.trigger('spu.form_submitted', [id]);
 
             return submit;
-         });
+        });
 
         // CF7 support
         $('body').on('mailsent.wpcf7', function(){
             $box.trigger('spu.form_submitted', [id]);
-        	toggleBox(id, false, true );
-        }); 
+            toggleBox(id, false, true );
+        });
 
         // Gravity forms support (only AJAX mode)
         $(document).on('gform_confirmation_loaded', function(){
             $box.trigger('spu.form_submitted', [id]);
-        	toggleBox(id, false, true );
+            toggleBox(id, false, true );
         });
 
         // Infusion Software - not ajax
         $box.on('submit','.infusion-form', function(e){
             e.preventDefault();
             $box.trigger('spu.form_submitted', [id]);
-        	toggleBox(id, false, true );
+            toggleBox(id, false, true );
             this.submit();
         });
 
-	});
-	
+    });
+
+
 
 	//function that center popup on screen
 	function fixSize( id ) {
