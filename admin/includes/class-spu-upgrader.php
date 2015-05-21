@@ -26,6 +26,4 @@ class SocialPopup_Upgrader {
 			}
 		}
 	}
-
-
 }

@@ -261,13 +261,21 @@ div#spu-premium li{
 .spu-icon-gears:before {
     content: "\f085";
 }
-
+.spu-icon-angle-down:before {
+    content: "\f107";
+}
 .spu-icon-spinner:before {
     content: "\f110";
     animation: spu-rotate 1s infinite linear;
     -webkit-animation: spu-rotate 1s infinite linear;
     -o-animation: spu-rotate 1s infinite linear;
     -moz-animation: spu-rotate 1s infinite linear;
+}
+.spu-icon-info:before {
+    content: "\ea0c";
+}
+h3 .spu-icon {
+    margin-right: 7px;
 }
 @keyframes spu-rotate {
     0% {
