@@ -208,12 +208,11 @@ var SPU_master = function() {
         if( box_form.length ) {
             var action = box_form.attr('action'),
                 pattern = new RegExp(spuvar.site_url,"i");
-            if( action.length ) {
+            if( action && action.length ) {
                 if (!pattern.test(action))
                     box_form.addClass('spu-disable-ajax');
             }
         }
-
 
         // Disable ajax on form by adding .spu-disable-ajax class to it
         $box.on('submit','form.spu-disable-ajax', function(){
