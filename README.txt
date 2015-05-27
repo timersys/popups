@@ -4,18 +4,19 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
 Tested up to: 4.2.2
-Stable tag: 1.3.1
+Stable tag: 1.3.1.1
 Text Domain: spu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Increase your followers ratio 40% with the new Popups - Multiple popup options, scroll triggered popups with multiple options
+Most complete free Popups plugin, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, etc
 
 == Description ==
 
 
 The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message in a simple popup. 
 
+It's compatible with the major form plugins like : Gravity Forms, Ninja Forms, Contact form 7, jetpack etc
 
 There are multiple display filters that can be combined:
 
@@ -41,13 +42,13 @@ There are multiple display filters that can be combined:
 * Days until popup shows again
 * Ajax mode to make popups cache compatible
 * Shortcodes for social networks available
-* Compatible with Gravity Forms, Infusion Soft, Contact form 7, jetpack forms and much more
+* Compatible with Gravity Forms, Infusion Soft, Contact form 7, Ninja forms jetpack forms and much more
 
 > <strong>Premium Version</strong><br>
 > 
-> Check the **new premium version** available in ([http://wp.timersys.com/popups/](http://wp.timersys.com/popups/))
+> Check the **new premium version** available in ([https://wp.timersys.com/popups/](http://wp.timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
-> * Beautiful optin forms for popular mail providers like MailChimp
+> * Beautiful optin forms for popular mail providers like MailChimp, Aweber
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
@@ -108,6 +109,12 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.3.1.1 =
+* Plugin now disabled ajax on forms that are not compatible with it
+* Added some visuals on backend
+* Code changes for premium version
+* Fixed bug when multiple images are use in a post
 
 = 1.3.1 =
 * Fixed bug popup not closing when using conversion close option
