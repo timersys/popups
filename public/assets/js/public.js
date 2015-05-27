@@ -440,8 +440,10 @@ if( spuvar.ajax_mode ) {
     ,success_cb = function(response) {
     	
     	$('body').append(response);
-    	window.SPU = SPU_master();
-		SPU_reload_forms(); //remove spu_Action from forms
+        jQuery(window).load(function() {
+            window.SPU = SPU_master();
+            SPU_reload_forms(); //remove spu_Action from forms
+        });
     	
     },
     error_cb 	= function (data, error, errorThrown){
