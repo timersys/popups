@@ -182,9 +182,18 @@ p.spu-powered a{
     content: "\f085";
 }
 
+.spu-icon-angle-up:before {
+    content: "\f106";
+}
+
+.spu-icon-angle-down:before {
+    content: "\f107";
+}
+
 .spu-icon-spinner:before {
     content: "\f110";
 }
+
 .spu-spinner {
     -webkit-animation: spu-rotate 1s infinite linear;
     -moz-animation: spu-rotate 1s infinite linear;

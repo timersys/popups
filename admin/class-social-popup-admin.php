@@ -228,7 +228,7 @@ class SocialPopup_Admin {
 			'ua_code'          => '',
 			'mc_api'           => '',
 		));
-		$opts = apply_filters( 'spu/settings_page/opts', wp_parse_args(get_option( 'spu_settings', $defaults ), $defaults ) );
+		$opts = apply_filters( 'spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
 
 
 		if ( isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {
@@ -261,7 +261,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-help',
-			__( 'PopUp Shortcodes', $this->plugin_slug ),
+			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', $this->plugin_slug ),
 			array( $this, 'popup_help' ),
 			'spucpt',
 			'normal',
@@ -270,7 +270,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-rules',
-			__( 'PopUp Display Rules', $this->plugin_slug ),
+			'<i class="spu-icon-eye spu-icon"></i>' . __( 'PopUp Display Rules', $this->plugin_slug ),
 			array( $this, 'popup_rules' ),
 			'spucpt',
 			'normal',
@@ -279,7 +279,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-options',
-			__( 'Display Options', $this->plugin_slug ),
+			'<i class="spu-icon-gears spu-icon"></i>' . __( 'Display Options', $this->plugin_slug ),
 			array( $this, 'popup_options' ),
 			'spucpt',
 			'normal',
@@ -515,7 +515,9 @@ class SocialPopup_Admin {
 
 		global $pagenow;
 
-		if ( get_post_type() !== 'spucpt' || !in_array( $pagenow, array( 'post-new.php', 'post.php' ) ) ) {
+		$post_type = isset($_GET['post_type']) ? $_GET['post_type'] : get_post_type();
+
+		if (  $post_type !== 'spucpt' || !in_array( $pagenow, array( 'post-new.php', 'post.php', 'edit.php' ) ) ) {
 			return;
 		}
 		wp_enqueue_style( 'spu-admin-css', plugins_url( 'assets/css/admin.css', __FILE__ ) , '', SocialPopup::VERSION );
@@ -537,7 +539,7 @@ class SocialPopup_Admin {
 	public function enqueue_admin_scripts() {
 		global $pagenow, $post;
 
-		if ( get_post_type() !== 'spucpt' || !in_array( $pagenow, array( 'post-new.php', 'post.php' ) ) ) {
+		if ( get_post_type() !== 'spucpt' || !in_array( $pagenow, array( 'post-new.php', 'edit.php', 'post.php' ) ) ) {
 			return;
 		}
 
