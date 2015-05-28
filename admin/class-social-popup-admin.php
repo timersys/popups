@@ -228,7 +228,7 @@ class SocialPopup_Admin {
 			'ua_code'          => '',
 			'mc_api'           => '',
 		));
-		$opts = apply_filters( 'spu/settings_page/opts', wp_parse_args(get_option( 'spu_settings', $defaults ), $defaults ) );
+		$opts = apply_filters( 'spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
 
 
 		if ( isset( $_POST['spu_nonce'] ) && wp_verify_nonce( $_POST['spu_nonce'], 'spu_save_settings' ) ) {

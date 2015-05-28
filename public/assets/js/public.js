@@ -208,12 +208,11 @@ var SPU_master = function() {
         if( box_form.length ) {
             var action = box_form.attr('action'),
                 pattern = new RegExp(spuvar.site_url,"i");
-            if( action.length ) {
+            if( action && action.length ) {
                 if (!pattern.test(action))
                     box_form.addClass('spu-disable-ajax');
             }
         }
-
 
         // Disable ajax on form by adding .spu-disable-ajax class to it
         $box.on('submit','form.spu-disable-ajax', function(){
@@ -441,8 +440,10 @@ if( spuvar.ajax_mode ) {
     ,success_cb = function(response) {
     	
     	$('body').append(response);
-    	window.SPU = SPU_master();
-		SPU_reload_forms(); //remove spu_Action from forms
+        jQuery(window).load(function() {
+            window.SPU = SPU_master();
+            SPU_reload_forms(); //remove spu_Action from forms
+        });
     	
     },
     error_cb 	= function (data, error, errorThrown){
