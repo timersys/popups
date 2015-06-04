@@ -1,22 +1,22 @@
 === Popups - WordPress Popup ===
 Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
-Tags:  twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
+Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
 Tested up to: 4.2.2
-Stable tag: 1.3.1.2
+Stable tag: 1.3.2
 Text Domain: spu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Most complete free Popups plugin, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, etc
+Most complete free Popups plugin, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, Mailpoet, Mailchimp for WP, Postmatic, etc
 
 == Description ==
 
 
 The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message in a simple popup. 
 
-It's compatible with the major form plugins like : Gravity Forms, Ninja Forms, Contact form 7, jetpack etc
+It's compatible with the major form plugins like : Gravity Forms, Ninja Forms, Contact form 7, Jetpack, Mailpoet, Mailchimp for WP, Postmatic, etc
 
 There are multiple display filters that can be combined:
 
@@ -48,7 +48,8 @@ There are multiple display filters that can be combined:
 > 
 > Check the **new premium version** available in ([https://wp.timersys.com/popups/](http://wp.timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
-> * Beautiful optin forms for popular mail providers like MailChimp, Aweber
+> * Beautiful optin forms for popular mail providers like
+> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
@@ -109,6 +110,11 @@ Yes you can add the ([following codes](https://gist.github.com/timersys/84536144
 Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
 
 == Changelog ==
+
+= 1.3.2 =
+* Added support for postmatic forms
+* Fixed Centering of shortcodes
+* Added new facebook page shortcode
 
 = 1.3.1.2 =
 * Hotfix with problems in ajax mode. Sorry :)
