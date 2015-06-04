@@ -48,50 +48,8 @@ var SPU_master = function() {
 		var triggerHeight 	= ( triggerPercentage * $(document).height() );
 		
 		facebookFix( $box );
-		//correct widths of sharing icons
-		$('.spu-google').width($('.spu-google').width()-20);
-		$('.spu-twitter').width($('.spu-twitter ').width()-50);
-		
-		//center spu-shortcodes
-		var swidth 		= 0;
-		var free_width 	= 0;
-		var boxwidth	= $box.outerWidth();
-		var cwidth 		= $box.find(".spu-content").width();
-		var total  		= $box.data('total'); //total of shortcodes used
 
 
-		//wrap them all
-		$box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
-		if( total && ! spuvar.disable_style && $(window).width() > boxwidth ){ 
-		
-			//calculate total width of shortcodes all togheter
-			$box.find(".spu-shortcode").each(function(){
-				swidth = swidth + $(this).width();
-			});
-			//available space to split margins
-			free_width = cwidth - swidth - total;
-
-		}
-		if( free_width > 0 ) {
-			//leave some margin
-			$box.find(".spu-shortcode").each(function(){
-
-                $(this).css('margin-left',(free_width / 2 ));
-
-			});
-			//remove margin when neccesary
-			if( total == 2) {
-
-				$box.find(".spu-shortcode").last().css('margin-left',0);
-
-			} else if( total == 3) {
-
-				$box.find(".spu-shortcode").first().css('margin-left',0);
-			
-			}
-		}
-
-		
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
@@ -357,6 +315,51 @@ var SPU_master = function() {
 		}
 	}
 
+    function centerShortcodes( box ){
+        var $box 	= box;
+        var total = $box.data('total'); //total of shortcodes used
+        if( total ) { //if we have shortcodes
+            //correct widths of sharing icons
+            //$('.spu-google').width($('.spu-google').width() - 20);
+            //$('.spu-twitter').width($('.spu-twitter ').width() - 50);
+
+            //wrap them all
+            //center spu-shortcodes
+            var swidth = 0;
+            var free_width = 0;
+            var boxwidth = $box.outerWidth();
+            var cwidth = $box.find(".spu-content").width();
+            $box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
+            if (!spuvar.disable_style && $(window).width() > boxwidth) {
+
+                //calculate total width of shortcodes all togheter
+                $box.find(".spu-shortcode").each(function () {
+                    swidth = swidth + $(this).outerWidth();
+                });
+                //available space to split margins
+                free_width = cwidth - swidth - (total*20);
+
+            }
+            if (free_width > 0) {
+                //leave some margin
+                $box.find(".spu-shortcode").each(function () {
+
+                    $(this).css('margin-left', (free_width / 2 ));
+
+                });
+                //remove margin when neccesary
+                if (total == 2) {
+
+                    $box.find(".spu-shortcode").last().css('margin-left', 0);
+
+                } else if (total == 3) {
+
+                    $box.find(".spu-shortcode").first().css('margin-left', 0);
+
+                }
+            }
+        }
+    }
     /**
      * Main function to show or hide the popup
      * @param id int box id
@@ -388,6 +391,9 @@ var SPU_master = function() {
 			}
             $box.trigger('spu.box_close', [id]);
 		} else {
+            setTimeout(function(){
+                centerShortcodes($box);
+            },1500);
             $box.trigger('spu.box_open', [id]);
 			//bind for resize
 			$(window).resize(function(){
