@@ -187,7 +187,7 @@ var SPU_master = function() {
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax")', function(e){
+            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija")', function(e){
                 e.preventDefault();
 
 
@@ -313,6 +313,10 @@ var SPU_master = function() {
 		}
 	}
 
+    /**
+     * Check all shortcodes and automatically center them
+     * @param box
+     */
     function centerShortcodes( box ){
         var $box 	= box;
         var total = $box.data('total'); //total of shortcodes used
