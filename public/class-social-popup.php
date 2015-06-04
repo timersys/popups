@@ -474,9 +474,8 @@ class SocialPopup {
 
 		//also include gravity forms if needed
 		if( $gf = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_gravity' " ) ) {
-
-			gravity_form_enqueue_scripts($gf, true);
-
+			if( function_exists('gravity_form_enqueue_scripts'))
+				gravity_form_enqueue_scripts($gf, true);
 		}
 	}
 
