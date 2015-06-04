@@ -14,8 +14,6 @@ var SPU_master = function() {
 	var isAdmin 		= spuvar.is_admin;
 	var $boxes 			= [];
 
-	SPU_reload_socials();
-
 	//remove paddings and margins from first and last items inside box
 	$(".spu-content").children().first().css({
 		"margin-top": 0,
@@ -319,9 +317,7 @@ var SPU_master = function() {
         var $box 	= box;
         var total = $box.data('total'); //total of shortcodes used
         if( total ) { //if we have shortcodes
-            //correct widths of sharing icons
-            //$('.spu-google').width($('.spu-google').width() - 20);
-            //$('.spu-twitter').width($('.spu-twitter ').width() - 50);
+            SPU_reload_socials();
 
             //wrap them all
             //center spu-shortcodes

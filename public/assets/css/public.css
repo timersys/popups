@@ -126,6 +126,10 @@ p.spu-powered a{
  	float: left;
  	line-height: normal !important;
 }
+.spu-facebook-page{
+    text-align: center;
+    display: block;
+}
 .spu-shortcode iframe{
 	max-width: 1200px;
 }

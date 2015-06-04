@@ -5,6 +5,19 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 <p><?php _e( 'You have three social shortcodes to use that will print a Facebook like, a Google+ Follow and a Twitter follow. Check the available options and <strong>configure them with your social accounts</strong>:', $this->plugin_slug );?></p>
 
+<p><strong>New Facebook page:</strong></p>
+<p>
+[spu-facebook-page href="" name="" show_faces="" hide_cover="" width=""]
+</p>
+<a href="fb-opts" onclick="jQuery('#fbpage-opts').slideToggle();return false;"><?php _e( 'View Facebook Page Options', $this->plugin_slug );?></a>
+<ul id="fbpage-opts" style="display:none;">
+	<li><b>href:</b> <?php _e( 'Your facebook page url', $this->plugin_slug );?></li>
+	<li><b>name:</b> <?php _e( 'Your page name', $this->plugin_slug );?></li>
+	<li><b>show_faces:</b> <?php _e( 'true|false <b>Default value:</b> true', $this->plugin_slug );?></li>
+	<li><b>hide_cover:</b> <?php _e( 'true|false <b>Default value:</b> false', $this->plugin_slug );?></li>
+	<li><b>width:</b></li>
+</ul>
+
 <p><strong>Facebook:</strong></p>
 <p>
 [spu-facebook href="" layout="" show_faces="" share="" action="" width=""]

@@ -120,6 +120,7 @@ class SocialPopup {
 
 		//Register shortcodes
 		add_shortcode( 'spu-facebook', array( $this, 'facebook_shortcode' ) );
+		add_shortcode( 'spu-facebook-page', array( $this, 'facebook_page_shortcode' ) );
 		add_shortcode( 'spu-twitter', array( $this, 'twitter_shortcode' ) );
 		add_shortcode( 'spu-google', array( $this, 'google_shortcode' ) );
 		add_shortcode( 'spu-close', array( $this, 'close_shortcode' ) );
@@ -349,7 +350,7 @@ class SocialPopup {
 		
 		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/all.js#xfbml=1', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), self::VERSION, FALSE);
 
 		wp_register_script( 'spu-twitter', '//platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 		
@@ -512,6 +513,30 @@ class SocialPopup {
 		}
 
 		return '<div class="spu-facebook spu-shortcode"><div class="fb-like" data-width="'.strtolower( trim( $width ) ).'" data-href="'. $href .'" data-layout="'.$layout.'" data-action="'.$action.'" data-show-faces="'.strtolower( trim( $show_faces ) ).'" data-share="'.strtolower( trim( $share ) ).'"></div></div>';
+
+	}
+
+	/**
+	 * Shortcode for facebook page
+	 *
+	 * @param $atts
+	 * @param $content
+	 *
+	 * @internal param $ $content [description] $content [description]
+	 * @internal param $atts    [description] $atts    [description]
+	 * @return string          [description]
+	 */
+	function facebook_page_shortcode( $atts, $content ) {
+
+		extract( shortcode_atts( array(
+			'href' 			=> 'https://www.facebook.com/pages/Timersys/146687622031640',
+			'name' 	 	    => 'Timersys',
+			'show_faces' 	=> 'true', // false
+			'hide_cover' 	=> 'false', // true
+			'width'			=> '500',
+		), $atts ) );
+
+		return '<div class="spu-facebook-page"><div class="fb-page" data-href="'. $href .'" data-width="'.strtolower( trim( $width ) ).'" data-hide-cover="'.strtolower( trim( $hide_cover ) ).'" data-show-facepile="'.strtolower( trim( $show_faces ) ).'" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="'. $href .'"><a href="'. $href .'">'.esc_attr( $name ).'</a></blockquote></div></div>';
 
 	}
 
