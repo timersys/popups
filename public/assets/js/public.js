@@ -214,7 +214,7 @@ var SPU_master = function() {
         var box_form = $box.find('form');
         if( box_form.length ) {
             // Only if form is not a known one disable ajax
-            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form") ) {
+            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form, .widget_wysija") ) {
                 var action = box_form.attr('action'),
                     pattern = new RegExp(spuvar.site_url, "i");
                 if (action && action.length) {
