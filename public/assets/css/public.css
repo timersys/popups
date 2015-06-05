@@ -126,13 +126,19 @@ p.spu-powered a{
  	float: left;
  	line-height: normal !important;
 }
+.spu-facebook-page{
+    text-align: center;
+    display: block;
+}
 .spu-shortcode iframe{
 	max-width: 1200px;
 }
 .spu_shortcodes{
 	zoom: 1;
 }
-
+.spu-content .wysija-msg li{
+    list-style: none;
+}
 .spu_shortcodes:before, 
 .spu_shortcodes:after { content: ""; display: table; }
 .spu_shortcodes:after { clear: both; }

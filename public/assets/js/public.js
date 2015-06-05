@@ -14,8 +14,6 @@ var SPU_master = function() {
 	var isAdmin 		= spuvar.is_admin;
 	var $boxes 			= [];
 
-	SPU_reload_socials();
-
 	//remove paddings and margins from first and last items inside box
 	$(".spu-content").children().first().css({
 		"margin-top": 0,
@@ -48,50 +46,8 @@ var SPU_master = function() {
 		var triggerHeight 	= ( triggerPercentage * $(document).height() );
 		
 		facebookFix( $box );
-		//correct widths of sharing icons
-		$('.spu-google').width($('.spu-google').width()-20);
-		$('.spu-twitter').width($('.spu-twitter ').width()-50);
-		
-		//center spu-shortcodes
-		var swidth 		= 0;
-		var free_width 	= 0;
-		var boxwidth	= $box.outerWidth();
-		var cwidth 		= $box.find(".spu-content").width();
-		var total  		= $box.data('total'); //total of shortcodes used
 
 
-		//wrap them all
-		$box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
-		if( total && ! spuvar.disable_style && $(window).width() > boxwidth ){ 
-		
-			//calculate total width of shortcodes all togheter
-			$box.find(".spu-shortcode").each(function(){
-				swidth = swidth + $(this).width();
-			});
-			//available space to split margins
-			free_width = cwidth - swidth - total;
-
-		}
-		if( free_width > 0 ) {
-			//leave some margin
-			$box.find(".spu-shortcode").each(function(){
-
-                $(this).css('margin-left',(free_width / 2 ));
-
-			});
-			//remove margin when neccesary
-			if( total == 2) {
-
-				$box.find(".spu-shortcode").last().css('margin-left',0);
-
-			} else if( total == 3) {
-
-				$box.find(".spu-shortcode").first().css('margin-left',0);
-			
-			}
-		}
-
-		
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
@@ -210,80 +166,85 @@ var SPU_master = function() {
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 
-        // check if form action is external and disable ajax
+        // check if we have forms and perform different actions
         var box_form = $box.find('form');
         if( box_form.length ) {
-            var action = box_form.attr('action'),
-                pattern = new RegExp(spuvar.site_url,"i");
-            if( action && action.length ) {
-                if (!pattern.test(action))
-                    box_form.addClass('spu-disable-ajax');
+            // Only if form is not a known one disable ajax
+            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form, .widget_wysija") ) {
+                var action = box_form.attr('action'),
+                    pattern = new RegExp(spuvar.site_url, "i");
+                if (action && action.length) {
+                    if (!pattern.test(action))
+                        box_form.addClass('spu-disable-ajax');
+                }
             }
+
+            // Disable ajax on form by adding .spu-disable-ajax class to it
+            $box.on('submit','form.spu-disable-ajax', function(){
+
+                $box.trigger('spu.form_submitted', [id]);
+                toggleBox(id, false, true );
+            });
+
+            // Add generic form tracking
+            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija")', function(e){
+                e.preventDefault();
+
+
+                var submit 	= true,
+                    form 		= $(this),
+                    data 	 	= form.serialize(),
+                    url  	 	= form.attr('action'),
+                    error_cb 	= function (data, error, errorThrown){
+                        console.log('Spu Form error: ' + error + ' - ' + errorThrown);
+                    },
+                    success_cb 	= function (data){
+
+                        var response = $(data).filter('#spu-'+ id ).html();
+                        $('#spu-' + id ).html(response);
+
+                        // check if an error was returned for m4wp
+                        if( ! $('#spu-' + id ).find('.mc4wp-form-error').length ) {
+
+                            // give 2 seconds for response
+                            setTimeout( function(){
+
+                                toggleBox(id, false, true );
+
+                            }, spuvar.seconds_confirmation_close * 1000);
+
+                        }
+                    };
+                // Send form by ajax and replace popup with response
+                request(data, url, success_cb, error_cb, 'html');
+
+                $box.trigger('spu.form_submitted', [id]);
+
+                return submit;
+            });
+
+            // CF7 support
+            $('body').on('mailsent.wpcf7', function(){
+                $box.trigger('spu.form_submitted', [id]);
+                toggleBox(id, false, true );
+            });
+
+            // Gravity forms support (only AJAX mode)
+            $(document).on('gform_confirmation_loaded', function(){
+                $box.trigger('spu.form_submitted', [id]);
+                toggleBox(id, false, true );
+            });
+
+            // Infusion Software - not ajax
+            $box.on('submit','.infusion-form', function(e){
+                e.preventDefault();
+                $box.trigger('spu.form_submitted', [id]);
+                toggleBox(id, false, true );
+                this.submit();
+            });
         }
 
-        // Disable ajax on form by adding .spu-disable-ajax class to it
-        $box.on('submit','form.spu-disable-ajax', function(){
 
-            $box.trigger('spu.form_submitted', [id]);
-            toggleBox(id, false, true );
-        });
-
-        // Add generic form tracking
-        $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax")', function(e){
-            e.preventDefault();
-
-
-            var submit 	= true,
-                form 		= $(this),
-                data 	 	= form.serialize(),
-                url  	 	= form.attr('action'),
-                error_cb 	= function (data, error, errorThrown){
-                    console.log('Spu Form error: ' + error + ' - ' + errorThrown);
-                },
-                success_cb 	= function (data){
-
-                    var response = $(data).filter('#spu-'+ id ).html();
-                    $('#spu-' + id ).html(response);
-
-                    // check if an error was returned for m4wp
-                    if( ! $('#spu-' + id ).find('.mc4wp-form-error').length ) {
-
-                        // give 2 seconds for response
-                        setTimeout( function(){
-
-                            toggleBox(id, false, true );
-
-                        }, spuvar.seconds_confirmation_close * 1000);
-
-                    }
-                };
-            // Send form by ajax and replace popup with response
-            request(data, url, success_cb, error_cb, 'html');
-
-            $box.trigger('spu.form_submitted', [id]);
-
-            return submit;
-        });
-
-        // CF7 support
-        $('body').on('mailsent.wpcf7', function(){
-            $box.trigger('spu.form_submitted', [id]);
-            toggleBox(id, false, true );
-        });
-
-        // Gravity forms support (only AJAX mode)
-        $(document).on('gform_confirmation_loaded', function(){
-            $box.trigger('spu.form_submitted', [id]);
-            toggleBox(id, false, true );
-        });
-
-        // Infusion Software - not ajax
-        $box.on('submit','.infusion-form', function(e){
-            e.preventDefault();
-            $box.trigger('spu.form_submitted', [id]);
-            toggleBox(id, false, true );
-            this.submit();
-        });
 
     });
 
@@ -353,6 +314,53 @@ var SPU_master = function() {
 	}
 
     /**
+     * Check all shortcodes and automatically center them
+     * @param box
+     */
+    function centerShortcodes( box ){
+        var $box 	= box;
+        var total = $box.data('total'); //total of shortcodes used
+        if( total ) { //if we have shortcodes
+            SPU_reload_socials();
+
+            //wrap them all
+            //center spu-shortcodes
+            var swidth = 0;
+            var free_width = 0;
+            var boxwidth = $box.outerWidth();
+            var cwidth = $box.find(".spu-content").width();
+            $box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
+            if (!spuvar.disable_style && $(window).width() > boxwidth) {
+
+                //calculate total width of shortcodes all togheter
+                $box.find(".spu-shortcode").each(function () {
+                    swidth = swidth + $(this).outerWidth();
+                });
+                //available space to split margins
+                free_width = cwidth - swidth - (total*20);
+
+            }
+            if (free_width > 0) {
+                //leave some margin
+                $box.find(".spu-shortcode").each(function () {
+
+                    $(this).css('margin-left', (free_width / 2 ));
+
+                });
+                //remove margin when neccesary
+                if (total == 2) {
+
+                    $box.find(".spu-shortcode").last().css('margin-left', 0);
+
+                } else if (total == 3) {
+
+                    $box.find(".spu-shortcode").first().css('margin-left', 0);
+
+                }
+            }
+        }
+    }
+    /**
      * Main function to show or hide the popup
      * @param id int box id
      * @param show boolean it's hiding or showing?
@@ -383,6 +391,9 @@ var SPU_master = function() {
 			}
             $box.trigger('spu.box_close', [id]);
 		} else {
+            setTimeout(function(){
+                centerShortcodes($box);
+            },1500);
             $box.trigger('spu.box_open', [id]);
 			//bind for resize
 			$(window).resize(function(){

@@ -16,7 +16,8 @@ if($today > $blackbegin && $today < $blackend) : ?>
 <p><?php _e( 'Take the best WordPress Popups plugin to the next level with Popups Premium extension.', $this->plugin_slug );?></p>
 <h2><?php _e( 'Popups Premium Features:', $this->plugin_slug );?></h2>
 <ul>
-	<li><?php _e( 'Beautiful optin forms for popular mail providers like MailChimp', $this->plugin_slug );?></li>
+	<li><?php _e( 'Beautiful optin forms for popular mail providers', $this->plugin_slug );?></li>
+	<li><?php _e( 'Currently supporting MailChimp, Aweber, Postmatic, Mailpoet', $this->plugin_slug );?></li>
 	<li><?php _e( 'Track impressions and Conversions of social likes and forms submissions like Contact Form 7, Gravity forms, etc', $this->plugin_slug );?></li>
 	<li><?php _e( 'Track impressions and Conversions also in Google Analytics', $this->plugin_slug );?></li>
 	<li><?php _e( 'Exit Intent technology', $this->plugin_slug );?></li>
