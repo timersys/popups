@@ -444,7 +444,7 @@ class SocialPopup_Admin {
 
 		// Check for social shortcodes and update post meta ( we check later if we need to enqueue any social js)
 		$total_shortcodes =0;
-		if( has_shortcode( $post->post_content, 'spu-facebook' ) ){
+		if( has_shortcode( $post->post_content, 'spu-facebook' ) || has_shortcode( $post->post_content, 'spu-facebook-page' ) ){
 			$total_shortcodes++;
 			update_post_meta( $post_id, 'spu_fb', true );
 		} else {
