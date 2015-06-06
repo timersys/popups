@@ -116,6 +116,8 @@ class SocialPopup_Admin {
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
 		add_action( 'admin_init', array( $this, 'editor_styles' ) );
+
+		$this->set_rules_fields();
 	}
 
 	/**
@@ -699,5 +701,72 @@ class SocialPopup_Admin {
 		if( 'spucpt' == $post_type || get_post_type() == 'spucpt' || (isset( $_GET['post_type']) && $_GET['post_type'] == 'spucpt') ) {
 			add_editor_style( SPU_PLUGIN_URL . 'admin/assets/css/editor-style.css' );
 		}
+	}
+
+	function get_rules_choices() {
+		$choices = array(
+			__("User", $this->plugin_slug ) => array(
+				'user_type'		=>	__("User role", $this->plugin_slug ),
+				'logged_user'	=>	__("User is logged", $this->plugin_slug ),
+				'left_comment'	=>	__("User never left a comment", $this->plugin_slug ),
+				'search_engine'	=>	__("User came via a search engine", $this->plugin_slug ),
+				'same_site'		=>	__("User did not arrive via another page on your site", $this->plugin_slug ),
+			),
+			__("Post", $this->plugin_slug ) => array(
+				'post'			=>	__("Post", $this->plugin_slug ),
+				'post_id'		=>	__("Post ID", $this->plugin_slug ),
+				'post_type'		=>	__("Post Type", $this->plugin_slug ),
+				'post_category'	=>	__("Post Category", $this->plugin_slug ),
+				'post_format'	=>	__("Post Format", $this->plugin_slug ),
+				'post_status'	=>	__("Post Status", $this->plugin_slug ),
+				'taxonomy'		=>	__("Post Taxonomy", $this->plugin_slug ),
+			),
+			__("Page", $this->plugin_slug ) => array(
+				'page'			=>	__("Page", $this->plugin_slug ),
+				'page_type'		=>	__("Page Type", $this->plugin_slug ),
+				'page_parent'	=>	__("Page Parent", $this->plugin_slug ),
+				'page_template'	=>	__("Page Template", $this->plugin_slug ),
+			),
+			__("Other", $this->plugin_slug ) => array(
+				'referrer'		=>	__("Referrer", $this->plugin_slug ),
+				'mobiles'		=>	__("Mobile Phone", $this->plugin_slug ),
+				'tablets'		=>	__("Tablet", $this->plugin_slug ),
+			)
+		);
+		// allow custom rules rules
+		return apply_filters( 'spu/metaboxes/rule_types', $choices );
+	}
+
+	/**
+	 * Hook each rule to a field to print
+	 */
+	private function set_rules_fields() {
+
+		// User
+		add_action('spu/rules/print_user_type_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_logged_user_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_left_comment_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_search_engine_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_same_site_field', array('Spu_Helper', 'print_select'), 10, 2);
+
+		// Post
+		add_action('spu/rules/print_post_type_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_post_id_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+		add_action('spu/rules/print_post_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_post_category_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_post_format_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_post_status_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_taxonomy_field', array('Spu_Helper', 'print_select'), 10, 2);
+
+		// Page
+		add_action('spu/rules/print_page_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_page_type_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_page_parent_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_page_template_field', array('Spu_Helper', 'print_select'), 10, 2);
+
+		//Other
+		add_action('spu/rules/print_mobiles_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_tablets_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 	}
 }

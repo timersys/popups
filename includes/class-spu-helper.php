@@ -267,14 +267,9 @@ class Spu_Helper {
 		
 		// allow custom rules rules
 		$choices = apply_filters( 'spu/rules/rule_values/' . $options['param'], $choices );
-
-		if( $options['param'] == 'referrer' || $options['param'] == 'post_id' ) {
-			self::print_textfield( $options );
-		} else {
-			self::print_select( $choices, $options );
-		}
-
-
+		
+		// Custom fields for rules
+		do_action( 'spu/rules/print_' . $options['param'] . '_field', $options, $choices );
 
 		// ajax?
 		if( $is_ajax )
@@ -291,7 +286,7 @@ class Spu_Helper {
 	 * @param  array  $options array to pass group, id, rule_id etc
 	 * @return echo  the select field
 	 */
-	static function print_select( $choices, $options ) {
+	static function print_select( $options, $choices ) {
 		
 		// value must be array
 		if( !is_array($options['value']) )
