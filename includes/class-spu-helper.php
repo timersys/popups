@@ -267,7 +267,7 @@ class Spu_Helper {
 		
 		// allow custom rules rules
 		$choices = apply_filters( 'spu/rules/rule_values/' . $options['param'], $choices );
-		
+
 		// Custom fields for rules
 		do_action( 'spu/rules/print_' . $options['param'] . '_field', $options, $choices );
 
