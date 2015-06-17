@@ -13,10 +13,18 @@ Most complete free Popups plugin, scroll triggered popups, compatible with socia
 
 == Description ==
 
+The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any important message in a simple popup.
 
-The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, your mailing lists by adding a form like mailchimp or to display any important message in a simple popup. 
-
-It's compatible with the major form plugins like : Gravity Forms, Ninja Forms, Contact form 7, Jetpack, Mailpoet, Mailchimp for WP, Postmatic, etc
+It's compatible with the major form plugins like :
+* Gravity Forms
+* Ninja Forms
+* Contact form 7
+* Infusion Soft
+* Jetpack
+* Mailpoet
+* Mailchimp for WP
+* Postmatic
+* Any generic form
 
 There are multiple display filters that can be combined:
 
@@ -32,6 +40,8 @@ There are multiple display filters that can be combined:
 * Show depending on page template, if page is parent, page name, page type
 * Geotarget popups using the [Geotargeting plugin](http://wp.timersys.com/geotargeting/)
 
+Need it in another language? Check availables and help us [translate Popup Plugin](https://www.transifex.com/projects/p/popups/)
+
 = Available Settings =
 
 * Choose from 5 different popup locations
@@ -42,13 +52,12 @@ There are multiple display filters that can be combined:
 * Days until popup shows again
 * Ajax mode to make popups cache compatible
 * Shortcodes for social networks available
-* Compatible with Gravity Forms, Infusion Soft, Contact form 7, Ninja forms jetpack forms and much more
 
 > <strong>Premium Version</strong><br>
 > 
 > Check the **new premium version** available in ([https://wp.timersys.com/popups/](http://wp.timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
-> * Beautiful optin forms for popular mail providers like
+> * Beautiful optin forms for popular mail providers
 > * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics

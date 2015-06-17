@@ -350,7 +350,7 @@ class SocialPopup {
 		
 		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), null, FALSE);
 
 		wp_register_script( 'spu-twitter', '//platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 		
