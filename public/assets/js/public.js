@@ -329,9 +329,8 @@ var SPU_master = function() {
             var free_width = 0;
             var boxwidth = $box.outerWidth();
             var cwidth = $box.find(".spu-content").width();
-            $box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
             if (!spuvar.disable_style && $(window).width() > boxwidth) {
-
+                $box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
                 //calculate total width of shortcodes all togheter
                 $box.find(".spu-shortcode").each(function () {
                     swidth = swidth + $(this).outerWidth();
