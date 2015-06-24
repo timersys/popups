@@ -157,7 +157,7 @@ var SPU_master = function() {
 		});
 		
 		// add link listener for this box
-		$('a[href="#' + $box.attr('id') +'"]').click(function() { 
+		$('a[href="#spu-' + id +'"]').on('click',function() {
 			
 			toggleBox(id, true, false);
 			return false;
@@ -426,7 +426,7 @@ var SPU_master = function() {
         //background
         if (show === true && $bgopa > 0) {
             $bg.fadeIn();
-        } else if (show === false && conversion_close ) {
+        } else if (show === false && ( (conversion_close && conversion ) || !conversion ) ) {
             $bg.fadeOut();
         }
 
