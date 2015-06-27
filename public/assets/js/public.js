@@ -157,11 +157,10 @@ var SPU_master = function() {
 		});
 		
 		// add link listener for this box
-		$('a[href="#spu-' + id +'"]').on('click',function() {
-			
+		$('a[href="#spu-' + id +'"]').on('click',function(e) {
+            e.preventDefault();
 			toggleBox(id, true, false);
-			return false;
-		});
+		}).css('cursor','pointer').addClass('spu-clickable');// in case of div, fix ios bug not registering clicks
 
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
