@@ -41,50 +41,17 @@ if ( !defined( 'ABSPATH' ) ) exit;
 					<tr data-id="<?php echo $rule_id; ?>">
 					<td class="param"><?php 
 						
-						$choices = array(
-							__("User", $this->plugin_slug ) => array(
-								'user_type'		=>	__("User role", $this->plugin_slug ),
-								'logged_user'	=>	__("User is logged", $this->plugin_slug ),
-								'left_comment'	=>	__("User never left a comment", $this->plugin_slug ),
-								'search_engine'	=>	__("User came via a search engine", $this->plugin_slug ),
-								'same_site'		=>	__("User did not arrive via another page on your site", $this->plugin_slug ),
-							),
-							__("Post", $this->plugin_slug ) => array(
-								'post'			=>	__("Post", $this->plugin_slug ),
-								'post_id'		=>	__("Post ID", $this->plugin_slug ),
-								'post_type'		=>	__("Post Type", $this->plugin_slug ),
-								'post_category'	=>	__("Post Category", $this->plugin_slug ),
-								'post_format'	=>	__("Post Format", $this->plugin_slug ),
-								'post_status'	=>	__("Post Status", $this->plugin_slug ),
-								'taxonomy'		=>	__("Post Taxonomy", $this->plugin_slug ),
-							),
-							__("Page", $this->plugin_slug ) => array(
-								'page'			=>	__("Page", $this->plugin_slug ),
-								'page_type'		=>	__("Page Type", $this->plugin_slug ),
-								'page_parent'	=>	__("Page Parent", $this->plugin_slug ),
-								'page_template'	=>	__("Page Template", $this->plugin_slug ),
-							),
-							__("Other", $this->plugin_slug ) => array(
-								'referrer'		=>	__("Referrer", $this->plugin_slug ),
-								'mobiles'		=>	__("Mobile Phone", $this->plugin_slug ),
-								'tablets'		=>	__("Tablet", $this->plugin_slug ),
-							)
-						);
-								
-						
-						// allow custom rules rules
-						$choices = apply_filters( 'spu/metaboxes/rule_types', $choices );
-						
-						
+						$choices = $this->get_rules_choices();
+
 						// create field						
 						$args = array(
-							'group_id' 	=> $group_id,
-							'rule_id'	=> $rule_id,
-							'name'		=> 'spu_rules[' . $group_id . '][' . $rule_id . '][param]',
-							'value' 	=> $rule['param']
+							'group_id' 	    => $group_id,
+							'rule_id'	    => $rule_id,
+							'name'		    => 'spu_rules[' . $group_id . '][' . $rule_id . '][param]',
+							'value' 	    => $rule['param']
 						);
 						
-						Spu_Helper::print_select( $choices, $args );
+						Spu_Helper::print_select( $args, $choices );
 							
 						
 					?></td>
@@ -107,7 +74,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 						);
 						
-						Spu_Helper::print_select( $choices, $args );
+						Spu_Helper::print_select( $args, $choices );
 
 						
 					?></td>
@@ -117,7 +84,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 							'rule_id' 		=> $rule_id,
 							'value' 		=> !empty($rule['value']) ? $rule['value'] : '',
 							'name'			=> 'spu_rules[' . $group_id . '][' . $rule_id . '][value]',
-							'param'			=> $rule['param']
+							'param'			=> $rule['param'],
 						);
 						Spu_Helper::ajax_render_rules( $args ); 
 						

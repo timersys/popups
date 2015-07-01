@@ -157,11 +157,10 @@ var SPU_master = function() {
 		});
 		
 		// add link listener for this box
-		$('a[href="#' + $box.attr('id') +'"]').click(function() { 
-			
+		$('a[href="#spu-' + id +'"]').on('click',function(e) {
+            e.preventDefault();
 			toggleBox(id, true, false);
-			return false;
-		});
+		}).css('cursor','pointer').addClass('spu-clickable');// in case of div, fix ios bug not registering clicks
 
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
@@ -329,9 +328,8 @@ var SPU_master = function() {
             var free_width = 0;
             var boxwidth = $box.outerWidth();
             var cwidth = $box.find(".spu-content").width();
-            $box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
             if (!spuvar.disable_style && $(window).width() > boxwidth) {
-
+                $box.find(".spu-shortcode").wrapAll('<div class="spu_shortcodes"/>');
                 //calculate total width of shortcodes all togheter
                 $box.find(".spu-shortcode").each(function () {
                     swidth = swidth + $(this).outerWidth();
@@ -427,7 +425,7 @@ var SPU_master = function() {
         //background
         if (show === true && $bgopa > 0) {
             $bg.fadeIn();
-        } else if (show === false && conversion_close ) {
+        } else if (show === false && ( (conversion_close && conversion ) || !conversion ) ) {
             $bg.fadeOut();
         }
 

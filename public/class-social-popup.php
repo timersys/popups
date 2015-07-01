@@ -350,7 +350,7 @@ class SocialPopup {
 		
 		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
 		
-		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), null, FALSE);
 
 		wp_register_script( 'spu-twitter', '//platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 		
@@ -536,7 +536,7 @@ class SocialPopup {
 			'width'			=> '500',
 		), $atts ) );
 
-		return '<div class="spu-facebook-page"><div class="fb-page" data-href="'. $href .'" data-width="'.strtolower( trim( $width ) ).'" data-hide-cover="'.strtolower( trim( $hide_cover ) ).'" data-show-facepile="'.strtolower( trim( $show_faces ) ).'" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="'. $href .'"><a href="'. $href .'">'.esc_attr( $name ).'</a></blockquote></div></div>';
+		return '<div class="spu-facebook-page"><div class="fb-page" data-href="'. $href .'" data-width="'.strtolower( trim( $width ) ).'" data-hide-cover="'.strtolower( trim( $hide_cover ) ).'" data-show-facepile="'.strtolower( trim( $show_faces ) ).'" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="'. $href .'"><a href="'. $href .'">'.esc_attr( $name ).'</a></blockquote></div></div></div>';
 
 	}
 
