@@ -112,11 +112,42 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 == Frequently Asked Questions ==
 
+= Can I give other roles permissions to edit popups ? =
+You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
+
+= How to open a popup by pressing a link or button ? =
+Check the following gist (https://gist.github.com/timersys/d68690a85aed14a02318)
+
+= How to close the popup is a user clicks on a regular link ? =
+To use custom conversions check [this code](https://gist.github.com/timersys/7facec9c80935a0df1c6) . You need to add it in your theme javascript files
+
+= I closed the popup but youtube is still playing. How I fix it? =
+Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
+
+= Can I attach my custom js events to popups plugin? =
+Yes you can attach to any of this events . id = Popup id
+´jQuery(document).on('spu.box_close',function(e,id){ ... });
+ jQuery(document).on('spu.box_open',function(e,id){ ... });
+ jQuery(document).on('spu.form_submitted',function(e,id){ ... });´
+
+= How to edit the content of my popup only on certain pages ? =
+You can filter the content by using the [following function](https://gist.github.com/timersys/d3c34d736fd3188f1293)
+
 = Can I remove js for Facebook, Twitter or Google if I already loaded mine? =
-Yes you can add the ([following codes](https://gist.github.com/timersys/8453614472d07122098b)) into your functions.php
+Yes you can remove them in the settings page of the plugin
 
 = Can I use the uncommpresed popups JS in my site ? =
-Yes if you need to debug you can use uncompressed javascript by addings ([this code](https://gist.github.com/timersys/60823b62cd1050dab032)) to your functions.php
+Yes if you need to debug you can use uncompressed javascript by enabling debug mode in the settings page
+
+= Popup is not showing, why ? =
+Check your page source code. At the bottom of your page search for an html comment that looks something like :
+
+´<!-- Popups v1.1 - http://wordpress.org/plugins/social-popup/-->´
+If you see that comment, then the error is probably a javascript error. Use debug mode and check your browser console for problems.
+
+If you are not seeing that code instead, the problem is that one of the display rules you configured is preventing it to show. Double check your display rules.
+
+If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
 
