@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
 Tested up to: 4.2.2
-Stable tag: 1.3.2.2
+Stable tag: 1.3.3
 Text Domain: spu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,7 +40,7 @@ There are multiple display filters that can be combined:
 * Show depending on page template, if page is parent, page name, page type
 * Geotarget popups using the [Geotargeting plugin](http://wp.timersys.com/geotargeting/)
 
-Need it in another language? Check availables and help us [translate Popup Plugin](https://www.transifex.com/projects/p/popups/)
+ = Need it in another language? Help us [translate Popup Plugin](https://www.transifex.com/projects/p/popups/) =
 
 = Available Settings =
 
@@ -150,6 +150,17 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.3.3 =
+
+* Updated languages and added transifex
+* Updated FAQ
+* Fixed bug with facebook page
+* Removed plugin version from facebook url to avoid some errors
+* Fixed call popups with custom links
+* Fixed bug when automatic shortcode style is disabled
+* Improved code so other plugins can create custom rules fields
+
 
 = 1.3.2.2 =
 * new Facebook page js was not being loaded if you didn't have another popup with fb shortcode
