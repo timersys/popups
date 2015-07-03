@@ -126,9 +126,9 @@ Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for ins
 
 = Can I attach my custom js events to popups plugin? =
 Yes you can attach to any of this events . id = Popup id
-´jQuery(document).on('spu.box_close',function(e,id){ ... });
+`jQuery(document).on('spu.box_close',function(e,id){ ... });
  jQuery(document).on('spu.box_open',function(e,id){ ... });
- jQuery(document).on('spu.form_submitted',function(e,id){ ... });´
+ jQuery(document).on('spu.form_submitted',function(e,id){ ... });`
 
 = How to edit the content of my popup only on certain pages ? =
 You can filter the content by using the [following function](https://gist.github.com/timersys/d3c34d736fd3188f1293)
@@ -142,7 +142,7 @@ Yes if you need to debug you can use uncompressed javascript by enabling debug m
 = Popup is not showing, why ? =
 Check your page source code. At the bottom of your page search for an html comment that looks something like :
 
-´<!-- Popups v1.1 - http://wordpress.org/plugins/social-popup/-->´
+`<!-- Popups v1.1 - http://wordpress.org/plugins/social-popup/-->`
 If you see that comment, then the error is probably a javascript error. Use debug mode and check your browser console for problems.
 
 If you are not seeing that code instead, the problem is that one of the display rules you configured is preventing it to show. Double check your display rules.
