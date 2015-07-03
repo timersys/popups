@@ -124,7 +124,8 @@ var SPU_master = function() {
 			
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
-			} else {
+			}
+            if(triggerMethod == 'percentage'){
 				$(window).bind( 'scroll', triggerHeightCheck );
 				// init, check box criteria once
 				triggerHeightCheck();
