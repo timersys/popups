@@ -15,7 +15,7 @@ Most complete free Popups plugin, scroll triggered popups, compatible with socia
 
 The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any important message in a simple popup.
 
-It's compatible with the major form plugins like :
+It's compatible with the major form plugins like (read FAQ):
 * Gravity Forms
 * Ninja Forms
 * Contact form 7
@@ -111,6 +111,12 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 4. Popups Back end - appearance
 
 == Frequently Asked Questions ==
+
+= Popups plugin is compatible with Gravity Forms ? =
+Yes, you need to configure your form to use ajax when inserting it
+
+= Popups plugin is compatible with Ninja Forms ? =
+Yes, you need to configure your form to use ajax. Go to the setting of the created form and enable AJAX
 
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
