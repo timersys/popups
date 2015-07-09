@@ -405,11 +405,17 @@ class SocialPopup_Admin {
 	 * @return mixed
 	 */
 	public function save_meta_options( $post_id ) {
+		static $spu_save = 0;
+
+		// For some reason sometimes this hook run twice, until I can find the reason and reproduce error
+		// let's use a static var to prevent this
+		if( $spu_save > 0 )
+			return $post_id;
+
 		// Verify that the nonce is set and valid.
 		if ( !isset( $_POST['spu_options_nonce'] ) || ! wp_verify_nonce( $_POST['spu_options_nonce'], 'spu_options' ) ) {
 			return $post_id;
 		}
-
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
@@ -500,7 +506,7 @@ class SocialPopup_Admin {
 			update_post_meta( $post_id, 'spu_rules', apply_filters( 'spu/metaboxes/sanitized_rules', $groups_a ) );
 			unset( $_POST['spu_rules'] );
 		}
-
+		$spu_save++;
 	}
 	/**
 	 * Register and enqueue admin-specific style sheet.
