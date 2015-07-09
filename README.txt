@@ -118,6 +118,10 @@ Yes, you need to configure your form to use ajax when inserting it
 = Popups plugin is compatible with Ninja Forms ? =
 Yes, you need to configure your form to use ajax. Go to the setting of the created form and enable AJAX
 
+= How can I change other styles of the popup like padding, rounded corners, etc ? =
+You can modify everything with css. If your popup id is 120 you can add some css like for example:
+`#spu-120{ ---your css here--- }`
+
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
 
