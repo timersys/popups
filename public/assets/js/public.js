@@ -170,7 +170,7 @@ var SPU_master = function() {
         var box_form = $box.find('form');
         if( box_form.length ) {
             // Only if form is not a known one disable ajax
-            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form, .widget_wysija") ) {
+            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form, .widget_wysija, .ninja-forms-form") ) {
                 var action = box_form.attr('action'),
                     pattern = new RegExp(spuvar.site_url, "i");
                 if (action && action.length) {
@@ -187,7 +187,7 @@ var SPU_master = function() {
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija")', function(e){
+            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form")', function(e){
                 e.preventDefault();
 
 
