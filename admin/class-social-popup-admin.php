@@ -117,6 +117,10 @@ class SocialPopup_Admin {
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
 		add_action( 'admin_init', array( $this, 'editor_styles' ) );
 
+		//Columns in cpt
+		add_filter( 'manage_edit-spucpt_columns' ,  array( $this, 'set_custom_cpt_columns'), 10, 2 );
+		add_action( 'manage_spucpt_posts_custom_column' ,  array( $this, 'custom_columns'), 10, 2 );
+
 		$this->set_rules_fields();
 	}
 
@@ -774,5 +778,34 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_mobiles_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_tablets_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+	}
+
+	/**
+	 * Add custom columns to spu cpt
+	 * @param [type] $columns [description]
+	 * @since  1.3.3
+	 */
+	public function set_custom_cpt_columns( $columns ){
+		unset( $columns['date'] );
+
+		$columns['spu_id']        = __( 'ID', '$this->plugin_slug' );
+		return $columns;
+	}
+	/**
+	 * Add callbacks for custom colums
+	 * @param  array $column  [description]
+	 * @param  int $post_id [description]
+	 * @return echo html
+	 * @since  1.3.3
+	 */
+	function custom_columns( $column, $post_id ) {
+		global $wpdb;
+
+		switch ( $column ) {
+			case 'spu_id' :
+				echo '#spu-'.$post_id;
+				break;
+
+		}
 	}
 }
