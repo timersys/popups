@@ -116,7 +116,7 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 Yes, you need to configure your form to use ajax when inserting it
 
 = Popups plugin is compatible with Ninja Forms ? =
-Yes, you need to configure your form to use ajax. Go to the setting of the created form and enable AJAX
+Yes, you need to configure your form to use ajax. Go to the setting of the created form and enable AJAX. Then you need to disable AJAX on popups settings page.
 
 = How can I change other styles of the popup like padding, rounded corners, etc ? =
 You can modify everything with css. If your popup id is 120 you can add some css like for example:
