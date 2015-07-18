@@ -67,7 +67,7 @@ var SPU_master = function() {
 			}				
 		});
 		//not on the box
-		$('body' ).on(event,'.spu-box', function(event) {
+		$('body' ).on(event,'.spu-box,.spu-clickable', function(event) {
 			event.stopPropagation();
 		});
 
