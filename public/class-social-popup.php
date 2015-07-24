@@ -437,6 +437,7 @@ class SocialPopup {
 	private function enqueue_social_shortcodes(){
 		global $wpdb,$spuvar_social;
 
+		$opts = $this->spu_settings;
 		$spuvar_social = '';
 
 		// Check if defined or remove js in options
