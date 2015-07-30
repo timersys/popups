@@ -178,7 +178,10 @@ var SPU_master = function() {
                         box_form.addClass('spu-disable-ajax');
                 }
             }
-
+            // if spu-disable-ajax is on container add it to form (usp forms for example)
+            if( $('.spu-disable-ajax form').length ) {
+                $('.spu-disable-ajax form').addClass('spu-disable-ajax');
+            }
             // Disable ajax on form by adding .spu-disable-ajax class to it
             $box.on('submit','form.spu-disable-ajax', function(){
 
