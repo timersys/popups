@@ -339,16 +339,18 @@ class SocialPopup {
 	public function register_scripts() {
 
 		$js_url = plugins_url( 'assets/js/min/public-min.js', __FILE__ );
+		$handle = 'spu-public';
 
 		$opts = $this->spu_settings;
 
 		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
 			$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
+			$handle = 'spu-public-debug';
 		}
 
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
 		
-		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
+		wp_register_script( $handle, $js_url, array( 'jquery' ), self::VERSION, true );
 		
 		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), null, FALSE);
 
