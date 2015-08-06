@@ -661,8 +661,8 @@ class SocialPopup_Admin {
 				{
 					foreach($taxonomies as $taxonomy)
 					{
-						if(!is_taxonomy_hierarchical($taxonomy)) continue;
-						$terms = get_terms($taxonomy, array('hide_empty' => false));
+						if( 'nav_menu' == $taxonomy ) continue;
+						$terms = get_terms($taxonomy, array('hide_empty' => true));
 						if($terms)
 						{
 							foreach($terms as $term)
