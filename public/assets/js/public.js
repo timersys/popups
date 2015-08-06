@@ -47,7 +47,11 @@ var SPU_master = function() {
 		
 		facebookFix( $box );
 
-
+        // Custom links conversion
+        $box.on('click', 'a:not(".spu-close-popup")', function(){
+            // hide the popup and track conversion
+            toggleBox( id, false, true);
+        });
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
