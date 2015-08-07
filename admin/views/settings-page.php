@@ -77,6 +77,15 @@
 				
 			</tr>
 			<?php do_action( 'spu/settings_page/after' ); ?>
+
+			<tr valign="top" class="">
+				<th><label for="uninstall"><?php _e( 'Delete all data on Uninstall', $this->plugin_slug ); ?></label></th>
+				<td colspan="3">
+					<label><input type="checkbox" id="uninstall" name="spu_settings[uninstall]" value="1" <?php checked(@$opts['uninstall'], 1); ?> />
+						<p class="help"><?php _e( 'When you uninstall the plugin all popups, settings and stats will be deleted from your db', $this->plugin_slug ); ?></p>
+				</td>
+
+			</tr>
 			<tr><td><input type="submit" class="button-primary" value="<?php _e( 'Save settings', $this->plugin_slug );?>"/></td>
 			<?php wp_nonce_field('spu_save_settings','spu_nonce'); ?>
 		</table>
