@@ -339,16 +339,18 @@ class SocialPopup {
 	public function register_scripts() {
 
 		$js_url = plugins_url( 'assets/js/min/public-min.js', __FILE__ );
+		$handle = 'spu-public';
 
 		$opts = $this->spu_settings;
 
 		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
 			$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
+			$handle = 'spu-public-debug';
 		}
 
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
 		
-		wp_register_script( 'spu-public', $js_url, array( 'jquery' ), self::VERSION, true );
+		wp_register_script( $handle, $js_url, array( 'jquery' ), self::VERSION, true );
 		
 		wp_register_script( 'spu-facebook', '//connect.facebook.net/'.get_locale().'/sdk.js#xfbml=1&version=v2.3', array('jquery'), null, FALSE);
 
@@ -408,15 +410,21 @@ class SocialPopup {
 	 * @since   1.3
 	 */
 	public function enqueue_scripts() {
+		$handle = 'spu-public';
 
+		$opts = $this->spu_settings;
+
+		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
+			$handle = 'spu-public-debug';
+		}
 		wp_enqueue_script('spu-public');
 		wp_enqueue_style('spu-public-css');
-		wp_localize_script( 'spu-public', 'spuvar',
+		wp_localize_script( $handle, 'spuvar',
 			array(
 				'is_admin' 						=> current_user_can( 'administrator' ),
-				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? $this->spu_settings['shortcodes_style'] : '',
-				'safe_mode'						=> isset( $this->spu_settings['safe'] ) ? $this->spu_settings['safe'] : '',
-				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? $this->spu_settings['ajax_mode'] :'',
+				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? esc_attr( $this->spu_settings['shortcodes_style'] ) : '',
+				'safe_mode'						=> isset( $this->spu_settings['safe'] ) ? esc_attr( $this->spu_settings['safe'] ) : '',
+				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? esc_attr( $this->spu_settings['ajax_mode'] ) :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
 				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
 				'pid'						    => get_queried_object_id(),
@@ -437,6 +445,7 @@ class SocialPopup {
 	private function enqueue_social_shortcodes(){
 		global $wpdb,$spuvar_social;
 
+		$opts = $this->spu_settings;
 		$spuvar_social = '';
 
 		// Check if defined or remove js in options

@@ -39,7 +39,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		<td colspan="3">
 			<label><input type="radio" id="spu_auto_hide_1" name="spu[auto_hide]" value="1" <?php checked($opts['auto_hide'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
 			<label><input type="radio" id="spu_auto_hide_0" name="spu[auto_hide]" value="0" <?php checked($opts['auto_hide'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
-			<p class="help"><?php _e( 'Hide box again when visitors scroll back up? Only works when Trigger action is set to &#37; of page height', $this->plugin_slug ); ?></p>
+			<p class="help"><?php _e( 'Hide box again when visitors scroll back up?', $this->plugin_slug ); ?></p>
 		</td>
 	</tr>
 	<tr valign="top">

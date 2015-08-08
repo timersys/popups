@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
-Tested up to: 4.2.2
-Stable tag: 1.3.3
+Tested up to: 4.3
+Stable tag: 1.4
 Text Domain: spu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,10 +15,11 @@ Most complete free Popups plugin, scroll triggered popups, compatible with socia
 
 The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any important message in a simple popup.
 
-It's compatible with the major form plugins like :
+It's compatible with the major form plugins like (read FAQ):
 * Gravity Forms
 * Ninja Forms
 * Contact form 7
+* USP Forms
 * Infusion Soft
 * Jetpack
 * Mailpoet
@@ -83,6 +84,8 @@ Fork me in https://github.com/timersys/popups/
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
 
+= Beatiful WordPress Emails  =
+Now you can send html email in WordPress with [https://wordpress.org/plugins/email-templates/](https://wordpress.org/plugins/email-templates/)
 = Install Multiple plugins at once with WpFavs  =
 
 Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
@@ -112,6 +115,25 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 == Frequently Asked Questions ==
 
+= Popups plugin is compatible with Gravity Forms ? =
+Yes, you need to configure your form to use ajax when inserting it
+
+= Popups plugin is compatible with Ninja Forms ? =
+Yes, you need to configure your form to use ajax. Go to the setting of the created form and enable AJAX. Then you need to disable AJAX on popups settings page.
+
+= Mailchimp4wp form it's compatible? =
+Yes, you need to disable AJAX on popups settings page
+
+= Jetpack form it's compatible? =
+Yes, you need to disable AJAX on popups settings page
+
+= Popups plugin is compatible with USP Forms ? =
+Yes, you need to add to the usp form shortcode the class spu-disable-ajax like : [usp_form class="spu-disable-ajax"]
+
+= How can I change other styles of the popup like padding, rounded corners, etc ? =
+You can modify everything with css. If your popup id is 120 you can add some css like for example:
+`#spu-120{ ---your css here--- }`
+
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
 
@@ -126,9 +148,9 @@ Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for ins
 
 = Can I attach my custom js events to popups plugin? =
 Yes you can attach to any of this events . id = Popup id
-´jQuery(document).on('spu.box_close',function(e,id){ ... });
+`jQuery(document).on('spu.box_close',function(e,id){ ... });
  jQuery(document).on('spu.box_open',function(e,id){ ... });
- jQuery(document).on('spu.form_submitted',function(e,id){ ... });´
+ jQuery(document).on('spu.form_submitted',function(e,id){ ... });`
 
 = How to edit the content of my popup only on certain pages ? =
 You can filter the content by using the [following function](https://gist.github.com/timersys/d3c34d736fd3188f1293)
@@ -142,7 +164,7 @@ Yes if you need to debug you can use uncompressed javascript by enabling debug m
 = Popup is not showing, why ? =
 Check your page source code. At the bottom of your page search for an html comment that looks something like :
 
-´<!-- Popups v1.1 - http://wordpress.org/plugins/social-popup/-->´
+`<!-- Popups v1.1 - http://wordpress.org/plugins/social-popup/-->`
 If you see that comment, then the error is probably a javascript error. Use debug mode and check your browser console for problems.
 
 If you are not seeing that code instead, the problem is that one of the display rules you configured is preventing it to show. Double check your display rules.
@@ -150,6 +172,18 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.3.4 =
+
+* Added support for usp forms
+* Added option to delete all data after uninstall
+* Now you can target popups by posts tags using taxonomy rule
+* Any link you place inside popup is treatead as conversion when clicked
+* Update popups admin screen
+* Fixed bug with ninja forms
+* Fixed bug with manually triggered popups
+* Fixed several other bugs ( js events, settings not saving, etc)
+* Updated FAQ and readme
 
 = 1.3.3 =
 

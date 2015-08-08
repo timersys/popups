@@ -117,6 +117,10 @@ class SocialPopup_Admin {
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
 		add_action( 'admin_init', array( $this, 'editor_styles' ) );
 
+		//Columns in cpt
+		add_filter( 'manage_edit-spucpt_columns' ,  array( $this, 'set_custom_cpt_columns'), 10, 2 );
+		add_action( 'manage_spucpt_posts_custom_column' ,  array( $this, 'custom_columns'), 10, 2 );
+
 		$this->set_rules_fields();
 	}
 
@@ -405,11 +409,17 @@ class SocialPopup_Admin {
 	 * @return mixed
 	 */
 	public function save_meta_options( $post_id ) {
+		static $spu_save = 0;
+
+		// For some reason sometimes this hook run twice, until I can find the reason and reproduce error
+		// let's use a static var to prevent this
+		if( $spu_save > 0 )
+			return $post_id;
+
 		// Verify that the nonce is set and valid.
 		if ( !isset( $_POST['spu_options_nonce'] ) || ! wp_verify_nonce( $_POST['spu_options_nonce'], 'spu_options' ) ) {
 			return $post_id;
 		}
-
 		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
@@ -500,7 +510,7 @@ class SocialPopup_Admin {
 			update_post_meta( $post_id, 'spu_rules', apply_filters( 'spu/metaboxes/sanitized_rules', $groups_a ) );
 			unset( $_POST['spu_rules'] );
 		}
-
+		$spu_save++;
 	}
 	/**
 	 * Register and enqueue admin-specific style sheet.
@@ -651,8 +661,8 @@ class SocialPopup_Admin {
 				{
 					foreach($taxonomies as $taxonomy)
 					{
-						if(!is_taxonomy_hierarchical($taxonomy)) continue;
-						$terms = get_terms($taxonomy, array('hide_empty' => false));
+						if( 'nav_menu' == $taxonomy ) continue;
+						$terms = get_terms($taxonomy, array('hide_empty' => true));
 						if($terms)
 						{
 							foreach($terms as $term)
@@ -768,5 +778,34 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_mobiles_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_tablets_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+	}
+
+	/**
+	 * Add custom columns to spu cpt
+	 * @param [type] $columns [description]
+	 * @since  1.3.3
+	 */
+	public function set_custom_cpt_columns( $columns ){
+		unset( $columns['date'] );
+
+		$columns['spu_id']        = __( 'ID', '$this->plugin_slug' );
+		return $columns;
+	}
+	/**
+	 * Add callbacks for custom colums
+	 * @param  array $column  [description]
+	 * @param  int $post_id [description]
+	 * @return echo html
+	 * @since  1.3.3
+	 */
+	function custom_columns( $column, $post_id ) {
+		global $wpdb;
+
+		switch ( $column ) {
+			case 'spu_id' :
+				echo '#spu-'.$post_id;
+				break;
+
+		}
 	}
 }

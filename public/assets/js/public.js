@@ -47,7 +47,11 @@ var SPU_master = function() {
 		
 		facebookFix( $box );
 
-
+        // Custom links conversion
+        $box.on('click', 'a:not(".spu-close-popup")', function(){
+            // hide the popup and track conversion
+            toggleBox( id, false, true);
+        });
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
@@ -67,7 +71,7 @@ var SPU_master = function() {
 			}				
 		});
 		//not on the box
-		$('body' ).on(event,'.spu-box', function(event) {
+		$('body' ).on(event,'.spu-box,.spu-clickable', function(event) {
 			event.stopPropagation();
 		});
 
@@ -124,7 +128,8 @@ var SPU_master = function() {
 			
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
-			} else {
+			}
+            if(triggerMethod == 'percentage'){
 				$(window).bind( 'scroll', triggerHeightCheck );
 				// init, check box criteria once
 				triggerHeightCheck();
@@ -169,7 +174,7 @@ var SPU_master = function() {
         var box_form = $box.find('form');
         if( box_form.length ) {
             // Only if form is not a known one disable ajax
-            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form, .widget_wysija") ) {
+            if( ! box_form.is(".wpcf7-form, .gravity-form, .infusion-form, .widget_wysija, .ninja-forms-form") ) {
                 var action = box_form.attr('action'),
                     pattern = new RegExp(spuvar.site_url, "i");
                 if (action && action.length) {
@@ -177,7 +182,10 @@ var SPU_master = function() {
                         box_form.addClass('spu-disable-ajax');
                 }
             }
-
+            // if spu-disable-ajax is on container add it to form (usp forms for example)
+            if( $('.spu-disable-ajax form').length ) {
+                $('.spu-disable-ajax form').addClass('spu-disable-ajax');
+            }
             // Disable ajax on form by adding .spu-disable-ajax class to it
             $box.on('submit','form.spu-disable-ajax', function(){
 
@@ -186,7 +194,7 @@ var SPU_master = function() {
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija")', function(e){
+            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form")', function(e){
                 e.preventDefault();
 
 
