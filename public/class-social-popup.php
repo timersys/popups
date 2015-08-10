@@ -417,7 +417,7 @@ class SocialPopup {
 		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
 			$handle = 'spu-public-debug';
 		}
-		wp_enqueue_script('spu-public');
+		wp_enqueue_script($handle);
 		wp_enqueue_style('spu-public-css');
 		wp_localize_script( $handle, 'spuvar',
 			array(
