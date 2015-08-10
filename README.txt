@@ -59,12 +59,12 @@ There are multiple display filters that can be combined:
 > Check the **new premium version** available in ([https://wp.timersys.com/popups/](http://wp.timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
-> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet
+> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
 > * Exit Intent technology
-> * New trigger methods
+> * More trigger methods
 > * Timer for auto closing
 > * Ability to disable close button
 > * Ability to disable Advanced close methods like esc or clicking outside of the popup
