@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
 Requires at least: 3.6
 Tested up to: 4.3
-Stable tag: 1.4
+Stable tag: 1.4.1
 Text Domain: spu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -172,6 +172,17 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.4.1 =
+
+* Now you can delete all data on uninstall
+* Now tags can be used as display rule ( In taxonomy)
+* Any link inside popup is treated as custom conversion
+* Added support for USP Forms
+* Fixed bug when removing styles
+* Fixed bug when settings were not being saved on certain occassions
+* Fixed bug with manually triggered popups
+* Lang files updates
 
 = 1.3.4 =
 
