@@ -169,6 +169,8 @@ var SPU_master = function() {
 
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
+		// same for mc4wp
+		$box.find('.mc4wp-form form').addClass('mc4wp-form');
 
         // check if we have forms and perform different actions
         var box_form = $box.find('form');
@@ -194,7 +196,7 @@ var SPU_master = function() {
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form")', function(e){
+            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form, .mc4wp-form")', function(e){
                 e.preventDefault();
 
 
