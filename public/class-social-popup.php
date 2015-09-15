@@ -105,7 +105,7 @@ class SocialPopup {
 			//print boxes
 			add_action( 'wp_footer', array( $this, 'print_boxes' ) );
 		}
-		add_action( 'init', array( $this, 'register_spu_ajax' ), 10 );
+		add_action( 'init', array( $this, 'register_spu_ajax' ), 11 );
 
 		//FILTERS
 		add_filter('spu/get_info', array($this, 'get_info'), 1, 1);
