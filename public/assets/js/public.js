@@ -48,7 +48,7 @@ var SPU_master = function() {
 		facebookFix( $box );
 
         // Custom links conversion
-        $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a")', function(){
+        $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close")', function(){
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
