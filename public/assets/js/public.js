@@ -48,7 +48,7 @@ var SPU_master = function() {
 		facebookFix( $box );
 
         // Custom links conversion
-        $box.on('click', 'a:not(".spu-close-popup")', function(){
+        $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close")', function(){
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
@@ -169,6 +169,8 @@ var SPU_master = function() {
 
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
+		// same for mc4wp
+		$box.find('.mc4wp-form form').addClass('mc4wp-form');
 
         // check if we have forms and perform different actions
         var box_form = $box.find('form');
@@ -187,14 +189,14 @@ var SPU_master = function() {
                 $('.spu-disable-ajax form').addClass('spu-disable-ajax');
             }
             // Disable ajax on form by adding .spu-disable-ajax class to it
-            $box.on('submit','form.spu-disable-ajax', function(){
+            $box.on('submit','form.spu-disable-ajax:not(".flp_form")', function(){
 
                 $box.trigger('spu.form_submitted', [id]);
                 toggleBox(id, false, true );
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form")', function(e){
+            $box.on('submit','form:not(".wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form, .mc4wp-form")', function(e){
                 e.preventDefault();
 
 

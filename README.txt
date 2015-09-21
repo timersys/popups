@@ -1,10 +1,10 @@
 === Popups - WordPress Popup ===
 Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
-Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe
+Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.3
-Stable tag: 1.4.1
+Tested up to: 4.3.1
+Stable tag: 1.4.2
 Text Domain: spu
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -26,6 +26,7 @@ It's compatible with the major form plugins like (read FAQ):
 * Mailchimp for WP
 * Postmatic
 * Any generic form
+* Facebook Login popups using the [Facebook login pro plugin](http://wp.timersys.com/facebook-login/)
 
 There are multiple display filters that can be combined:
 
@@ -59,12 +60,12 @@ There are multiple display filters that can be combined:
 > Check the **new premium version** available in ([https://wp.timersys.com/popups/](http://wp.timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
-> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet
+> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
 > * Exit Intent technology
-> * New trigger methods
+> * More trigger methods
 > * Timer for auto closing
 > * Ability to disable close button
 > * Ability to disable Advanced close methods like esc or clicking outside of the popup
@@ -143,6 +144,9 @@ Check the following gist (https://gist.github.com/timersys/d68690a85aed14a02318)
 = How to close the popup is a user clicks on a regular link ? =
 To use custom conversions check [this code](https://gist.github.com/timersys/7facec9c80935a0df1c6) . You need to add it in your theme javascript files
 
+= If I have multiple Gravity forms on my page, form is not working =
+On certain occasions multiple GF instances can cause problems. There is a plugin that fixes that https://wordpress.org/plugins/gravity-forms-multiple-form-instances/
+
 = I closed the popup but youtube is still playing. How I fix it? =
 Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
 
@@ -172,6 +176,13 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+
+= 1.4.2 =
+* Added FBL support
+* Minor code edits for premium version
+* Fixed bug with Mailchimp for Wordpress plugin [mc4wp_form]
+* Popup fires later for better shortcodes support
 
 = 1.4.1 =
 
