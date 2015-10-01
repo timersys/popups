@@ -1,0 +1,730 @@
+# Copyright (C) 2013 TODO
+# This file is distributed under the same license as the TODO package.
+# Translators:
+# Анатолий, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Popups\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
+"POT-Creation-Date: 2015-06-14 00:02-0300\n"
+"PO-Revision-Date: 2015-10-01 11:18-0300\n"
+"Last-Translator: Анатолий\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/timersys/popups/language/ru_RU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-social-popup-admin.php:154
+msgctxt "post type singular name"
+msgid "Popups"
+msgstr "Popups"
+
+#: admin/class-social-popup-admin.php:155
+msgctxt "admin menu"
+msgid "Popups"
+msgstr "Popups"
+
+#: admin/class-social-popup-admin.php:156
+msgctxt "add new on admin bar"
+msgid "Popups"
+msgstr "Popups"
+
+#: admin/class-social-popup-admin.php:157
+msgctxt "Popups"
+msgid "Add New"
+msgstr "Добавить новый"
+
+#: admin/class-social-popup-admin.php:158
+msgid "Add New Popups"
+msgstr "Добавить новый Popups"
+
+#: admin/class-social-popup-admin.php:159
+msgid "New Popups"
+msgstr "Новый Popups"
+
+#: admin/class-social-popup-admin.php:160
+msgid "Edit Popups"
+msgstr "Редактировать Popups"
+
+#: admin/class-social-popup-admin.php:161
+msgid "View Popups"
+msgstr "Редактировать Popups"
+
+#: admin/class-social-popup-admin.php:162
+msgid "All Popups"
+msgstr "Все Popups"
+
+#: admin/class-social-popup-admin.php:163
+msgid "Search Popups"
+msgstr "Поиск Popups"
+
+#: admin/class-social-popup-admin.php:164
+msgid "Parent Popups:"
+msgstr "Родительский Popups:"
+
+#: admin/class-social-popup-admin.php:165
+msgid "No Popups found."
+msgstr "Не найден Popups"
+
+#: admin/class-social-popup-admin.php:166
+msgid "No Popups found in Trash."
+msgstr "Не найден Popups в Корзине"
+
+#: admin/class-social-popup-admin.php:255
+msgid "Popups Premium"
+msgstr "Премиум Popups"
+
+#: admin/class-social-popup-admin.php:266
+msgid "PopUp Shortcodes"
+msgstr "Шорткоды PopUp"
+
+#: admin/class-social-popup-admin.php:275
+msgid "PopUp Display Rules"
+msgstr "Отображать правила PopUp"
+
+#: admin/class-social-popup-admin.php:284
+msgid "Display Options"
+msgstr "Отображать опции"
+
+#: admin/class-social-popup-admin.php:293
+msgid "Need support?"
+msgstr "Нужна помощь?"
+
+#: admin/class-social-popup-admin.php:301
+msgid "Donate & support"
+msgstr "Помощь и Поддержка"
+
+#: admin/class-social-popup-admin.php:309
+msgid "About the developer"
+msgstr "О разработчике"
+
+#: admin/class-social-popup-admin.php:557 admin/views/metaboxes/metabox-rules.php:33 admin/views/metaboxes/metabox-rules.php:106
+msgid "or"
+msgstr "или"
+
+#: admin/class-social-popup-admin.php:584
+msgid "Add a Popup"
+msgstr "Добавить Popup"
+
+#: admin/class-social-popup-admin.php:708
+msgid "User"
+msgstr "Пользователь"
+
+#: admin/class-social-popup-admin.php:709
+msgid "User role"
+msgstr "Роль пользователя"
+
+#: admin/class-social-popup-admin.php:710
+msgid "User is logged"
+msgstr "Пользователь залогинен"
+
+#: admin/class-social-popup-admin.php:711
+msgid "User never left a comment"
+msgstr "Пользователь никогда не комментировал"
+
+#: admin/class-social-popup-admin.php:712
+msgid "User came via a search engine"
+msgstr "Пользователь пришел из поисковых систем"
+
+#: admin/class-social-popup-admin.php:713
+msgid "User did not arrive via another page on your site"
+msgstr "Пользователь не пришел с другой страницы на вашем сайте"
+
+#: admin/class-social-popup-admin.php:715 admin/class-social-popup-admin.php:716
+msgid "Post"
+msgstr "Публикация"
+
+#: admin/class-social-popup-admin.php:717
+msgid "Post ID"
+msgstr "ID публикации"
+
+#: admin/class-social-popup-admin.php:718
+msgid "Post Type"
+msgstr "Тип публикации"
+
+#: admin/class-social-popup-admin.php:719
+msgid "Post Category"
+msgstr "Категория публикации"
+
+#: admin/class-social-popup-admin.php:720
+msgid "Post Format"
+msgstr "Формат публикации"
+
+#: admin/class-social-popup-admin.php:721
+msgid "Post Status"
+msgstr "Статус публикации"
+
+#: admin/class-social-popup-admin.php:722
+msgid "Post Taxonomy"
+msgstr "Таксономия публикации"
+
+#: admin/class-social-popup-admin.php:724 admin/class-social-popup-admin.php:725
+msgid "Page"
+msgstr "Страница"
+
+#: admin/class-social-popup-admin.php:726
+msgid "Page Type"
+msgstr "Тип страницы"
+
+#: admin/class-social-popup-admin.php:727
+msgid "Page Parent"
+msgstr "Родительская страница"
+
+#: admin/class-social-popup-admin.php:728
+msgid "Page Template"
+msgstr "Шаблон страницы"
+
+#: admin/class-social-popup-admin.php:730
+msgid "Other"
+msgstr "Другие"
+
+#: admin/class-social-popup-admin.php:731
+msgid "Referrer"
+msgstr "Реферер"
+
+#: admin/class-social-popup-admin.php:732
+msgid "Mobile Phone"
+msgstr "Мобильный телефон"
+
+#: admin/class-social-popup-admin.php:733
+msgid "Tablet"
+msgstr "Планшет"
+
+#: admin/includes/class-spu-notices.php:30
+#, php-format
+msgid "We noticed that you have been using our plugin for a while and we would like to ask you a little favour. If you are happy with it and can take a minute please <a href=\"%s\" target=\"_blank\">leave a nice review</a> on WordPress. It will be a tremendous help for us!"
+msgstr "Мы заметили, что вы использовали наш плагин некоторое время, и мы хотели бы попросить оказать нам небольшую услугу. Если вам понравился наш плагин и у вас есть свободная минутка, пожалуйста <a href=\"%s\" target=\"_blank\">оставьте хороший отзыв</a> на WordPress. Это будет огромная помощь для нас!"
+
+#: admin/includes/class-spu-notices.php:32
+#, php-format
+msgid "<a href=\"%s\" target=\"_blank\">Leave a nice review</a>"
+msgstr "<a href=\"%s\" target=\"_blank\">Оставьте хороший отзыв</a>"
+
+#: admin/includes/class-spu-notices.php:33
+#, php-format
+msgid "<a href=\"%s\">No, thanks</a>"
+msgstr "<a href=\"%s\">Нет, спасибо</a>"
+
+#: admin/views/metaboxes/metabox-donate.php:6
+msgid "If you like this plugin, consider supporting it by donating."
+msgstr "Если вам нравится этот плагин, поддержите, пожалуйста, его."
+
+#: admin/views/metaboxes/metabox-donate.php:8
+msgid "Donate with PayPal"
+msgstr "Помочь через PayPal"
+
+#: admin/views/metaboxes/metabox-donate.php:10
+msgid "Some other ways to support this plugin"
+msgstr "Некоторые другие способы поддержки этого плагина"
+
+#: admin/views/metaboxes/metabox-donate.php:12
+msgid "Leave a  &#9733;&#9733;&#9733;&#9733;&#9733; review on WordPress.org"
+msgstr "Оставьте  &#9733;&#9733;&#9733;&#9733;&#9733; отзыв на WordPress.org"
+
+#: admin/views/metaboxes/metabox-donate.php:13
+msgid "Write about Popups on your blog"
+msgstr "Напишите о плагине Popups на своем блоге"
+
+#: admin/views/metaboxes/metabox-donate.php:14
+msgid "Tweet about Popups"
+msgstr "Твитнуть о плагине Popups"
+
+#: admin/views/metaboxes/metabox-donate.php:15
+msgid "Vote \"works\" on the WordPress.org plugin page"
+msgstr "Проголосовать \"работает\" на странице плагина в WordPress.org"
+
+#: admin/views/metaboxes/metabox-help.php:6
+msgid "You have three social shortcodes to use that will print a Facebook like, a Google+ Follow and a Twitter follow. Check the available options and <strong>configure them with your social accounts</strong>:"
+msgstr "У вас есть возможность использовать три социальных Шорткода: Facebook Лайк, подписка на Google+ и следовать в Twitter. Проверьте доступные варианты и <strong>настройте их со своими социальными профилями</strong>:"
+
+#: admin/views/metaboxes/metabox-help.php:12
+msgid "View Facebook Page Options"
+msgstr "Смотреть параметры страницы в Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:14 admin/views/metaboxes/metabox-help.php:27
+msgid "Your facebook page url"
+msgstr "Ссылка на вашу страницу Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:15
+msgid "Your page name"
+msgstr "Имя вашей страницы"
+
+#: admin/views/metaboxes/metabox-help.php:16
+msgid "true|false <b>Default value:</b> true"
+msgstr "true|false <b>Значение по умолчанию:</b> true"
+
+#: admin/views/metaboxes/metabox-help.php:17
+msgid "true|false <b>Default value:</b> false"
+msgstr "true|false <b>Значение по умолчанию:</b> false"
+
+#: admin/views/metaboxes/metabox-help.php:25
+msgid "View Facebook Options"
+msgstr "Посмотреть опции Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:28
+msgid "standard, box_count, button <b>Default value:</b> button_count"
+msgstr "standard, box_count, button <b>Значение по умолчанию:</b> button_count"
+
+#: admin/views/metaboxes/metabox-help.php:29 admin/views/metaboxes/metabox-help.php:30
+msgid "true <b>Default value:</b> false"
+msgstr "true <b>Значение по умолчанию:</b> false"
+
+#: admin/views/metaboxes/metabox-help.php:31
+msgid "recommend <b>Default value:</b> like"
+msgstr "рекомендованное <b>Значение по умолчанию:</b> like"
+
+#: admin/views/metaboxes/metabox-help.php:38
+msgid "View Google+ Options"
+msgstr "Посмотреть опции Google+"
+
+#: admin/views/metaboxes/metabox-help.php:40
+msgid "Your Google+ url"
+msgstr "Ссылка на ваш Google+"
+
+#: admin/views/metaboxes/metabox-help.php:41
+msgid "small, standard, tall <b>Default value:</b> medium"
+msgstr "small, standard, tall <b>Значение по умолчанию:</b> medium"
+
+#: admin/views/metaboxes/metabox-help.php:42
+msgid "inline, none <b>Default value:</b> bubble"
+msgstr "inline, none <b>Значение по умолчанию:</b> bubble"
+
+#: admin/views/metaboxes/metabox-help.php:48
+msgid "View Twitter Options"
+msgstr "Посмотреть опции в Twitter"
+
+#: admin/views/metaboxes/metabox-help.php:50
+msgid "Your Twitter user <b>Default chifli</b>iiii"
+msgstr "Ваш пользователь в Twitter <b>chifli по умолчанию</b>iiii"
+
+#: admin/views/metaboxes/metabox-help.php:51
+msgid "false <b>Default value:</b> true"
+msgstr "false <b>Значение по умолчанию:</b> true"
+
+#: admin/views/metaboxes/metabox-help.php:52
+msgid "large <b>Default value:</b> \"\""
+msgstr "large <b>Значение по умолчанию:</b> \"\""
+
+#: admin/views/metaboxes/metabox-help.php:55
+msgid "Other available Shortcodes:"
+msgstr "Другие доступные шорткоды:"
+
+#: admin/views/metaboxes/metabox-help.php:60
+msgid "View Close shortcode Options"
+msgstr "Помостреть Закрыть опции шорткодов"
+
+#: admin/views/metaboxes/metabox-help.php:62
+msgid "Pass a custom class to style your button"
+msgstr "Передайте собственный класс стиля для ваших кнопок"
+
+#: admin/views/metaboxes/metabox-help.php:63
+msgid "Button label - <b>Default value:</b> Close"
+msgstr "Значение кнопки - <b>Значение по умолчанию:</b> Close"
+
+#: admin/views/metaboxes/metabox-help.php:64
+msgid "left, right, center, none - <b>Default value:</b> center"
+msgstr "left, right, center, none - <b>Значение по умолчанию:</b> center"
+
+#: admin/views/metaboxes/metabox-links.php:6
+msgid "My name is"
+msgstr "Меня зовут"
+
+#: admin/views/metaboxes/metabox-links.php:6
+msgid "I develop WordPress plugins and themes."
+msgstr "Я разрабатываю плагины и темы для WordPress."
+
+#: admin/views/metaboxes/metabox-links.php:7
+#, php-format
+msgid "Take a look at my <a href=\"%s\">site</a> to see my other plugins or hire me. Subscribe to get updates!"
+msgstr "Взгляните на мой <a href=\"%s\">сайт</a> чтобы увидеть мои другие плагины или нанять меня. Подпишитесь на обновления!"
+
+#: admin/views/metaboxes/metabox-links.php:8
+msgid "Other plugins I built:"
+msgstr "Другие плагины которые я разработал:"
+
+#: admin/views/metaboxes/metabox-links.php:10
+msgid "Install multiple plugins and create collections"
+msgstr "Установка нескольких плагинов и создать коллекции"
+
+#: admin/views/metaboxes/metabox-links.php:11
+msgid "Geotarget your content"
+msgstr "Геотаргетинг вашего контента"
+
+#: admin/views/metaboxes/metabox-links.php:12
+msgid "Invite your network friends and import contacts"
+msgstr "Пригласить своих друзей из сети и импортировать контакты"
+
+#: admin/views/metaboxes/metabox-options.php:9
+msgid "Box Position"
+msgstr "Позиция Box"
+
+#: admin/views/metaboxes/metabox-options.php:12
+msgid "Centered"
+msgstr "По центру"
+
+#: admin/views/metaboxes/metabox-options.php:13
+msgid "Top Left"
+msgstr "Слева вверху"
+
+#: admin/views/metaboxes/metabox-options.php:14
+msgid "Top Right"
+msgstr "Справа вверху"
+
+#: admin/views/metaboxes/metabox-options.php:15
+msgid "Bottom Left"
+msgstr "Внизу слева"
+
+#: admin/views/metaboxes/metabox-options.php:16
+msgid "Bottom Right"
+msgstr "Внизу справа"
+
+#: admin/views/metaboxes/metabox-options.php:23
+msgid "Trigger action"
+msgstr "Запуск действия"
+
+#: admin/views/metaboxes/metabox-options.php:27
+msgid "seconds after page load"
+msgstr "секунд после загрузки страницы"
+
+#: admin/views/metaboxes/metabox-options.php:28
+msgid "of page height"
+msgstr "высоты страницы"
+
+#: admin/views/metaboxes/metabox-options.php:38
+msgid "Auto-hide?"
+msgstr "Авто-скрытие?"
+
+#: admin/views/metaboxes/metabox-options.php:40 admin/views/metaboxes/metabox-options.php:68 admin/views/metaboxes/metabox-options.php:76 admin/views/metaboxes/metabox-options.php:84
+msgid "Yes"
+msgstr "Да"
+
+#: admin/views/metaboxes/metabox-options.php:41 admin/views/metaboxes/metabox-options.php:69 admin/views/metaboxes/metabox-options.php:77 admin/views/metaboxes/metabox-options.php:85
+msgid "No"
+msgstr "Нет"
+
+#: admin/views/metaboxes/metabox-options.php:42
+#, php-format
+msgid "Hide box again when visitors scroll back up? Only works when Trigger action is set to % of page height"
+msgstr "Скрыть окно снова, когда посетители прокрутили обратно? Работает только когда действие триггера установлено % oт высоты страницы"
+
+#: admin/views/metaboxes/metabox-options.php:46
+msgid "Animation"
+msgstr "Анимация"
+
+#: admin/views/metaboxes/metabox-options.php:49
+msgid "Fade In"
+msgstr "Плавное появление"
+
+#: admin/views/metaboxes/metabox-options.php:50
+msgid "Slide In"
+msgstr "Выдвижение"
+
+#: admin/views/metaboxes/metabox-options.php:53
+msgid "Slide will only apply when popup is on the corners"
+msgstr "Выдвижение будет применяться только тогда, когда всплывающее окно находится по углах"
+
+#: admin/views/metaboxes/metabox-options.php:58
+msgid "Cookie expiration days"
+msgstr "Куки действуют дней"
+
+#: admin/views/metaboxes/metabox-options.php:61
+msgid "After closing the box, how many days should it stay hidden?"
+msgstr "После закрытия окна, сколько дней PopUp должен оставаться скрытым?"
+
+#: admin/views/metaboxes/metabox-options.php:66
+msgid "Enable test mode?"
+msgstr "Включить тестовый режим?"
+
+#: admin/views/metaboxes/metabox-options.php:70
+msgid "If test mode is enabled, the box will show up regardless of whether a cookie has been set. (To admins only)"
+msgstr "Если тестовый режим включен, окно будет отображаться независимо от того, были ли установлены куки. (только Админам)"
+
+#: admin/views/metaboxes/metabox-options.php:74
+msgid "Close on conversion?"
+msgstr "Закрыть при конверсии?"
+
+#: admin/views/metaboxes/metabox-options.php:78
+msgid "If you have a form or social shortcode, by default popup will close on submission/conversion"
+msgstr "Если у вас есть форма или социальной шорткод, по умолчанию всплывающие закроется при подтверждении/конверсии"
+
+#: admin/views/metaboxes/metabox-options.php:82
+msgid "Show powered by link?"
+msgstr "Показать ссылку powered by?"
+
+#: admin/views/metaboxes/metabox-options.php:86
+#, php-format
+msgid "Shows a \"powered by\" link below your popup. If your affiliate link is set in the <a href=\"%s\">settings</a>, it will be used."
+msgstr "Показать ссылку \"powered by\" под вашим PopUp. Если ваша партнерская ссылка указана в <a href=\"%s\">настройках</a>, она будет использована."
+
+#: admin/views/metaboxes/metabox-options.php:91
+msgid "Appearance"
+msgstr "Появление"
+
+#: admin/views/metaboxes/metabox-options.php:95
+msgid "Background opacity"
+msgstr "Размытие фона"
+
+#: admin/views/metaboxes/metabox-options.php:98
+msgid "Leave at 0 for no background. Max value is 1"
+msgstr "Оставьте 0 для без фона. Максимальное значение равно 1"
+
+#: admin/views/metaboxes/metabox-options.php:104
+msgid "Background color"
+msgstr "Цвет фона"
+
+#: admin/views/metaboxes/metabox-options.php:108
+msgid "Text color"
+msgstr "Цвет текста"
+
+#: admin/views/metaboxes/metabox-options.php:112
+msgid "Box width"
+msgstr "Ширина Бокса"
+
+#: admin/views/metaboxes/metabox-options.php:118
+msgid "Border color"
+msgstr "Цвет рамки"
+
+#: admin/views/metaboxes/metabox-options.php:122
+msgid "Border width"
+msgstr "Ширина рамки"
+
+#: admin/views/metaboxes/metabox-premium.php:16
+msgid "Take the best WordPress Popups plugin to the next level with Popups Premium extension."
+msgstr "Используйте максимум преимуществ плагина \"всплывающие окна\" для WordPress с расширением Popups Premium ."
+
+#: admin/views/metaboxes/metabox-premium.php:17
+msgid "Popups Premium Features:"
+msgstr "Преимущества Popups Premium:"
+
+#: admin/views/metaboxes/metabox-premium.php:19
+msgid "Beautiful optin forms for popular mail providers"
+msgstr "Красивые OptIn формы для популярных почтовых служб"
+
+#: admin/views/metaboxes/metabox-premium.php:20
+msgid "Currently supporting MailChimp, Aweber, Postmatic, Mailpoet"
+msgstr "Сейчас поддерживаются MailChimp, Aweber, Postmatic, Mailpoet"
+
+#: admin/views/metaboxes/metabox-premium.php:21
+msgid "Track impressions and Conversions of social likes and forms submissions like Contact Form 7, Gravity forms, etc"
+msgstr "Отслеживать показы и переходы из социальных сетей и формировать отчеты по действиям Contact Form 7, Gravity формы, и т.д."
+
+#: admin/views/metaboxes/metabox-premium.php:22
+msgid "Track impressions and Conversions also in Google Analytics"
+msgstr "Отслеживать показы и переходы также и в Google Analytics"
+
+#: admin/views/metaboxes/metabox-premium.php:23 admin/views/metaboxes/metabox-premium.php:25
+msgid "Exit Intent technology"
+msgstr "Выход Целевой технологии"
+
+#: admin/views/metaboxes/metabox-premium.php:24
+msgid "8 New animations effects"
+msgstr "8 новых анимационных эффектов"
+
+#: admin/views/metaboxes/metabox-premium.php:26
+msgid "New trigger methods"
+msgstr "Новые методы отслеживания"
+
+#: admin/views/metaboxes/metabox-premium.php:27
+msgid "Timer for auto closing"
+msgstr "Таймер для автоматического закрытия"
+
+#: admin/views/metaboxes/metabox-premium.php:28
+msgid "Ability to disable close button"
+msgstr "Возможность отключения кнопки закрытия"
+
+#: admin/views/metaboxes/metabox-premium.php:29
+msgid "Ability to disable Advanced close methods like esc or clicking outside of the popup"
+msgstr "Возможность отключения расширенных методов закрытия, такие как нажатие ESC или клик снаружи всплывающего окна"
+
+#: admin/views/metaboxes/metabox-premium.php:30
+msgid "Premium support"
+msgstr "Премиум поддержка"
+
+#: admin/views/metaboxes/metabox-premium.php:34
+msgid "Buy Now!"
+msgstr "Купить сейчас!"
+
+#: admin/views/metaboxes/metabox-rules.php:19
+msgid "Rules"
+msgstr "Правила"
+
+#: admin/views/metaboxes/metabox-rules.php:20
+msgid "Create a set of rules to determine where the popup will show"
+msgstr "Создать набор правил для показа всплывающего окна"
+
+#: admin/views/metaboxes/metabox-rules.php:31
+msgid "Show this popup if"
+msgstr "Показать это всплывающее окно, если"
+
+#: admin/views/metaboxes/metabox-rules.php:61
+msgid "is equal to"
+msgstr "равно"
+
+#: admin/views/metaboxes/metabox-rules.php:62
+msgid "is not equal to"
+msgstr "неравно"
+
+#: admin/views/metaboxes/metabox-rules.php:93
+msgid "and"
+msgstr "и"
+
+#: admin/views/metaboxes/metabox-rules.php:108
+msgid "Add rule group"
+msgstr "Добавить группу правил"
+
+#: admin/views/metaboxes/metabox-support.php:6
+#, php-format
+msgid "You are using Popups plugin v%s"
+msgstr "Вы используете плагин Popups v%s"
+
+#: admin/views/metaboxes/metabox-support.php:7
+#, php-format
+msgid "If you need support please go to the WordPress.org <a href=\"%s\">support forums</a>"
+msgstr "Если вам нужна поддержка, пожалуйста, перейдите на <a href=\"%s\">форум поддержки</a> WordPress.org"
+
+#: admin/views/settings-page.php:17
+msgid "Affiliate link"
+msgstr "Партнерская ссылка"
+
+#: admin/views/settings-page.php:20
+#, php-format
+msgid "You can earn money by promoting the plugin! Join <a href=\"%s\">our affiliate program</a> and paste your affiliate link here to earn 35&#37; in commissions . Once entered, it will replace the default \"Powered by\" on the popups."
+msgstr "Вы можете заработать деньги, продвигая плагин! Присоединяйтесь к <a href=\"%s\">нашей партнерской программе</a> и вставьте свою партнерскую ссылку, чтобы заработать 35&#37; комиссионных . После того, как вы введете ее, она заменит значение по умолчанию \"Powered by\" во всплывающих окнах."
+
+#: admin/views/settings-page.php:24
+msgid "Ajax mode?"
+msgstr "Режим Ajax?"
+
+#: admin/views/settings-page.php:27
+msgid "Load popups using ajax. Compatible with cache plugins, but might not work with all plugins"
+msgstr "Загрузка всплывающего окна с помощью Ajax. Совместима с плагинами кэширования, но не может работать с некоторыми плагинами"
+
+#: admin/views/settings-page.php:32
+msgid "Enable Debug mode?"
+msgstr "Включить режим отладки?"
+
+#: admin/views/settings-page.php:35
+msgid "Will use uncompressed js"
+msgstr "Будут использоваться несжатые JS"
+
+#: admin/views/settings-page.php:40
+msgid "Enable safe mode?"
+msgstr "Включить безопасный режим?"
+
+#: admin/views/settings-page.php:43
+msgid "Will move all popups to top of the screen."
+msgstr "Будут передвинуты все всплывающие окна в верхнюю часть экрана."
+
+#: admin/views/settings-page.php:48
+msgid "Remove shortcodes style"
+msgstr "Удалить стили Шорткодов"
+
+#: admin/views/settings-page.php:51
+msgid "By default the plugin will apply some style to shortcodes. Check here if you want to manually style them"
+msgstr "По умолчанию плагин будет применять некоторые стили Шорткодов. Отметьте здесь, если вы хотите задать их стиль вручную"
+
+#: admin/views/settings-page.php:56
+msgid "Unload Facebook javascript"
+msgstr "Выгрузка JavaScript Facebook"
+
+#: admin/views/settings-page.php:59
+msgid "If you use your own Facebook script, check this"
+msgstr "Если вы используете свой собственный скрипт Facebook, отметьте это"
+
+#: admin/views/settings-page.php:64
+msgid "Unload Google javascript"
+msgstr "Выгрузка JavaScript Google"
+
+#: admin/views/settings-page.php:67
+msgid "If you use your own Google script, check this"
+msgstr "Если вы используете свой собственный скрипт Google, отметьте это"
+
+#: admin/views/settings-page.php:72
+msgid "Unload Twitter javascript"
+msgstr "Выгрузка JavaScript Twitter"
+
+#: admin/views/settings-page.php:75
+msgid "If you use your own Twitter script, check this"
+msgstr "Если вы используете свой собственный скрипт Twitter, отметьте это"
+
+#: admin/views/settings-page.php:80
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+#: includes/class-spu-helper.php:133
+msgid "All Pages"
+msgstr "Все страницы"
+
+#: includes/class-spu-helper.php:134
+msgid "Front Page"
+msgstr "Титульная страница"
+
+#: includes/class-spu-helper.php:135
+msgid "Posts Page"
+msgstr "Страница Публикаций"
+
+#: includes/class-spu-helper.php:136
+msgid "Category Page"
+msgstr "Страница Категорий"
+
+#: includes/class-spu-helper.php:137
+msgid "Archives Page"
+msgstr "Страница Архивов"
+
+#: includes/class-spu-helper.php:138
+msgid "Top Level Page (parent of 0)"
+msgstr "Верхний уровень страницы (родителей 0)"
+
+#: includes/class-spu-helper.php:139
+msgid "Parent Page (has children)"
+msgstr "Родительская страница (имеет потомков)"
+
+#: includes/class-spu-helper.php:140
+msgid "Child Page (has parent)"
+msgstr "Дочерняя страница (имеет родителя)"
+
+#: includes/class-spu-helper.php:148
+msgid "Default Template"
+msgstr "Шаблон по умолчанию"
+
+#: includes/class-spu-helper.php:221
+msgid "Publish"
+msgstr "Опубликовать"
+
+#: includes/class-spu-helper.php:222
+msgid "Pending Review"
+msgstr "Ожидает оценки"
+
+#: includes/class-spu-helper.php:223
+msgid "Draft"
+msgstr "Черновик"
+
+#: includes/class-spu-helper.php:224
+msgid "Future"
+msgstr "Запланировать"
+
+#: includes/class-spu-helper.php:225
+msgid "Private"
+msgstr "Приватное"
+
+#: includes/class-spu-helper.php:226
+msgid "Revision"
+msgstr "Ревизии"
+
+#: includes/class-spu-helper.php:227
+msgid "Trash"
+msgstr "Корзина"
+
+#: includes/class-spu-helper.php:240
+msgid "Super Admin"
+msgstr "Супер Админ"
+
+#: includes/class-spu-helper.php:260
+msgid "True"
+msgstr "Правда"

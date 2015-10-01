@@ -155,19 +155,19 @@ class SocialPopup_Admin {
 		}
 		$labels = array(
 			'name'               => $name,
-			'singular_name'      => _x( 'Popups', 'post type singular name', $this->plugin_slug ),
-			'menu_name'          => _x( 'Popups', 'admin menu', $this->plugin_slug ),
-			'name_admin_bar'     => _x( 'Popups', 'add new on admin bar', $this->plugin_slug ),
-			'add_new'            => _x( 'Add New', 'Popups', $this->plugin_slug ),
-			'add_new_item'       => __( 'Add New Popups', $this->plugin_slug ),
-			'new_item'           => __( 'New Popups', $this->plugin_slug ),
-			'edit_item'          => __( 'Edit Popups', $this->plugin_slug ),
-			'view_item'          => __( 'View Popups', $this->plugin_slug ),
-			'all_items'          => __( 'All Popups', $this->plugin_slug ),
-			'search_items'       => __( 'Search Popups', $this->plugin_slug ),
-			'parent_item_colon'  => __( 'Parent Popups:', $this->plugin_slug ),
-			'not_found'          => __( 'No Popups found.', $this->plugin_slug ),
-			'not_found_in_trash' => __( 'No Popups found in Trash.', $this->plugin_slug )
+			'singular_name'      => _x( 'Popups', 'post type singular name', 'popups' ),
+			'menu_name'          => _x( 'Popups', 'admin menu', 'popups' ),
+			'name_admin_bar'     => _x( 'Popups', 'add new on admin bar', 'popups' ),
+			'add_new'            => _x( 'Add New', 'Popups', 'popups' ),
+			'add_new_item'       => __( 'Add New Popups', 'popups' ),
+			'new_item'           => __( 'New Popups', 'popups' ),
+			'edit_item'          => __( 'Edit Popups', 'popups' ),
+			'view_item'          => __( 'View Popups', 'popups' ),
+			'all_items'          => __( 'All Popups', 'popups' ),
+			'search_items'       => __( 'Search Popups', 'popups' ),
+			'parent_item_colon'  => __( 'Parent Popups:', 'popups' ),
+			'not_found'          => __( 'No Popups found.', 'popups' ),
+			'not_found_in_trash' => __( 'No Popups found in Trash.', 'popups' )
 		);
 
 		$args = array(
@@ -256,7 +256,7 @@ class SocialPopup_Admin {
 
 			add_meta_box(
 				'spu-premium',
-				__( 'Popups Premium', $this->plugin_slug ),
+				__( 'Popups Premium', 'popups' ),
 				array( $this, 'popup_premium' ),
 				'spucpt',
 				'normal',
@@ -267,7 +267,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-help',
-			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', $this->plugin_slug ),
+			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', 'popups' ),
 			array( $this, 'popup_help' ),
 			'spucpt',
 			'normal',
@@ -276,7 +276,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-rules',
-			'<i class="spu-icon-eye spu-icon"></i>' . __( 'PopUp Display Rules', $this->plugin_slug ),
+			'<i class="spu-icon-eye spu-icon"></i>' . __( 'PopUp Display Rules', 'popups' ),
 			array( $this, 'popup_rules' ),
 			'spucpt',
 			'normal',
@@ -285,7 +285,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-options',
-			'<i class="spu-icon-gears spu-icon"></i>' . __( 'Display Options', $this->plugin_slug ),
+			'<i class="spu-icon-gears spu-icon"></i>' . __( 'Display Options', 'popups' ),
 			array( $this, 'popup_options' ),
 			'spucpt',
 			'normal',
@@ -294,7 +294,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-support',
-			__( 'Need support?', $this->plugin_slug ),
+			__( 'Need support?', 'popups' ),
 			array( $this, 'metabox_support' ),
 			'spucpt',
 			'side'
@@ -302,7 +302,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-donate',
-			__( 'Donate & support', $this->plugin_slug ),
+			__( 'Donate & support', 'popups' ),
 			array( $this, 'metabox_donate' ),
 			'spucpt',
 			'side'
@@ -310,7 +310,7 @@ class SocialPopup_Admin {
 
 		add_meta_box(
 			'spu-links',
-			__( 'About the developer', $this->plugin_slug ),
+			__( 'About the developer', 'popups' ),
 			array( $this, 'metabox_links' ),
 			'spucpt',
 			'side'
@@ -564,7 +564,7 @@ class SocialPopup_Admin {
 					'admin_url' => admin_url( ), 
 					'nonce' 	=> wp_create_nonce( 'spu_nonce' ),
 					'l10n'		=> array (
-							'or'	=> __('or', $this->plugin_slug )
+							'or'	=> __('or', 'popups' )
 						),
 					'opts'      => $this->helper->get_box_options($box_id)
 				) 
@@ -591,7 +591,7 @@ class SocialPopup_Admin {
 
 		return array_merge(
 			array(
-				'settings' => '<a href="' . admin_url( 'edit.php?post_type=spucpt' ) . '">' . __( 'Add a Popup', $this->plugin_slug ) . '</a>'
+				'settings' => '<a href="' . admin_url( 'edit.php?post_type=spucpt' ) . '">' . __( 'Add a Popup', 'popups' ) . '</a>'
 			),
 			$links
 		);
@@ -715,32 +715,32 @@ class SocialPopup_Admin {
 
 	function get_rules_choices() {
 		$choices = array(
-			__("User", $this->plugin_slug ) => array(
-				'user_type'		=>	__("User role", $this->plugin_slug ),
-				'logged_user'	=>	__("User is logged", $this->plugin_slug ),
-				'left_comment'	=>	__("User never left a comment", $this->plugin_slug ),
-				'search_engine'	=>	__("User came via a search engine", $this->plugin_slug ),
-				'same_site'		=>	__("User did not arrive via another page on your site", $this->plugin_slug ),
+			__("User", 'popups' ) => array(
+				'user_type'		=>	__("User role", 'popups' ),
+				'logged_user'	=>	__("User is logged", 'popups' ),
+				'left_comment'	=>	__("User never left a comment", 'popups' ),
+				'search_engine'	=>	__("User came via a search engine", 'popups' ),
+				'same_site'		=>	__("User did not arrive via another page on your site", 'popups' ),
 			),
-			__("Post", $this->plugin_slug ) => array(
-				'post'			=>	__("Post", $this->plugin_slug ),
-				'post_id'		=>	__("Post ID", $this->plugin_slug ),
-				'post_type'		=>	__("Post Type", $this->plugin_slug ),
-				'post_category'	=>	__("Post Category", $this->plugin_slug ),
-				'post_format'	=>	__("Post Format", $this->plugin_slug ),
-				'post_status'	=>	__("Post Status", $this->plugin_slug ),
-				'taxonomy'		=>	__("Post Taxonomy", $this->plugin_slug ),
+			__("Post", 'popups' ) => array(
+				'post'			=>	__("Post", 'popups' ),
+				'post_id'		=>	__("Post ID", 'popups' ),
+				'post_type'		=>	__("Post Type", 'popups' ),
+				'post_category'	=>	__("Post Category", 'popups' ),
+				'post_format'	=>	__("Post Format", 'popups' ),
+				'post_status'	=>	__("Post Status", 'popups' ),
+				'taxonomy'		=>	__("Post Taxonomy", 'popups' ),
 			),
-			__("Page", $this->plugin_slug ) => array(
-				'page'			=>	__("Page", $this->plugin_slug ),
-				'page_type'		=>	__("Page Type", $this->plugin_slug ),
-				'page_parent'	=>	__("Page Parent", $this->plugin_slug ),
-				'page_template'	=>	__("Page Template", $this->plugin_slug ),
+			__("Page", 'popups' ) => array(
+				'page'			=>	__("Page", 'popups' ),
+				'page_type'		=>	__("Page Type", 'popups' ),
+				'page_parent'	=>	__("Page Parent", 'popups' ),
+				'page_template'	=>	__("Page Template", 'popups' ),
 			),
-			__("Other", $this->plugin_slug ) => array(
-				'referrer'		=>	__("Referrer", $this->plugin_slug ),
-				'mobiles'		=>	__("Mobile Phone", $this->plugin_slug ),
-				'tablets'		=>	__("Tablet", $this->plugin_slug ),
+			__("Other", 'popups' ) => array(
+				'referrer'		=>	__("Referrer", 'popups' ),
+				'mobiles'		=>	__("Mobile Phone", 'popups' ),
+				'tablets'		=>	__("Tablet", 'popups' ),
 			)
 		);
 		// allow custom rules rules
@@ -788,7 +788,7 @@ class SocialPopup_Admin {
 	public function set_custom_cpt_columns( $columns ){
 		unset( $columns['date'] );
 
-		$columns['spu_id']        = __( 'ID', '$this->plugin_slug' );
+		$columns['spu_id']        = __( 'ID', 'popups' );
 		return $columns;
 	}
 	/**

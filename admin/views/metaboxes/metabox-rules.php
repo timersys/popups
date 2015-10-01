@@ -16,8 +16,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 	<tbody>
 	<tr>
 		<td class="label">
-			<label for="post_type"><?php _e("Rules", $this->plugin_slug ); ?></label>
-			<p class="description"><?php _e("Create a set of rules to determine where the popup will show", $this->plugin_slug ); ?></p>
+			<label for="post_type"><?php _e("Rules", 'popups' ); ?></label>
+			<p class="description"><?php _e("Create a set of rules to determine where the popup will show", 'popups' ); ?></p>
 		</td>
 		<td>
 			<div class="rules-groups">
@@ -28,9 +28,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 		?>
 		<div class="rules-group" data-id="<?php echo $group_id; ?>">
 			<?php if( $group_id == 'group_0' ): ?>
-				<h4><?php _e("Show this popup if", $this->plugin_slug ); ?></h4>
+				<h4><?php _e("Show this popup if", 'popups' ); ?></h4>
 			<?php else: ?>
-				<h4><?php _e("or", $this->plugin_slug ); ?></h4>
+				<h4><?php _e("or", 'popups' ); ?></h4>
 			<?php endif; ?>
 			<?php if( is_array($group) ): ?>
 			<table class="spu_table widefat">
@@ -58,8 +58,8 @@ if ( !defined( 'ABSPATH' ) ) exit;
 					<td class="operator"><?php 	
 						
 						$choices = array(
-							'=='	=>	__("is equal to", $this->plugin_slug ),
-							'!='	=>	__("is not equal to", $this->plugin_slug ),
+							'=='	=>	__("is equal to", 'popups' ),
+							'!='	=>	__("is not equal to", 'popups' ),
 						);
 						
 						
@@ -90,7 +90,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 						
 					?></td>
 					<td class="add">
-						<a href="#" class="rules-add-rule button"><?php _e("and", $this->plugin_slug ); ?></a>
+						<a href="#" class="rules-add-rule button"><?php _e("and", 'popups' ); ?></a>
 					</td>
 					<td class="remove">
 						<a href="#" class="rules-remove-rule rules-remove-rule">-</a>
@@ -103,9 +103,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 		</div>
 	<?php endforeach; ?>
 	
-	<h4><?php _e("or", $this->plugin_slug ); ?></h4>
+	<h4><?php _e("or", 'popups' ); ?></h4>
 	
-	<a class="button rules-add-group" href="#"><?php _e("Add rule group", $this->plugin_slug ); ?></a>
+	<a class="button rules-add-group" href="#"><?php _e("Add rule group", 'popups' ); ?></a>
 	
 <?php endif; ?>
 				

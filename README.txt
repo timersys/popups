@@ -5,7 +5,7 @@ Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, go
 Requires at least: 3.6
 Tested up to: 4.3.1
 Stable tag: 1.4.2
-Text Domain: spu
+Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
