@@ -23,8 +23,6 @@ class Spu_Helper {
 	
 	public static function ajax_render_rules( $options = array() )
 	{
-		$plugin = SocialPopup::get_instance();
-		self::$plugin_slug = $plugin->get_plugin_slug();
 
 		// defaults
 		$defaults = array(
@@ -130,14 +128,14 @@ class Spu_Helper {
 			case "page_type" :
 				
 				$choices = array(
-					'all_pages'		=>	__("All Pages", self::$plugin_slug),
-					'front_page'	=>	__("Front Page", self::$plugin_slug),
-					'posts_page'	=>	__("Posts Page", self::$plugin_slug),
-					'category_page'	=>	__("Category Page", self::$plugin_slug),
-					'archive_page'	=>	__("Archives Page", self::$plugin_slug),
-					'top_level'		=>	__("Top Level Page (parent of 0)", self::$plugin_slug),
-					'parent'		=>	__("Parent Page (has children)", self::$plugin_slug),
-					'child'			=>	__("Child Page (has parent)", self::$plugin_slug),
+					'all_pages'		=>	__("All Pages", 'popups'),
+					'front_page'	=>	__("Front Page", 'popups'),
+					'posts_page'	=>	__("Posts Page", 'popups'),
+					'category_page'	=>	__("Category Page", 'popups'),
+					'archive_page'	=>	__("Archives Page", 'popups'),
+					'top_level'		=>	__("Top Level Page (parent of 0)", 'popups'),
+					'parent'		=>	__("Parent Page (has children)", 'popups'),
+					'child'			=>	__("Child Page (has parent)", 'popups'),
 				);
 								
 				break;
@@ -145,7 +143,7 @@ class Spu_Helper {
 			case "page_template" :
 				
 				$choices = array(
-					'default'	=>	__("Default Template", self::$plugin_slug),
+					'default'	=>	__("Default Template", 'popups'),
 				);
 				
 				$templates = get_page_templates();
@@ -257,7 +255,7 @@ class Spu_Helper {
 			case "search_engine" :
 			case "same_site" :
 												
-				$choices = array('true' => __( 'True',  self::$plugin_slug ) );
+				$choices = array('true' => __( 'True',  'popups' ) );
 			
 				break;
 				
@@ -392,7 +390,7 @@ class Spu_Helper {
 			'powered_link'      => '1',
 		);
 		
-		$opts = get_post_meta( $id, 'spu_options', true );
+		$opts = apply_filters( 'spu/metaboxes/box_options', get_post_meta( $id, 'spu_options', true ), $id );
 
 		return wp_parse_args( $opts, apply_filters( 'spu/metaboxes/default_options', $defaults ) );
 	}	

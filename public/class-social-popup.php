@@ -86,13 +86,13 @@ class SocialPopup {
 			'upgrade_version'	=> '1.6.4.3',
 			'wpml_lang'	        => defined('ICL_LANGUAGE_CODE') ? ICL_LANGUAGE_CODE : '',
 		);
+		// Load plugin text domain
+		$this->load_plugin_textdomain();
 
 		$this->load_dependencies();
 
 		$this->spu_settings = apply_filters('spu/settings_page/opts', get_option( 'spu_settings' ) );
 
-		// Load plugin text domain
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
@@ -321,11 +321,11 @@ class SocialPopup {
 	 */
 	public function load_plugin_textdomain() {
 
-		$domain = $this->plugin_slug;
+		$domain = 'popups';
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
+		load_plugin_textdomain( $domain, FALSE, dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/' );
 
 	}
 

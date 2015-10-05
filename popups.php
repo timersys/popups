@@ -15,7 +15,7 @@
  * Description: 	  Most complete free Popups plugin, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, Mailpoet, Mailchimp for WP, Postmatic, etc
  * Author: 			  Damian Logghe
  * Author URI:        http://wp.timersys.com
- * Text Domain:       spu
+ * Text Domain:       popups
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path:       /languages

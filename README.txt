@@ -5,7 +5,7 @@ Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, go
 Requires at least: 3.6
 Tested up to: 4.3.1
 Stable tag: 1.4.2
-Text Domain: spu
+Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,10 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 == Frequently Asked Questions ==
 
+= How can I include a custom link inside of the popup ? =
+By default any link you enter will be used as a conversion link. By that we mean that if the link is clicked the popup will be closed as the user already performed the desired action.
+To avoid that you can add the class attribute .spu-not-close to the link
+
 = Popups plugin is compatible with Gravity Forms ? =
 Yes, you need to configure your form to use ajax when inserting it
 
@@ -179,10 +183,13 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 
 
 = 1.4.2 =
-* Added FBL support
+
+* Added Facebook Login plugin support
 * Minor code edits for premium version
 * Fixed bug with Mailchimp for Wordpress plugin [mc4wp_form]
 * Popup fires later for better shortcodes support
+* Updates in language packs
+* Now users can have custom links inside of popup that does not count as conversion (read faq)
 
 = 1.4.1 =
 
