@@ -392,7 +392,7 @@ class Spu_Helper {
 			'powered_link'      => '1',
 		);
 		
-		$opts = get_post_meta( $id, 'spu_options', true );
+		$opts = apply_filters( 'spu/metaboxes/box_options', get_post_meta( $id, 'spu_options', true ), $id );
 
 		return wp_parse_args( $opts, apply_filters( 'spu/metaboxes/default_options', $defaults ) );
 	}	
