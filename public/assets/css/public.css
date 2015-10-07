@@ -61,7 +61,10 @@ body {
 .spu-box p{
 	margin: 0 0 1.414285714rem;
 }
-
+.spu-box img{
+    max-width: 100%;
+    height: auto;
+}
 /** end basic style**/
 .spu-box.spu-top-left{ 
 	top: 0; left: 0; bottom: auto; right: auto;
