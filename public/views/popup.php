@@ -33,6 +33,11 @@ if ( function_exists('qtrans_useCurrentLanguageIfNotFoundShowAvailable') ) {
 	$content = qtrans_useCurrentLanguageIfNotFoundShowAvailable( $content );
 }
 
+// WPGlobus support
+if ( class_exists('WPGlobus') ) {
+	$content = WPGlobus_Core::text_filter( $content, WPGlobus::Config()->language );
+}	
+
 // Optin popup ?
 if( !empty( $opts['optin'] ) ) {
 	$box_class  .= ' spu-optin';
