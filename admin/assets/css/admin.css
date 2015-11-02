@@ -1,0 +1,292 @@
+/* This stylesheet is used to style the admin option form of the plugin. */
+/*----------
+	Alerts
+---------------*/
+.alert-premium {
+	border: 4px solid #dd3d36;
+	padding: 10px;
+	text-align: center;
+	margin: 15px;
+}	
+/*---------------------------------------------------------------------------------------------
+	Tables
+---------------------------------------------------------------------------------------------*/
+#spu-rules > .inside {
+	padding: 0;
+}
+table.spu_table {
+	border: 0 none;
+	background: #fff;
+}
+
+table.spu_table tbody tr td {
+	padding: 13px 15px;
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 0 none;
+}
+
+table.spu_table tbody tr td.label {
+	width: 24%;
+	vertical-align: top;
+	background: #F9F9F9;
+	border-top: 1px solid #f0f0f0;
+    border-right: 1px solid #E1E1E1;
+}
+
+table.spu_table > tbody > tr:first-child > td,
+table.spu_table > tbody > tr:first-child > td.label {
+	border-top: 0 none;
+}
+
+table.spu_table td.label ul.hl {
+	margin: 20px 0 0;
+}
+table.spu_table td.label ul.hl li {
+	margin: 0 3px 0 0;
+	
+}
+
+table.spu_table td.label ul.hl li a.spu-button {
+	font-size: 12px;
+	padding: 6px 10px;
+	font-weight: normal;
+}
+
+table.spu_table tbody tr td.label label {
+	display: block;
+	font-size: 13px;
+	line-height: 1.4em;
+	font-weight: bold;
+	padding: 0;
+	margin: 0 0 3px;
+	color: #333;
+}
+
+table.spu_table tbody tr td.label label span.required {
+	color: #f00;
+	display: inline;
+	margin-left: 3px;
+}
+
+
+table.spu_table tbody tr td.label p {
+	display: block;
+	font-size: 12px;
+	line-height: 1.4em;
+	padding: 0 !important;
+	margin: 3px 0 0 !important;
+	font-style: normal;
+	line-height: 16px;
+	color: #899194;
+}
+
+table.spu_table input[type="text"],
+table.spu_table input[type="number"],
+table.spu_table textarea,
+table.spu_table select{
+	width: 99.95%;
+	padding: 3px 5px;
+	outline: none;
+}
+
+table.spu_table select {
+	padding: 2px;
+}
+
+table.spu_table select option {
+	padding: 3px;
+}
+
+table.spu_table input[type="text"]:focus,
+table.spu_table textarea:focus,
+table.spu_table select:focus {
+	border-color:#98B6CB;
+}
+#spu-options .no-top-margin{ 
+	margin-top:0 !important; 
+}
+
+#spu-options .wp-picker-clear, #spu-options div.wp-picker-holder, #spu-options .wp-picker-input-wrap { 
+	background:white; 
+	z-index: 999 !important; 
+	position: absolute !important; 
+}
+.spu-label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+#spu-options .wp-picker-container{ white-space: nowrap; }
+input#spu-width {
+	width: 90px;
+}
+
+h3.spu-title {
+	border-bottom: 1px solid #ccc;
+	font-size: 18px !important;
+}
+/*---------------------------------------------------------------------------------------------
+*
+*  Rules
+*
+*---------------------------------------------------------------------------------------------*/
+
+#spu-rules .inside {
+	margin: 0;
+	padding: 0;
+}
+
+#spu-rules .rules-groups {
+	padding: 5px 0;
+} 
+
+#spu-rules h4 {
+	margin: 15px 0 5px;
+}
+
+#spu-rules .rules-group {
+	margin: 0 0 15px;
+}
+
+#spu-rules .rules-group h4 {
+	margin: 0 0 3px;;
+}
+
+#spu-rules .rules-group table.spu_table tbody tr td {
+	padding: 4px;
+	border: 0 none;
+}
+
+#spu-rules .rules-group td.param {
+	width: 40%;
+}
+
+#spu-rules .rules-group td.operator {
+	width: 20%;
+}
+
+#spu-rules .rules-group td.add {
+	width: 40px;
+}
+
+#spu-rules .rules-group td.remove {
+	width: 18px;
+	vertical-align: middle;
+}
+
+#spu-rules .rules-group tr .rules-remove-rule {
+	display: none;
+}
+
+#spu-rules .rules-group tr:hover .rules-remove-rule {
+	display: block;
+	padding: 0 7px;
+	font-weight: bold;
+	font-size: 16px;
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#spu-rules .rules-group .rules-remove-rule:hover {
+	color: red;
+}	
+/**
+* Other Rules
+*/
+.spu-loading{
+	height: 16px;
+    margin: 10px auto;
+    padding: 6px;
+    width: 16px;
+}
+div#spu-premium {
+	border: 2px solid #999;
+	box-shadow: 7px 11px 13px -3px #ccc;
+}
+div#spu-premium li{
+	list-style: square;
+	margin-left: 30px;
+}
+/* Don't allow user to delete the first field group */
+#spu-rules .rules-group:first-child tr:first-child:hover .rules-remove-rule {
+	display: none;
+}
+#spu-options p.help {
+    font-weight: normal;
+    font-size: .9em !important;
+}
+
+@font-face {
+    font-family: 'spufont';
+    src:url('../../../public/assets/fonts/spufont.eot?sze5my');
+    src:url('../../../public/assets/fonts/spufont.eot?#iefixsze5my') format('embedded-opentype'),
+    url('../../../public/assets/fonts/spufont.woff?sze5my') format('woff'),
+    url('../../../public/assets/fonts/spufont.ttf?sze5my') format('truetype'),
+    url('../../../public/assets/fonts/spufont.svg?sze5my#spufont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="spu-icon-"], [class*=" spu-icon-"] {
+    font-family: 'spufont';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.spu-icon-envelope:before {
+    content: "\f003";
+}
+
+.spu-icon-check:before {
+    content: "\f00c";
+}
+
+.spu-icon-close:before {
+    content: "\f00d";
+}
+
+.spu-icon-eye:before {
+    content: "\f06e";
+}
+
+.spu-icon-gears:before {
+    content: "\f085";
+}
+.spu-icon-angle-down:before {
+    content: "\f107";
+}
+.spu-icon-spinner:before {
+    content: "\f110";
+    animation: spu-rotate 1s infinite linear;
+    -webkit-animation: spu-rotate 1s infinite linear;
+    -o-animation: spu-rotate 1s infinite linear;
+    -moz-animation: spu-rotate 1s infinite linear;
+}
+.spu-icon-info:before {
+    content: "\ea0c";
+}
+h3 .spu-icon {
+    margin-right: 7px;
+}
+@keyframes spu-rotate {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        opacity: .7;
+    }
+    100% {
+        transform: rotate(359deg);
+        opacity: 1;
+    }
+}

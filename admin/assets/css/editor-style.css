@@ -1,0 +1,19 @@
+/**
+* Editor
+*/
+html{
+    background: #9C9B9B;
+}
+body#tinymce.wp-editor{
+    margin: 20px auto;
+}
+body#tinymce.wp-editor,
+body#tinymce.wp-editor * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body#tinymce.wp-editor{
+    max-width: 100%;
+    padding: 20px !important;
+}

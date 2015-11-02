@@ -1,0 +1,821 @@
+# Copyright (C) 2013 TODO
+# This file is distributed under the same license as the TODO package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Popups\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
+"POT-Creation-Date: 2015-06-14 10:53-0300\n"
+"PO-Revision-Date: 2015-06-14 10:53-0300\n"
+"Last-Translator: Damian Logghe <info@timersys.com>\n"
+"Language-Team: Timersys <info@timersys.com>\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-social-popup-admin.php:154
+msgctxt "post type singular name"
+msgid "Popups"
+msgstr "Popups [pojedinačni naziv vrste posta]"
+
+#: admin/class-social-popup-admin.php:155
+msgctxt "admin menu"
+msgid "Popups"
+msgstr "Iskačući prozori [meni administratora]"
+
+#: admin/class-social-popup-admin.php:156
+msgctxt "add new on admin bar"
+msgid "Popups"
+msgstr "Iskačući prozori [dodaj novi na traci sa menijem administratora]"
+
+#: admin/class-social-popup-admin.php:157
+msgctxt "Popups"
+msgid "Add New"
+msgstr "Dodaj nove [iskačuće prozore]"
+
+#: admin/class-social-popup-admin.php:158
+msgid "Add New Popups"
+msgstr "Dodaj nove iskačuće prozore"
+
+#: admin/class-social-popup-admin.php:159
+msgid "New Popups"
+msgstr "Novi iskačući prozori "
+
+#: admin/class-social-popup-admin.php:160
+msgid "Edit Popups"
+msgstr "Uredi iskačuće prozore"
+
+#: admin/class-social-popup-admin.php:161
+msgid "View Popups"
+msgstr "Vidi iskačuće prozore"
+
+#: admin/class-social-popup-admin.php:162
+msgid "All Popups"
+msgstr "Svi iskačući prozori "
+
+#: admin/class-social-popup-admin.php:163
+msgid "Search Popups"
+msgstr "Pretraži iskačuće prozore"
+
+#: admin/class-social-popup-admin.php:164
+msgid "Parent Popups:"
+msgstr "Nadređeni iskačući prozori "
+
+#: admin/class-social-popup-admin.php:165
+msgid "No Popups found."
+msgstr "Nisu pronađeni iskačući prozori "
+
+#: admin/class-social-popup-admin.php:166
+msgid "No Popups found in Trash."
+msgstr "Nisu pronađeni iskačući prozori u korpi za otpatke"
+
+#: admin/class-social-popup-admin.php:255
+msgid "Popups Premium"
+msgstr "Popups Premium"
+
+#: admin/class-social-popup-admin.php:266
+msgid "PopUp Shortcodes"
+msgstr "PopUp Shortcodes"
+
+#: admin/class-social-popup-admin.php:275
+msgid "PopUp Display Rules"
+msgstr "PopUp pravila prikazivanja"
+
+#: admin/class-social-popup-admin.php:284
+msgid "Display Options"
+msgstr "Opcije prikazivanja"
+
+#: admin/class-social-popup-admin.php:293
+msgid "Need support?"
+msgstr "Treba vam podrška?"
+
+#: admin/class-social-popup-admin.php:301
+msgid "Donate & support"
+msgstr "Donirajte i podržite"
+
+#: admin/class-social-popup-admin.php:309
+msgid "About the developer"
+msgstr "O programeru"
+
+#: admin/class-social-popup-admin.php:557
+#: admin/views/metaboxes/metabox-rules.php:33
+#: admin/views/metaboxes/metabox-rules.php:106
+msgid "or"
+msgstr "ili"
+
+#: admin/class-social-popup-admin.php:584
+msgid "Add a Popup"
+msgstr "Dodaj iskačući prozor"
+
+#: admin/class-social-popup-admin.php:708
+msgid "User"
+msgstr "Korisnik"
+
+#: admin/class-social-popup-admin.php:709
+msgid "User role"
+msgstr "Korisnička uloga"
+
+#: admin/class-social-popup-admin.php:710
+msgid "User is logged"
+msgstr "Korisnik je prijavljen"
+
+#: admin/class-social-popup-admin.php:711
+msgid "User never left a comment"
+msgstr "Korisnik nikad nije ostavio komentar"
+
+#: admin/class-social-popup-admin.php:712
+msgid "User came via a search engine"
+msgstr "Korisnik je došao putem pretraživača"
+
+#: admin/class-social-popup-admin.php:713
+msgid "User did not arrive via another page on your site"
+msgstr "Korisnik nije došao preko druge stranice na vašem site-u"
+
+#: admin/class-social-popup-admin.php:715
+#: admin/class-social-popup-admin.php:716
+msgid "Post"
+msgstr "Post"
+
+#: admin/class-social-popup-admin.php:717
+msgid "Post ID"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:718
+msgid "Post Type"
+msgstr "Vrsta posta"
+
+#: admin/class-social-popup-admin.php:719
+msgid "Post Category"
+msgstr "Kategorija posta"
+
+#: admin/class-social-popup-admin.php:720
+msgid "Post Format"
+msgstr "Format posta"
+
+#: admin/class-social-popup-admin.php:721
+msgid "Post Status"
+msgstr "Status posta"
+
+#: admin/class-social-popup-admin.php:722
+msgid "Post Taxonomy"
+msgstr "Taksonomija posta"
+
+#: admin/class-social-popup-admin.php:724
+#: admin/class-social-popup-admin.php:725
+msgid "Page"
+msgstr "Stranica"
+
+#: admin/class-social-popup-admin.php:726
+msgid "Page Type"
+msgstr "Vrsta stranice"
+
+#: admin/class-social-popup-admin.php:727
+msgid "Page Parent"
+msgstr "Nadređena stranica"
+
+#: admin/class-social-popup-admin.php:728
+msgid "Page Template"
+msgstr "Šablon stranice"
+
+#: admin/class-social-popup-admin.php:730
+msgid "Other"
+msgstr "Drugi"
+
+#: admin/class-social-popup-admin.php:731
+msgid "Referrer"
+msgstr ""
+
+#: admin/class-social-popup-admin.php:732
+msgid "Mobile Phone"
+msgstr "Mobilni telefon"
+
+#: admin/class-social-popup-admin.php:733
+msgid "Tablet"
+msgstr "Tablet"
+
+#: admin/includes/class-spu-notices.php:30
+#, php-format
+msgid ""
+"We noticed that you have been using our plugin for a while and we would like "
+"to ask you a little favour. If you are happy with it and can take a minute "
+"please <a href=\"%s\" target=\"_blank\">leave a nice review</a> on "
+"WordPress. It will be a tremendous help for us!"
+msgstr ""
+
+#: admin/includes/class-spu-notices.php:32
+#, php-format
+msgid "<a href=\"%s\" target=\"_blank\">Leave a nice review</a>"
+msgstr ""
+
+#: admin/includes/class-spu-notices.php:33
+#, php-format
+msgid "<a href=\"%s\">No, thanks</a>"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-donate.php:6
+msgid "If you like this plugin, consider supporting it by donating."
+msgstr ""
+"Ako vam se sviđa ovaj plugin, razmislite o tome da ga podržite donacijom."
+
+#: admin/views/metaboxes/metabox-donate.php:8
+msgid "Donate with PayPal"
+msgstr "Donirajte putem PayPal-a"
+
+#: admin/views/metaboxes/metabox-donate.php:10
+msgid "Some other ways to support this plugin"
+msgstr "Drugi načini za podržavanje ovog plugin-a."
+
+#: admin/views/metaboxes/metabox-donate.php:12
+msgid "Leave a  &#9733;&#9733;&#9733;&#9733;&#9733; review on WordPress.org"
+msgstr "Ostavite komentar &#9733;&#9733;&#9733;&#9733;&#9733; na WordPress.org"
+
+#: admin/views/metaboxes/metabox-donate.php:13
+msgid "Write about Popups on your blog"
+msgstr "Pišite o Popups plugin-u na svom blogu"
+
+#: admin/views/metaboxes/metabox-donate.php:14
+msgid "Tweet about Popups"
+msgstr "Pišite na Twitter-u o Popups plugin-u"
+
+#: admin/views/metaboxes/metabox-donate.php:15
+msgid "Vote \"works\" on the WordPress.org plugin page"
+msgstr "Glasajte da \"radi\" na WordPress.org plugin stranici."
+
+#: admin/views/metaboxes/metabox-help.php:6
+msgid ""
+"You have three social shortcodes to use that will print a Facebook like, a "
+"Google+ Follow and a Twitter follow. Check the available options and "
+"<strong>configure them with your social accounts</strong>:"
+msgstr ""
+"Imate tri shortcode-a društvenih mreža na raspolaganju, koji će štampati "
+"Facebook ‘sviđa mi se’, Google+ ‘prati’ i Twitter ‘prati’. Pogledajte "
+"raspoložive opcije i <strong>uskladite ih sa svojim nalozima na društvenim "
+"mrežama</strong>:"
+
+#: admin/views/metaboxes/metabox-help.php:12
+msgid "View Facebook Page Options"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:14
+#: admin/views/metaboxes/metabox-help.php:27
+msgid "Your facebook page url"
+msgstr "Url vaše Facebook stranice"
+
+#: admin/views/metaboxes/metabox-help.php:15
+msgid "Your page name"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:16
+msgid "true|false <b>Default value:</b> true"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:17
+msgid "true|false <b>Default value:</b> false"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:25
+msgid "View Facebook Options"
+msgstr "Vidi Facebook opcije"
+
+#: admin/views/metaboxes/metabox-help.php:28
+msgid "standard, box_count, button <b>Default value:</b> button_count"
+msgstr ""
+"standardni, box_count, taster <b>Podrazumevana vrednost:</b> button_count"
+
+#: admin/views/metaboxes/metabox-help.php:29
+#: admin/views/metaboxes/metabox-help.php:30
+msgid "true <b>Default value:</b> false"
+msgstr "istina <b>Podrazumevana vrednost:</b> laž"
+
+#: admin/views/metaboxes/metabox-help.php:31
+msgid "recommend <b>Default value:</b> like"
+msgstr "preporučena<b>Podrazumevana vrednost:</b> sviđa mi se"
+
+#: admin/views/metaboxes/metabox-help.php:38
+msgid "View Google+ Options"
+msgstr "Vidi Google+ opcije "
+
+#: admin/views/metaboxes/metabox-help.php:40
+msgid "Your Google+ url"
+msgstr "Url za vaš Google+"
+
+#: admin/views/metaboxes/metabox-help.php:41
+msgid "small, standard, tall <b>Default value:</b> medium"
+msgstr "Mali, standardni, visok<b>Podrazumevana vrednost:</b> srednji"
+
+#: admin/views/metaboxes/metabox-help.php:42
+msgid "inline, none <b>Default value:</b> bubble"
+msgstr "inline, nijedan <b>Podrazumevana vrednost:</b>balončić"
+
+#: admin/views/metaboxes/metabox-help.php:48
+msgid "View Twitter Options"
+msgstr "Vidi Twitter opcije"
+
+#: admin/views/metaboxes/metabox-help.php:50
+msgid "Your Twitter user <b>Default chifli</b>iiii"
+msgstr "Vaš Twitter korisnik <b>Podrazumevani chifli</b>iiii"
+
+#: admin/views/metaboxes/metabox-help.php:51
+msgid "false <b>Default value:</b> true"
+msgstr "laž<b>Podrazumevana vrednost:</b> istina"
+
+#: admin/views/metaboxes/metabox-help.php:52
+msgid "large <b>Default value:</b> \"\""
+msgstr "veliki <b>Podrazumevana vrednost:</b>\"\""
+
+#: admin/views/metaboxes/metabox-help.php:55
+msgid "Other available Shortcodes:"
+msgstr "Drugi raspoloživi shortcode-ovi"
+
+#: admin/views/metaboxes/metabox-help.php:60
+msgid "View Close shortcode Options"
+msgstr "Vidi: zatvori shortcode opcije "
+
+#: admin/views/metaboxes/metabox-help.php:62
+msgid "Pass a custom class to style your button"
+msgstr "Dodajte prilagođenu klasu da biste stilizovali svoj taster"
+
+#: admin/views/metaboxes/metabox-help.php:63
+msgid "Button label - <b>Default value:</b> Close"
+msgstr "Oznaka tastera <b>Podrazumevana vrednost:</b> Zatvori"
+
+#: admin/views/metaboxes/metabox-help.php:64
+msgid "left, right, center, none - <b>Default value:</b> center"
+msgstr ""
+"evo, desno, u sredini, nijedan <b>Podrazumevana vrednost:</b> u sredini"
+
+#: admin/views/metaboxes/metabox-links.php:6
+msgid "My name is"
+msgstr "Zovem se"
+
+#: admin/views/metaboxes/metabox-links.php:6
+msgid "I develop WordPress plugins and themes."
+msgstr "Programiram WordPress dodatke i teme."
+
+#: admin/views/metaboxes/metabox-links.php:7
+#, php-format
+msgid ""
+"Take a look at my <a href=\"%s\">site</a> to see my other plugins or hire "
+"me. Subscribe to get updates!"
+msgstr ""
+"Pogledajte moj <a href=\"%s\">site</a> da biste videli ostale moje dodatke "
+"ili da biste me angažovali. Pretplatite se da biste dobijali aržuriranja!"
+
+#: admin/views/metaboxes/metabox-links.php:8
+msgid "Other plugins I built:"
+msgstr "Ostali dodaci koje sam napravio:"
+
+#: admin/views/metaboxes/metabox-links.php:10
+msgid "Install multiple plugins and create collections"
+msgstr "Instaliraj višestruke dodatke i kreiraj zbirke"
+
+#: admin/views/metaboxes/metabox-links.php:11
+msgid "Geotarget your content"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-links.php:12
+msgid "Invite your network friends and import contacts"
+msgstr "Pozovite svoje prijatelje sa mreže i uvezite kontakte"
+
+#: admin/views/metaboxes/metabox-options.php:9
+msgid "Box Position"
+msgstr "Pozicija okvira"
+
+#: admin/views/metaboxes/metabox-options.php:12
+msgid "Centered"
+msgstr "U sredini"
+
+#: admin/views/metaboxes/metabox-options.php:13
+msgid "Top Left"
+msgstr "Gore levo"
+
+#: admin/views/metaboxes/metabox-options.php:14
+msgid "Top Right"
+msgstr "Gore desno"
+
+#: admin/views/metaboxes/metabox-options.php:15
+msgid "Bottom Left"
+msgstr "Dole levo"
+
+#: admin/views/metaboxes/metabox-options.php:16
+msgid "Bottom Right"
+msgstr "Dole desno"
+
+#: admin/views/metaboxes/metabox-options.php:23
+msgid "Trigger action"
+msgstr "Pokreni aktivnost"
+
+#: admin/views/metaboxes/metabox-options.php:27
+msgid "seconds after page load"
+msgstr "sekundi nakon učitavanja stranice"
+
+#: admin/views/metaboxes/metabox-options.php:28
+msgid "of page height"
+msgstr "ili visina stranice"
+
+#: admin/views/metaboxes/metabox-options.php:38
+msgid "Auto-hide?"
+msgstr "Automatski sakrij?"
+
+#: admin/views/metaboxes/metabox-options.php:40
+#: admin/views/metaboxes/metabox-options.php:68
+#: admin/views/metaboxes/metabox-options.php:76
+#: admin/views/metaboxes/metabox-options.php:84
+msgid "Yes"
+msgstr "Da"
+
+#: admin/views/metaboxes/metabox-options.php:41
+#: admin/views/metaboxes/metabox-options.php:69
+#: admin/views/metaboxes/metabox-options.php:77
+#: admin/views/metaboxes/metabox-options.php:85
+msgid "No"
+msgstr "Ne"
+
+#: admin/views/metaboxes/metabox-options.php:42
+msgid ""
+"Hide box again when visitors scroll back up? Only works when Trigger action "
+"is set to &#37; of page height"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-options.php:46
+msgid "Animation"
+msgstr "Animacija"
+
+#: admin/views/metaboxes/metabox-options.php:49
+msgid "Fade In"
+msgstr "Bledi"
+
+#: admin/views/metaboxes/metabox-options.php:50
+msgid "Slide In"
+msgstr "Kliza"
+
+#: admin/views/metaboxes/metabox-options.php:53
+msgid "Slide will only apply when popup is on the corners"
+msgstr "Klizanje će funkcionisati samo kad je iskačući prozor u ćoškovima"
+
+#: admin/views/metaboxes/metabox-options.php:58
+msgid "Cookie expiration days"
+msgstr "Rok trajanja kolačića"
+
+#: admin/views/metaboxes/metabox-options.php:61
+msgid "After closing the box, how many days should it stay hidden?"
+msgstr "Koliko dana okvir treba da ostane sakriven nakon zatvaranja?"
+
+#: admin/views/metaboxes/metabox-options.php:66
+msgid "Enable test mode?"
+msgstr "Aktiviraj režim testa?"
+
+#: admin/views/metaboxes/metabox-options.php:70
+msgid ""
+"If test mode is enabled, the box will show up regardless of whether a cookie "
+"has been set. (To admins only)"
+msgstr ""
+"Ako je aktiviran režim testa, okvir će se prikazati bez obzira na "
+"podešavanje kolačića (samo administratorima)."
+
+#: admin/views/metaboxes/metabox-options.php:74
+msgid "Close on conversion?"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-options.php:78
+msgid ""
+"If you have a form or social shortcode, by default popup will close on "
+"submission/conversion"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-options.php:82
+msgid "Show powered by link?"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-options.php:86
+#, php-format
+msgid ""
+"Shows a \"powered by\" link below your popup. If your affiliate link is set "
+"in the <a href=\"%s\">settings</a>, it will be used."
+msgstr ""
+
+#: admin/views/metaboxes/metabox-options.php:91
+msgid "Appearance"
+msgstr "Izgled"
+
+#: admin/views/metaboxes/metabox-options.php:95
+msgid "Background opacity"
+msgstr "Neprozirnost pozadine"
+
+#: admin/views/metaboxes/metabox-options.php:98
+msgid "Leave at 0 for no background. Max value is 1"
+msgstr "Ostavite na 0 ako ne želite pozadinu. Maksimalna vrednost je 1."
+
+#: admin/views/metaboxes/metabox-options.php:104
+msgid "Background color"
+msgstr "Boja pozadine"
+
+#: admin/views/metaboxes/metabox-options.php:108
+msgid "Text color"
+msgstr "Boja teksta"
+
+#: admin/views/metaboxes/metabox-options.php:112
+msgid "Box width"
+msgstr "Širina okvira"
+
+#: admin/views/metaboxes/metabox-options.php:118
+msgid "Border color"
+msgstr "Boja ivice"
+
+#: admin/views/metaboxes/metabox-options.php:122
+msgid "Border width"
+msgstr "Širina ivice"
+
+#: admin/views/metaboxes/metabox-premium.php:16
+msgid ""
+"Take the best WordPress Popups plugin to the next level with Popups Premium "
+"extension."
+msgstr ""
+"Podignite najbolji WordPress Popups plugin na viši nivo Popups Premium "
+"ekstenzijom"
+
+#: admin/views/metaboxes/metabox-premium.php:17
+msgid "Popups Premium Features:"
+msgstr "Popups Premium funkcionalnosti:"
+
+#: admin/views/metaboxes/metabox-premium.php:19
+msgid "Beautiful optin forms for popular mail providers"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-premium.php:20
+msgid "Currently supporting MailChimp, Aweber, Postmatic, Mailpoet"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-premium.php:21
+msgid ""
+"Track impressions and Conversions of social likes and forms submissions like "
+"Contact Form 7, Gravity forms, etc"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-premium.php:22
+msgid "Track impressions and Conversions also in Google Analytics"
+msgstr "Praćenje utisaka i konverzija u Google analitici"
+
+#: admin/views/metaboxes/metabox-premium.php:23
+#: admin/views/metaboxes/metabox-premium.php:25
+msgid "Exit Intent technology"
+msgstr "Exit Intent tehnologija"
+
+#: admin/views/metaboxes/metabox-premium.php:24
+msgid "8 New animations effects"
+msgstr "8 novih efekata animacije"
+
+#: admin/views/metaboxes/metabox-premium.php:26
+msgid "New trigger methods"
+msgstr "Nove metode okidača"
+
+#: admin/views/metaboxes/metabox-premium.php:27
+msgid "Timer for auto closing"
+msgstr "Vremensko podešavanje automatskog zatvaranja"
+
+#: admin/views/metaboxes/metabox-premium.php:28
+msgid "Ability to disable close button"
+msgstr "Mogućnost deaktiviranja tastera za zatvaranje"
+
+#: admin/views/metaboxes/metabox-premium.php:29
+msgid ""
+"Ability to disable Advanced close methods like esc or clicking outside of "
+"the popup"
+msgstr ""
+"Mogućnost deaktiviranja naprednih metoda zatvaranja kao što su esc ili klik "
+"izvan iskačućeg prozora"
+
+#: admin/views/metaboxes/metabox-premium.php:30
+msgid "Premium support"
+msgstr "Premium podrška"
+
+#: admin/views/metaboxes/metabox-premium.php:34
+msgid "Buy Now!"
+msgstr "Kupite sada!"
+
+#: admin/views/metaboxes/metabox-rules.php:19
+msgid "Rules"
+msgstr "Pravila"
+
+#: admin/views/metaboxes/metabox-rules.php:20
+msgid "Create a set of rules to determine where the popup will show"
+msgstr ""
+"Kreirajte skup pravila da biste odredili gde će se pojaviti iskačući prozor"
+
+#: admin/views/metaboxes/metabox-rules.php:31
+msgid "Show this popup if"
+msgstr "Prikaži ovaj iskačući prozor ako"
+
+#: admin/views/metaboxes/metabox-rules.php:61
+msgid "is equal to"
+msgstr "jednak je"
+
+#: admin/views/metaboxes/metabox-rules.php:62
+msgid "is not equal to"
+msgstr "nije jednak"
+
+#: admin/views/metaboxes/metabox-rules.php:93
+msgid "and"
+msgstr "i"
+
+#: admin/views/metaboxes/metabox-rules.php:108
+msgid "Add rule group"
+msgstr "Dodaj pravilo za grupu"
+
+#: admin/views/metaboxes/metabox-support.php:6
+#, php-format
+msgid "You are using Popups plugin v%s"
+msgstr "Koristite Popups plugin v%s"
+
+#: admin/views/metaboxes/metabox-support.php:7
+#, php-format
+msgid ""
+"If you need support please go to the WordPress.org <a href=\"%s\">support "
+"forums</a>"
+msgstr ""
+"Ako vam je potrebna podrška, idite na WordPress.org <a href=\"%s\">forume za "
+"podršku</a>"
+
+#: admin/views/settings-page.php:17
+msgid "Affiliate link"
+msgstr ""
+
+#: admin/views/settings-page.php:20
+#, php-format
+msgid ""
+"You can earn money by promoting the plugin! Join <a href=\"%s\">our "
+"affiliate program</a> and paste your affiliate link here to earn 35&#37; in "
+"commissions . Once entered, it will replace the default \"Powered by\" on "
+"the popups."
+msgstr ""
+
+#: admin/views/settings-page.php:24
+msgid "Ajax mode?"
+msgstr "Ajax režim?"
+
+#: admin/views/settings-page.php:27
+msgid ""
+"Load popups using ajax. Compatible with cache plugins, but might not work "
+"with all plugins"
+msgstr ""
+"Koristi Ajax za učitavanje iskačućih prozora. Kompatibilan je sa keš "
+"dodacima, ali možda neće raditi sa svim dodacima."
+
+#: admin/views/settings-page.php:32
+msgid "Enable Debug mode?"
+msgstr "Aktiviraj režim za otklanjanje grešaka?"
+
+#: admin/views/settings-page.php:35
+msgid "Will use uncompressed js"
+msgstr "Koristiće nekompresovan js"
+
+#: admin/views/settings-page.php:40
+msgid "Enable safe mode?"
+msgstr "Aktiviraj bezbedni režim?"
+
+#: admin/views/settings-page.php:43
+msgid "Will move all popups to top of the screen."
+msgstr "Pomeriće sve iskačuće prozore na vrh ekrana"
+
+#: admin/views/settings-page.php:48
+msgid "Remove shortcodes style"
+msgstr "Ukloni shortcode stilove"
+
+#: admin/views/settings-page.php:51
+msgid ""
+"By default the plugin will apply some style to shortcodes. Check here if you "
+"want to manually style them"
+msgstr ""
+"Po standardu, plugin će primeniti neki stil na shortcode-ove. Štiklirajte "
+"ovde ako želite da ih manuelno stilizujete "
+
+#: admin/views/settings-page.php:56
+msgid "Unload Facebook javascript"
+msgstr "Ne učitavaj Facebook javascript"
+
+#: admin/views/settings-page.php:59
+msgid "If you use your own Facebook script, check this"
+msgstr "Štiklirajte ovo ako koristite svoj Facebook script, proverite ovo"
+
+#: admin/views/settings-page.php:64
+msgid "Unload Google javascript"
+msgstr "Ne učitavaj Google javascript"
+
+#: admin/views/settings-page.php:67
+msgid "If you use your own Google script, check this"
+msgstr "Štiklirajte ovo ako koristite svoj Google script"
+
+#: admin/views/settings-page.php:72
+msgid "Unload Twitter javascript"
+msgstr "Ne učitavaj Twitter javascript"
+
+#: admin/views/settings-page.php:75
+msgid "If you use your own Twitter script, check this"
+msgstr "Ne učitavaj Twitter javascript"
+
+#: admin/views/settings-page.php:80
+msgid "Save settings"
+msgstr "Sačuvaj podešavanja"
+
+#: includes/class-spu-helper.php:133
+msgid "All Pages"
+msgstr "Sve stranice"
+
+#: includes/class-spu-helper.php:134
+msgid "Front Page"
+msgstr "Prva stranica"
+
+#: includes/class-spu-helper.php:135
+msgid "Posts Page"
+msgstr "Postovi na stranici"
+
+#: includes/class-spu-helper.php:136
+msgid "Category Page"
+msgstr ""
+
+#: includes/class-spu-helper.php:137
+msgid "Archives Page"
+msgstr ""
+
+#: includes/class-spu-helper.php:138
+msgid "Top Level Page (parent of 0)"
+msgstr "Stranica vrhunskog nivoa (nadređena 0)"
+
+#: includes/class-spu-helper.php:139
+msgid "Parent Page (has children)"
+msgstr "Nadređena stranica (ima podređene)"
+
+#: includes/class-spu-helper.php:140
+msgid "Child Page (has parent)"
+msgstr "Podređena stranica (ima nadređene)"
+
+#: includes/class-spu-helper.php:148
+msgid "Default Template"
+msgstr "Podređena stranica (ima nadređene)"
+
+#: includes/class-spu-helper.php:221
+msgid "Publish"
+msgstr "Podrazumevani šablon"
+
+#: includes/class-spu-helper.php:222
+msgid "Pending Review"
+msgstr "Objavi"
+
+#: includes/class-spu-helper.php:223
+msgid "Draft"
+msgstr "Skica"
+
+#: includes/class-spu-helper.php:224
+msgid "Future"
+msgstr "Buduci"
+
+#: includes/class-spu-helper.php:225
+msgid "Private"
+msgstr "Privatni"
+
+#: includes/class-spu-helper.php:226
+msgid "Revision"
+msgstr "Revizija"
+
+#: includes/class-spu-helper.php:227
+msgid "Trash"
+msgstr "Korpa za otpatke"
+
+#: includes/class-spu-helper.php:240
+msgid "Super Admin"
+msgstr "Super Admin"
+
+#: includes/class-spu-helper.php:260
+msgid "True"
+msgstr "Super Admin"
+
+#~ msgid ""
+#~ "Hide box again when visitors scroll back up? Only works when Trigger "
+#~ "action is set to % of page height"
+#~ msgstr ""
+#~ "Ponovo sakrij okvir kad se posetioci vrate na početak? Radi samo kad je "
+#~ "okidač aktivnosti podešen na &#37; visinu stranice"
+
+#~ msgctxt "post type general name"
+#~ msgid "Popups v"
+#~ msgstr "Popups v [opšti naziv vrste posta]"
+
+#~ msgid "What's new"
+#~ msgstr "Šta ima novo"
+
+#~ msgid "Like Facebook like box but for Twitter"
+#~ msgstr "Kao Facebook taster ‘sviđa mi se’, samo za Twiter"
+
+#~ msgid ""
+#~ "Track impressions and Conversions of social likes/follow and forms "
+#~ "submissions like Contact Form 7, Gravity forms, etc"
+#~ msgstr ""
+#~ "Praćenje utisaka, konverzija opcija ‘sviđa mi se’ i ‘prati me’ na "
+#~ "društvenim mrežama, kao i podnošenje obrazaca, kao što je Obrazac "
+#~ "kontakta br 7, obrazaca gravitacije itd."
