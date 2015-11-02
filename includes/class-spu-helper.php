@@ -387,7 +387,7 @@ class Spu_Helper {
 			'auto_hide'			=> 0,
 			'test_mode'			=> 0,
 			'conversion_close'  => '1',
-			'powered_link'      => '1',
+			'powered_link'      => '0',
 		);
 		
 		$opts = apply_filters( 'spu/metaboxes/box_options', get_post_meta( $id, 'spu_options', true ), $id );
