@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
 Tested up to: 4.3.1
-Stable tag: 1.4.3
+Stable tag: 1.4.3.1
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -181,6 +181,9 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
 
+
+= 1.4.3.1 =
+* Removed "powered by" by default.
 
 = 1.4.3 =
 
