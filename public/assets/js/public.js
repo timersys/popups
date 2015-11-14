@@ -251,6 +251,11 @@ var SPU_master = function() {
                 toggleBox(id, false, true );
                 this.submit();
             });
+			// Ninja form - popup not ajax, ajax on ninja form
+			$('body').on('submitResponse.default', function(){
+				$box.trigger('spu.form_submitted', [id]);
+				toggleBox(id, false, true );
+			});
         }
 
 
