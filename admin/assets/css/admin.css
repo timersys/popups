@@ -261,6 +261,9 @@ div#spu-premium li{
 .spu-icon-gears:before {
     content: "\f085";
 }
+.spu-icon-magic:before {
+	content: "\f0d0";
+}
 .spu-icon-angle-down:before {
     content: "\f107";
 }
