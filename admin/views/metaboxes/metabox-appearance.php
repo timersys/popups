@@ -40,5 +40,3 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		</tr>
 		<?php do_action( 'spu/metaboxes/after_appearance_options', $opts );?>
 	</table>
-
-<?php wp_nonce_field( 'spu_options', 'spu_options_nonce' ); ?>
