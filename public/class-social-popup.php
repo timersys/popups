@@ -432,6 +432,7 @@ class SocialPopup {
 				'is_category'				    => is_category(),
 				'site_url'				        => site_url(),
 				'is_archive'				    => is_archive(),
+				'is_search'				        => is_search(),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
 			)
 		);
