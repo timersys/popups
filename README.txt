@@ -85,7 +85,7 @@ Fork me in https://github.com/timersys/popups/
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
 
-= Beatiful WordPress Emails  =
+= Beautiful WordPress Emails  =
 Now you can send html email in WordPress with [https://wordpress.org/plugins/email-templates/](https://wordpress.org/plugins/email-templates/)
 = Install Multiple plugins at once with WpFavs  =
 
