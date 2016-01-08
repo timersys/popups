@@ -32,7 +32,10 @@ $content = apply_filters( 'spu/popup/content', $content, $box );
 if ( function_exists('qtrans_useCurrentLanguageIfNotFoundShowAvailable') ) {
 	$content = qtrans_useCurrentLanguageIfNotFoundShowAvailable( $content );
 }
-
+// WPGlobus support
+if ( class_exists('WPGlobus') ) {
+	$content = WPGlobus_Core::text_filter( $content, WPGlobus::Config()->language );
+}
 do_action( 'spu/popup/before_popup', $box, $opts, $css);
 
 ?>
