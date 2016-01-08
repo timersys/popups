@@ -7,11 +7,12 @@ SPU_ADMIN = (function ( $ ) {
 
 
 	$(document).ready(function(){
-		
+
 		spu.rules.init();
-        var color_field = $('#spu-appearance input.spu-color-field');
+        var color_field = $('#spu-appearance input.spu-color-field'),
+			spu_optin	= $('#spu-optin');
 		// Only run if there is no optin being used in premium version
-		if( color_field.length && $('#spu-optin').val() == '' ){
+		if( color_field.length && (  ! spu_optin.length || spu_optin.val() == '' ) ){
             color_field.wpColorPicker({ change: applyStyles, clear: applyStyles });
         }
 		$("#spu-appearance :input").not(".spu-color-field").change(applyStyles);
