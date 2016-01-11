@@ -7,14 +7,15 @@ SPU_ADMIN = (function ( $ ) {
 
 
 	$(document).ready(function(){
-		
+
 		spu.rules.init();
-        var color_field = $('#spu-options input.spu-color-field');
-		//Thanks to scoll triggered boxes plugin for this piece of javascript
-		if( color_field.length ){
+        var color_field = $('#spu-appearance input.spu-color-field'),
+			spu_optin	= $('#spu-optin');
+		// Only run if there is no optin being used in premium version
+		if( color_field.length && (  ! spu_optin.length || spu_optin.val() == '' ) ){
             color_field.wpColorPicker({ change: applyStyles, clear: applyStyles });
         }
-		$("#spu-options :input").not(".spu-color-field").change(applyStyles);
+		$("#spu-appearance :input").not(".spu-color-field").change(applyStyles);
 
 		//Toogle trigger boxes on init
 		checkTriggerMethod( $("#spu_trigger").val() );

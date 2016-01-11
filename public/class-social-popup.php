@@ -432,6 +432,7 @@ class SocialPopup {
 				'is_category'				    => is_category(),
 				'site_url'				        => site_url(),
 				'is_archive'				    => is_archive(),
+				'is_search'				        => is_search(),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
 			)
 		);
@@ -711,7 +712,7 @@ class SocialPopup {
 					WHERE a.post_status = 'publish'
 					AND a.post_type = 'spucpt'
 					AND b.language_code = '" . esc_sql( ICL_LANGUAGE_CODE ) . "'
-					GROUP BY ID";
+					GROUP BY a.ID";
 
 			$ids = $wpdb->get_results( $sql );
 			if( !empty($ids) )

@@ -132,6 +132,7 @@ class Spu_Helper {
 					'front_page'	=>	__("Front Page", 'popups'),
 					'posts_page'	=>	__("Posts Page", 'popups'),
 					'category_page'	=>	__("Category Page", 'popups'),
+					'search_page'	=>	__("Search Page", 'popups'),
 					'archive_page'	=>	__("Archives Page", 'popups'),
 					'top_level'		=>	__("Top Level Page (parent of 0)", 'popups'),
 					'parent'		=>	__("Parent Page (has children)", 'popups'),

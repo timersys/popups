@@ -32,22 +32,16 @@ $content = apply_filters( 'spu/popup/content', $content, $box );
 if ( function_exists('qtrans_useCurrentLanguageIfNotFoundShowAvailable') ) {
 	$content = qtrans_useCurrentLanguageIfNotFoundShowAvailable( $content );
 }
-
-// Optin popup ?
-if( !empty( $opts['optin'] ) ) {
-	$box_class  .= ' spu-optin';
-	if( !empty( $opts['optin_theme'] ) )
-		$box_class  .= ' spu-theme-'.$opts['optin_theme'];
-	if( isset( $opts['optin_display_name'] ) && $opts['optin_display_name'] == '1' )
-		$box_class  .= ' with-spu-name';
+// WPGlobus support
+if ( class_exists('WPGlobus') ) {
+	$content = WPGlobus_Core::text_filter( $content, WPGlobus::Config()->language );
 }
-
 do_action( 'spu/popup/before_popup', $box, $opts, $css);
 
 ?>
 <style type="text/css">
 	#spu-<?php echo $box->ID; ?> {
-		background: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
+		background-color: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
 		<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
 		<?php if ( !empty( $css['border_color'] ) && !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); ?>;<?php } ?>
 		<?php echo ( empty( $opts['optin'] ) || $opts['optin'] == 'custom' ) ? 'width: ' . esc_attr( $width ) : ''; ?>;
@@ -56,9 +50,10 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 	#spu-bg-<?php echo $box->ID; ?> {
 		opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
 	}
+	<?php do_action( 'spu/popup/popup_style', $box, $opts, $css);?>
 </style>
 <div class="spu-bg" id="spu-bg-<?php echo $box->ID; ?>"></div>
-<div class="spu-box <?php echo $box_class;?> spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo get_post_meta($box->ID, 'spu_social',true);?> <?php echo get_post_meta($box->ID, 'spu_google',true) ? 'spu-gogl' : '';?>" id="spu-<?php echo $box->ID; ?>"
+<div class="spu-box <?php echo apply_filters( 'spu/popup/box_class', $box_class, $opts, $css, $box );?> spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo get_post_meta($box->ID, 'spu_social',true);?> <?php echo get_post_meta($box->ID, 'spu_google',true) ? 'spu-gogl' : '';?>" id="spu-<?php echo $box->ID; ?>"
  data-box-id="<?php echo $box->ID ; ?>" data-trigger="<?php echo esc_attr( $opts['trigger'] ); ?>"
  data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
  data-spuanimation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>" 

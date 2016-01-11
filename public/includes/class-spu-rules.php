@@ -32,6 +32,12 @@ class Spu_Rules
 	 */
 	protected $is_archive = false;
 
+	/**
+	 * Is searchu sed in ajax calls
+	 * @var boolean
+	 */
+	protected $is_search = false;
+
 	/*
 	*  __construct
 	*  Add all the filters to use later
@@ -84,6 +90,9 @@ class Spu_Rules
 			}
 			if( !empty( $_REQUEST['is_archive'] ) ) {
 				$this->is_archive = true;
+			}
+			if( !empty( $_REQUEST['is_search'] ) ) {
+				$this->is_search = true;
 			}
 		}
 		
@@ -457,6 +466,29 @@ class Spu_Rules
 		        } elseif ( $rule['operator'] == "!=" ) {
 
 			        $match = ! is_archive();
+
+		        }
+	        }
+        }
+        elseif( $rule['value'] == 'search_page') {
+	        if( defined( 'DOING_AJAX') ) {
+		        if($rule['operator'] == "==") {
+
+			        $match = $this->is_search;
+
+		        } elseif($rule['operator'] == "!=") {
+
+			        $match = !$this->is_search;
+
+		        }
+	        } else {
+		        if ( $rule['operator'] == "==" ) {
+
+			        $match = is_search();
+
+		        } elseif ( $rule['operator'] == "!=" ) {
+
+			        $match = ! is_search();
 
 		        }
 	        }

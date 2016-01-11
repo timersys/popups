@@ -275,13 +275,22 @@ class SocialPopup_Admin {
 		);		
 
 		add_meta_box(
+			'spu-appearance',
+			'<i class="spu-icon-magic spu-icon"></i>' . __( 'PopUp Appearance', 'popups' ),
+			array( $this, 'popup_appearance' ),
+			'spucpt',
+			'normal',
+			'core'
+		);
+
+		add_meta_box(
 			'spu-rules',
 			'<i class="spu-icon-eye spu-icon"></i>' . __( 'PopUp Display Rules', 'popups' ),
 			array( $this, 'popup_rules' ),
 			'spucpt',
 			'normal',
 			'core'
-		);		
+		);
 
 		add_meta_box(
 			'spu-options',
@@ -361,6 +370,18 @@ class SocialPopup_Admin {
 		$opts = apply_filters('spu/metaboxes/get_box_options', $this->helper->get_box_options( $post->ID ), $post->ID );
 
 		include 'views/metaboxes/metabox-options.php';
+	}
+	/**
+	 * Include the metabox view for popup appearance
+	 * @param  object $post    spucpt post object
+	 * @param  array $metabox full metabox items array
+	 * @since 1.1
+	 */
+	public function popup_appearance( $post, $metabox ) {
+
+		$opts = apply_filters('spu/metaboxes/get_box_options', $this->helper->get_box_options( $post->ID ), $post->ID );
+
+		include 'views/metaboxes/metabox-appearance.php';
 	}
 
 	/**
