@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.3.1
-Stable tag: 1.4.3.1
+Tested up to: 4.4.1
+Stable tag: 1.4.4
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,6 +61,7 @@ There are multiple display filters that can be combined:
 >
 > * Beautiful optin forms for popular mail providers
 > * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact
+> * New popup positions such as top/bottoms bars or fullscreen modes
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
 > * 8 New animations effects
@@ -181,6 +182,15 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
 
+
+= 1.4.4 =
+* Added WpGlobus Support
+* Added new rule for search pages
+* Fixed db error with wpml plugin
+* Added support for Newsletter plugin
+* Rearranged appearence into a new box
+* Ninja forms small fix
+* Fixed support link in backend
 
 = 1.4.3.1 =
 * Removed "powered by" by default.
