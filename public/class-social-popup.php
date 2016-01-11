@@ -712,7 +712,7 @@ class SocialPopup {
 					WHERE a.post_status = 'publish'
 					AND a.post_type = 'spucpt'
 					AND b.language_code = '" . esc_sql( ICL_LANGUAGE_CODE ) . "'
-					GROUP BY ID";
+					GROUP BY a.ID";
 
 			$ids = $wpdb->get_results( $sql );
 			if( !empty($ids) )
