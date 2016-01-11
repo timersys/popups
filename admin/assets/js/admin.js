@@ -10,7 +10,7 @@ SPU_ADMIN = (function ( $ ) {
 
 		spu.rules.init();
         var color_field = $('#spu-appearance input.spu-color-field'),
-			spu_optin	= $('#spu-optin');
+			spu_optin	= $('#spu_optin');
 		// Only run if there is no optin being used in premium version
 		if( color_field.length && (  ! spu_optin.length || spu_optin.val() == '' ) ){
             color_field.wpColorPicker({ change: applyStyles, clear: applyStyles });
