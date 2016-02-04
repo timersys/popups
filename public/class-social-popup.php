@@ -421,7 +421,7 @@ class SocialPopup {
 		wp_enqueue_style('spu-public-css');
 		wp_localize_script( $handle, 'spuvar',
 			array(
-				'is_admin' 						=> current_user_can( 'administrator' ),
+				'is_admin' 						=> current_user_can( apply_filters( 'spu/capabilities/testmode', 'administrator' ) ),
 				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? esc_attr( $this->spu_settings['shortcodes_style'] ) : '',
 				'safe_mode'						=> isset( $this->spu_settings['safe'] ) ? esc_attr( $this->spu_settings['safe'] ) : '',
 				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? esc_attr( $this->spu_settings['ajax_mode'] ) :'',
@@ -503,7 +503,7 @@ class SocialPopup {
 	function facebook_shortcode( $atts, $content ) {
 		
 		extract( shortcode_atts( array(
-			'href' 			=> 'https://www.facebook.com/pages/Timersys/146687622031640',
+			'href' 			=> apply_filters( 'spu/social/fb_href', 'https://www.facebook.com/pages/Timersys/146687622031640' ),
 			'layout' 	 	=> 'button_count', // standard, box_count, button_count, button
 			'show_faces' 	=> 'false', // true
 			'share'	 		=> 'false', // true
@@ -539,8 +539,8 @@ class SocialPopup {
 	function facebook_page_shortcode( $atts, $content ) {
 
 		extract( shortcode_atts( array(
-			'href' 			=> 'https://www.facebook.com/pages/Timersys/146687622031640',
-			'name' 	 	    => 'Timersys',
+			'href' 			=> apply_filters( 'spu/social/fb_href', 'https://www.facebook.com/pages/Timersys/146687622031640' ),
+			'name' 	 	    => apply_filters( 'spu/social/fb_name', 'Timersys' ),
 			'show_faces' 	=> 'true', // false
 			'hide_cover' 	=> 'false', // true
 			'width'			=> '500',
@@ -559,7 +559,7 @@ class SocialPopup {
 	function twitter_shortcode( $atts, $content ) {
 
 		extract( shortcode_atts( array(
-			'user' 			=> 'chifliiiii',
+			'user' 			=> apply_filters( 'spu/social/tw_user', 'chifliiiii' ),
 			'show_count' 	=> 'true', // false
 			'size' 			=> '', // large
 			'lang' 			=> '',
@@ -579,7 +579,7 @@ class SocialPopup {
 		extract( shortcode_atts( array(
 			'size' 			=> 'medium', //small standard tall
 			'annotation' 	=> 'bubble', //inline none
-			'url' 			=> 'https://plus.google.com/u/0/103508783120806246698/posts', //inline none
+			'url' 			=> apply_filters( 'spu/social/gp_url', 'https://plus.google.com/u/0/103508783120806246698/posts' ), 
 		), $atts ) );
 
 		$size 		= strtolower( trim( $size ) );
