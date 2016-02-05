@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Popups\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
-"POT-Creation-Date: 2016-02-01 08:49+0100\n"
+"POT-Creation-Date: 2016-02-04 13:02+0100\n"
 "PO-Revision-Date: 2015-06-14 00:02-0300\n"
 "Last-Translator: Damian Logghe <info@timersys.com>\n"
 "Language-Team: Timersys <info@timersys.com>\n"
@@ -20,195 +20,195 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-social-popup-admin.php:158
+#: admin/class-social-popup-admin.php:159
 msgctxt "post type singular name"
 msgid "Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:159
+#: admin/class-social-popup-admin.php:160
 msgctxt "admin menu"
 msgid "Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:160
+#: admin/class-social-popup-admin.php:161
 msgctxt "add new on admin bar"
 msgid "Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:161
+#: admin/class-social-popup-admin.php:162
 msgctxt "Popups"
 msgid "Add New"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:162
+#: admin/class-social-popup-admin.php:163
 msgid "Add New Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:163
+#: admin/class-social-popup-admin.php:164
 msgid "New Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:164
+#: admin/class-social-popup-admin.php:165
 msgid "Edit Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:165
+#: admin/class-social-popup-admin.php:166
 msgid "View Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:166
+#: admin/class-social-popup-admin.php:167
 msgid "All Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:167
+#: admin/class-social-popup-admin.php:168
 msgid "Search Popups"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:168
+#: admin/class-social-popup-admin.php:169
 msgid "Parent Popups:"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:169
+#: admin/class-social-popup-admin.php:170
 msgid "No Popups found."
 msgstr ""
 
-#: admin/class-social-popup-admin.php:170
+#: admin/class-social-popup-admin.php:171
 msgid "No Popups found in Trash."
 msgstr ""
 
-#: admin/class-social-popup-admin.php:211
+#: admin/class-social-popup-admin.php:212
 msgid "Settings"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:259
+#: admin/class-social-popup-admin.php:260
 msgid "Popups Premium"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:270
+#: admin/class-social-popup-admin.php:271
 msgid "PopUp Shortcodes"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:279
+#: admin/class-social-popup-admin.php:280
 msgid "PopUp Appearance"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:288
+#: admin/class-social-popup-admin.php:289
 msgid "PopUp Display Rules"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:297
+#: admin/class-social-popup-admin.php:298
 msgid "Display Options"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:306
+#: admin/class-social-popup-admin.php:307
 msgid "Need support?"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:314
+#: admin/class-social-popup-admin.php:315
 msgid "Donate & support"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:322
+#: admin/class-social-popup-admin.php:323
 msgid "About the developer"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:588
+#: admin/class-social-popup-admin.php:589
 #: admin/views/metaboxes/metabox-rules.php:33
 #: admin/views/metaboxes/metabox-rules.php:106
 msgid "or"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:615
+#: admin/class-social-popup-admin.php:616
 msgid "Add a Popup"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:739
+#: admin/class-social-popup-admin.php:740
 msgid "User"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:740
+#: admin/class-social-popup-admin.php:741
 msgid "User role"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:741
+#: admin/class-social-popup-admin.php:742
 msgid "User is logged"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:742
+#: admin/class-social-popup-admin.php:743
 msgid "User never left a comment"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:743
+#: admin/class-social-popup-admin.php:744
 msgid "User came via a search engine"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:744
+#: admin/class-social-popup-admin.php:745
 msgid "User did not arrive via another page on your site"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:746
 #: admin/class-social-popup-admin.php:747
+#: admin/class-social-popup-admin.php:748
 msgid "Post"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:748
+#: admin/class-social-popup-admin.php:749
 msgid "Post ID"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:749
+#: admin/class-social-popup-admin.php:750
 msgid "Post Type"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:750
+#: admin/class-social-popup-admin.php:751
 msgid "Post Category"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:751
+#: admin/class-social-popup-admin.php:752
 msgid "Post Format"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:752
+#: admin/class-social-popup-admin.php:753
 msgid "Post Status"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:753
+#: admin/class-social-popup-admin.php:754
 msgid "Post Taxonomy"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:755
 #: admin/class-social-popup-admin.php:756
+#: admin/class-social-popup-admin.php:757
 msgid "Page"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:757
+#: admin/class-social-popup-admin.php:758
 msgid "Page Type"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:758
+#: admin/class-social-popup-admin.php:759
 msgid "Page Parent"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:759
+#: admin/class-social-popup-admin.php:760
 msgid "Page Template"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:761
+#: admin/class-social-popup-admin.php:762
 msgid "Other"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:762
+#: admin/class-social-popup-admin.php:763
 msgid "Referrer"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:763
+#: admin/class-social-popup-admin.php:764
 msgid "Mobile Phone"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:764
+#: admin/class-social-popup-admin.php:765
 msgid "Tablet"
 msgstr ""
 
-#: admin/class-social-popup-admin.php:812
+#: admin/class-social-popup-admin.php:813
 msgid "ID"
 msgstr ""
 
@@ -289,9 +289,13 @@ msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:6
 msgid ""
-"You have three social shortcodes to use that will print a Facebook like, a "
+"You have some social shortcodes to use that will print a Facebook like, a "
 "Google+ Follow and a Twitter follow. Check the available options and "
 "<strong>configure them with your social accounts</strong>:"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:8
+msgid "Facebook Page"
 msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:12
@@ -300,7 +304,7 @@ msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:14
 #: admin/views/metaboxes/metabox-help.php:27
-msgid "Your facebook page url"
+msgid "Your Facebook page url"
 msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:15
@@ -313,6 +317,14 @@ msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:17
 msgid "true|false <b>Default value:</b> false"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:18
+msgid "number <b>Default value:</b> 500"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:21
+msgid "Facebook Button"
 msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:25
@@ -332,6 +344,14 @@ msgstr ""
 msgid "recommend <b>Default value:</b> like"
 msgstr ""
 
+#: admin/views/metaboxes/metabox-help.php:32
+msgid "number <b>Default value:</b>"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:34
+msgid "Google+ Button"
+msgstr ""
+
 #: admin/views/metaboxes/metabox-help.php:38
 msgid "View Google+ Options"
 msgstr ""
@@ -348,12 +368,16 @@ msgstr ""
 msgid "inline, none <b>Default value:</b> bubble"
 msgstr ""
 
+#: admin/views/metaboxes/metabox-help.php:44
+msgid "Twitter Button"
+msgstr ""
+
 #: admin/views/metaboxes/metabox-help.php:48
 msgid "View Twitter Options"
 msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:50
-msgid "Your Twitter user <b>Default chifli</b>iiii"
+msgid "Your Twitter user <b>Default chifliiiii</b>"
 msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:51
@@ -366,6 +390,10 @@ msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:55
 msgid "Other available Shortcodes:"
+msgstr ""
+
+#: admin/views/metaboxes/metabox-help.php:56
+msgid "Close Button"
 msgstr ""
 
 #: admin/views/metaboxes/metabox-help.php:60
