@@ -5,7 +5,10 @@
 *  Class that will compare rules and determine if popup needs to show
 *  @since: 2.0
 */
-
+if(!isset($_SESSION) )
+{
+	session_start();
+}
 class Spu_Rules
 {
 	/**
@@ -53,6 +56,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/left_comment', array($this, 'rule_match_left_comment'), 10, 2);
 		add_filter('spu/rules/rule_match/search_engine', array($this, 'rule_match_search_engine'), 10, 2);
 		add_filter('spu/rules/rule_match/same_site', array($this, 'rule_match_same_site'), 10, 2);
+		add_filter('spu/rules/rule_match/visited_n_pages', array($this, 'rule_match_visited_n_pages'), 10, 2);
 
 		// Post
 		add_filter('spu/rules/rule_match/post_type', array($this, 'rule_match_post_type'), 10, 2);
@@ -74,9 +78,10 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/tablets', array($this, 'rule_match_tablets'), 10, 2);
 		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
 
-		$this->post_id 	= isset( $post->ID ) ? $post->ID : '';
-		$this->referrer = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
- 
+		$this->post_id 	    = isset( $post->ID ) ? $post->ID : '';
+		$this->referrer     = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
+		$this->spu_views    = isset($_SESSION['spu_views']) ? $_SESSION['spu_views'] : '';
+
 		if( defined('DOING_AJAX') ) {
 
 			if( isset( $_REQUEST['pid'] ) ) {
@@ -304,6 +309,22 @@ class Spu_Rules
 
 	}
 
+	/**
+	 * Show popup after user visited N pages of our site
+	 * @param $match
+	 * @param $rule
+	 *
+	 * @return bool
+	 */
+	function rule_match_visited_n_pages( $match, $rule ) {
+
+		$views = $this->spu_views;
+
+		if ( $views == $rule['value'] ){
+			return  $rule['operator'] == "==" ? true : false;
+		}
+
+	}
 
 	/*
 	*  rule_match_post_type

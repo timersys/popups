@@ -740,11 +740,12 @@ class SocialPopup_Admin {
 	function get_rules_choices() {
 		$choices = array(
 			__("User", 'popups' ) => array(
-				'user_type'		=>	__("User role", 'popups' ),
-				'logged_user'	=>	__("User is logged", 'popups' ),
-				'left_comment'	=>	__("User never left a comment", 'popups' ),
-				'search_engine'	=>	__("User came via a search engine", 'popups' ),
-				'same_site'		=>	__("User did not arrive via another page on your site", 'popups' ),
+				'user_type'		    =>	__("User role", 'popups' ),
+				'logged_user'	    =>	__("User is logged", 'popups' ),
+				'left_comment'	    =>	__("User never left a comment", 'popups' ),
+				'search_engine'	    =>	__("User came via a search engine", 'popups' ),
+				'same_site'		    =>	__("User did not arrive via another page on your site", 'popups' ),
+				'visited_n_pages'	=>	__("User visited N pages of your site", 'popups' ),
 			),
 			__("Post", 'popups' ) => array(
 				'post'			=>	__("Post", 'popups' ),
@@ -782,6 +783,7 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_left_comment_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_search_engine_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_same_site_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_visited_n_pages_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 
 		// Post
 		add_action('spu/rules/print_post_type_field', array('Spu_Helper', 'print_select'), 10, 2);
@@ -868,7 +870,11 @@ class SocialPopup_Admin {
 	}
 
 	/**
-	 * Remove unedeed actions
+	 * Remove unneeded actions
+	 *
+	 * @param $actions
+	 * @param $post
+	 *
 	 * @return array
 	 */
 	function modify_title_actions( $actions, $post ){

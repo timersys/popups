@@ -124,6 +124,9 @@ class SocialPopup {
 		add_shortcode( 'spu-twitter', array( $this, 'twitter_shortcode' ) );
 		add_shortcode( 'spu-google', array( $this, 'google_shortcode' ) );
 		add_shortcode( 'spu-close', array( $this, 'close_shortcode' ) );
+
+		// session count
+		add_action( 'template_redirect', array( $this, 'sessionCounter' ) );
 	}
 
 	/**
@@ -720,6 +723,22 @@ class SocialPopup {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Count how many times a user visits our pages
+	 * I use template_redirect to match only frontend
+	 */
+	function sessionCounter() {
+
+		if( defined( 'DOING_AJAX') )
+			return;
+
+		if( isset( $_SESSION['spu_views'] ) ) {
+			$_SESSION['spu_views'] = $_SESSION['spu_views'] + 1;
+		} else {
+			$_SESSION['spu_views'] = 1;
+		}
 	}
 
 }
