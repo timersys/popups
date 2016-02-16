@@ -1,8 +1,8 @@
 {
 	"metadata": {
 		"name": "Spu Social",
-		"lastOpened": 1422819825127,
-		"created": 1429394572949
+		"lastOpened": 1451397976379,
+		"created": 1451397973577
 	},
 	"iconSets": [
 		{
@@ -28,7 +28,7 @@
 					"id": 4,
 					"prevSize": 28,
 					"code": 61443,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "heart",
@@ -76,7 +76,7 @@
 					"id": 13,
 					"prevSize": 28,
 					"code": 61452,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "close",
@@ -84,7 +84,7 @@
 					"id": 14,
 					"prevSize": 28,
 					"code": 61453,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "search-plus",
@@ -542,7 +542,7 @@
 					"id": 105,
 					"prevSize": 28,
 					"code": 61550,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "eye-slash",
@@ -650,7 +650,7 @@
 					"id": 126,
 					"prevSize": 28,
 					"code": 61573,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "comments",
@@ -939,8 +939,11 @@
 				},
 				{
 					"name": "magic",
-					"order": 0,
-					"id": 184
+					"order": 18,
+					"id": 184,
+					"prevSize": 28,
+					"code": 61648,
+					"tempChar": ""
 				},
 				{
 					"name": "truck",
@@ -1198,7 +1201,7 @@
 					"id": 235,
 					"prevSize": 28,
 					"code": 61702,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "angle-down",
@@ -1206,7 +1209,7 @@
 					"id": 236,
 					"prevSize": 28,
 					"code": 61703,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "desktop",
@@ -1249,7 +1252,7 @@
 					"id": 244,
 					"prevSize": 28,
 					"code": 61712,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"name": "circle",
@@ -2383,13 +2386,19 @@
 				},
 				{
 					"name": "toggle-off",
-					"order": 0,
-					"id": 471
+					"order": 20,
+					"id": 471,
+					"prevSize": 28,
+					"code": 61956,
+					"tempChar": ""
 				},
 				{
 					"name": "toggle-on",
-					"order": 0,
-					"id": 472
+					"order": 19,
+					"id": 472,
+					"prevSize": 28,
+					"code": 61957,
+					"tempChar": ""
 				},
 				{
 					"name": "bicycle",
@@ -22384,7 +22393,7 @@
 					"order": 17,
 					"prevSize": 32,
 					"code": 59916,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "info, information",
 					"name": "info"
 				},
@@ -32401,7 +32410,8 @@
 				"emSize": 1024,
 				"baseline": 6.25,
 				"whitespace": 50
-			}
+			},
+			"embed": false
 		},
 		"imagePref": {
 			"prefix": "icon-",

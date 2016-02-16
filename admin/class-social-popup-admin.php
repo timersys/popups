@@ -120,6 +120,8 @@ class SocialPopup_Admin {
 		//Columns in cpt
 		add_filter( 'manage_edit-spucpt_columns' ,  array( $this, 'set_custom_cpt_columns'), 10, 2 );
 		add_action( 'manage_spucpt_posts_custom_column' ,  array( $this, 'custom_columns'), 10, 2 );
+		add_action( 'admin_init' ,  array( $this, 'toggle_on_popup') );
+		add_filter( 'post_row_actions' ,  array( $this, 'modify_title_actions'), 10, 2 );
 
 		$this->set_rules_fields();
 	}
@@ -803,13 +805,19 @@ class SocialPopup_Admin {
 
 	/**
 	 * Add custom columns to spu cpt
+	 *
 	 * @param [type] $columns [description]
+	 *
 	 * @since  1.3.3
+	 * @return array|int
 	 */
 	public function set_custom_cpt_columns( $columns ){
-		unset( $columns['date'] );
 
+		unset( $columns['date'] );
+		$spu_switch = array( 'spu_switch' => __( 'On / Off', 'popups' ) );
+		$columns = array_slice($columns, 0, 1, true) + $spu_switch + array_slice($columns, 1, count( $columns ) - 1, true) ;
 		$columns['spu_id']        = __( 'ID', 'popups' );
+
 		return $columns;
 	}
 	/**
@@ -826,7 +834,49 @@ class SocialPopup_Admin {
 			case 'spu_id' :
 				echo '#spu-'.$post_id;
 				break;
-
+			case 'spu_switch' :
+				echo '<a href="'. wp_nonce_url( admin_url('edit.php?post_type=spucpt&post='. $post_id . '&spu_action=spu_toggle_on'), 'spu_toggle_on', 'spu_nonce') .'"><i class="spu-icon spu-icon-';
+				echo get_post_status( $post_id ) == 'publish' ? 'toggle-on' : 'toggle-off';
+				echo '"></i></a>';
+				break;
 		}
 	}
+
+	/**
+	 * Catch the toggle on/off action and change post status
+	 * Redirect to clear url once is completed
+	 */
+	function toggle_on_popup() {
+		//checks
+		if ( ! isset( $_GET['spu_action'] ) || $_GET['spu_action'] != 'spu_toggle_on' )
+			return;
+		if ( !isset( $_GET['spu_nonce'] ) || !wp_verify_nonce($_GET['spu_nonce'], 'spu_toggle_on') )
+			return;
+		if ( empty( $_GET['post'] ) )
+			return;
+		$post_id        = esc_attr( $_GET['post'] );
+		$post_status    = get_post_status( $post_id );
+
+		$post = array(
+			'ID'            => $post_id,
+			'post_status'   => $post_status != 'publish' ? 'publish' : 'draft'
+		);
+		wp_update_post( $post );
+		wp_safe_redirect( admin_url('edit.php?post_type=spucpt') );
+		exit;
+	}
+
+	/**
+	 * Remove unedeed actions
+	 * @return array
+	 */
+	function modify_title_actions( $actions, $post ){
+		if( 'spucpt' != $post->post_type )
+			return $actions;
+
+		unset( $actions['view'] );
+
+		return $actions;
+	}
+
 }
