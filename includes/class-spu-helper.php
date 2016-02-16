@@ -215,16 +215,8 @@ class Spu_Helper {
 				break;
 			
 			case "post_status" :
-				
-				$choices = array(
-					'publish'	=> __( 'Publish' ),
-					'pending'	=> __( 'Pending Review' ),
-					'draft'		=> __( 'Draft' ),
-					'future'	=> __( 'Future' ),
-					'private'	=> __( 'Private' ),
-					'inherit'	=> __( 'Revision' ),
-					'trash'		=> __( 'Trash' )
-				);
+
+				$choices = get_post_stati();
 								
 				break;
 			
