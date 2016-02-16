@@ -155,6 +155,7 @@ class SocialPopup_Admin {
 		if( class_exists('PopupsP') ){
 			$name .= ' - Premium v'. PopupsP::VERSION;
 		}
+		$name = apply_filters( 'spu/display/title', $name ); 
 		$labels = array(
 			'name'               => $name,
 			'singular_name'      => _x( 'Popups', 'post type singular name', 'popups' ),
@@ -210,7 +211,7 @@ class SocialPopup_Admin {
 	 */
 	public function add_settings_menu() {
 
-		add_submenu_page('edit.php?post_type=spucpt', 'Settings', 'Settings', apply_filters( 'spu/settings_page/roles', 'manage_options'), 'spu_settings', array( $this, 'settings_page' ) );
+		add_submenu_page('edit.php?post_type=spucpt', __( 'Settings', 'popups' ), __( 'Settings', 'popups' ), apply_filters( 'spu/settings_page/roles', 'manage_options'), 'spu_settings', array( $this, 'settings_page' ) );
 	
 	}
 

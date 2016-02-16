@@ -236,6 +236,7 @@ div#spu-premium li{
     font-variant: normal;
     text-transform: none;
     line-height: 1;
+	padding-right: 5px;
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
