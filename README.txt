@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.4.1
-Stable tag: 1.4.4
+Tested up to: 4.4.2
+Stable tag: 1.4.5
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,8 +62,11 @@ There are multiple display filters that can be combined:
 > * Beautiful optin forms for popular mail providers
 > * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact
 > * New popup positions such as top/bottoms bars or fullscreen modes
+> * More Display Rules: Show after N(numbers) of pages viewed
+> * More Display Rules: Show/hide if another popup already converted
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
+> * Data sampling for heavy traffic sites
 > * 8 New animations effects
 > * Exit Intent technology
 > * More trigger methods
@@ -182,6 +185,13 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
 
+= 1.4.5 =
+* Fixed undefined js error
+* Fixed redeclared class error for Mobile Detect class
+* Several css and text fixes. Pull request by lucpse
+* Added switch ON/OFF button for popups
+* Removed unnedded buttons / action from admin
+* Custom status now show in display rules
 
 = 1.4.4 =
 * Added WpGlobus Support
