@@ -706,12 +706,13 @@ class SocialPopup {
 
 		if ( ! empty( $wpml_settings['custom_posts_sync_option']['spucpt'] ) ) {
 
+			$lang_code = isset( $_GET['lang'] ) ? $_GET['lang'] : ICL_LANGUAGE_CODE;
 			$sql = "select DISTINCT * from $wpdb->posts as a
  					LEFT JOIN {$wpdb->prefix}icl_translations as b
 					ON a.ID = b.element_id
 					WHERE a.post_status = 'publish'
 					AND a.post_type = 'spucpt'
-					AND b.language_code = '" . esc_sql( ICL_LANGUAGE_CODE ) . "'
+					AND b.language_code = '" . esc_sql( $lang_code ) . "'
 					GROUP BY a.ID";
 
 			$ids = $wpdb->get_results( $sql );
