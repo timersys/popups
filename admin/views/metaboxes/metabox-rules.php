@@ -64,7 +64,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 						
 						
 						// allow custom rules rules
-						$choices = apply_filters( 'spu/metaboxes/rule_operators', $choices );
+						$choices = apply_filters( 'spu/metaboxes/rule_operators', $choices, $args );
 						
 						$args = array(
 							'group_id' 	=> $group_id,
