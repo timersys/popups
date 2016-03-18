@@ -155,6 +155,10 @@ To use custom conversions check [this code](https://gist.github.com/timersys/7fa
 = If I have multiple Gravity forms on my page, form is not working =
 On certain occasions multiple GF instances can cause problems. There is a plugin that fixes that https://wordpress.org/plugins/gravity-forms-multiple-form-instances/
 
+= How to make Popups plugin compatible with Maxbuttons Plugin (https://es.wordpress.org/plugins/maxbuttons/) =
+ Check the following gists ( https://gist.github.com/timersys/e3648ba93955ddef4087 )
+
+
 = I closed the popup but youtube is still playing. How I fix it? =
 Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
 
