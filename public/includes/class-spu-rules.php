@@ -986,8 +986,8 @@ class Spu_Rules
 
 		$post_type = isset( $wp_query->query_vars['post_type'] ) ? $wp_query->query_vars['post_type'] : '';
 
-		$post_type = empty( $post_type ) ? get_post_type($this->post_id) : ''; 
-	
+		$post_type = empty( $post_type ) ? get_post_type($this->post_id) : get_post_type();
+
 		return $post_type;
  	}
 			
