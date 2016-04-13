@@ -43,7 +43,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 	#spu-<?php echo $box->ID; ?> {
 		background-color: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
 		<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
-		<?php if ( !empty( $css['border_color'] ) && !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); echo !empty( $opts['optin'] ) ? ' !important':'';?>;<?php } ?>
+		<?php if ( !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); echo !empty( $opts['optin'] ) ? ' !important':'';?>;<?php } ?>
 		<?php echo ( empty( $opts['optin'] ) || $opts['optin'] == 'custom' ) ? 'width: ' . esc_attr( $width ) : ''; ?>;
 
 	}
