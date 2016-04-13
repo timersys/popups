@@ -5,10 +5,8 @@
 *  Class that will compare rules and determine if popup needs to show
 *  @since: 2.0
 */
-if(!isset($_SESSION) )
-{
+if( session_id() == '' )
 	session_start();
-}
 class Spu_Rules
 {
 	/**
