@@ -142,6 +142,7 @@ SPU_ADMIN = (function ( $ ) {
 					rule_id = $tr.attr('data-id'),
 					$group = $tr.closest('.rules-group'),
 					group_id = $group.attr('data-id'),
+					val_td   = $tr.find('td.value'),
 					ajax_data = {
 						'action' 	: "spu/field_group/render_rules",
 						'nonce' 	: spu_js.nonce,
@@ -154,7 +155,7 @@ SPU_ADMIN = (function ( $ ) {
 				
 				// add loading gif
 				var div = $('<div class="spu-loading"><img src="'+spu_js.admin_url+'/images/wpspin_light.gif"/> </div>');
-				$tr.find('td.value').html( div );
+				val_td.html( div );
 				
 				
 				// load rules html
@@ -164,12 +165,35 @@ SPU_ADMIN = (function ( $ ) {
 					type: 'post',
 					dataType: 'html',
 					success: function(html){
-		
-						div.replaceWith(html);
+
+						val_td.html(html);
 		
 					}
 				});
-				
+
+				// Operators Rules
+				var operator_td =  $tr.find('td.operator'),
+					ajax_data = {
+						'action' 	: "spu/field_group/render_operator",
+						'nonce' 	: spu_js.nonce,
+						'rule_id' 	: rule_id,
+						'group_id' 	: group_id,
+						'value' 	: '',
+						'param' 	: $(this).val()
+					};
+
+				operator_td.html( div );
+				$.ajax({
+					url: ajaxurl,
+					data: ajax_data,
+					type: 'post',
+					dataType: 'html',
+					success: function(html){
+
+						operator_td.html(html);
+
+					}
+				});
 				
 			});
 			

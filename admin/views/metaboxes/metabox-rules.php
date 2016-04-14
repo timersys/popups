@@ -56,26 +56,16 @@ if ( !defined( 'ABSPATH' ) ) exit;
 						
 					?></td>
 					<td class="operator"><?php 	
-						
-						$choices = array(
-							'=='	=>	__("is equal to", 'popups' ),
-							'!='	=>	__("is not equal to", 'popups' ),
-						);
-						
-						
-						// allow custom rules rules
-						$choices = apply_filters( 'spu/metaboxes/rule_operators', $choices, $args );
-						
+
 						$args = array(
 							'group_id' 	=> $group_id,
 							'rule_id'	=> $rule_id,
 							'name'		=> 'spu_rules[' . $group_id . '][' . $rule_id . '][operator]',
-							'value' 	=> $rule['operator']
+							'value' 	=> $rule['operator'],
+							'param'		=> $rule['param'],
 
 						);
-						
-						Spu_Helper::print_select( $args, $choices );
-
+						Spu_Helper::ajax_render_operator( $args );
 						
 					?></td>
 					<td class="value"><?php 

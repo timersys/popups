@@ -112,6 +112,7 @@ class SocialPopup_Admin {
 
 		//AJAX Actions	
 		add_action('wp_ajax_spu/field_group/render_rules', array( $this->helper, 'ajax_render_rules' ) );
+		add_action('wp_ajax_spu/field_group/render_operator', array( $this->helper, 'ajax_render_operator' ) );
 
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
