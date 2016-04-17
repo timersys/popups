@@ -5,7 +5,7 @@
  * @package   SocialPopup_Admin
  * @author    Damian Logghe <info@timersys.com>
  * @license   GPL-2.0+
- * @link      http://wp.timersys.com
+ * @link      https://timersys.com
  * @copyright 2014 Timersys
  */
 
