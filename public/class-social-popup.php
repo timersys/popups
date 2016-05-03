@@ -449,38 +449,37 @@ class SocialPopup {
 		$opts = $this->spu_settings;
 		$spuvar_social = '';
 
-		// Check if defined or remove js in options
-		if(  !defined( 'SPU_UNLOAD_FB_JS')  && empty( $opts['facebook'] ) ) {
+		$handle = 'spu-public';
 
-			// Check if any popup have facebook, then enqueue js
-			if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'spu_fb' " ) ) {
-				
+		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
+			$handle = 'spu-public-debug';
+		}
+
+		// Check if any popup have facebook, then enqueue js
+		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'spu_fb' " ) ) {
+			// Check if defined or remove js in options
+			if(  !defined( 'SPU_UNLOAD_FB_JS')  && empty( $opts['facebook'] ) )
 				wp_enqueue_script( 'spu-facebook');
-				$spuvar_social['facebook'] 	= true;
 
-			}
+			$spuvar_social['facebook'] 	= true;
 
 		}
-		if( ! defined( 'SPU_UNLOAD_TW_JS')  && empty( $opts['twitter'] ) ) {
 
-			if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_tw' " ) ) {
-
+		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_tw' " ) ) {
+			if( ! defined( 'SPU_UNLOAD_TW_JS')  && empty( $opts['twitter'] ) )
 				wp_enqueue_script( 'spu-twitter');
-				$spuvar_social['twitter'] 	= true;
 
-			}
+			$spuvar_social['twitter'] 	= true;
 
 		}
-		if( ! defined( 'SPU_UNLOAD_GO_JS')  && empty( $opts['google'] ) ) {
 
-			if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_google' " ) ) {
-
+		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_google' " ) ) {
+			if( ! defined( 'SPU_UNLOAD_GO_JS')  && empty( $opts['google'] ) )
 				wp_enqueue_script( 'spu-google');
-				$spuvar_social['google'] 	= true;
-			}
 
+			$spuvar_social['google'] 	= true;
 		}
-		wp_localize_script( 'spu-public', 'spuvar_social', $spuvar_social);
+		wp_localize_script( $handle, 'spuvar_social', $spuvar_social);
 
 
 		//also include gravity forms if needed

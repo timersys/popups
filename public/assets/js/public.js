@@ -629,20 +629,20 @@ function closeGoogle(a){
 	}
 }
 function SPU_reload_socials(){
-	if( typeof spuvar_social.facebook != 'undefined' && spuvar_social.facebook) {
+	if( typeof spuvar_social != 'undefined' && spuvar_social.facebook) {
 
 		// reload fb
 		try{
 			FB.XFBML.parse();
 		}catch(ex){}
 	}
-	if( typeof spuvar_social.google != 'undefined' && spuvar_social.google){
+	if( typeof spuvar_social != 'undefined' && spuvar_social.google){
         try {
             // reload google
             gapi.plusone.go();
         }catch(ex){}
 	}
-	if( typeof spuvar_social.twitter != 'undefined' && spuvar_social.twitter ) {
+	if( typeof spuvar_social != 'undefined' && spuvar_social.twitter ) {
         try {
             //reload twitter
             twttr.widgets.load();
