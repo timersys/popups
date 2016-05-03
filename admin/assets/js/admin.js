@@ -33,6 +33,11 @@ SPU_ADMIN = (function ( $ ) {
 		} else {
 			$('tr.auto_hide').fadeOut('fast');
 		}
+		if( val == 'manual' ) {
+			$('.spu-trigger-number').fadeOut('fast');
+		} else {
+			$('.spu-trigger-number').fadeIn('fast');
+		}
 	}
 
 	// functions
