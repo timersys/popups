@@ -93,7 +93,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 		</div>
 	<?php endforeach; ?>
 	
-	<h4><?php _e("or", 'popups' ); ?></h4>
+	<h4><?php _e("OR", 'popups' ); ?></h4>
 	
 	<a class="button rules-add-group" href="#"><?php _e("Add rule group", 'popups' ); ?></a>
 	
