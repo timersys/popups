@@ -593,7 +593,7 @@ class SocialPopup_Admin {
 					'admin_url' => admin_url( ), 
 					'nonce' 	=> wp_create_nonce( 'spu_nonce' ),
 					'l10n'		=> array (
-							'or'	=> __('or', 'popups' )
+							'or'	=> '<span>'.__('OR', 'popups' ).'</span>'
 						),
 					'opts'      => $this->helper->get_box_options($box_id)
 				) 

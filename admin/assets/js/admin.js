@@ -272,7 +272,7 @@ SPU_ADMIN = (function ( $ ) {
 			
 			
 			// update h4
-			$group2.find('h4').text( spu_js.l10n.or );
+			$group2.find('h4').html( spu_js.l10n.or ).addClass('rules-or');
 			
 			
 			// remove all tr's except the first one

@@ -318,3 +318,14 @@ td.spu_switch{
 .post-type-spucpt div#preview-action {
 	display: none;
 }
+h4.rules-or {
+	border-top: 2px dashed #ddd;
+	line-height: 1;
+	text-align: center;
+}
+h4.rules-or span{
+	background: #ffffff;
+	position: relative;
+	top: -8px;
+	padding: 2px 10px;
+}

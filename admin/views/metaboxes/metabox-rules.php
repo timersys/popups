@@ -30,7 +30,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 			<?php if( $group_id == 'group_0' ): ?>
 				<h4><?php _e("Show this popup if", 'popups' ); ?></h4>
 			<?php else: ?>
-				<h4><?php _e("or", 'popups' ); ?></h4>
+				<h4 class="rules-or"><span><?php _e("OR", 'popups' ); ?></span></h4>
 			<?php endif; ?>
 			<?php if( is_array($group) ): ?>
 			<table class="spu_table widefat">
@@ -80,7 +80,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 						
 					?></td>
 					<td class="add">
-						<a href="#" class="rules-add-rule button"><?php _e("and", 'popups' ); ?></a>
+						<a href="#" class="rules-add-rule button"><?php _e("+ AND", 'popups' ); ?></a>
 					</td>
 					<td class="remove">
 						<a href="#" class="rules-remove-rule rules-remove-rule">-</a>
@@ -93,9 +93,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 		</div>
 	<?php endforeach; ?>
 	
-	<h4><?php _e("OR", 'popups' ); ?></h4>
+	<h4 class="rules-or"><span><?php _e("OR", 'popups' ); ?></span></h4>
 	
-	<a class="button rules-add-group" href="#"><?php _e("Add rule group", 'popups' ); ?></a>
+	<a class="button rules-add-group" href="#"><?php _e("Add rule group (+ OR)", 'popups' ); ?></a>
 	
 <?php endif; ?>
 				
