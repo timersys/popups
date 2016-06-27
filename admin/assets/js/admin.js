@@ -305,6 +305,8 @@ SPU_ADMIN = (function ( $ ) {
 			$( '#spu-custom-css' ).val( editor.getSession().getValue() );
 		},
 		loadAce = function() {
+			if(! $('#custom_css').length )
+				return;
 			editor = ace.edit( 'custom_css' );
 			global.safecss_editor = editor;
 			editor.getSession().setUseWrapMode( true );
