@@ -302,6 +302,7 @@ class Spu_Helper {
 			case "logged_user" :
 			case "mobiles" :
 			case "tablets" :
+			case "desktop" :
 			case "left_comment" :
 			case "search_engine" :
 			case "same_site" :
