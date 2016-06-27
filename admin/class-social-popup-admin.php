@@ -824,7 +824,8 @@ class SocialPopup_Admin {
 		unset( $columns['date'] );
 		$spu_switch = array( 'spu_switch' => __( 'On / Off', 'popups' ) );
 		$columns = array_slice($columns, 0, 1, true) + $spu_switch + array_slice($columns, 1, count( $columns ) - 1, true) ;
-		$columns['spu_id']        = __( 'ID', 'popups' );
+		$columns['spu_id']              = __( 'ID', 'popups' );
+		$columns['spu_trigger_class']   = __( 'Trigger class', 'popups' );
 
 		return $columns;
 	}
@@ -846,6 +847,9 @@ class SocialPopup_Admin {
 				echo '<a href="'. wp_nonce_url( admin_url('edit.php?post_type=spucpt&post='. $post_id . '&spu_action=spu_toggle_on'), 'spu_toggle_on', 'spu_nonce') .'"><i class="spu-icon spu-icon-';
 				echo get_post_status( $post_id ) == 'publish' ? 'toggle-on' : 'toggle-off';
 				echo '"></i></a>';
+				break;
+			case 'spu_trigger_class':
+				echo '.spu-open-' . $post_id;
 				break;
 		}
 	}

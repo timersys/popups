@@ -162,7 +162,7 @@ var SPU_master = function() {
 		});
 		
 		// add link listener for this box
-		$('a[href="#spu-' + id +'"]').on('click',function(e) {
+		$(document).on('click','a[href="#spu-' + id +'"], .spu-open-' + id ,function(e) {
             e.preventDefault();
 			toggleBox(id, true, false);
 		}).css('cursor','pointer').addClass('spu-clickable');// in case of div, fix ios bug not registering clicks
