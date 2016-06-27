@@ -40,17 +40,18 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 
 ?>
 <style type="text/css">
-	#spu-<?php echo $box->ID; ?> {
-		background-color: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
-		<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
-		<?php if ( !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); echo !empty( $opts['optin'] ) ? ' !important':'';?>;<?php } ?>
-		<?php echo ( empty( $opts['optin'] ) || $opts['optin'] == 'custom' ) ? 'width: ' . esc_attr( $width ) : ''; ?>;
+#spu-<?php echo $box->ID; ?> {
+	background-color: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
+	<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
+	<?php if ( !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); echo !empty( $opts['optin'] ) ? ' !important':'';?>;<?php } ?>
+	<?php echo ( empty( $opts['optin'] ) || $opts['optin'] == 'custom' ) ? 'width: ' . esc_attr( $width ) : ''; ?>;
 
-	}
-	#spu-bg-<?php echo $box->ID; ?> {
-		opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
-	}
-	<?php do_action( 'spu/popup/popup_style', $box, $opts, $css);?>
+}
+#spu-bg-<?php echo $box->ID; ?> {
+	opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
+}
+<?php echo isset( $css['custom_css'] ) ? $css['custom_css'] : '';?>
+<?php do_action( 'spu/popup/popup_style', $box, $opts, $css);?>
 </style>
 <div class="spu-bg" id="spu-bg-<?php echo $box->ID; ?>"></div>
 <div class="spu-box <?php echo apply_filters( 'spu/popup/box_class', $box_class, $opts, $css, $box );?> spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo get_post_meta($box->ID, 'spu_social',true);?> <?php echo get_post_meta($box->ID, 'spu_google',true) ? 'spu-gogl' : '';?>" id="spu-<?php echo $box->ID; ?>"

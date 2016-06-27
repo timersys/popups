@@ -583,8 +583,12 @@ class SocialPopup_Admin {
 		$box_id = isset( $post->ID ) ? $post->ID : '';
 
 		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_script( 'ace_code_highlighter_js',  plugins_url( 'assets/js/ace.js', __FILE__ ) , '', '1.0.0', true );
+		wp_enqueue_script( 'ace_mode_js', plugins_url( 'assets/js/mode-css.js', __FILE__ ) , array( 'ace_code_highlighter_js' ), '1.0.0', true );
+		wp_enqueue_script( 'worker_css_js', plugins_url( 'assets/js/worker-css.js', __FILE__ ) , array( 'jquery', 'ace_code_highlighter_js' ), '1.0.0', true );
 		wp_enqueue_script( 'spu-admin-js', plugins_url( 'assets/js/admin.js', __FILE__ ) , '', SocialPopup::VERSION );
-		wp_localize_script( 'spu-admin-js', 'spu_js', 
+
+		wp_localize_script( 'spu-admin-js', 'spu_js',
 				array( 
 					'admin_url' => admin_url( ), 
 					'nonce' 	=> wp_create_nonce( 'spu_nonce' ),
