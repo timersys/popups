@@ -198,14 +198,14 @@ var SPU_master = function() {
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".newsletter-form, .wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form, .mc4wp-form")', function(e){
+            $box.on('submit','form:not(".newsletter-form, .wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form")', function(e){
                 e.preventDefault();
 
 
                 var submit 	= true,
                     form 		= $(this),
                     data 	 	= form.serialize(),
-                    url  	 	= form.attr('action'),
+                    url  	 	= form.hasClass('mc4wp-form') ? spuvar.site_url +'/' : form.attr('action'),
                     error_cb 	= function (data, error, errorThrown){
                         console.log('Spu Form error: ' + error + ' - ' + errorThrown);
                     },
