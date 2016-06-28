@@ -17,7 +17,7 @@ if($today > $blackbegin && $today < $blackend) : ?>
 <h2><?php _e( 'Popups Premium Features:', 'popups' );?></h2>
 <ul>
 	<li><?php _e( 'Beautiful optin forms for popular mail providers', 'popups' );?></li>
-	<li><?php _e( 'Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact', 'popups' );?></li>
+	<li><?php _e( 'Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, ActiveCampaign, Newsletter plugin', 'popups' );?></li>
 	<li><?php _e( 'Track impressions and Conversions of social likes and forms submissions like Contact Form 7, Gravity forms, etc', 'popups' );?></li>
 	<li><?php _e( 'Track impressions and Conversions also in Google Analytics', 'popups' );?></li>
 	<li><?php _e( 'Exit Intent technology', 'popups' );?></li>
@@ -27,6 +27,7 @@ if($today > $blackbegin && $today < $blackend) : ?>
 	<li><?php _e( 'New trigger methods', 'popups' );?></li>
 	<li><?php _e( 'More Display Rules: Show after N(numbers) of pages viewed', 'popups' );?></li>
 	<li><?php _e( 'More Display Rules: Show popup at certain time', 'popups' );?></li>
+	<li><?php _e( 'More Display Rules: Show popup at certain day', 'popups' );?></li>
 	<li><?php _e( 'More Display Rules: Show/hide if another popup already converted', 'popups' );?></li>
 	<li><?php _e( 'Timer for auto closing', 'popups' );?></li>
 	<li><?php _e( 'Ability to disable close button', 'popups' );?></li>

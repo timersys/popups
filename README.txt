@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.5.1
-Stable tag: 1.4.6.1
+Tested up to: 4.5.2
+Stable tag: 1.5
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,7 +38,7 @@ There are multiple display filters that can be combined:
 * Filter users via roles
 * Show popup depending on referrer
 * Show popup to logged / non logged users
-* Show or not to mobile and tablet users
+* Show or not to mobile, desktop and tablet users
 * Show depending on post type, post template, post name, post format, post status and post taxonomy
 * Show depending on page template, if page is parent, page name, page type
 * Geotarget popups using the [Geotargeting plugin](https://timersys.com/geotargeting/)
@@ -61,10 +61,11 @@ There are multiple display filters that can be combined:
 > Check the **new premium version** available in ([https://wp.timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
-> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact
+> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign
 > * New popup positions: top/bottoms bars , fullscreen mode, after post content
 > * More Display Rules: Show after N(numbers) of pages viewed
 > * More Display Rules: Show popup at certain time
+> * More Display Rules: Show popup at certain day
 > * More Display Rules: Show/hide if another popup already converted
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics
@@ -190,6 +191,14 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.5 =
+* Added new rule to match Desktop devices
+* Added custom CSS box for popups
+* Added trigger class so popups can be triggered by applying that class to any element
+* Changed styling on rules
+* Fixed mc4wp ajax submission
+* PHP Undefined notices fixes
 
 = 1.4.6.1 =
 * Fixed bug where manual trigger was not saving properly
