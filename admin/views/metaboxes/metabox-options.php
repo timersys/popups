@@ -26,6 +26,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				
 					<option value="seconds" <?php selected($opts['trigger'], 'seconds'); ?>><?php _e( 'seconds after page load', 'popups' ); ?></option>
 					<option value="percentage" <?php selected($opts['trigger'], 'percentage'); ?>>% <?php _e( 'of page height', 'popups' ); ?></option>
+					<option value="manual" <?php selected($opts['trigger'], 'manual'); ?>><?php _e( 'Manual Triggering', 'popups' ); ?></option>
 					<?php do_action( 'spu/metaboxes/trigger_options', $opts );?>
 			</select>
 		</td>

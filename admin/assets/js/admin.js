@@ -33,6 +33,11 @@ SPU_ADMIN = (function ( $ ) {
 		} else {
 			$('tr.auto_hide').fadeOut('fast');
 		}
+		if( val == 'manual' ) {
+			$('.spu-trigger-number').fadeOut('fast');
+		} else {
+			$('.spu-trigger-number').fadeIn('fast');
+		}
 	}
 
 	// functions
@@ -142,6 +147,7 @@ SPU_ADMIN = (function ( $ ) {
 					rule_id = $tr.attr('data-id'),
 					$group = $tr.closest('.rules-group'),
 					group_id = $group.attr('data-id'),
+					val_td   = $tr.find('td.value'),
 					ajax_data = {
 						'action' 	: "spu/field_group/render_rules",
 						'nonce' 	: spu_js.nonce,
@@ -154,7 +160,7 @@ SPU_ADMIN = (function ( $ ) {
 				
 				// add loading gif
 				var div = $('<div class="spu-loading"><img src="'+spu_js.admin_url+'/images/wpspin_light.gif"/> </div>');
-				$tr.find('td.value').html( div );
+				val_td.html( div );
 				
 				
 				// load rules html
@@ -164,12 +170,35 @@ SPU_ADMIN = (function ( $ ) {
 					type: 'post',
 					dataType: 'html',
 					success: function(html){
-		
-						div.replaceWith(html);
+
+						val_td.html(html);
 		
 					}
 				});
-				
+
+				// Operators Rules
+				var operator_td =  $tr.find('td.operator'),
+					ajax_data = {
+						'action' 	: "spu/field_group/render_operator",
+						'nonce' 	: spu_js.nonce,
+						'rule_id' 	: rule_id,
+						'group_id' 	: group_id,
+						'value' 	: '',
+						'param' 	: $(this).val()
+					};
+
+				operator_td.html( div );
+				$.ajax({
+					url: ajaxurl,
+					data: ajax_data,
+					type: 'post',
+					dataType: 'html',
+					success: function(html){
+
+						operator_td.html(html);
+
+					}
+				});
 				
 			});
 			
@@ -243,7 +272,7 @@ SPU_ADMIN = (function ( $ ) {
 			
 			
 			// update h4
-			$group2.find('h4').text( spu_js.l10n.or );
+			$group2.find('h4').html( spu_js.l10n.or ).addClass('rules-or');
 			
 			
 			// remove all tr's except the first one
@@ -269,4 +298,30 @@ SPU_ADMIN = (function ( $ ) {
 
 		}
 	}
-}(jQuery));	
+}(jQuery));
+( function( global, $ ) {
+	var editor,
+		syncCSS = function() {
+			$( '#spu-custom-css' ).val( editor.getSession().getValue() );
+		},
+		loadAce = function() {
+			if(! $('#custom_css').length )
+				return;
+			editor = ace.edit( 'custom_css' );
+			global.safecss_editor = editor;
+			editor.getSession().setUseWrapMode( true );
+			editor.setShowPrintMargin( false );
+			editor.getSession().setValue( $( '#spu-custom-css' ).val() );
+			editor.getSession().setMode( "ace/mode/css" );
+			jQuery.fn.spin&&$( '#custom_css_container' ).spin( false );
+			$( '#post' ).submit( syncCSS );
+		};
+	if ( $.browser.msie&&parseInt( $.browser.version, 10 ) <= 7 ) {
+		$( '#custom_css_container' ).hide();
+		$( '#spu-custom-css' ).show();
+		return false;
+	} else {
+		$( global ).load( loadAce );
+	}
+	global.aceSyncCSS = syncCSS;
+} )( this, jQuery );

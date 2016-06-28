@@ -449,38 +449,37 @@ class SocialPopup {
 		$opts = $this->spu_settings;
 		$spuvar_social = '';
 
-		// Check if defined or remove js in options
-		if(  !defined( 'SPU_UNLOAD_FB_JS')  && empty( $opts['facebook'] ) ) {
+		$handle = 'spu-public';
 
-			// Check if any popup have facebook, then enqueue js
-			if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'spu_fb' " ) ) {
-				
+		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
+			$handle = 'spu-public-debug';
+		}
+
+		// Check if any popup have facebook, then enqueue js
+		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'spu_fb' " ) ) {
+			// Check if defined or remove js in options
+			if(  !defined( 'SPU_UNLOAD_FB_JS')  && empty( $opts['facebook'] ) )
 				wp_enqueue_script( 'spu-facebook');
-				$spuvar_social['facebook'] 	= true;
 
-			}
+			$spuvar_social['facebook'] 	= true;
 
 		}
-		if( ! defined( 'SPU_UNLOAD_TW_JS')  && empty( $opts['twitter'] ) ) {
 
-			if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_tw' " ) ) {
-
+		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_tw' " ) ) {
+			if( ! defined( 'SPU_UNLOAD_TW_JS')  && empty( $opts['twitter'] ) )
 				wp_enqueue_script( 'spu-twitter');
-				$spuvar_social['twitter'] 	= true;
 
-			}
+			$spuvar_social['twitter'] 	= true;
 
 		}
-		if( ! defined( 'SPU_UNLOAD_GO_JS')  && empty( $opts['google'] ) ) {
 
-			if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_google' " ) ) {
-
+		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key ='spu_google' " ) ) {
+			if( ! defined( 'SPU_UNLOAD_GO_JS')  && empty( $opts['google'] ) )
 				wp_enqueue_script( 'spu-google');
-				$spuvar_social['google'] 	= true;
-			}
 
+			$spuvar_social['google'] 	= true;
 		}
-		wp_localize_script( 'spu-public', 'spuvar_social', $spuvar_social);
+		wp_localize_script( $handle, 'spuvar_social', $spuvar_social);
 
 
 		//also include gravity forms if needed
@@ -706,12 +705,13 @@ class SocialPopup {
 
 		if ( ! empty( $wpml_settings['custom_posts_sync_option']['spucpt'] ) ) {
 
+			$lang_code = isset( $_GET['lang'] ) ? $_GET['lang'] : ICL_LANGUAGE_CODE;
 			$sql = "select DISTINCT * from $wpdb->posts as a
  					LEFT JOIN {$wpdb->prefix}icl_translations as b
 					ON a.ID = b.element_id
 					WHERE a.post_status = 'publish'
 					AND a.post_type = 'spucpt'
-					AND b.language_code = '" . esc_sql( ICL_LANGUAGE_CODE ) . "'
+					AND b.language_code = '" . esc_sql( $lang_code ) . "'
 					GROUP BY a.ID";
 
 			$ids = $wpdb->get_results( $sql );

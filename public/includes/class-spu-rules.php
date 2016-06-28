@@ -5,10 +5,8 @@
 *  Class that will compare rules and determine if popup needs to show
 *  @since: 2.0
 */
-if(!isset($_SESSION) )
-{
+if( session_id() == '' )
 	session_start();
-}
 class Spu_Rules
 {
 	/**
@@ -75,6 +73,7 @@ class Spu_Rules
 		//Other
 		add_filter('spu/rules/rule_match/mobiles', array($this, 'rule_match_mobiles'), 10, 2);
 		add_filter('spu/rules/rule_match/tablets', array($this, 'rule_match_tablets'), 10, 2);
+		add_filter('spu/rules/rule_match/desktop', array($this, 'rule_match_desktop'), 10, 2);
 		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
 
 		$this->post_id 	    = isset( $post->ID ) ? $post->ID : '';
@@ -218,6 +217,28 @@ class Spu_Rules
 			return !$detect->isTablet();
 
 		}		
+
+	}
+	/**
+	 * [rule_match_desktop description]
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_desktop( $match, $rule ) {
+
+		require_once 'Mobile_Detect.php';
+		$detect = new Mobile_Detect;
+
+		if ( $rule['operator'] == "==" ) {
+
+			return ( ! $detect->isTablet() && ! $detect->isMobile() );
+
+		} else {
+
+			return ( $detect->isTablet() || $detect->isMobile() );
+
+		}
 
 	}
 	
@@ -986,8 +1007,8 @@ class Spu_Rules
 
 		$post_type = isset( $wp_query->query_vars['post_type'] ) ? $wp_query->query_vars['post_type'] : '';
 
-		$post_type = empty( $post_type ) ? get_post_type($this->post_id) : ''; 
-	
+		$post_type = empty( $post_type ) ? get_post_type($this->post_id) : get_post_type();
+
 		return $post_type;
  	}
 			

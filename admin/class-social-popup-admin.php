@@ -5,7 +5,7 @@
  * @package   SocialPopup_Admin
  * @author    Damian Logghe <info@timersys.com>
  * @license   GPL-2.0+
- * @link      http://wp.timersys.com
+ * @link      https://timersys.com
  * @copyright 2014 Timersys
  */
 
@@ -112,6 +112,7 @@ class SocialPopup_Admin {
 
 		//AJAX Actions	
 		add_action('wp_ajax_spu/field_group/render_rules', array( $this->helper, 'ajax_render_rules' ) );
+		add_action('wp_ajax_spu/field_group/render_operator', array( $this->helper, 'ajax_render_operator' ) );
 
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
@@ -582,13 +583,17 @@ class SocialPopup_Admin {
 		$box_id = isset( $post->ID ) ? $post->ID : '';
 
 		wp_enqueue_script( 'wp-color-picker' );
+		wp_enqueue_script( 'ace_code_highlighter_js',  plugins_url( 'assets/js/ace.js', __FILE__ ) , '', '1.0.0', true );
+		wp_enqueue_script( 'ace_mode_js', plugins_url( 'assets/js/mode-css.js', __FILE__ ) , array( 'ace_code_highlighter_js' ), '1.0.0', true );
+		wp_enqueue_script( 'worker_css_js', plugins_url( 'assets/js/worker-css.js', __FILE__ ) , array( 'jquery', 'ace_code_highlighter_js' ), '1.0.0', true );
 		wp_enqueue_script( 'spu-admin-js', plugins_url( 'assets/js/admin.js', __FILE__ ) , '', SocialPopup::VERSION );
-		wp_localize_script( 'spu-admin-js', 'spu_js', 
+
+		wp_localize_script( 'spu-admin-js', 'spu_js',
 				array( 
 					'admin_url' => admin_url( ), 
 					'nonce' 	=> wp_create_nonce( 'spu_nonce' ),
 					'l10n'		=> array (
-							'or'	=> __('or', 'popups' )
+							'or'	=> '<span>'.__('OR', 'popups' ).'</span>'
 						),
 					'opts'      => $this->helper->get_box_options($box_id)
 				) 
@@ -765,6 +770,7 @@ class SocialPopup_Admin {
 				'referrer'		=>	__("Referrer", 'popups' ),
 				'mobiles'		=>	__("Mobile Phone", 'popups' ),
 				'tablets'		=>	__("Tablet", 'popups' ),
+				'desktop'		=>	__("Dekstop", 'popups' ),
 			)
 		);
 		// allow custom rules rules
@@ -800,6 +806,7 @@ class SocialPopup_Admin {
 
 		//Other
 		add_action('spu/rules/print_mobiles_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_desktop_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_tablets_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 	}
@@ -817,7 +824,8 @@ class SocialPopup_Admin {
 		unset( $columns['date'] );
 		$spu_switch = array( 'spu_switch' => __( 'On / Off', 'popups' ) );
 		$columns = array_slice($columns, 0, 1, true) + $spu_switch + array_slice($columns, 1, count( $columns ) - 1, true) ;
-		$columns['spu_id']        = __( 'ID', 'popups' );
+		$columns['spu_id']              = __( 'ID', 'popups' );
+		$columns['spu_trigger_class']   = __( 'Trigger class', 'popups' );
 
 		return $columns;
 	}
@@ -839,6 +847,9 @@ class SocialPopup_Admin {
 				echo '<a href="'. wp_nonce_url( admin_url('edit.php?post_type=spucpt&post='. $post_id . '&spu_action=spu_toggle_on'), 'spu_toggle_on', 'spu_nonce') .'"><i class="spu-icon spu-icon-';
 				echo get_post_status( $post_id ) == 'publish' ? 'toggle-on' : 'toggle-off';
 				echo '"></i></a>';
+				break;
+			case 'spu_trigger_class':
+				echo '.spu-open-' . $post_id;
 				break;
 		}
 	}

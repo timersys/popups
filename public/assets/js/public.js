@@ -162,7 +162,7 @@ var SPU_master = function() {
 		});
 		
 		// add link listener for this box
-		$('a[href="#spu-' + id +'"]').on('click',function(e) {
+		$(document).on('click','a[href="#spu-' + id +'"], .spu-open-' + id ,function(e) {
             e.preventDefault();
 			toggleBox(id, true, false);
 		}).css('cursor','pointer').addClass('spu-clickable');// in case of div, fix ios bug not registering clicks
@@ -198,14 +198,14 @@ var SPU_master = function() {
             });
 
             // Add generic form tracking
-            $box.on('submit','form:not(".newsletter-form, .wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form, .mc4wp-form")', function(e){
+            $box.on('submit','form:not(".newsletter-form, .wpcf7-form, .gravity-form, .infusion-form, .spu-disable-ajax, .widget_wysija, .ninja-forms-form, .flp_form")', function(e){
                 e.preventDefault();
 
 
                 var submit 	= true,
                     form 		= $(this),
                     data 	 	= form.serialize(),
-                    url  	 	= form.attr('action'),
+                    url  	 	= form.hasClass('mc4wp-form') ? spuvar.site_url +'/' : form.attr('action'),
                     error_cb 	= function (data, error, errorThrown){
                         console.log('Spu Form error: ' + error + ' - ' + errorThrown);
                     },
@@ -629,20 +629,20 @@ function closeGoogle(a){
 	}
 }
 function SPU_reload_socials(){
-	if( typeof spuvar_social.facebook != 'undefined' && spuvar_social.facebook) {
+	if( typeof spuvar_social != 'undefined' && spuvar_social.facebook) {
 
 		// reload fb
 		try{
 			FB.XFBML.parse();
 		}catch(ex){}
 	}
-	if( typeof spuvar_social.google != 'undefined' && spuvar_social.google){
+	if( typeof spuvar_social != 'undefined' && spuvar_social.google){
         try {
             // reload google
             gapi.plusone.go();
         }catch(ex){}
 	}
-	if( typeof spuvar_social.twitter != 'undefined' && spuvar_social.twitter ) {
+	if( typeof spuvar_social != 'undefined' && spuvar_social.twitter ) {
         try {
             //reload twitter
             twttr.widgets.load();

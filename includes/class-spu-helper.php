@@ -14,13 +14,71 @@ class Spu_Helper {
 	protected static $plugin_slug = '';
 
 	/**
+	*  ajax_render_operator
+	*
+	*  @description creates the HTML for the field group operator metabox. Called from both Ajax and PHP
+	*  @since 1.4.6
+	*  I took this functions from the awesome Advanced custom fields plugin http://www.advancedcustomfields.com/
+	*/
+	
+	public static function ajax_render_operator( $options = array() ) {
+		// defaults
+		$defaults = array(
+			'group_id' => 0,
+			'rule_id' => 0,
+			'value' => null,
+			'param' => null,
+		);
+
+		$is_ajax = false;
+
+		if( isset($_POST['nonce']) && wp_verify_nonce($_POST['nonce'], 'spu_nonce') )
+		{
+			$is_ajax = true;
+		}
+
+		// Is AJAX call?
+		if( $is_ajax )
+		{
+			$options = array_merge($defaults, $_POST);
+			$options['name'] = 'spu_rules[' . $options['group_id'] . '][' . $options['rule_id'] . '][operator]';
+		}
+		else
+		{
+			$options = array_merge($defaults, $options);
+		}
+		// default for all rules
+		$choices = array(
+			'=='	=>	__("is equal to", 'popups' ),
+			'!='	=>	__("is not equal to", 'popups' ),
+		);
+		if( $options['param'] == 'local_time' ) {
+			$choices = array(
+				'<'	=>	__("less than", 'popups' ),
+				'>'	=>	__("greater than", 'popups' ),
+			);
+		}
+
+		// allow custom operators
+		$choices = apply_filters( 'spu/metaboxes/rule_operators', $choices, $options );
+		
+		self::print_select( $options, $choices );
+
+		// ajax?
+		if( $is_ajax )
+		{
+			die();
+		}
+	}
+	
+	/**
 	*  ajax_render_rules
 	*
 	*  @description creates the HTML for the field group rules metabox. Called from both Ajax and PHP
 	*  @since 2.0
 	*  I took this functions from the awesome Advanced custom fields plugin http://www.advancedcustomfields.com/
 	*/
-	
+
 	public static function ajax_render_rules( $options = array() )
 	{
 
@@ -244,6 +302,7 @@ class Spu_Helper {
 			case "logged_user" :
 			case "mobiles" :
 			case "tablets" :
+			case "desktop" :
 			case "left_comment" :
 			case "search_engine" :
 			case "same_site" :

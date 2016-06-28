@@ -38,5 +38,23 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			</td>
 			<td></td>
 		</tr>
+		<tr class="spu-appearance">
+			<td colspan="3">
+				<label class="spu-label" for="spu-custom-css"><?php _e( 'Custom CSS', 'popups' ); ?></label>
+				<div id="custom_css_container">
+					<div name="custom_css" id="custom_css" style="border: 1px solid #DFDFDF; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; width: 100%; height: 200px; position: relative;"></div>
+				</div>
+				<?php
+				if( !isset( $opts['css']['custom_css'] ) ) {
+					$popup_id = get_the_id();
+					$opts['css']['custom_css'] = "/*
+* Add custom CSS for this popup
+* Be sure to start your rules with #spu-{$popup_id} { } and use !important when needed to override plugin rules
+*/";
+				}
+				?>
+				<textarea name="spu[css][custom_css]" id="spu-custom-css" style="display: none;"><?php echo esc_attr($opts['css']['custom_css']); ?></textarea>
+			</td>
+		</tr>
 		<?php do_action( 'spu/metaboxes/after_appearance_options', $opts );?>
 	</table>
