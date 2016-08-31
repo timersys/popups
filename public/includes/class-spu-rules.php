@@ -183,7 +183,6 @@ class Spu_Rules
 	 */
 	function rule_match_mobiles( $match, $rule ) {
 
-		require_once 'Mobile_Detect.php';
 		$detect = new Mobile_Detect;
 
 		if ( $rule['operator'] == "==" ) {
@@ -205,7 +204,6 @@ class Spu_Rules
 	 */
 	function rule_match_tablets( $match, $rule ) {
 
-		require_once 'Mobile_Detect.php';
 		$detect = new Mobile_Detect;
 
 		if ( $rule['operator'] == "==" ) {
@@ -227,7 +225,6 @@ class Spu_Rules
 	 */
 	function rule_match_desktop( $match, $rule ) {
 
-		require_once 'Mobile_Detect.php';
 		$detect = new Mobile_Detect;
 
 		if ( $rule['operator'] == "==" ) {

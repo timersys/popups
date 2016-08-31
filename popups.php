@@ -39,6 +39,8 @@ require_once( plugin_dir_path( __FILE__ ) . 'admin/includes/class-spu-upgrader.p
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-social-popup.php' );
 // Include Helper class
 require_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
+// Dependencies
+require_once( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.

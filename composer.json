@@ -1,0 +1,6 @@
+{
+    "require": {
+        "jaybizzle/crawler-detect": "1.*",
+        "mobiledetect/mobiledetectlib": "^2.8"
+    }
+}
