@@ -6,7 +6,7 @@ if( !defined( 'ABSPATH') && !defined('WP_UNINSTALL_PLUGIN') ) exit();
 
 $opts = get_option( 'spu_settings' );
 
-if( isset( $opts['unistall']) && '1' == $opts['unistall'] ) {
+if( isset( $opts['uninstall']) && '1' == $opts['uninstall'] ) {
 	// delete settings
 	delete_option('spu_settings');
 	delete_option('spu-version');
