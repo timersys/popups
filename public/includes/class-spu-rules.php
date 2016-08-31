@@ -1,5 +1,5 @@
-<?php 
-
+<?php
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 /*
 *  Spu Rules
 *  Class that will compare rules and determine if popup needs to show
@@ -75,6 +75,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/tablets', array($this, 'rule_match_tablets'), 10, 2);
 		add_filter('spu/rules/rule_match/desktop', array($this, 'rule_match_desktop'), 10, 2);
 		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
+		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
 
 		$this->post_id 	    = isset( $post->ID ) ? $post->ID : '';
 		$this->referrer     = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
@@ -296,6 +297,28 @@ class Spu_Rules
 		}
 
 		return $rule['operator'] == "==" ? false : true;
+
+	}
+
+	/**
+	 * Check for crawlers / bots
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_crawlers( $match, $rule ) {
+
+		$detect = new CrawlerDetect;
+
+		if ( $rule['operator'] == "==" ) {
+
+			return $detect->isCrawler();
+
+		} else {
+
+			return !$detect->isCrawler();
+
+		}
 
 	}
 

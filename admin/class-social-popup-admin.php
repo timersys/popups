@@ -771,6 +771,7 @@ class SocialPopup_Admin {
 				'mobiles'		=>	__("Mobile Phone", 'popups' ),
 				'tablets'		=>	__("Tablet", 'popups' ),
 				'desktop'		=>	__("Dekstop", 'popups' ),
+				'crawlers'		=>	__("Bots/Crawlers", 'popups' ),
 			)
 		);
 		// allow custom rules rules
@@ -808,6 +809,7 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_mobiles_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_desktop_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_tablets_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_crawlers_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 	}
 

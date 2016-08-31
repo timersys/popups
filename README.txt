@@ -39,6 +39,7 @@ There are multiple display filters that can be combined:
 * Show popup depending on referrer
 * Show popup to logged / non logged users
 * Show or not to mobile, desktop and tablet users
+* Show or not to bots / crawlers
 * Show depending on post type, post template, post name, post format, post status and post taxonomy
 * Show depending on page template, if page is parent, page name, page type
 * Geotarget popups using the [Geotargeting plugin](https://timersys.com/geotargeting/)

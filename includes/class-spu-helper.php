@@ -303,6 +303,7 @@ class Spu_Helper {
 			case "mobiles" :
 			case "tablets" :
 			case "desktop" :
+			case "crawlers" :
 			case "left_comment" :
 			case "search_engine" :
 			case "same_site" :
