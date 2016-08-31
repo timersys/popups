@@ -411,7 +411,10 @@ var SPU_master = function() {
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
-			var days = parseInt( $box.data('cookie') );
+			var days = parseInt( $box.data('close-cookie') );
+			if( conversion === true )
+				days = parseInt( $box.data('cookie') );
+
 			if( days > 0 ) {
 				spuCreateCookie( 'spu_box_' + id, true, days );
 			}
