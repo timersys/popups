@@ -402,7 +402,9 @@ class SocialPopup {
 				return $spu_ids;
 			}
 		}
-		return $wpdb->get_results( "SELECT ID, post_content FROM $wpdb->posts WHERE post_type='spucpt' AND post_status='publish'");
+		return $wpdb->get_results( "SELECT ID, post_content, MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
+        MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
+        FROM $wpdb->posts p LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)  WHERE post_type='spucpt' AND post_status='publish' GROUP BY p.ID");
 	}
 
 	/**
