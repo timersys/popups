@@ -76,9 +76,11 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/desktop', array($this, 'rule_match_desktop'), 10, 2);
 		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
 		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
+		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
 
 		$this->post_id 	    = isset( $post->ID ) ? $post->ID : '';
 		$this->referrer     = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
+		$this->query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
 
 		if( defined('DOING_AJAX') ) {
 
@@ -87,6 +89,9 @@ class Spu_Rules
 			}
 			if( !empty( $_REQUEST['referrer'] ) ) {
 				$this->referrer = $_REQUEST['referrer'];
+			}
+			if( !empty( $_REQUEST['query_string'] ) ) {
+				$this->query_string = $_REQUEST['query_string'];
 			}
 			if( !empty( $_REQUEST['is_category'] ) ) {
 				$this->is_category = true;
@@ -317,6 +322,37 @@ class Spu_Rules
 		} else {
 
 			return !$detect->isCrawler();
+
+		}
+
+	}
+
+	/**
+	 * Check for query string to see if matchs all given ones
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_query_string( $match, $rule ) {
+
+		parse_str( str_replace('?', '', $this->query_string ), $request );
+		parse_str( $rule['value'], $rule_query );
+		
+		if( is_array( $request ) && is_array( $rule_query ) ) {
+			sort( $request );
+			sort( $rule_query );
+		}
+
+		if ( $rule['operator'] == "==" ) {
+
+			if( $request == $rule_query )
+				return true;
+			return false;
+
+		} else {
+			if( $request != $rule_query )
+				return true;
+			return false;
 
 		}
 
