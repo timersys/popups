@@ -378,16 +378,14 @@ class SocialPopup {
 
 		if( !empty($spu_ids) ) {
 			foreach ( $spu_ids as $spu ) {
-
-				$rules = get_post_meta( $spu->ID, 'spu_rules', true );
-
+				$rules = !empty($spu->spu_rules) ? unserialize($spu->spu_rules) : array();
 				$match = $spu_rules->check_rules( $rules );
 				if ( $match ) {
-					$spu_matches[] = $spu->ID;
+					$spu_matches[$spu->ID] = $spu->ID;
 				}
 			}
 		}
-		return $spu_matches;
+		return apply_filters( 'spu/check_for_matches', $spu_matches, $spu_ids, $spu_rules );
 	}
 
 	/**
