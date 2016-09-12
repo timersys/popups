@@ -10,9 +10,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 *  @type	template
 *  @since	2.0
 */
+do_action( 'spu/metaboxes/before_rules', $post );
 ?>
 
-<table class="spu_table widefat" id="spu_ruñes">
+<table class="spu_table widefat" id="spu_rules">
 	<tbody>
 	<tr>
 		<td class="label">
