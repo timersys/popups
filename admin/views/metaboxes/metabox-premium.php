@@ -18,8 +18,9 @@ if($today > $blackbegin && $today < $blackend) : ?>
 <ul>
 	<li><?php _e( 'Beautiful optin forms for popular mail providers', 'popups' );?></li>
 	<li><?php _e( 'Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, ActiveCampaign, Newsletter plugin', 'popups' );?></li>
+	<li><?php _e( 'A/B testing. Explore which popup perform better for you.', 'popups' );?></li>
 	<li><?php _e( 'Track impressions and Conversions of social likes and forms submissions like Contact Form 7, Gravity forms, etc', 'popups' );?></li>
-	<li><?php _e( 'Track impressions and Conversions also in Google Analytics', 'popups' );?></li>
+	<li><?php _e( 'Track impressions and Conversions in Google Analytics ande define custom events', 'popups' );?></li>
 	<li><?php _e( 'Exit Intent technology', 'popups' );?></li>
 	<li><?php _e( 'New popup positions: top/bottoms bars , fullscreen mode, after post content', 'popups' );?></li>
 	<li><?php _e( '8 New animations effects', 'popups' );?> - <a href="https://timersys.com/popups/?utm_source=Plugin&utm_medium=demo-button&utm_campaign=Popups%20Premium">Online demo</a></li>
@@ -34,7 +35,7 @@ if($today > $blackbegin && $today < $blackend) : ?>
 	<li><?php _e( 'Ability to disable Advanced close methods like esc or clicking outside of the popup', 'popups' );?></li>
 	<li><?php _e( 'Premium support', 'popups' );?></li>
 </ul>
-<p><strong>Hurry up and get your copy!</strong> Take advantage of this <span style="color:red">launch offer</span> before the price goes up. We have a <strong>lot of new features</strong> to be added soon like aweber integration, etc</p>
+<p><strong>Hurry up and get your copy!</strong> Take advantage of this <span style="color:red">launch offer</span> before the price goes up. We have a <strong>lot of new features</strong> to be added soon!</p>
 <p style="text-align:center">
 	<a class="button-primary" href="https://timersys.com/downloads/popups-premium/?utm_source=Plugin&utm_medium=buy-button&utm_campaign=Popups%20Premium"><?php _e( 'Buy Now!', 'popups' );?></a>
 </p>

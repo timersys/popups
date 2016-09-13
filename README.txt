@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
 Tested up to: 4.5.2
-Stable tag: 1.5.1
+Stable tag: 1.6
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,7 +39,8 @@ There are multiple display filters that can be combined:
 * Show popup depending on referrer
 * Show popup to logged / non logged users
 * Show or not to mobile, desktop and tablet users
-* Show or not to bots / crawlers
+* Show or not to bots / crawlers like Google
+* Show or not depending on query strings EG: utm_source=email
 * Show depending on post type, post template, post name, post format, post status and post taxonomy
 * Show depending on page template, if page is parent, page name, page type
 * Geotarget popups using the [Geotargeting plugin](https://timersys.com/geotargeting/)
@@ -64,12 +65,13 @@ There are multiple display filters that can be combined:
 > * Beautiful optin forms for popular mail providers
 > * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign
 > * New popup positions: top/bottoms bars , fullscreen mode, after post content
+> * A/B testing. Explore which popup perform better for you
 > * More Display Rules: Show after N(numbers) of pages viewed
 > * More Display Rules: Show popup at certain time
 > * More Display Rules: Show popup at certain day
 > * More Display Rules: Show/hide if another popup already converted
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
-> * Track impressions and Conversions in Google Analytics
+> * Track impressions and Conversions in Google Analytics ande define custom events
 > * Data sampling for heavy traffic sites
 > * 8 New animations effects
 > * Exit Intent technology
@@ -192,6 +194,16 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.6 =
+* Fixed unistall routine that was not deleting data
+* Update mobile detect class
+* Added crawlers detect class
+* Added crawlers/bot display rule
+* Added query string display rule
+* Added new cookie field to distinguish between conversion and impression
+* Fixed jquery attached events not firing
+* Improved queries 
 
 = 1.5.1 =
 * Fixed grey screen of death that happened to some users. Sorry guys :(
