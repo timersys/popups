@@ -165,8 +165,9 @@ var SPU_master = function() {
 		$(document.body).on('click','a[href="#spu-' + id +'"], .spu-open-' + id ,function(e) {
             e.preventDefault();
 			toggleBox(id, true, false);
-		}).css('cursor','pointer').addClass('spu-clickable');// in case of div, fix ios bug not registering clicks
-
+		});
+		$('a[href="#spu-' + id +'"], .spu-open-' + id).css('cursor','pointer').addClass('spu-clickable');
+		
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 		// same for mc4wp
