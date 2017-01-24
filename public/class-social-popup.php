@@ -124,6 +124,7 @@ class SocialPopup {
 		add_shortcode( 'spu-twitter', array( $this, 'twitter_shortcode' ) );
 		add_shortcode( 'spu-google', array( $this, 'google_shortcode' ) );
 		add_shortcode( 'spu-close', array( $this, 'close_shortcode' ) );
+		add_shortcode( 'spu', array( $this, 'popup_link_shortcode' ) );
 	}
 
 	/**
@@ -721,6 +722,16 @@ class SocialPopup {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Popup button
+	 * @param  [type] $atts    [description]
+	 * @param  [type] $content [description]
+	 * @return [type]          [description]
+	 */
+	public function popup_link_shortcode($atts, $content ) {
+		return '<a href="#" class="spu-open-'.$atts['popup'].'">'.do_shortcode( $content ).'</a>';
 	}
 
 }
