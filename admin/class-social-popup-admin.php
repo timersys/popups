@@ -62,7 +62,7 @@ class SocialPopup_Admin {
 	 * @var      bool
 	 */
 	protected $helper = '';
-	
+
 	/**
 	 * Initialize the plugin by loading admin scripts & styles and adding a
 	 * settings page and menu.
@@ -80,7 +80,7 @@ class SocialPopup_Admin {
 
 		//settings name
 		$this->options_name		= $this->plugin_slug .'_settings';
-        
+
         //load settings
 		$this->spu_settings 	= $plugin->get_settings();
 
@@ -110,13 +110,14 @@ class SocialPopup_Admin {
 		add_filter('spu/get_post_types', array($this, 'get_post_types'), 1, 3);
 		add_filter('spu/get_taxonomies', array($this, 'get_taxonomies'), 1, 3);
 
-		//AJAX Actions	
+		//AJAX Actions
 		add_action('wp_ajax_spu/field_group/render_rules', array( $this->helper, 'ajax_render_rules' ) );
 		add_action('wp_ajax_spu/field_group/render_operator', array( $this->helper, 'ajax_render_operator' ) );
 
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
 		add_action( 'admin_init', array( $this, 'editor_styles' ) );
+		add_action( 'init',  array( $this, 'register_tiny_buttons' ) );
 
 		//Columns in cpt
 		add_filter( 'manage_edit-spucpt_columns' ,  array( $this, 'set_custom_cpt_columns'), 10, 2 );
@@ -144,7 +145,7 @@ class SocialPopup_Admin {
 
 		return self::$instance;
 	}
-	
+
 
 	/**
 	 * Register custom post types
@@ -156,7 +157,7 @@ class SocialPopup_Admin {
 		if( class_exists('PopupsP') ){
 			$name .= ' - Premium v'. PopupsP::VERSION;
 		}
-		$name = apply_filters( 'spu/display/title', $name ); 
+		$name = apply_filters( 'spu/display/title', $name );
 		$labels = array(
 			'name'               => $name,
 			'singular_name'      => _x( 'Popups', 'post type singular name', 'popups' ),
@@ -202,7 +203,7 @@ class SocialPopup_Admin {
 		);
 
 		register_post_type( 'spucpt', $args );
-	
+
 	}
 
 	/**
@@ -213,7 +214,7 @@ class SocialPopup_Admin {
 	public function add_settings_menu() {
 
 		add_submenu_page('edit.php?post_type=spucpt', __( 'Settings', 'popups' ), __( 'Settings', 'popups' ), apply_filters( 'spu/settings_page/roles', 'manage_options'), 'spu_settings', array( $this, 'settings_page' ) );
-	
+
 	}
 
 
@@ -222,7 +223,7 @@ class SocialPopup_Admin {
 	 * Settings page of the plugin
 	 * @since  1.1
 	 * @return  void
-	 */	
+	 */
 	public function settings_page() {
 
 		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
@@ -276,7 +277,7 @@ class SocialPopup_Admin {
 			'spucpt',
 			'normal',
 			'core'
-		);		
+		);
 
 		add_meta_box(
 			'spu-appearance',
@@ -350,7 +351,7 @@ class SocialPopup_Admin {
 	public function popup_help( $post, $metabox ) {
 
 		include 'views/metaboxes/metabox-help.php';
-	}	
+	}
 	/**
 	 * Include the metabox view for popup rules
 	 * @param  object $post    spucpt post object
@@ -362,7 +363,7 @@ class SocialPopup_Admin {
 		$groups = apply_filters('spu/metaboxes/get_box_rules', $this->helper->get_box_rules( $post->ID ), $post->ID);
 
 		include 'views/metaboxes/metabox-rules.php';
-	}	
+	}
 	/**
 	 * Include the metabox view for popup options
 	 * @param  object $post    spucpt post object
@@ -370,7 +371,7 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function popup_options( $post, $metabox ) {
-		
+
 		$opts = apply_filters('spu/metaboxes/get_box_options', $this->helper->get_box_options( $post->ID ), $post->ID );
 
 		include 'views/metaboxes/metabox-options.php';
@@ -395,9 +396,9 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function metabox_donate( $post, $metabox ) {
-		
+
 		$donate_metabox = apply_filters( 'spu/metaboxes/donate_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-donate.php' );
-		
+
 		include $donate_metabox;
 	}
 	/**
@@ -407,9 +408,9 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function metabox_support( $post, $metabox ) {
-		
+
 		$support_metabox = apply_filters( 'spu/metaboxes/support_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-support.php' );
-		
+
 		include $support_metabox;
 	}
 
@@ -420,9 +421,9 @@ class SocialPopup_Admin {
 	 * @since 1.1
 	 */
 	public function metabox_links( $post, $metabox ) {
-		
+
 		$links_metabox = apply_filters( 'spu/metaboxes/links_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-links.php' );
-		
+
 		include $links_metabox;
 	}
 
@@ -459,7 +460,7 @@ class SocialPopup_Admin {
     	}
     	// same for posts revisions
     	if ( wp_is_post_revision( $post_id ) ) {
-        	return $post_id; 
+        	return $post_id;
     	}
 
 		// can user edit this post?
@@ -559,7 +560,7 @@ class SocialPopup_Admin {
 		}
 		wp_enqueue_style( 'spu-admin-css', plugins_url( 'assets/css/admin.css', __FILE__ ) , '', SocialPopup::VERSION );
 		wp_enqueue_style( 'wp-color-picker' );
-	
+
 	}
 
 	/**
@@ -589,14 +590,14 @@ class SocialPopup_Admin {
 		wp_enqueue_script( 'spu-admin-js', plugins_url( 'assets/js/admin.js', __FILE__ ) , '', SocialPopup::VERSION );
 
 		wp_localize_script( 'spu-admin-js', 'spu_js',
-				array( 
-					'admin_url' => admin_url( ), 
+				array(
+					'admin_url' => admin_url( ),
 					'nonce' 	=> wp_create_nonce( 'spu_nonce' ),
 					'l10n'		=> array (
 							'or'	=> '<span>'.__('OR', 'popups' ).'</span>'
 						),
 					'opts'      => $this->helper->get_box_options($box_id)
-				) 
+				)
 		);
 
 		wp_localize_script( 'spup-admin-js' , 'spup_js' ,
@@ -635,35 +636,35 @@ class SocialPopup_Admin {
 	 * @return array  Resulting cpts
 	 */
 	function get_post_types( $post_types, $exclude = array(), $include = array() ) 	{
-	
+
 		// get all custom post types
 		$post_types = array_merge($post_types, get_post_types());
-		
-		
+
+
 		// core include / exclude
 		$spu_includes = array_merge( array(), $include );
 		$spu_excludes = array_merge( array( 'spucpt', 'acf', 'revision', 'nav_menu_item' ), $exclude );
-	 
-		
+
+
 		// include
 		foreach( $spu_includes as $p )
-		{					
+		{
 			if( post_type_exists($p) )
-			{							
+			{
 				$post_types[ $p ] = $p;
 			}
 		}
-		
-		
+
+
 		// exclude
 		foreach( $spu_excludes as $p )
 		{
 			unset( $post_types[ $p ] );
 		}
-		
-		
+
+
 		return $post_types;
-		
+
 	}
 
 	/**
@@ -674,12 +675,12 @@ class SocialPopup_Admin {
 	 *
 	 * @return array [type]                [description]
 	 */
-	function get_taxonomies( $choices, $simple_value = false ) {	
-		
+	function get_taxonomies( $choices, $simple_value = false ) {
+
 		// vars
 		$post_types = get_post_types();
-		
-		
+
+
 		if($post_types)
 		{
 			foreach($post_types as $post_type)
@@ -697,20 +698,20 @@ class SocialPopup_Admin {
 							foreach($terms as $term)
 							{
 								$value = $taxonomy . ':' . $term->term_id;
-								
+
 								if( $simple_value )
 								{
 									$value = $term->term_id;
 								}
-								
-								$choices[$post_type_object->label . ': ' . $taxonomy][$value] = $term->name; 
+
+								$choices[$post_type_object->label . ': ' . $taxonomy][$value] = $term->name;
 							}
 						}
 					}
 				}
 			}
 		}
-		
+
 		return $choices;
 	}
 
@@ -735,10 +736,17 @@ class SocialPopup_Admin {
 	 * @since 1.2.3.6
 	 */
 	function editor_styles() {
+		global $pagenow;
 		$post_type = isset($_GET['post']) ? get_post_type($_GET['post']) : '';
 
 		if( 'spucpt' == $post_type || get_post_type() == 'spucpt' || (isset( $_GET['post_type']) && $_GET['post_type'] == 'spucpt') ) {
 			add_editor_style( SPU_PLUGIN_URL . 'admin/assets/css/editor-style.css' );
+		}
+		// Add html for shortcodes popup
+		if( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
+
+			add_action( 'in_admin_footer', array($this, 'add_editor' ) );
+
 		}
 	}
 
@@ -768,9 +776,11 @@ class SocialPopup_Admin {
 			),
 			__("Other", 'popups' ) => array(
 				'referrer'		=>	__("Referrer", 'popups' ),
+				'query_string'		=>	__("Query String", 'popups' ),
 				'mobiles'		=>	__("Mobile Phone", 'popups' ),
 				'tablets'		=>	__("Tablet", 'popups' ),
 				'desktop'		=>	__("Dekstop", 'popups' ),
+				'crawlers'		=>	__("Bots/Crawlers", 'popups' ),
 			)
 		);
 		// allow custom rules rules
@@ -808,7 +818,9 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_mobiles_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_desktop_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_tablets_field', array('Spu_Helper', 'print_select'), 10, 2);
+		add_action('spu/rules/print_crawlers_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+		add_action('spu/rules/print_query_string_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 	}
 
 	/**
@@ -893,6 +905,44 @@ class SocialPopup_Admin {
 		unset( $actions['view'] );
 
 		return $actions;
+	}
+
+	/**
+	 * Add filters for tinymce buttons
+	 */
+	public function register_tiny_buttons() {
+		add_filter( "mce_external_plugins", array( $this, "add_button" ) );
+    	add_filter( 'mce_buttons', array( $this, 'register_button' ) );
+	}
+
+	/**
+	 * Add buton js file
+	 * @param [type] $plugin_array [description]
+	 */
+	function add_button( $plugin_array ) {
+
+    	$plugin_array['spu'] = plugins_url( 'assets/js/spu-tinymce.js' , __FILE__ );
+   	 	return $plugin_array;
+
+	}
+
+	/**
+	 * Register button
+	 * @param  [type] $buttons [description]
+	 * @return [type]          [description]
+	 */
+	function register_button( $buttons ) {
+	    array_push( $buttons, '|', 'spu_button' ); // dropcap', 'recentposts
+	    return $buttons;
+	}
+
+	/**
+	 * Add popup editor for
+	 */
+	function add_editor() {
+
+		include 'includes/tinymce-editor.php';
+
 	}
 
 }

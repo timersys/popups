@@ -56,12 +56,24 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 	</tr>
 	
 	<tr valign="top">
-		<th><label for="spu_cookie"><?php _e( 'Cookie expiration days', 'popups' ); ?></label></th>
+		<td colspan="4" style="padding: 0">
+			<h4><?php _e( 'Cookies', 'popups');?></h4>
+			<p><?php _e( 'We use PHP cookies to prevent popups opening for users after they closed it.', 'popups');?></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<th><label for="spu_cookie"><?php _e( 'Conversion cookie', 'popups' ); ?></label></th>
 		<td colspan="3">
 			<input type="number" id="spu_cookie" name="spu[cookie]" min="0" step="1" value="<?php echo esc_attr($opts['cookie']); ?>" />
-			<p class="help"><?php _e( 'After closing the box, how many days should it stay hidden?', 'popups' ); ?></p>
+			<p class="help"><?php _e( 'When a user do a conversion like for example a click or form submission, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
-		
+	</tr>
+	<tr valign="top">
+		<th><label for="spu_cookie"><?php _e( 'Closing cookie', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<input type="number" id="spu_cookie" name="spu[close-cookie]" min="0" step="1" value="<?php echo isset( $opts['close-cookie'] ) ? esc_attr($opts['close-cookie']) : esc_attr($opts['cookie']); ?>" />
+			<p class="help"><?php _e( 'After closing the popup, how many days should it stay hidden?', 'popups' ); ?></p>
+		</td>
 	</tr>
 	<tr valign="top">
 		<th><label for="spu_test_mode"><?php _e( 'Enable test mode?', 'popups' ); ?></label></th>

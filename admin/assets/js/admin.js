@@ -32,8 +32,8 @@ SPU_ADMIN = (function ( $ ) {
 			$('tr.auto_hide').fadeIn('fast');
 		} else {
 			$('tr.auto_hide').fadeOut('fast');
-		}
-		if( val == 'manual' ) {
+		}/*TODO I should fix premium so these values are not even considered here*/
+		if( val == 'manual' || val == 'trigger-click' || val == 'visible' || val == 'exit-intent') {
 			$('.spu-trigger-number').fadeOut('fast');
 		} else {
 			$('.spu-trigger-number').fadeIn('fast');

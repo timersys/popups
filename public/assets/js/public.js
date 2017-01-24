@@ -162,11 +162,12 @@ var SPU_master = function() {
 		});
 		
 		// add link listener for this box
-		$(document).on('click','a[href="#spu-' + id +'"], .spu-open-' + id ,function(e) {
+		$(document.body).on('click','a[href="#spu-' + id +'"], .spu-open-' + id ,function(e) {
             e.preventDefault();
 			toggleBox(id, true, false);
-		}).css('cursor','pointer').addClass('spu-clickable');// in case of div, fix ios bug not registering clicks
-
+		});
+		$('a[href="#spu-' + id +'"], .spu-open-' + id).css('cursor','pointer').addClass('spu-clickable');
+		
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 		// same for mc4wp
@@ -411,7 +412,10 @@ var SPU_master = function() {
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
-			var days = parseInt( $box.data('cookie') );
+			var days = parseInt( $box.data('close-cookie') );
+			if( conversion === true )
+				days = parseInt( $box.data('cookie') );
+
 			if( days > 0 ) {
 				spuCreateCookie( 'spu_box_' + id, true, days );
 			}
@@ -478,6 +482,7 @@ if( spuvar.ajax_mode ) {
     var data = {
         pid : spuvar.pid,
         referrer : document.referrer,
+        query_string : document.location.search,
         is_category : spuvar.is_category,
         is_archive : spuvar.is_archive
     }

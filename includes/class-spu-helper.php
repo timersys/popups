@@ -303,6 +303,7 @@ class Spu_Helper {
 			case "mobiles" :
 			case "tablets" :
 			case "desktop" :
+			case "crawlers" :
 			case "left_comment" :
 			case "search_engine" :
 			case "same_site" :
@@ -435,7 +436,8 @@ class Spu_Helper {
 			'trigger'			=> 'seconds',
 			'trigger_number'	=> '5',
 			'animation'			=> 'fade',
-			'cookie'			=> '99',
+			'cookie'			=> '999',
+			'close-cookie'	    => '30',
 			'auto_hide'			=> 0,
 			'test_mode'			=> 0,
 			'conversion_close'  => '1',

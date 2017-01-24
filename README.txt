@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.5.2
-Stable tag: 1.5
+Tested up to: 4.7.1
+Stable tag: 1.7
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -39,6 +39,8 @@ There are multiple display filters that can be combined:
 * Show popup depending on referrer
 * Show popup to logged / non logged users
 * Show or not to mobile, desktop and tablet users
+* Show or not to bots / crawlers like Google
+* Show or not depending on query strings EG: utm_source=email
 * Show depending on post type, post template, post name, post format, post status and post taxonomy
 * Show depending on page template, if page is parent, page name, page type
 * Geotarget popups using the [Geotargeting plugin](https://timersys.com/geotargeting/)
@@ -57,18 +59,19 @@ There are multiple display filters that can be combined:
 * Shortcodes for social networks available
 
 > <strong>Premium Version</strong><br>
-> 
+>
 > Check the **new premium version** available in ([https://wp.timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
 > * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign
 > * New popup positions: top/bottoms bars , fullscreen mode, after post content
+> * A/B testing. Explore which popup perform better for you
 > * More Display Rules: Show after N(numbers) of pages viewed
 > * More Display Rules: Show popup at certain time
 > * More Display Rules: Show popup at certain day
 > * More Display Rules: Show/hide if another popup already converted
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
-> * Track impressions and Conversions in Google Analytics
+> * Track impressions and Conversions in Google Analytics ande define custom events
 > * Data sampling for heavy traffic sites
 > * 8 New animations effects
 > * Exit Intent technology
@@ -77,17 +80,17 @@ There are multiple display filters that can be combined:
 > * Ability to disable close button
 > * Ability to disable Advanced close methods like esc or clicking outside of the popup
 > * Premium support
-> 
+>
 
 = Plugin's Official Site =
 
 Popups ([https://timersys.com/free-plugins/social-popup/](https://timersys.com/free-plugins/popups/))
 
-= Github = 
+= Github =
 
 Fork me in https://github.com/timersys/popups/
 
-= Available Languages = 
+= Available Languages =
 
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
@@ -191,6 +194,26 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.7 =
+* Fixed referrer issue
+* Added popup button to easily add popups on posts/pages
+
+= 1.6.0.1 =
+* Fixed bug with manual triggering popup making all page cursor pointer
+
+= 1.6 =
+* Fixed unistall routine that was not deleting data
+* Update mobile detect class
+* Added crawlers detect class
+* Added crawlers/bot display rule
+* Added query string display rule
+* Added new cookie field to distinguish between conversion and impression
+* Fixed jquery attached events not firing
+* Improved queries
+
+= 1.5.1 =
+* Fixed grey screen of death that happened to some users. Sorry guys :(
 
 = 1.5 =
 * Added new rule to match Desktop devices
@@ -416,17 +439,17 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 
 * Added settings page
 * Added option to disable auto style of shortcodes
-* Plugin compatible with Popups Premium 
+* Plugin compatible with Popups Premium
 * Minor bugfixes
 * Js improvement
 
 
-= 1.0.7 = 
+= 1.0.7 =
 
 * Fixed bug with alignment in mobile devices
 * Fixed bug in new aligning method for shortcodes
 
-= 1.0.6 = 
+= 1.0.6 =
 
 * Fixed locale problem with facebook js
 * Fixed lang setting for Twitter Shortcode
@@ -434,23 +457,23 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 * Changed method for aligning shortcodes for better compatibility
 
 
-= 1.0.5 = 
+= 1.0.5 =
 
 * Changed to only admins users can edit/create popups
 * Fixed error that facebook layout were not working properly
 * Added the ability to remove JS from facebook, twitter, and google by using variables
 
-= 1.0.4 = 
+= 1.0.4 =
 
 * Fixed bug that cookies where not set when user closes the box by clicking outside or with ESC key
 
-= 1.0.3 = 
+= 1.0.3 =
 
 * Fixed bug with popup on mobiles devices
 * Css fixed for better alignment of social networks
 * Added filters and actions for a future premium version of the plugin
 
-= 1.0.2 = 
+= 1.0.2 =
 
 * Added checks for shortcode values to avoid problems
 * Changed style of Popup shortcodes help box to avoid problems
@@ -458,14 +481,14 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 * Fixed the delete rule button that was missing
 * Fixed Javascript error when editing popups
 
-= 1.0.1 = 
+= 1.0.1 =
 
 * Fixed mobile/tablets display rule and splitted in two new rules
 * Changed cookie script to a small one
 * Now public js is server minified
 * Removed min-width from the popup
 
-= 1.0.0 = 
+= 1.0.0 =
 
 * Recoded from scratch. This is a totally new plugin
 * Multiple popups are available now handled with custom post types
