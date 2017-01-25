@@ -370,12 +370,7 @@ class Spu_Rules
 		$ref = $this->referrer;
 
 		$internal = str_replace( array( 'http://','https://' ), '', site_url() );
-		echo "<pre>";
-		var_dump($internal);
-		var_dump($ref);
-		var_dump(preg_match( '~' . $internal . '~i', $ref ));
-		echo "</pre>";
-
+		
 		if( $rule['operator'] == "==" ) {
 
 			return !preg_match( '~' . $internal . '~i', $ref );
