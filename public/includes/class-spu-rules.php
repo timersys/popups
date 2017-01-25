@@ -369,8 +369,8 @@ class Spu_Rules
 
 		$ref = $this->referrer;
 
-		$internal = str_replace( array( 'http://','https://' ), '', site_url() );
-		
+		$internal = str_replace( array( 'http://','https://' ), '', home_url() );
+
 		if( $rule['operator'] == "==" ) {
 
 			return !preg_match( '~' . $internal . '~i', $ref );
