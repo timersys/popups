@@ -19,28 +19,17 @@
 						<?php _e('Choose one','spu');?>
 					</option>
 				<?php
-				// WP_Query arguments
-				$args = array(
-					'post_type'              => array( 'spucpt' ),
-					'post_status'            => array( 'publish' ),
-					'posts_per_page'         => '-1',
-				);
 
-				// The Query
-				$query = new WP_Query( $args );
+				global $wpdb;
+				$popups = $wpdb->get_results( "SELECT post_title, ID FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'spucpt'");
 
 				// The Loop
-				if ( $query->have_posts() ) {
-					while ( $query->have_posts() ) {
-						$query->the_post();
-						echo '<option value="'.get_the_id().'">'.get_the_title().'</option>"';
+				if ( $popups ) {
+					foreach( $popups as $po ) {
+						echo '<option value="'.$po->ID.'">'.$po->post_title.'</option>"';
 					}
-				} else {
-				// no posts found
 				}
 
-				// Restore original Post Data
-				wp_reset_postdata();
 				 ?>
     		</td>
         </tr>
