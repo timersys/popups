@@ -357,7 +357,7 @@ class SocialPopup {
 
 		wp_register_script( 'spu-twitter', '//platform.twitter.com/widgets.js', array('jquery'), self::VERSION, FALSE);
 
-		wp_register_script( 'spu-google', '//apis.google.com/js/plusone.js', array('jquery'), self::VERSION, FALSE);
+		wp_register_script( 'spu-google', '//apis.google.com/js/platform.js', array('jquery'), self::VERSION, FALSE);
 
 	}
 
@@ -577,6 +577,7 @@ class SocialPopup {
 	 */
 	function google_shortcode( $atts, $content ) {
 		extract( shortcode_atts( array(
+			'type' 			=> 'g-plusone', //small standard tall
 			'size' 			=> 'medium', //small standard tall
 			'annotation' 	=> 'bubble', //inline none
 			'url' 			=> apply_filters( 'spu/social/gp_url', 'https://plus.google.com/u/0/103508783120806246698/posts' ),
@@ -592,8 +593,11 @@ class SocialPopup {
 		if( 'bubble' != $annotation && 'inline' != $annotation && 'none' != $annotation ) {
 			$annotation = 'bubble';
 		}
+		if( 'g-plusone' != $type && 'g-follow' != $type  ) {
+			$type = 'g-plusone';
+		}
 
-		return '<div class="spu-google spu-shortcode"><div class="g-plusone" data-callback="googleCB" data-onendinteraction="closeGoogle" data-recommendations="false" data-annotation="'.$annotation.'" data-size="'.$size.'" data-href="'.$url.'"></div></div>';
+		return '<div class="spu-google spu-shortcode"><div class="'.$type.'" data-callback="googleCB" data-onendinteraction="closeGoogle" data-recommendations="false" data-annotation="'.$annotation.'" data-size="'.$size.'" data-href="'.$url.'"></div></div>';
 
 	}
 
