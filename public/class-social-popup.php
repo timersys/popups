@@ -448,7 +448,7 @@ class SocialPopup {
 		global $wpdb,$spuvar_social;
 
 		$opts = $this->spu_settings;
-		$spuvar_social = '';
+		$spuvar_social = array();
 
 		$handle = 'spu-public';
 
