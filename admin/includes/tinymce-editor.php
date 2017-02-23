@@ -15,9 +15,7 @@
     		<th><label for="spu_what"><?php _e( 'Choose:', 'spu' ); ?></label></th>
     		<td>
 				<select name="spu-post" id="spu-posts">
-					<option value="">
-						<?php _e('Choose one','spu');?>
-					</option>
+					<option value=""><?php _e('Choose one','spu');?></option>
 				<?php
 
 				global $wpdb;
@@ -31,6 +29,7 @@
 				}
 
 				 ?>
+			 </select>
     		</td>
         </tr>
 
