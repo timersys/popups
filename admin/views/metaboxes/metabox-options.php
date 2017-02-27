@@ -3,7 +3,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;?>
 
 <table class="form-table">
-	
+
 	<?php do_action( 'spu/metaboxes/before_display_options', $opts );?>
 	<tr valign="top">
 		<th><label for="spu_position"><?php _e( 'Box Position', 'popups' ); ?></label></th>
@@ -23,7 +23,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		<th><label for="spu_trigger"><?php _e( 'Trigger action', 'popups' ); ?></label></th>
 		<td class="spu-sm">
 			<select id="spu_trigger" name="spu[trigger]" class="widefat">
-				
+
 					<option value="seconds" <?php selected($opts['trigger'], 'seconds'); ?>><?php _e( 'seconds after page load', 'popups' ); ?></option>
 					<option value="percentage" <?php selected($opts['trigger'], 'percentage'); ?>>% <?php _e( 'of page height', 'popups' ); ?></option>
 					<option value="manual" <?php selected($opts['trigger'], 'manual'); ?>><?php _e( 'Manual Triggering', 'popups' ); ?></option>
@@ -54,7 +54,34 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'Slide will only apply when popup is on the corners', 'popups' ); ?></p>
 		</td>
 	</tr>
-	
+
+	<tr valign="top" class="close_btn">
+		<th><label for="spu_close_btn"><?php _e( 'Close Button', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_close_btn_1" name="spu[close_btn]" value="1" <?php checked($opts['close_btn'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_close_btn_0" name="spu[close_btn]" value="0" <?php checked($opts['close_btn'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php echo sprintf(__( 'Display the close button in the popup', 'popups' ), admin_url('edit.php?post_type=spucpt&page=spu_settings')); ?></p>
+		</td>
+	</tr>
+
+	<tr valign="top" class="close_click_outside">
+		<th><label for="spu_close_click_outside"><?php _e( 'Background close', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_close_click_outside_1" name="spu[close_click_outside]" value="1" <?php checked($opts['close_click_outside'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_close_click_outside_0" name="spu[close_click_outside]" value="0" <?php checked($opts['close_click_outside'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php echo sprintf(__( 'Close popup when clicking on background', 'popups' ), admin_url('edit.php?post_type=spucpt&page=spu_settings')); ?></p>
+		</td>
+	</tr>
+
+	<tr valign="top" class="disable_keyboard">
+		<th><label for="spu_disable_keyboard"><?php _e( 'Keyboard Close', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_disable_keyboard_1" name="spu[disable_keyboard]" value="1" <?php checked($opts['disable_keyboard'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_disable_keyboard_0" name="spu[disable_keyboard]" value="0" <?php checked($opts['disable_keyboard'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php echo sprintf(__( 'Close popup when pressing esc on keyboard', 'popups' ), admin_url('edit.php?post_type=spucpt&page=spu_settings')); ?></p>
+		</td>
+	</tr>
+
 	<tr valign="top">
 		<td colspan="4" style="padding: 0">
 			<h4><?php _e( 'Cookies', 'popups');?></h4>

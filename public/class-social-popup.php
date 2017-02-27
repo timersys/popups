@@ -297,10 +297,10 @@ class SocialPopup {
 			wp_insert_post( $defaults, $wp_error );
 		}
 
-		$upgrader = new SocialPopup_Upgrader();
-		$upgrader->upgrade_plugin();
-
-		update_option('spu-version', SPU_VERSION);
+		// $upgrader = new SocialPopup_Upgrader();
+		// $upgrader->upgrade_plugin();
+		//
+		// update_option('spu-version', SPU_VERSION);
 
 		do_action( 'spu/activate' );
 
