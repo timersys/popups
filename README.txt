@@ -126,6 +126,9 @@ Enhance your site by letting your users send Social Invitations ([https://timers
 
 == Frequently Asked Questions ==
 
+= How to open a popup by pressing a link or button ? =
+Check the following gist (https://gist.github.com/timersys/d68690a85aed14a02318)
+
 = How can I include a custom link inside of the popup ? =
 By default any link you enter will be used as a conversion link. By that we mean that if the link is clicked the popup will be closed as the user already performed the desired action.
 To avoid that you can add the class attribute .spu-not-close to the link
@@ -152,8 +155,6 @@ You can modify everything with css. If your popup id is 120 you can add some css
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
 
-= How to open a popup by pressing a link or button ? =
-Check the following gist (https://gist.github.com/timersys/d68690a85aed14a02318)
 
 = How to close the popup is a user clicks on a regular link ? =
 To use custom conversions check [this code](https://gist.github.com/timersys/7facec9c80935a0df1c6) . You need to add it in your theme javascript files
