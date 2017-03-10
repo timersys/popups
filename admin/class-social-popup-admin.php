@@ -746,7 +746,7 @@ class SocialPopup_Admin {
 		if( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
 			wp_enqueue_script( 'jquery-ui-dialog' );
 			wp_enqueue_style( 'wp-jquery-ui-dialog' );
-			add_action( 'iadmin_footer', array($this, 'add_editor' ),100 );
+			add_action( 'in_admin_footer', array($this, 'add_editor' ),100 );
 
 		}
 	}
