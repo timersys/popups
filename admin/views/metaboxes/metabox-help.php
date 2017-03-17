@@ -38,6 +38,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <a href="go-opts" onclick="jQuery('#go-opts').slideToggle();return false;"><?php _e( 'View Google+ Options', 'popups' );?></a>
 <ul id="go-opts" style="display:none;">
 	<li><b>url:</b> <?php _e( 'Your Google+ url', 'popups' );?></li>
+	<li><b>type:</b> g-plusone, g-follow <?php _e( '<b>Default value:</b>', 'popups' );?>g-plusone</li>
 	<li><b>size:</b> <?php _e( 'small, standard, tall <b>Default value:</b> medium', 'popups' );?></li>
 	<li><b>annotation:</b> <?php _e( 'inline, none <b>Default value:</b> bubble', 'popups' );?></li>
 </ul>

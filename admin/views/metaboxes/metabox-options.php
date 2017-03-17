@@ -3,7 +3,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;?>
 
 <table class="form-table">
-	
+
 	<?php do_action( 'spu/metaboxes/before_display_options', $opts );?>
 	<tr valign="top">
 		<th><label for="spu_position"><?php _e( 'Box Position', 'popups' ); ?></label></th>
@@ -23,7 +23,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		<th><label for="spu_trigger"><?php _e( 'Trigger action', 'popups' ); ?></label></th>
 		<td class="spu-sm">
 			<select id="spu_trigger" name="spu[trigger]" class="widefat">
-				
+
 					<option value="seconds" <?php selected($opts['trigger'], 'seconds'); ?>><?php _e( 'seconds after page load', 'popups' ); ?></option>
 					<option value="percentage" <?php selected($opts['trigger'], 'percentage'); ?>>% <?php _e( 'of page height', 'popups' ); ?></option>
 					<option value="manual" <?php selected($opts['trigger'], 'manual'); ?>><?php _e( 'Manual Triggering', 'popups' ); ?></option>
@@ -54,7 +54,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'Slide will only apply when popup is on the corners', 'popups' ); ?></p>
 		</td>
 	</tr>
-	
+
 	<tr valign="top">
 		<td colspan="4" style="padding: 0">
 			<h4><?php _e( 'Cookies', 'popups');?></h4>
@@ -64,14 +64,14 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 	<tr valign="top">
 		<th><label for="spu_cookie"><?php _e( 'Conversion cookie', 'popups' ); ?></label></th>
 		<td colspan="3">
-			<input type="number" id="spu_cookie" name="spu[cookie]" min="0" step="1" value="<?php echo esc_attr($opts['cookie']); ?>" />
+			<input type="number" id="spu_cookie" name="spu[cookie]" min="0" value="<?php echo esc_attr($opts['cookie']); ?>" />
 			<p class="help"><?php _e( 'When a user do a conversion like for example a click or form submission, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
 	</tr>
 	<tr valign="top">
 		<th><label for="spu_cookie"><?php _e( 'Closing cookie', 'popups' ); ?></label></th>
 		<td colspan="3">
-			<input type="number" id="spu_cookie" name="spu[close-cookie]" min="0" step="1" value="<?php echo isset( $opts['close-cookie'] ) ? esc_attr($opts['close-cookie']) : esc_attr($opts['cookie']); ?>" />
+			<input type="number" id="spu_cookie" name="spu[close-cookie]" min="0"  value="<?php echo isset( $opts['close-cookie'] ) ? esc_attr($opts['close-cookie']) : esc_attr($opts['cookie']); ?>" />
 			<p class="help"><?php _e( 'After closing the popup, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
 	</tr>

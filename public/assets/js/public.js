@@ -30,7 +30,7 @@ var SPU_master = function() {
 		if( spuvar.safe_mode ){
 
 			$(this).prependTo('body');
-			
+
 		}
 
 		// vars
@@ -40,11 +40,11 @@ var SPU_master = function() {
 		var testMode 		= (parseInt($box.data('test-mode')) === 1);
 		var id 				= $box.data('box-id');
 		var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
-		var secondsClose    = parseInt($box.data('seconds-close'));			
+		var secondsClose    = parseInt($box.data('seconds-close'));
 		var triggerSeconds 	= parseInt( $box.data('trigger-number'), 10 );
 		var triggerPercentage = ( triggerMethod == 'percentage' ) ? ( parseInt( $box.data('trigger-number'), 10 ) / 100 ) : 0.8;
 		var triggerHeight 	= ( triggerPercentage * $(document).height() );
-		
+
 		facebookFix( $box );
 
         // Custom links conversion
@@ -61,14 +61,14 @@ var SPU_master = function() {
 		//close on ipads // iphones
 		var ua = navigator.userAgent,
 		event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
-		
+
 		$('body').on(event, function (ev) {
 			// test that event is user triggered and not programatically
 			if( ev.originalEvent !== undefined ) {
 
 				toggleBox( id, false, false );
-				
-			}				
+
+			}
 		});
 		//not on the box
 		$('body' ).on(event,'.spu-box,.spu-clickable', function(event) {
@@ -82,13 +82,13 @@ var SPU_master = function() {
 		$boxes[id] = $box;
 
 		// functions that check % of height
-		var triggerHeightCheck = function() 
+		var triggerHeightCheck = function()
 		{
-			if(timer) { 
-				clearTimeout(timer); 
+			if(timer) {
+				clearTimeout(timer);
 			}
 
-			timer = window.setTimeout(function() { 
+			timer = window.setTimeout(function() {
 				var scrollY = $(window).scrollTop();
 				var triggered = ((scrollY + windowHeight) >= triggerHeight);
 
@@ -108,13 +108,13 @@ var SPU_master = function() {
 			}, 100);
 		}
 		// function that show popup after X secs
-		var triggerSecondsCheck = function() 
+		var triggerSecondsCheck = function()
 		{
-			if(timer) { 
-				clearTimeout(timer); 
+			if(timer) {
+				clearTimeout(timer);
 			}
 
-			timer = window.setTimeout(function() { 
+			timer = window.setTimeout(function() {
 
 				toggleBox( id, true, false );
 
@@ -125,7 +125,7 @@ var SPU_master = function() {
 		var cookieValue = spuReadCookie( 'spu_box_' + id );
 
 		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) ) {
-			
+
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
 			}
@@ -133,7 +133,7 @@ var SPU_master = function() {
 				$(window).bind( 'scroll', triggerHeightCheck );
 				// init, check box criteria once
 				triggerHeightCheck();
-			}	
+			}
 
 			// shows the box when hash refers to a box
 			if(window.location.hash && window.location.hash.length > 0) {
@@ -155,19 +155,19 @@ var SPU_master = function() {
 			toggleBox( id, false, false );
 
 			if(triggerMethod == 'percentage') {
-				// unbind 
+				// unbind
 				$(window).unbind( 'scroll', triggerHeightCheck );
-			}	
-			
+			}
+
 		});
-		
+
 		// add link listener for this box
 		$(document.body).on('click','a[href="#spu-' + id +'"], .spu-open-' + id ,function(e) {
             e.preventDefault();
 			toggleBox(id, true, false);
 		});
 		$('a[href="#spu-' + id +'"], .spu-open-' + id).css('cursor','pointer').addClass('spu-clickable');
-		
+
 		// add class to the gravity form if they exist within the box
 		$box.find('.gform_wrapper form').addClass('gravity-form');
 		// same for mc4wp
@@ -302,7 +302,7 @@ var SPU_master = function() {
 		if( (popupHeight + 50) > windowHeight ) {
 			position 	= 'absolute';
 			top 		= currentScroll;
-			
+
 			$box.css({
 				"position": position,
 				"top": 		top,
@@ -329,14 +329,14 @@ var SPU_master = function() {
 				 	$fbbox.append('<style type="text/css"> #'+$(box).attr('id')+' .fb-like iframe, #'+$(box).attr('id')+' .fb_iframe_widget span, #'+$(box).attr('id')+' .fb_iframe_widget{ height: 63px !important;width: 80px !important;}</style>');
 
 				 } else if( $fblayout == 'button_count' ) {
-					
+
 					$fbbox.append('<style type="text/css"> #'+$(box).attr('id')+' .fb-like iframe, #'+$(box).attr('id')+' .fb_iframe_widget span, #'+$(box).attr('id')+' .fb_iframe_widget{ height: 20px !important;min-width: 120px !important;}</style>');
 
 				 } else {
-					
+
 					$fbbox.append('<style type="text/css"> #'+$(box).attr('id')+' .fb-like iframe, #'+$(box).attr('id')+' .fb_iframe_widget span, #'+$(box).attr('id')+' .fb_iframe_widget{ height: 20px !important;width: 80px !important;}</style>');
 
-				 }	
+				 }
 			}
 		}
 	}
@@ -412,9 +412,9 @@ var SPU_master = function() {
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
-			var days = parseInt( $box.data('close-cookie') );
+			var days = parseFloat( $box.data('close-cookie') );
 			if( conversion === true )
-				days = parseInt( $box.data('cookie') );
+				days = parseFloat( $box.data('cookie') );
 
 			if( days > 0 ) {
 				spuCreateCookie( 'spu_box_' + id, true, days );
@@ -427,14 +427,14 @@ var SPU_master = function() {
             $box.trigger('spu.box_open', [id]);
 			//bind for resize
 			$(window).resize(function(){
-				
+
 				fixSize( id );
 
 			});
 			fixSize( id );
-		
+
 		}
-		
+
 		// show box
 		var animation = $box.data('spuanimation'),
             conversion_close = $box.data('close-on-conversion');
@@ -487,7 +487,7 @@ if( spuvar.ajax_mode ) {
         is_archive : spuvar.is_archive
     }
     ,success_cb = function(response) {
-    	
+
     	$('body').append(response);
         $(".spu-box").imagesLoaded( function() {
             window.SPU = SPU_master();
@@ -546,7 +546,7 @@ if( spuvar.ajax_mode ) {
         }
         // Make the ajax request.
         $.ajax(ajax);
-        
+
     }
 /**
  * Cookie functions
@@ -571,7 +571,7 @@ function spuReadCookie(name) {
 	return null;
 }
 
-/** 
+/**
  * Social Callbacks
  */
 var SPUfb = false;

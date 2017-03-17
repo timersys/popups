@@ -113,6 +113,7 @@ class SocialPopup_Admin {
 		//AJAX Actions
 		add_action('wp_ajax_spu/field_group/render_rules', array( $this->helper, 'ajax_render_rules' ) );
 		add_action('wp_ajax_spu/field_group/render_operator', array( $this->helper, 'ajax_render_operator' ) );
+		add_action('wp_ajax_spu_enable_ajax_notice_handler', array( $this, 'ajax_notice_handler' ) );
 
 		//Tinymce
 		add_filter( 'tiny_mce_before_init', array($this, 'tinymce_init') );
@@ -228,7 +229,7 @@ class SocialPopup_Admin {
 
 		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
 			'aff_link'         => '',
-			'ajax_mode'        => '1',
+			'ajax_mode'        => '0',
 			'debug'            => '',
 			'safe'             => '',
 			'shortcodes_style' => '',
@@ -744,8 +745,9 @@ class SocialPopup_Admin {
 		}
 		// Add html for shortcodes popup
 		if( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
-
-			add_action( 'in_admin_footer', array($this, 'add_editor' ) );
+			wp_enqueue_script( 'jquery-ui-dialog' );
+			wp_enqueue_style( 'wp-jquery-ui-dialog' );
+			add_action( 'in_admin_footer', array($this, 'add_editor' ),100 );
 
 		}
 	}
@@ -945,4 +947,12 @@ class SocialPopup_Admin {
 
 	}
 
+	/**
+	 * Save into db the dimissed notice
+	 * @return [type] [description]
+	 */
+	function ajax_notice_handler() {
+		update_option( 'spu_enabled_cache', TRUE );
+		die();
+	}
 }

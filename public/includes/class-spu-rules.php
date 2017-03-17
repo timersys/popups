@@ -5,8 +5,6 @@ use Jaybizzle\CrawlerDetect\CrawlerDetect;
 *  Class that will compare rules and determine if popup needs to show
 *  @since: 2.0
 */
-if( session_id() == '' )
-	session_start();
 class Spu_Rules
 {
 	/**
@@ -369,12 +367,7 @@ class Spu_Rules
 
 		$ref = $this->referrer;
 
-		$internal = str_replace( array( 'http://','https://' ), '', site_url() );
-		echo "<pre>";
-		var_dump($internal);
-		var_dump($ref);
-		var_dump(preg_match( '~' . $internal . '~i', $ref ));
-		echo "</pre>";
+		$internal = str_replace( array( 'http://','https://' ), '', home_url() );
 
 		if( $rule['operator'] == "==" ) {
 
@@ -623,12 +616,6 @@ class Spu_Rules
         elseif( $rule['value'] == 'top_level') {
 
 
-        	if( $options['page_parent'] )
-        	{
-	        	$post_parent = $options['page_parent'];
-        	}
-
-
 	        if($rule['operator'] == "==")
 	        {
 	        	$match = ( $post_parent == 0 );
@@ -658,12 +645,7 @@ class Spu_Rules
         }
         elseif( $rule['value'] == 'child') {
 
-        	$post_parent = $post_parent;
-        	if( $options['page_parent'] )
-        	{
-	        	$post_parent = $options['page_parent'];
-        	}
-
+    
 
 	        if($rule['operator'] == "==")
 	        {
