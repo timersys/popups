@@ -34,4 +34,31 @@ class SocialPopup_Notices {
 		</ul>
 		</div><?php
 	}
+
+	public function enabled_cache() {
+		?><div class="notice-warning notice is-dismissible spu_enable_ajax">
+		<h3><i class=" dashicons-before dashicons-share-alt"></i>WordPress Popups Plugin</h3>
+			<p>
+				<?php _e('It looks like you are using a Cache plugin. Remember to enable ajax mode to bypass page cache');?>
+			</p>
+			<p>
+				<?php echo sprintf(__('Enable it on the <a href="%s">Settings page</a>'), admin_url('edit.php?post_type=spucpt&page=spu_settings'));?>
+			</p>
+		</div>
+<script type="text/javascript">
+jQuery(function($){
+	$( document ).on( 'click', '.spu_enable_ajax .notice-dismiss', function () {
+
+		$.ajax( ajaxurl,
+		  {
+			type: 'POST',
+			data: {
+			  action: 'spu_enable_ajax_notice_handler'
+			}
+		  } );
+	} );
+});
+</script>
+		<?php
+	}
 }

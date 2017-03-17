@@ -74,4 +74,7 @@ if ( is_admin() ) {
 	if( get_option('spu_plugin_updated') && !get_option('spu_rate_plugin') )
 		add_action( 'admin_notices', array( $spu_notices, 'rate_plugin') );
 
+	if( defined('WP_CACHE') && !get_option('spu_enabled_cache') )
+			add_action( 'admin_notices', array( $spu_notices, 'enabled_cache') );
+
 }
