@@ -4,16 +4,16 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
 Tested up to: 4.7.3
-Stable tag: 1.7.1
+Stable tag: 1.7.1.1
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Most complete free Popups plugin, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, Mailpoet, Mailchimp for WP, Postmatic, etc
+Popup plugin that works! Most complete free popup plugin with display filters, scroll triggered popups, compatible with social networks, Gravity Forms, Ninja Forms, Contact form 7, Mailpoet, Mailchimp for WP, Postmatic, etc
 
 == Description ==
 
-The new Popups plugin can display multiple popups. Is the perfect solution to increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any important message in a simple popup.
+The new Popups plugin can display multiple popups. Is the perfect solution to show important messages such as EU Cookie notice, increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any other important message in a simple popup.
 
 It's compatible with the major form plugins like (read FAQ):
 
@@ -195,6 +195,10 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.7.1.1 =
+* Added freemius insights
+* Changed some assets
 
 = 1.7.1 =
 * Added new google+ version
