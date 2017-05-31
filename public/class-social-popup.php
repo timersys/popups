@@ -692,6 +692,8 @@ class SocialPopup {
 	  	if ( empty( $_REQUEST['spu_action'] ) || $_REQUEST['spu_action'] != 'spu_load' )
     		return;
 
+		do_action('spu/print_boxes');
+
 	  	define( 'DOING_AJAX', TRUE );
 
   		$this->print_boxes();
