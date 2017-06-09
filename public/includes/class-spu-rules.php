@@ -333,26 +333,14 @@ class Spu_Rules
 	 */
 	function rule_match_query_string( $match, $rule ) {
 
-		parse_str( str_replace('?', '', $this->query_string ), $request );
-		parse_str( $rule['value'], $rule_query );
 
-		if( is_array( $request ) && is_array( $rule_query ) ) {
-			sort( $request );
-			sort( $rule_query );
-		}
+		$found = strpos($this->query_string, $rule['value']) > -1 ? true: false;
 
-		if ( $rule['operator'] == "==" ) {
 
-			if( $request == $rule_query )
-				return true;
-			return false;
+		if ( $rule['operator'] == "==" )
+			return $found;
 
-		} else {
-			if( $request != $rule_query )
-				return true;
-			return false;
-
-		}
+		return ! $found;
 
 	}
 
@@ -645,7 +633,7 @@ class Spu_Rules
         }
         elseif( $rule['value'] == 'child') {
 
-    
+
 
 	        if($rule['operator'] == "==")
 	        {
