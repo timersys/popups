@@ -36,6 +36,9 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<?php do_action( 'spu/metaboxes/trigger_values', $opts );?>
 		</td>
 	</tr>
+	<tr>
+		<td style="margin:0;padding:0"></td><td style="position: relative;top: -15px;margin:0;padding:0 0 0 10px"><p class="help"><?php _e( 'Choose how the popup will be triggered on the page', 'popups' ); ?></p></td>
+	</tr>
 	<tr valign="top" class="auto_hide">
 		<th><label for="spu_auto_hide"><?php _e( 'Auto-hide?', 'popups' ); ?></label></th>
 		<td colspan="3">

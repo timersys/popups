@@ -285,9 +285,7 @@ class SocialPopup {
 
 
 		if ( empty( $spus) ) {
-			$post_content ='<h1 style="text-align: center;">Support us!</h1>
-<p style="text-align: center;">If you like this site please help and make click on any of these buttons!</p>
-<p style="text-align: center;">[spu-facebook][spu-google][spu-twitter]</p>';
+			$post_content ='<h2 style="text-align:center">Welcome!</h2><p style="text-align:center">This is popup preview that you can fill with any content you want.</p><p style="text-align:center">The plugin include some shortcodes, you can read more about them at the bottom of this page. The main 3 sections to configure the popup are:</p><p>Appearance: Where you edit the look and feel of the popup.<br>Display Rules: Here you choose on which page to display the popup (Set to all by default)<br>Display options: Some important settings about the plugin, being the more important trigger action.</br></p>';
 			$defaults = array(
 			  'post_status'           => 'draft',
 			  'post_type'             => 'spucpt',

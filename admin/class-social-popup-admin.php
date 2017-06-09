@@ -271,14 +271,6 @@ class SocialPopup_Admin {
 
 		}
 
-		add_meta_box(
-			'spu-help',
-			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', 'popups' ),
-			array( $this, 'popup_help' ),
-			'spucpt',
-			'normal',
-			'core'
-		);
 
 		add_meta_box(
 			'spu-appearance',
@@ -307,6 +299,15 @@ class SocialPopup_Admin {
 			'core'
 		);
 
+		add_meta_box(
+			'spu-help',
+			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', 'popups' ),
+			array( $this, 'popup_help' ),
+			'spucpt',
+			'normal',
+			'core'
+		);
+		
 		add_meta_box(
 			'spu-support',
 			__( 'Need support?', 'popups' ),
