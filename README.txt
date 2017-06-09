@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
 Requires at least: 3.6
-Tested up to: 4.7.3
-Stable tag: 1.7.1.1
+Tested up to: 4.8
+Stable tag: 1.7.2
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -50,7 +50,7 @@ There are multiple display filters that can be combined:
 = Available Settings =
 
 * Choose from 5 different popup locations
-* Trigger popup after X seconds or after scrolling % of page
+* Trigger popup after X seconds , after scrolling % of page, after scrolling X pixels
 * Auto hide the popup if the user scroll up
 * Change font color, background, borders, etc
 * You can also configure background opacity.
@@ -92,6 +92,8 @@ Fork me in https://github.com/timersys/popups/
 
 = Available Languages =
 
+* French
+* Russian
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
 
@@ -195,6 +197,12 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.7.2 =
+* Added french language
+* Query string rule is wide match now
+* New trigger method , X amount of pixels
+
 
 = 1.7.1.1 =
 * Added freemius insights
