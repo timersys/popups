@@ -399,6 +399,13 @@ class SocialPopup {
 				return $spu_ids;
 			}
 		}
+		// IF polylang is active and spucpt is translated get correct ids for language
+		if( function_exists('pll_current_language') ) {
+			$spu_ids = $this->get_polylang_ids();
+			if(!empty($spu_ids)) {
+				return $spu_ids;
+			}
+		}
 		return $wpdb->get_results( "SELECT ID, post_content, MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
         MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
         FROM $wpdb->posts p LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)  WHERE post_type='spucpt' AND post_status='publish' GROUP BY p.ID");
@@ -700,6 +707,45 @@ class SocialPopup {
 	}
 
 
+	/**
+	 * Return popups for current language
+	 * @return bool | array of ids
+	 */
+	protected function get_polylang_ids( ) {
+		global $wpdb;
+
+			$sql = "SELECT description
+			FROM $wpdb->posts p
+			LEFT JOIN $wpdb->term_relationships as tr ON p.ID = tr.object_id
+			LEFT JOIN $wpdb->term_taxonomy as tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
+			WHERE post_type='spucpt' AND post_status='publish' AND tt.taxonomy = 'post_translations'
+			GROUP BY p.ID";
+
+			$ids = array();
+			$popups = $wpdb->get_results( $sql );
+			if( !empty($popups) ) {
+				$current  = pll_current_language();
+				foreach ($popups as $p) {
+					$langs = unserialize($p->description);
+
+					if( isset($langs[$current]) )
+						$ids[] = $langs[$current];
+				}
+			}
+
+			if( !empty($ids)){
+				$sql = "SELECT DISTINCT ID, post_content,
+				MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
+				MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
+				FROM $wpdb->posts p
+				LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)
+				WHERE post_type='spucpt' AND post_status='publish' AND ID IN (".implode(',',array_unique($ids)).")
+				GROUP BY p.ID";
+				return  $wpdb->get_results( $sql );
+			}
+
+		return false;
+	}
 	/**
 	 * Return popups for current language
 	 * @return bool | array of ids
