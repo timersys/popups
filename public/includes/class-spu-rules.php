@@ -749,6 +749,13 @@ class Spu_Rules
 			return false;
 		}
 
+		//check if we are in category page
+		if( ($cat = get_category($this->post_id) ) ) {
+			if($rule['operator'] == "==")
+				return $rule['value'] == $this->post_id;
+			return 	!($rule['value'] == $this->post_id);
+		}// otherwise think this of a single post page
+
 
 		// post type
 		$post_type = $this->get_post_type();
