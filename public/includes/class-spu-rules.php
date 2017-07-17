@@ -76,7 +76,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
 		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
 
-		$this->post_id 	    = isset( $post->ID ) ? $post->ID : '';
+		$this->post_id 	    = get_queried_object_id();
 		$this->referrer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 		$this->query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
 
@@ -748,7 +748,6 @@ class Spu_Rules
 		{
 			return false;
 		}
-
 		//check if we are in category page
 		if( ($cat = get_category($this->post_id) ) ) {
 			if($rule['operator'] == "==")
