@@ -15,6 +15,8 @@ Popup plugin that works! Most complete free popup plugin with display filters, s
 
 The new Popups plugin can display multiple popups. Is the perfect solution to show important messages such as EU Cookie notice, increase your social followers, add call to actions, increase your mailing lists by adding a form like mailchimp or to display any other important message in a simple popup.
 
+https://www.youtube.com/watch?v=S_MfZne6X2I&t=3s
+
 It's compatible with the major form plugins like (read FAQ):
 
 * Gravity Forms
