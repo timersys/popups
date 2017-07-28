@@ -26,6 +26,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 
 					<option value="seconds" <?php selected($opts['trigger'], 'seconds'); ?>><?php _e( 'seconds after page load', 'popups' ); ?></option>
 					<option value="percentage" <?php selected($opts['trigger'], 'percentage'); ?>>% <?php _e( 'of page height', 'popups' ); ?></option>
+					<option value="pixels" <?php selected($opts['trigger'], 'pixels'); ?>><?php _e( 'Scrolled down pixels', 'popups' ); ?></option>
 					<option value="manual" <?php selected($opts['trigger'], 'manual'); ?>><?php _e( 'Manual Triggering', 'popups' ); ?></option>
 					<?php do_action( 'spu/metaboxes/trigger_options', $opts );?>
 			</select>
@@ -34,6 +35,9 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<input type="number" class="spu-trigger-number" name="spu[trigger_number]" min="0" value="<?php echo esc_attr($opts['trigger_number']); ?>"  />
 			<?php do_action( 'spu/metaboxes/trigger_values', $opts );?>
 		</td>
+	</tr>
+	<tr>
+		<td style="margin:0;padding:0"></td><td style="position: relative;top: -15px;margin:0;padding:0 0 0 10px"><p class="help"><?php _e( 'Choose how the popup will be triggered on the page', 'popups' ); ?></p></td>
 	</tr>
 	<tr valign="top" class="auto_hide">
 		<th><label for="spu_auto_hide"><?php _e( 'Auto-hide?', 'popups' ); ?></label></th>

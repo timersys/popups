@@ -9,5 +9,5 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <ul>
 	<li> <a href="http://wordpress.org/plugins/wpfavs/" target="_blank">Wp Favs</a> - <?php _e( 'Install multiple plugins and create collections', 'popups' );?></li>
 	<li> <a href="http://wordpress.org/plugins/geotargeting/" target="_blank">Geotargeting</a> - <?php _e( 'Geotarget your content', 'popups' );?></li>
-	<li> <a href="http://wordpress.org/plugins/wp-social-invitations" target="_blank">Wordpress Social Invitations</a> - <?php _e( 'Invite your network friends and import contacts', 'popups' );?></li>
+	<li> <a href="http://wordpress.org/plugins/wp-facebook-login" target="_blank">Facebook Login</a> - <?php _e( 'Integrate facebook login in you site.', 'popups' );?></li>
 </ul>	

@@ -272,9 +272,9 @@ class SocialPopup_Admin {
 		}
 
 		add_meta_box(
-			'spu-help',
-			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', 'popups' ),
-			array( $this, 'popup_help' ),
+			'spu-video',
+			'<i class="spu-icon-info spu-icon"></i>' . __( 'Help video', 'popups' ),
+			array( $this, 'metabox_video' ),
 			'spucpt',
 			'normal',
 			'core'
@@ -307,6 +307,15 @@ class SocialPopup_Admin {
 			'core'
 		);
 
+		add_meta_box(
+			'spu-help',
+			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', 'popups' ),
+			array( $this, 'popup_help' ),
+			'spucpt',
+			'normal',
+			'core'
+		);
+		
 		add_meta_box(
 			'spu-support',
 			__( 'Need support?', 'popups' ),
@@ -401,6 +410,19 @@ class SocialPopup_Admin {
 		$donate_metabox = apply_filters( 'spu/metaboxes/donate_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-donate.php' );
 
 		include $donate_metabox;
+	}
+
+	/**
+	 * Include the metabox view for help video
+	 * @param  object $post    spucpt post object
+	 * @param  array $metabox full metabox items array
+	 * @since 1.1
+	 */
+	public function metabox_video( $post, $metabox ) {
+
+		$video_metabox = apply_filters( 'spu/metaboxes/video_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-video.php' );
+
+		include $video_metabox;
 	}
 	/**
 	 * Include the metabox view for support box

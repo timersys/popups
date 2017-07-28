@@ -9,13 +9,13 @@
  * @copyright 2014 Timersys
  */
 
-?><!-- Popups v<?php echo self::VERSION; ?> - http://wordpress.org/plugins/social-popup/--><?php
+?><!-- Popups v<?php echo self::VERSION; ?> - https://wordpress.org/plugins/social-popup/ --><?php
 $box = get_post( $spu_id );
 $helper = new Spu_Helper;
 
 // has box with this id been found?
 if ( ! $box instanceof WP_Post || $box->post_status !== 'publish' ) {
-	return; 
+	return;
 }
 
 $opts 		= $helper->get_box_options( $box->ID );
@@ -28,7 +28,7 @@ $width 		= !empty( $css['width'] )  ?  $css['width']  : '';
 // run filters on content
 $content = apply_filters( 'spu/popup/content', $content, $box );
 
-// Qtranslate support 
+// Qtranslate support
 if ( function_exists('qtrans_useCurrentLanguageIfNotFoundShowAvailable') ) {
 	$content = qtrans_useCurrentLanguageIfNotFoundShowAvailable( $content );
 }
@@ -56,7 +56,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 <div class="spu-bg" id="spu-bg-<?php echo $box->ID; ?>"></div>
 <div class="spu-box <?php echo apply_filters( 'spu/popup/box_class', $box_class, $opts, $css, $box );?> spu-<?php echo esc_attr( $opts['css']['position'] ); ?> spu-total-<?php echo get_post_meta($box->ID, 'spu_social',true);?> <?php echo get_post_meta($box->ID, 'spu_google',true) ? 'spu-gogl' : '';?>" id="spu-<?php echo $box->ID; ?>"
  data-box-id="<?php echo $box->ID ; ?>" data-trigger="<?php echo esc_attr( $opts['trigger'] ); ?>"
- data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>" 
+ data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>"
  data-spuanimation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-close-cookie="<?php echo esc_attr( absint ( $opts['close-cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>"
  data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-close-on-conversion="<?php echo $opts['conversion_close'] == 1 ?'1':''; ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-total="<?php echo get_post_meta($box->ID, 'spu_social',true);?>"
  style="left:-99999px !important;" data-width="<?php echo esc_attr(str_replace('px', '', $width)); ?>" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts, $box );?>>

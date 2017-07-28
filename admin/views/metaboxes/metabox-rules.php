@@ -22,9 +22,9 @@ do_action( 'spu/metaboxes/before_rules', $post );
 		</td>
 		<td>
 			<div class="rules-groups">
-				
+
 <?php if( is_array($groups) ): ?>
-	<?php foreach( $groups as $group_id => $group ): 
+	<?php foreach( $groups as $group_id => $group ):
 		$group_id = 'group_' . $group_id;
 		?>
 		<div class="rules-group" data-id="<?php echo $group_id; ?>">
@@ -36,27 +36,27 @@ do_action( 'spu/metaboxes/before_rules', $post );
 			<?php if( is_array($group) ): ?>
 			<table class="spu_table widefat">
 				<tbody>
-					<?php foreach( $group as $rule_id => $rule ): 
+					<?php foreach( $group as $rule_id => $rule ):
 						$rule_id = 'rule_' . $rule_id;
 					?>
 					<tr data-id="<?php echo $rule_id; ?>">
-					<td class="param"><?php 
-						
+					<td class="param"><?php
+
 						$choices = $this->get_rules_choices();
 
-						// create field						
+						// create field
 						$args = array(
 							'group_id' 	    => $group_id,
 							'rule_id'	    => $rule_id,
 							'name'		    => 'spu_rules[' . $group_id . '][' . $rule_id . '][param]',
 							'value' 	    => $rule['param']
 						);
-						
+
 						Spu_Helper::print_select( $args, $choices );
-							
-						
+
+
 					?></td>
-					<td class="operator"><?php 	
+					<td class="operator"><?php
 
 						$args = array(
 							'group_id' 	=> $group_id,
@@ -67,9 +67,9 @@ do_action( 'spu/metaboxes/before_rules', $post );
 
 						);
 						Spu_Helper::ajax_render_operator( $args );
-						
+
 					?></td>
-					<td class="value"><?php 
+					<td class="value"><?php
 						$args = array(
 							'group_id' 		=> $group_id,
 							'rule_id' 		=> $rule_id,
@@ -77,8 +77,8 @@ do_action( 'spu/metaboxes/before_rules', $post );
 							'name'			=> 'spu_rules[' . $group_id . '][' . $rule_id . '][value]',
 							'param'			=> $rule['param'],
 						);
-						Spu_Helper::ajax_render_rules( $args ); 
-						
+						Spu_Helper::ajax_render_rules( $args );
+
 					?></td>
 					<td class="add">
 						<a href="#" class="rules-add-rule button"><?php _e("+ AND", 'popups' ); ?></a>
@@ -93,13 +93,15 @@ do_action( 'spu/metaboxes/before_rules', $post );
 			<?php endif; ?>
 		</div>
 	<?php endforeach; ?>
-	
+
 	<h4 class="rules-or"><span><?php _e("OR", 'popups' ); ?></span></h4>
-	
+
 	<a class="button rules-add-group" href="#"><?php _e("Add rule group (+ OR)", 'popups' ); ?></a>
-	
+	<p style="margin-top:30px">
+		<?php echo sprintf(__('<strong>Hint</strong>: If you are planning to open the popup with a button, simple leave this set to "All Pages" and change trigger method below to "Manual triggering". Then inside the page you want to open the popup add the following shortcode [spu popup="%s"]Click here[/spu]','spu'),$post->ID);?>
+	</p>
 <?php endif; ?>
-				
+
 			</div>
 		</td>
 	</tr>

@@ -48,7 +48,7 @@ var SPU_master = function() {
 		facebookFix( $box );
 
         // Custom links conversion
-        $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close")', function(){
+        $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close, .spu-not-close a")', function(){
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
@@ -107,6 +107,33 @@ var SPU_master = function() {
 
 			}, 100);
 		}
+
+		// functions that check pixels of height
+		var triggerPixelsCheck = function()
+		{
+			if(timer) {
+				clearTimeout(timer);
+			}
+
+			timer = window.setTimeout(function() {
+				var scrollY = $(window).scrollTop();
+				var triggered = ( scrollY  >= triggerSeconds);//triggerSeconds equals to the number field really
+
+				// show box when criteria for this box is matched
+				if( triggered ) {
+
+					// remove listen event if box shouldn't be hidden again
+					if( ! autoHide ) {
+						$(window).unbind('scroll', triggerPixelsCheck);
+					}
+
+					toggleBox( id, true, false );
+				} else {
+					toggleBox( id, false, false );
+				}
+
+			}, 100);
+		}
 		// function that show popup after X secs
 		var triggerSecondsCheck = function()
 		{
@@ -133,6 +160,11 @@ var SPU_master = function() {
 				$(window).bind( 'scroll', triggerHeightCheck );
 				// init, check box criteria once
 				triggerHeightCheck();
+			}
+            if(triggerMethod == 'pixels'){
+				$(window).bind( 'scroll', triggerPixelsCheck );
+				// init, check box criteria once
+				triggerPixelsCheck();
 			}
 
 			// shows the box when hash refers to a box
