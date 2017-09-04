@@ -24,7 +24,6 @@ if($today > $blackbegin && $today < $blackend) : ?>
 	<li><?php _e( 'Exit Intent technology', 'popups' );?></li>
 	<li><?php _e( 'New popup positions: top/bottoms bars , fullscreen mode, after post content', 'popups' );?></li>
 	<li><?php _e( '8 New animations effects', 'popups' );?> - <a href="https://timersys.com/popups/?utm_source=Plugin&utm_medium=demo-button&utm_campaign=Popups%20Premium">Online demo</a></li>
-	<li><?php _e( 'Exit Intent technology', 'popups' );?></li>
 	<li><?php _e( 'New trigger methods', 'popups' );?></li>
 	<li><?php _e( 'More Display Rules: Show after N(numbers) of pages viewed', 'popups' );?></li>
 	<li><?php _e( 'More Display Rules: Show popup at certain time', 'popups' );?></li>

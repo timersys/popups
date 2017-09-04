@@ -170,8 +170,8 @@ On certain occasions multiple GF instances can cause problems. There is a plugin
  Check the following gists ( https://gist.github.com/timersys/e3648ba93955ddef4087 )
 
 
-= I closed the popup but youtube is still playing. How I fix it? =
-Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
+= I closed the popup but youtube video is still playing. How I fix it? =
+Check [this](https://gist.github.com/timersys/d3cde5a27e9f2ae4ac83d5c619e6ebfa) or [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
 
 = Can I attach my custom js events to popups plugin? =
 Yes you can attach to any of this events . id = Popup id
