@@ -334,7 +334,7 @@ class Spu_Rules
 	function rule_match_query_string( $match, $rule ) {
 
 
-		$found = strpos($this->query_string, $rule['value']) > -1 ? true: false;
+		$found = strpos($this->query_string, str_replace('?','', $rule['value'] ) ) > -1 ? true: false;
 
 
 		if ( $rule['operator'] == "==" )
