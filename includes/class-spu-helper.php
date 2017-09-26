@@ -214,11 +214,8 @@ class Spu_Helper {
 				break;
 			
 			case "post" :
-				
-				$post_types = get_post_types();
-				
+				$post_types = apply_filters('spu/get_post_types', array());
 				unset( $post_types['page'], $post_types['attachment'], $post_types['revision'] , $post_types['nav_menu_item'], $post_types['spucpt']  );
-				
 				if( $post_types )
 				{
 					foreach( $post_types as $post_type )
