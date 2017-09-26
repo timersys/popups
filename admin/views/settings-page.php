@@ -17,7 +17,7 @@
 				<th><label for="add_link"><?php _e( 'Affiliate link', 'popups' ); ?></label></th>
 				<td colspan="3">
 					<label><input type="text" id="add_link" name="spu_settings[aff_link]" value="<?php  echo isset($opts['aff_link']) ? $opts['aff_link'] :'';?>" class="regular-text" />
-						<p class="help"><?php echo sprintf(__( 'You can earn money by promoting the plugin! Join <a href="%s">our affiliate program</a> and paste your affiliate link here to earn 35&#37; in commissions . Once entered, it will replace the default "Powered by" on the popups.', 'popups' ) , 'https://wp.timersys.com/affiliates/'); ?></p>
+						<p class="help"><?php echo sprintf(__( 'You can earn money by promoting the plugin! Join <a href="%s">our affiliate program</a> and paste your affiliate link here to earn 35&#37; in commissions . Once entered, it will replace the default "Powered by" on the popups.', 'popups' ) , 'https://timersys.com/affiliates/'); ?></p>
 				</td>
 			</tr>
 			<tr valign="top" class="">

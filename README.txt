@@ -62,7 +62,7 @@ There are multiple display filters that can be combined:
 
 > <strong>Premium Version</strong><br>
 >
-> Check the **new premium version** available in ([https://wp.timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
+> Check the **new premium version** available in ([https://timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
 > * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign
