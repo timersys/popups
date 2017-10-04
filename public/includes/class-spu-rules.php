@@ -74,6 +74,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/desktop', array($this, 'rule_match_desktop'), 10, 2);
 		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
 		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
+		add_filter('spu/rules/rule_match/browser', array($this, 'rule_match_browser'), 10, 2);
 		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
 
 		$this->post_id 	    = get_queried_object_id();
@@ -196,6 +197,27 @@ class Spu_Rules
 		} else {
 
 			return !$detect->isMobile();
+
+		}
+
+	}
+	/**
+	 * [rule_match_browser description]
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_browser( $match, $rule ) {
+
+		$detect = new Mobile_Detect;
+		//check $detect $browsers for valid keys
+		if ( $rule['operator'] == "==" ) {
+
+			return $detect->is($rule['value']);
+
+		} else {
+
+			return !$detect->is($rule['value']);
 
 		}
 
