@@ -12,6 +12,7 @@ var SPU_master = function() {
 
 	var windowHeight 	= $(window).height();
 	var isAdmin 		= spuvar.is_admin;
+	var isPreview		= spuvar.is_preview;
 	var $boxes 			= [];
 
 	//remove paddings and margins from first and last items inside box
@@ -151,7 +152,7 @@ var SPU_master = function() {
 		// show box if cookie not set or if in test mode
 		var cookieValue = spuReadCookie( 'spu_box_' + id );
 
-		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) ) {
+		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) || isPreview ) {
 
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
@@ -475,8 +476,14 @@ var SPU_master = function() {
         if (animation === 'fade') {
             if (show === true) {
                 $box.fadeIn('slow');
+            } else if (show === false && ( (conversion_close && conversion ) || !conversion )) {
+                $box.fadeOut('slow');
+            }
+        }else if (animation === 'disable') {
+            if (show === true ) {
+                $box.show();
             } else if (show === false && ( (conversion_close && conversion ) || !conversion )  ) {
-                    $box.fadeOut('slow');
+                $box.hide();
             }
         } else {
             if (show === true ) {
@@ -488,9 +495,17 @@ var SPU_master = function() {
 
         //background
         if (show === true && $bgopa > 0) {
-            $bg.fadeIn();
+            if (animation === 'disable') {
+                $bg.show();
+            } else {
+                $bg.fadeIn();
+            }
         } else if (show === false && ( (conversion_close && conversion ) || !conversion ) ) {
-            $bg.fadeOut();
+            if (animation === 'disable') {
+                $bg.hide();
+            } else {
+                $bg.fadeOut();
+            }
         }
 
 		return show;

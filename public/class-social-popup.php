@@ -92,7 +92,8 @@ class SocialPopup {
 		$this->load_dependencies();
 
 		$this->spu_settings = apply_filters('spu/settings_page/opts', get_option( 'spu_settings' ) );
-
+		//Register cpt
+		add_action( 'init', array( $this, 'register_cpt' ) );
 
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
@@ -103,7 +104,7 @@ class SocialPopup {
 
 		if( empty($this->spu_settings['ajax_mode'] ) ) {
 			//print boxes
-			add_action( 'wp_footer', array( $this, 'print_boxes' ) );
+			add_action( 'wp_footer', array( $this, 'print_boxes' ), 1 );
 		}
 		add_action( 'init', array( $this, 'register_spu_ajax' ), 11 );
 
@@ -125,8 +126,8 @@ class SocialPopup {
 		add_shortcode( 'spu-google', array( $this, 'google_shortcode' ) );
 		add_shortcode( 'spu-close', array( $this, 'close_shortcode' ) );
 		add_shortcode( 'spu', array( $this, 'popup_link_shortcode' ) );
-	}
 
+	}
 	/**
 	 * Return the plugin slug.
 	 *
@@ -250,6 +251,64 @@ class SocialPopup {
 	}
 
 	/**
+	 * Register custom post types
+	 * @return void
+	 */
+	function register_cpt() {
+
+		$name = 'Popups v' . SocialPopup::VERSION;
+		if( class_exists('PopupsP') ){
+			$name .= ' - Premium v'. PopupsP::VERSION;
+		}
+		$name = apply_filters( 'spu/display/title', $name );
+		$labels = array(
+			'name'               => $name,
+			'singular_name'      => _x( 'Popups', 'post type singular name', 'popups' ),
+			'menu_name'          => _x( 'Popups', 'admin menu', 'popups' ),
+			'name_admin_bar'     => _x( 'Popups', 'add new on admin bar', 'popups' ),
+			'add_new'            => _x( 'Add New', 'Popups', 'popups' ),
+			'add_new_item'       => __( 'Add New Popups', 'popups' ),
+			'new_item'           => __( 'New Popups', 'popups' ),
+			'edit_item'          => __( 'Edit Popups', 'popups' ),
+			'view_item'          => __( 'View Popups', 'popups' ),
+			'all_items'          => __( 'All Popups', 'popups' ),
+			'search_items'       => __( 'Search Popups', 'popups' ),
+			'parent_item_colon'  => __( 'Parent Popups:', 'popups' ),
+			'not_found'          => __( 'No Popups found.', 'popups' ),
+			'not_found_in_trash' => __( 'No Popups found in Trash.', 'popups' )
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'spucpt' ),
+			'capability_type'    => 'post',
+			'capabilities' => array(
+				'publish_posts' 		=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'edit_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'edit_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'delete_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'delete_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'read_private_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'edit_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'delete_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+				'read_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
+			),
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => null,
+			'menu_icon'				 => 'dashicons-share-alt',
+			'supports'           => array( 'title', 'editor','author' )
+		);
+
+		register_post_type( 'spucpt', $args );
+
+	}
+	/**
 	 * Get all blog ids of blogs in the current network that are:
 	 * - not archived
 	 * - not spam
@@ -366,8 +425,6 @@ class SocialPopup {
 	 */
 	public function check_for_matches() {
 
-		global $wpdb;
-
 		$spu_matches = false;
 
 		$spu_rules = new Spu_Rules();
@@ -380,6 +437,14 @@ class SocialPopup {
 				$rules = !empty($spu->spu_rules) ? unserialize($spu->spu_rules) : array();
 				$match = $spu_rules->check_rules( $rules );
 				if ( $match ) {
+					$spu_matches[$spu->ID] = $spu->ID;
+				}
+			}
+			// check if we are viewing a popup, and only show that one (preview mode)
+			$viewing_id = get_queried_object_id();
+			foreach ( $spu_ids as $spu ) {
+				if (  $spu->ID == $viewing_id ) {
+					$spu_matches = [];
 					$spu_matches[$spu->ID] = $spu->ID;
 				}
 			}
@@ -439,6 +504,7 @@ class SocialPopup {
 				'site_url'				        => site_url(),
 				'is_archive'				    => is_archive(),
 				'is_search'				        => is_search(),
+				'is_preview'				    => (get_post_type() == 'spucpt'),
 				'seconds_confirmation_close'	=> apply_filters( 'spu/spuvar/seconds_confirmation_close', 5 ),
 			)
 		);

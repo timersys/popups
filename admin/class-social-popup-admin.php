@@ -87,9 +87,6 @@ class SocialPopup_Admin {
 		//premium version ?
 		$this->premium 			= defined('SPUP_PLUGIN_HOOK');
 
-		//Register cpt
-		add_action( 'init', array( $this, 'register_cpt' ) );
-
 		// add settings page
 		add_action('admin_menu' , array( $this, 'add_settings_menu' ) );
 
@@ -124,7 +121,6 @@ class SocialPopup_Admin {
 		add_filter( 'manage_edit-spucpt_columns' ,  array( $this, 'set_custom_cpt_columns'), 10, 2 );
 		add_action( 'manage_spucpt_posts_custom_column' ,  array( $this, 'custom_columns'), 10, 2 );
 		add_action( 'admin_init' ,  array( $this, 'toggle_on_popup') );
-		add_filter( 'post_row_actions' ,  array( $this, 'modify_title_actions'), 10, 2 );
 
 		$this->set_rules_fields();
 	}
@@ -147,65 +143,6 @@ class SocialPopup_Admin {
 		return self::$instance;
 	}
 
-
-	/**
-	 * Register custom post types
-	 * @return void
-	 */
-	function register_cpt() {
-
-		$name = 'Popups v' . SocialPopup::VERSION;
-		if( class_exists('PopupsP') ){
-			$name .= ' - Premium v'. PopupsP::VERSION;
-		}
-		$name = apply_filters( 'spu/display/title', $name );
-		$labels = array(
-			'name'               => $name,
-			'singular_name'      => _x( 'Popups', 'post type singular name', 'popups' ),
-			'menu_name'          => _x( 'Popups', 'admin menu', 'popups' ),
-			'name_admin_bar'     => _x( 'Popups', 'add new on admin bar', 'popups' ),
-			'add_new'            => _x( 'Add New', 'Popups', 'popups' ),
-			'add_new_item'       => __( 'Add New Popups', 'popups' ),
-			'new_item'           => __( 'New Popups', 'popups' ),
-			'edit_item'          => __( 'Edit Popups', 'popups' ),
-			'view_item'          => __( 'View Popups', 'popups' ),
-			'all_items'          => __( 'All Popups', 'popups' ),
-			'search_items'       => __( 'Search Popups', 'popups' ),
-			'parent_item_colon'  => __( 'Parent Popups:', 'popups' ),
-			'not_found'          => __( 'No Popups found.', 'popups' ),
-			'not_found_in_trash' => __( 'No Popups found in Trash.', 'popups' )
-		);
-
-		$args = array(
-			'labels'             => $labels,
-			'public'             => false,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'spucpt' ),
-			'capability_type'    => 'post',
-			'capabilities' => array(
-		        'publish_posts' 		=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'edit_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'edit_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'delete_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'delete_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'read_private_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'edit_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'delete_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		        'read_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
-		    ),
-			'has_archive'        => false,
-			'hierarchical'       => false,
-			'menu_position'      => null,
-			'menu_icon'				 => 'dashicons-share-alt',
-			'supports'           => array( 'title', 'editor' )
-		);
-
-		register_post_type( 'spucpt', $args );
-
-	}
 
 	/**
 	 * Add menu for Settings page of the plugin
@@ -258,18 +195,6 @@ class SocialPopup_Admin {
 	 */
 	public function add_meta_boxes() {
 
-		if( !$this->premium ) {
-
-			add_meta_box(
-				'spu-premium',
-				__( 'Popups Premium', 'popups' ),
-				array( $this, 'popup_premium' ),
-				'spucpt',
-				'normal',
-				'core'
-			);
-
-		}
 
 		add_meta_box(
 			'spu-video',
@@ -306,7 +231,18 @@ class SocialPopup_Admin {
 			'normal',
 			'core'
 		);
+		if( !$this->premium ) {
 
+			add_meta_box(
+				'spu-premium',
+				__( 'Popups Premium', 'popups' ),
+				array( $this, 'popup_premium' ),
+				'spucpt',
+				'normal',
+				'core'
+			);
+
+		}
 		add_meta_box(
 			'spu-help',
 			'<i class="spu-icon-info spu-icon"></i>' . __( 'PopUp Shortcodes', 'popups' ),
@@ -497,9 +433,30 @@ class SocialPopup_Admin {
 		$post = get_post($post_id);
 
 		// sanitize settings
-		$opts['css']['width']	 	 = sanitize_text_field( $opts['css']['width'] );
-		$opts['css']['bgopacity']	 = sanitize_text_field( $opts['css']['bgopacity'] );
-		$opts['css']['border_width'] = absint( sanitize_text_field( $opts['css']['border_width'] ) );
+		$opts['css']['bgopacity']	            = sanitize_text_field( $opts['css']['bgopacity'] );
+		$opts['css']['overlay_color']           = sanitize_text_field( $opts['css']['overlay_color'] );
+		$opts['css']['background_color']        = sanitize_text_field( $opts['css']['background_color'] );
+		$opts['css']['background_opacity']      = sanitize_text_field( $opts['css']['background_opacity'] );
+		$opts['css']['width']	 	            = sanitize_text_field( $opts['css']['width'] );
+		$opts['css']['padding']	 	            = absint( sanitize_text_field( $opts['css']['padding'] ) );
+		$opts['css']['color']	 	            = sanitize_text_field( $opts['css']['color'] );
+		$opts['css']['shadow_color']            = sanitize_text_field( $opts['css']['shadow_color'] );
+		$opts['css']['shadow_type']             = sanitize_text_field( $opts['css']['shadow_type'] );
+		$opts['css']['shadow_x_offset']         = absint( sanitize_text_field( $opts['css']['shadow_x_offset'] ) );
+		$opts['css']['shadow_y_offset']         = absint( sanitize_text_field( $opts['css']['shadow_y_offset'] ) );
+		$opts['css']['shadow_blur']             = absint( sanitize_text_field( $opts['css']['shadow_blur'] ) );
+		$opts['css']['shadow_spread']           = absint( sanitize_text_field( $opts['css']['shadow_spread'] ) );
+		$opts['css']['border_color']            = sanitize_text_field( $opts['css']['border_color'] );
+		$opts['css']['border_width']            = absint( sanitize_text_field( $opts['css']['border_width'] ) );
+		$opts['css']['border_radius']           = absint( sanitize_text_field( $opts['css']['border_radius'] ) );
+		$opts['css']['border_type']             = sanitize_text_field( $opts['css']['border_type'] );
+		$opts['css']['close_color']             = sanitize_text_field( $opts['css']['close_color'] );
+		$opts['css']['close_hover_color']       = sanitize_text_field( $opts['css']['close_hover_color'] );
+		$opts['css']['close_size']              = sanitize_text_field( $opts['css']['close_size'] );
+		$opts['css']['close_position']          = sanitize_text_field( $opts['css']['close_position'] );
+		$opts['css']['close_shadow_color']          = sanitize_text_field( $opts['css']['close_shadow_color'] );
+		$opts['css']['position']                = sanitize_text_field( $opts['css']['position'] );
+
 		$opts['cookie'] 			 = absint( sanitize_text_field( $opts['cookie'] ) );
 		$opts['trigger_number'] 	 = absint( sanitize_text_field( $opts['trigger_number'] ) );
 
@@ -805,6 +762,7 @@ class SocialPopup_Admin {
 				'tablets'		=>	__("Tablet", 'popups' ),
 				'desktop'		=>	__("Dekstop", 'popups' ),
 				'crawlers'		=>	__("Bots/Crawlers", 'popups' ),
+				'browser'		=>	__("Browser", 'popups' ),
 			)
 		);
 		// allow custom rules rules
@@ -845,6 +803,7 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_crawlers_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 		add_action('spu/rules/print_query_string_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+		add_action('spu/rules/print_browser_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 	}
 
 	/**
@@ -912,23 +871,6 @@ class SocialPopup_Admin {
 		wp_update_post( $post );
 		wp_safe_redirect( admin_url('edit.php?post_type=spucpt') );
 		exit;
-	}
-
-	/**
-	 * Remove unneeded actions
-	 *
-	 * @param $actions
-	 * @param $post
-	 *
-	 * @return array
-	 */
-	function modify_title_actions( $actions, $post ){
-		if( 'spucpt' != $post->post_type )
-			return $actions;
-
-		unset( $actions['view'] );
-
-		return $actions;
 	}
 
 	/**
