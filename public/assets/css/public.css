@@ -120,11 +120,8 @@ p.spu-powered a{
     text-decoration: underline;
 }
 .spu-close:hover, .spu-close:focus {
-	color: #000;
 	text-decoration: none;
 	cursor: pointer;
-	opacity: .6;
-	filter: alpha(opacity=60);
 }
 .spu-shortcode {
  	float: left;
