@@ -122,6 +122,8 @@ class SocialPopup_Admin {
 		add_action( 'manage_spucpt_posts_custom_column' ,  array( $this, 'custom_columns'), 10, 2 );
 		add_action( 'admin_init' ,  array( $this, 'toggle_on_popup') );
 
+		add_action( 'admin_init' ,  array( $this, 'extra_checks') );
+
 		$this->set_rules_fields();
 	}
 
@@ -918,5 +920,16 @@ class SocialPopup_Admin {
 	function ajax_notice_handler() {
 		update_option( 'spu_enabled_cache', TRUE );
 		die();
+	}
+
+	/**
+	 * Extra checks needed on admin init
+	 */
+	public function extra_checks(){
+		if( defined('SPUP_VERSION') && version_compare(SPUP_VERSION, '1.9.1', '<') ){
+			deactivate_plugins( array('popups-premium/popups-premium.php'));
+			update_option('spu_pair_plugins',true);
+			add_action( 'admin_notices', array('SocialPopup_Notices','pair_plugins' ));
+		}
 	}
 }
