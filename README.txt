@@ -1,10 +1,10 @@
 === Popups - WordPress Popup ===
 Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
-Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
+Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups, popupmaker
 Requires at least: 3.6
-Tested up to: 4.8
-Stable tag: 1.7.3
+Tested up to: 4.8.2
+Stable tag: 1.8
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -69,12 +69,12 @@ There are multiple display filters that can be combined:
 > * New popup positions: top/bottoms bars , fullscreen mode, after post content
 > * A/B testing. Explore which popup perform better for you
 > * More Display Rules: Show after N(numbers) of pages viewed
-> * More Display Rules: Show popup at certain time
-> * More Display Rules: Show popup at certain day
+> * More Display Rules: Show popup at certain time / day or date
 > * More Display Rules: Show/hide if another popup already converted
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics ande define custom events
 > * Data sampling for heavy traffic sites
+> * Background images
 > * 8 New animations effects
 > * Exit Intent technology
 > * More trigger methods
@@ -199,6 +199,13 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.8 =
+* Redesigned popups admin pages
+* Added lot of new appearance options
+* New rule to match browsers
+* Added popups preview
+* Removed freemius
 
 = 1.7.3 =
 * Improved how post id is detected
