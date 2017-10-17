@@ -190,7 +190,6 @@ class SocialPopup {
 		} else {
 			self::single_activate();
 		}
-
 	}
 
 	/**

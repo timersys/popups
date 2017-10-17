@@ -71,9 +71,8 @@ SPU_ADMIN = (function ( $ ) {
         if (typeof spup_js == "undefined" || $('#spu_optin').val() == '') {
             // remove any field that could be there after deactivating premium version
             $editor.find(".spu-fields-container").remove();
-
+            $editor.find("#tinymce").attr('style', 'padding: ' + getPxValue($("#spu-padding")) + 'px !important');
             $editor.find("#tinymce").css({
-                'padding': getPxValue($("#spu-padding")),
                 'background-color': spu_hexToRgb(getColor($("#spu-background-color")),$("#spu_background_opacity").val()),
                 'border-color': getColor($("#spu-border-color")),
                 'border-width': getPxValue($("#spu-border-width")),
@@ -87,7 +86,13 @@ SPU_ADMIN = (function ( $ ) {
                 'box-shadow': ($("#spu-shadow-type").val() == 'inset' ? 'inset' : '') +' '+ $("#spu-shadow-x").val() + 'px ' + $("#spu-shadow-y").val() + 'px ' + $("#spu-shadow-blur").val() + 'px ' + $("#spu-shadow-spread").val() + 'px ' + getColor($("#spu-shadow-color"))
 
         });
+            var img_src = $('#spu_bgimage').val();
+            $editor.find("#tinymce").css({
+                'background-image': 'url("'+img_src+'")',
+                'background-size' : 'cover'
+            });
         }
+
 	}
 
 

@@ -59,6 +59,13 @@ class Spu_Helper {
 			);
 		}
 
+		if(  $options['param'] == 'date' ) {
+			$choices = array_merge( $choices,array(
+				'<'	=>	__("less than", 'popups' ),
+				'>'	=>	__("greater than", 'popups' ),
+			));
+		}
+
 		// allow custom operators
 		$choices = apply_filters( 'spu/metaboxes/rule_operators', $choices, $options );
 		

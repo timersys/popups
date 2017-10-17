@@ -20,6 +20,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				<input id="spu_bgcolor" name="spu[css][overlay_color]" type="text" class="spu-color-field" value="<?php echo esc_attr($opts['css']['overlay_color']); ?>" />
 			</td>
 		</tr>
+		<?php do_action( 'spu/metaboxes/after_overlay_appearance', $opts );?>
 		<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'On  <a href="%s">Premium version</a> you can have full screen popups, or sticky popups, insert optin forms inside yours post and much more!','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=appearance_overlay&utm_campaign=Popups%20Premium');?></th></tr>
 	</table>
 	<h3>Popup Background</h3>
@@ -37,18 +38,19 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				<p class="spu-help"><?php _e( 'Leave at 0 for no background. Max value is 1', 'popups' ); ?></p>
 			</td>
 		</tr>
+		<?php do_action( 'spu/metaboxes/after_background_appearance', $opts );?>
 		<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'Check <a href="%s">Premium version</a> to add background images or choose a pre made optin theme!','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=appearance_bg&utm_campaign=Popups%20Premium');?></th></tr>
 	</table>
 	<h3>Popup Box</h3>
 	<table class="form-table">
-		<tr>
+		<tr class="hide-for-optins">
 			<th><label class="spu-label" for="spu-width"><?php _e( 'Box width', 'popups' ); ?></label></th>
 			<td>
 				<input id="spu-width" name="spu[css][width]" id="spu-box-width" type="text" class="small" value="<?php echo esc_attr($opts['css']['width']); ?>" />
 				<p class="spu-help"><?php _e( 'Max size the responsive popup will grow. You can use % or px.', 'popups' ); ?></p>
 			</td>
 		</tr>
-		<tr>
+		<tr class="hide-for-optins">
 			<th><label class="spu-label" for="spu-padding"><?php _e( 'Padding', 'popups' ); ?></label></th>
 			<td>
 				<input id="spu-padding" name="spu[css][padding]" id="spu-box-padding" type="number" class="small" value="<?php echo esc_attr($opts['css']['padding']); ?>" />px
@@ -60,6 +62,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				<input id="spu-color" name="spu[css][color]" type="text" class="spu-color-field" value="<?php echo esc_attr($opts['css']['color']); ?>" />
 			</td>
 		</tr>
+		<?php do_action( 'spu/metaboxes/after_box_appearance', $opts );?>
 	</table>
 	<h3>Popup Shadow</h3>
 	<table class="form-table">
@@ -102,6 +105,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				<input id="spu-shadow-spread" name="spu[css][shadow_spread]" type="number" step="1" class="small" value="<?php echo esc_attr($opts['css']['shadow_spread']); ?>" />px
 			</td>
 		</tr>
+		<?php do_action( 'spu/metaboxes/after_shadow_appearance', $opts );?>
 	</table>
 	<h3>Border</h3>
 
@@ -140,6 +144,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				</select>
 			</td>
 		</tr>
+		<?php do_action( 'spu/metaboxes/after_border_appearance', $opts );?>
 	</table>
 	<h3>Close</h3>
 	<table class="form-table">
@@ -179,6 +184,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				</select>
 			</td>
 		</tr>
+		<?php do_action( 'spu/metaboxes/after_close_appearance', $opts );?>
 	</table>
 	<h3>CSS</h3>
 	<table class="form-table">

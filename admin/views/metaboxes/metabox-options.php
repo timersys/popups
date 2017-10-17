@@ -21,6 +21,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		<td colspan="2"></td>
 	</tr>
 	<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'On  <a href="%s">Premium version</a> there are more cool positions and popup styles.','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=options_position&utm_campaign=Popups%20Premium');?></th></tr>
+	<?php do_action( 'spu/metaboxes/after_position_options', $opts );?>
 </table>
 <h3>Trigger</h3>
 <table class="form-table">
@@ -45,6 +46,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		<td style="margin:0;padding:0"></td><td style="position: relative;top: -15px;margin:0;padding:0 0 0 10px"><p class="help"><?php _e( 'Choose how the popup will be triggered on the page', 'popups' ); ?></p></td>
 	</tr>
 	<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'On  <a href="%s">Premium version</a> you can use exit intent trigger technology, or attach to any element that appears in the viewport.','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=options_trigger&utm_campaign=Popups%20Premium');?></th></tr>
+	<?php do_action( 'spu/metaboxes/after_trigger_options', $opts );?>
 </table>
 <h3><?php _e( 'Cookies', 'popups');?></h3>
 	<p><?php _e( 'We use PHP cookies to prevent popups opening for users after they closed it.', 'popups');?></p>
@@ -63,6 +65,10 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'After closing the popup, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
 	</tr>
+	<?php do_action( 'spu/metaboxes/after_cookie_options', $opts );?>
+</table>
+<h3>Close options</h3>
+<table class="form-table">
 	<tr valign="top" class="conversion_close">
 		<th><label for="spu_conversion_close"><?php _e( 'Close on conversion?', 'popups' ); ?></label></th>
 		<td colspan="3">
@@ -71,6 +77,7 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'If you have a form or social shortcode, by default popup will close on submission/conversion', 'popups' ); ?></p>
 		</td>
 	</tr>
+	<?php do_action( 'spu/metaboxes/after_close_options', $opts );?>
 </table>
 <h3>Other options</h3>
 <table class="form-table">
@@ -111,7 +118,8 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php echo sprintf(__( 'Shows a "powered by" link below your popup. If your affiliate link is set in the <a href="%s">settings</a>, it will be used.', 'popups' ), admin_url('edit.php?post_type=spucpt&page=spu_settings')); ?></p>
 		</td>
 	</tr>
+	<?php do_action( 'spu/metaboxes/after_other_options', $opts );?>
 </table>
-	<?php do_action( 'spu/metaboxes/after_display_options', $opts );?>
+	<?php do_action( 'spu/metaboxes/after_options', $opts );?>
 </div>
 	<?php wp_nonce_field( 'spu_options', 'spu_options_nonce' ); ?>
