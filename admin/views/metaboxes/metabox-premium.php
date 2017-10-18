@@ -17,7 +17,7 @@ if($today > $blackbegin && $today < $blackend) : ?>
 <h2><?php _e( 'Popups Premium Features:', 'popups' );?></h2>
 <ul>
 	<li><?php _e( 'Beautiful optin forms for popular mail providers', 'popups' );?></li>
-	<li><?php _e( 'Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, ActiveCampaign, Newsletter plugin', 'popups' );?></li>
+	<li><?php _e( 'Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, ActiveCampaign, Newsletter plugin, InfusionSoft, etc', 'popups' );?></li>
 	<li><?php _e( 'A/B testing. Explore which popup perform better for you.', 'popups' );?></li>
 	<li><?php _e( 'Track impressions and Conversions of social likes and forms submissions like Contact Form 7, Gravity forms, etc', 'popups' );?></li>
 	<li><?php _e( 'Track impressions and Conversions in Google Analytics ande define custom events', 'popups' );?></li>

@@ -65,7 +65,7 @@ There are multiple display filters that can be combined:
 > Check the **new premium version** available in ([https://timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
-> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign
+> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign, InfusionSoft, etc
 > * New popup positions: top/bottoms bars , fullscreen mode, after post content
 > * A/B testing. Explore which popup perform better for you
 > * More Display Rules: Show after N(numbers) of pages viewed
@@ -159,16 +159,11 @@ You can modify everything with css. If your popup id is 120 you can add some css
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
 
-
-= How to close the popup is a user clicks on a regular link ? =
-To use custom conversions check [this code](https://gist.github.com/timersys/7facec9c80935a0df1c6) . You need to add it in your theme javascript files
-
 = If I have multiple Gravity forms on my page, form is not working =
 On certain occasions multiple GF instances can cause problems. There is a plugin that fixes that https://wordpress.org/plugins/gravity-forms-multiple-form-instances/
 
 = How to make Popups plugin compatible with Maxbuttons Plugin (https://es.wordpress.org/plugins/maxbuttons/) =
  Check the following gists ( https://gist.github.com/timersys/e3648ba93955ddef4087 )
-
 
 = I closed the popup but youtube video is still playing. How I fix it? =
 Check [this](https://gist.github.com/timersys/d3cde5a27e9f2ae4ac83d5c619e6ebfa) or [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
