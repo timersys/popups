@@ -443,7 +443,7 @@ class SocialPopup {
 			$viewing_id = get_queried_object_id();
 			foreach ( $spu_ids as $spu ) {
 				if (  $spu->ID == $viewing_id ) {
-					$spu_matches = [];
+					$spu_matches = array();
 					$spu_matches[$spu->ID] = $spu->ID;
 				}
 			}

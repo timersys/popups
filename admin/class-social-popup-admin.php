@@ -926,7 +926,8 @@ class SocialPopup_Admin {
 	 * Extra checks needed on admin init
 	 */
 	public function extra_checks(){
-		if( defined('SPUP_VERSION') && version_compare(SPUP_VERSION, '1.9.1', '<') ){
+		// second check it's because on 1.9 by mistake was not added SPUP_VERSION
+		if( ( defined('SPUP_VERSION') && version_compare(SPUP_VERSION, '1.9.1', '<') ) || ( defined( 'SPUP_PLUGIN_FILE') && ! defined('SPUP_VERSION') ) ){
 			deactivate_plugins( array('popups-premium/popups-premium.php'));
 			update_option('spu_pair_plugins',true);
 			add_action( 'admin_notices', array('SocialPopup_Notices','pair_plugins' ));
