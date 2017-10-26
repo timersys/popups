@@ -269,7 +269,7 @@ var SPU_master = function() {
             });
 
             // CF7 support
-            $('body').on('mailsent.wpcf7', function(){
+            $(document).on('wpcf7mailsent', function(){
                 $box.trigger('spu.form_submitted', [id]);
                 toggleBox(id, false, true );
             });
