@@ -453,6 +453,11 @@ var SPU_master = function() {
 				spuCreateCookie( 'spu_box_' + id, true, days );
 			}
             $box.trigger('spu.box_close', [id]);
+			// check for videos inside and destroy it
+			var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
+			if( iframe ){
+				$box.remove();
+			}
 		} else {
             setTimeout(function(){
                 centerShortcodes($box);
