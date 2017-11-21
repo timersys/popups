@@ -139,6 +139,9 @@ class Spu_Rules
 						if( !$match )
 						{
 							$match_group = false;
+							// if one rule fails we don't need to check the rest of the rules in the group
+							// that way if we add geo rules down it won't get executed and will save credits
+							break;
 						}
 
 					}
@@ -987,13 +990,31 @@ class Spu_Rules
 		{
 			return false;
 		}
+		// if we are inside taxonomy archive page (Ajax mode)
+		if( $this->is_archive ){
+			if($rule['operator'] == "==")
+				return $rule['value'] == $this->post_id;
+			else
+				return $rule['value'] != $this->post_id;
+		}
 
+		$qo = get_queried_object();
 
-		// post type
-		$post_type = $this->get_post_type();
+		// if we are inside taxonomy archive page
+		if( isset($qo->term_id) && $qo->term_id == $this->post_id ){
+			if($rule['operator'] == "==")
+				return $rule['value'] == $qo->term_id;
+			else
+				return $rule['value'] != $qo->term_id;
+		} else {
+			// post type
+			$post_type = $this->get_post_type();
+			// vars
+			$taxonomies = get_object_taxonomies( $post_type );
+		}
 
-		// vars
-		$taxonomies = get_object_taxonomies( $post_type );
+		$terms = array();
+
 
     	if( is_array($taxonomies) )
     	{
