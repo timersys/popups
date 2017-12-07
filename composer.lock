@@ -4,9 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a0cb848965f84b8acaa4699e96e86630",
-    "content-hash": "47f8ec96b2421b28ca73c5ab992da39f",
+    "content-hash": "fe7213eeccfa0dd003c369f624314b84",
     "packages": [
+        {
+            "name": "cbschuld/browser.php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cbschuld/Browser.php.git",
+                "reference": "6bde9efb0b14a4917affe741500c29149419e491"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cbschuld/Browser.php/zipball/6bde9efb0b14a4917affe741500c29149419e491",
+                "reference": "6bde9efb0b14a4917affe741500c29149419e491",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.95-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "lib/Browser.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Schuld",
+                    "email": "chris@chrisschuld.com",
+                    "homepage": "http://chrisschuld.com"
+                }
+            ],
+            "description": "A PHP Class to detect a user's Browser",
+            "homepage": "http://chrisschuld.com/projects/browser-php-detecting-a-users-browser-from-php.html",
+            "keywords": [
+                "browser",
+                "detection",
+                "user agent"
+            ],
+            "time": "2017-07-31 23:43:17"
+        },
         {
             "name": "jaybizzle/crawler-detect",
             "version": "v1.2.15",
@@ -53,7 +97,7 @@
                 "crawlerdetect",
                 "php crawler detect"
             ],
-            "time": "2016-08-19 20:27:52"
+            "time": "2016-08-19T20:27:52+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -107,13 +151,15 @@
                 "mobile detector",
                 "php mobile detect"
             ],
-            "time": "2016-04-24 09:47:16"
+            "time": "2016-04-24T09:47:16+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "cbschuld/browser.php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

@@ -1,6 +1,8 @@
 {
+    "minimum-stability": "dev",
     "require": {
         "jaybizzle/crawler-detect": "1.*",
-        "mobiledetect/mobiledetectlib": "^2.8"
+        "mobiledetect/mobiledetectlib": "^2.8",
+        "cbschuld/browser.php": "^1.95@dev"
     }
 }

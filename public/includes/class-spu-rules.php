@@ -212,15 +212,16 @@ class Spu_Rules
 	 */
 	function rule_match_browser( $match, $rule ) {
 
-		$detect = new Mobile_Detect;
+		$detect = new Browser();
+
 		//check $detect $browsers for valid keys
 		if ( $rule['operator'] == "==" ) {
 
-			return $detect->is($rule['value']);
+			return $detect->getBrowser() == $rule['value'];
 
 		} else {
 
-			return !$detect->is($rule['value']);
+			return $detect->getBrowser() != $rule['value'];
 
 		}
 
