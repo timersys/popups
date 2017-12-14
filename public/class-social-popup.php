@@ -715,6 +715,8 @@ class SocialPopup {
 	 */
 	function print_boxes(  ) {
 
+		do_action('spu/print_boxes');
+
 		$spu_matches = $this->check_for_matches();
 
 		//if we have matches continue
@@ -761,8 +763,6 @@ class SocialPopup {
 
 	  	if ( empty( $_REQUEST['spu_action'] ) || $_REQUEST['spu_action'] != 'spu_load' )
     		return;
-
-		do_action('spu/print_boxes');
 
 	  	define( 'DOING_AJAX', TRUE );
 
