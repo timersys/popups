@@ -249,7 +249,7 @@ var SPU_master = function() {
                         $('#spu-' + id ).html(response);
 
                         // check if an error was returned for m4wp
-                        if( ! $('#spu-' + id ).find('.mc4wp-form-error').length ) {
+                        if( ! $('#spu-' + id ).find('.mc4wp-alert').length ) {
 
                             // give 2 seconds for response
                             setTimeout( function(){
@@ -258,7 +258,7 @@ var SPU_master = function() {
 
                             }, spuvar.seconds_confirmation_close * 1000);
 
-                        }
+                        } 
                     };
                 // Send form by ajax and replace popup with response
                 request(data, url, success_cb, error_cb, 'html');
