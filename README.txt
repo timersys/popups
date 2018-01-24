@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups, popupmaker
 Requires at least: 3.6
-Tested up to: 4.8.2
-Stable tag: 1.8
+Tested up to: 4.9.3
+Stable tag: 1.9
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -98,20 +98,14 @@ Fork me in https://github.com/timersys/popups/
 * Russian
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
+* German
 
 = Beautiful WordPress Emails  =
 Now you can send html email in WordPress with [https://wordpress.org/plugins/email-templates/](https://wordpress.org/plugins/email-templates/)
+
 = Install Multiple plugins at once with WpFavs  =
 
 Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
-
-= Increase your twitter followers  =
-
-Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.org/extend/plugins/twitter-like-box-reloaded/](http://wordpress.org/extend/plugins/twitter-like-box-reloaded/))
-
-= Wordpress Social Invitations  =
-
-Enhance your site by letting your users send Social Invitations ([https://timersys.com/wordpress-social-invitations/](https://timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme))
 
 == Installation ==
 
@@ -194,6 +188,16 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.9 =
+* Added German language
+* Fixed messages not showing for mailchinp for wordpress
+* Fixed preview mode with ajax mode turned on
+* Fixed browser rule
+* Fixed taxonomies archives rule
+* Improved performance with rules
+* Youtube/vimeo videos are automatically removed when popup it's closed
+* Updated CF7 events
 
 = 1.8 =
 * Redesigned popups admin pages
