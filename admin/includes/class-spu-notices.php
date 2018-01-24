@@ -61,4 +61,13 @@ jQuery(function($){
 </script>
 		<?php
 	}
+
+	public static function pair_plugins(){
+		?><div class="notice-info error">
+		<h3><i class=" dashicons-before dashicons-share-alt"></i>WordPress Popups Plugin error</h3>
+		<p><?php _e('The Popups premium was automatically deactivated.', 'spu');?></p>
+		<p><?php _e( 'Your current version of Popups premium it\'s not compatible with the core Popups plugin you just installed/updated. Please upgrade your premium version to at least 1.9.1 or downgrade the core version to 1.7.3 .', 'spu' ); ?></p>
+		<p><a href="<?= admin_url('?spu_notice=pair_plugins_dismiss');?>" class="button-primary"><?php _e('Dismiss','spu');?></a></p>
+		</div><?php
+	}
 }

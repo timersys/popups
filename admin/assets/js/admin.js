@@ -15,7 +15,7 @@ SPU_ADMIN = (function ( $ ) {
 		if( color_field.length && (  ! spu_optin.length || spu_optin.val() == '' ) ){
             color_field.wpColorPicker({ change: applyStyles, clear: applyStyles });
         }
-		$("#spu-appearance :input").not(".spu-color-field").change(applyStyles);
+		$("#spu-appearance input,#spu-appearance select").not(".spu-color-field").change(applyStyles);
 
 		//Toogle trigger boxes on init
 		checkTriggerMethod( $("#spu_trigger").val() );
@@ -64,27 +64,35 @@ SPU_ADMIN = (function ( $ ) {
 		var $editor = $("#content_ifr").contents().find('html');
         $editor.trigger('spu_tinymce_init');
 		$editor.css({
-			'background': '#9C9B9B;'
+			'background': spu_hexToRgb(getColor($("#spu_bgcolor")),$("#spu_bgopacity").val())
 		});
 
         // if there is no optin mode load defaults
         if (typeof spup_js == "undefined" || $('#spu_optin').val() == '') {
             // remove any field that could be there after deactivating premium version
             $editor.find(".spu-fields-container").remove();
+            $editor.find("#tinymce").attr('style', 'padding: ' + getPxValue($("#spu-padding")) + 'px !important');
             $editor.find("#tinymce").css({
-                'padding': '25px',
-                'background-color': getColor($("#spu-background-color")),
+                'background-color': spu_hexToRgb(getColor($("#spu-background-color")),$("#spu_background_opacity").val()),
                 'border-color': getColor($("#spu-border-color")),
                 'border-width': getPxValue($("#spu-border-width")),
-                'border-style': 'solid',
+                'border-style': $("#spu-border-type").val(),
                 'width': $("#spu-width").val(),
                 'color': getColor($("#spu-color")),
                 'height': 'auto',
                 'min-width': '200px',
                 'max-width': '100%',
-                'margin': '8px auto 0;'
+                'margin': '8px auto 0;',
+                'box-shadow': ($("#spu-shadow-type").val() == 'inset' ? 'inset' : '') +' '+ $("#spu-shadow-x").val() + 'px ' + $("#spu-shadow-y").val() + 'px ' + $("#spu-shadow-blur").val() + 'px ' + $("#spu-shadow-spread").val() + 'px ' + getColor($("#spu-shadow-color"))
+
+        });
+            var img_src = $('#spu_bgimage').val();
+            $editor.find("#tinymce").css({
+                'background-image': 'url("'+img_src+'")',
+                'background-size' : 'cover'
             });
         }
+
 	}
 
 
@@ -325,3 +333,15 @@ SPU_ADMIN = (function ( $ ) {
 	}
 	global.aceSyncCSS = syncCSS;
 } )( this, jQuery );
+function spu_hexToRgb(hex, alpha) {
+    hex   = hex.replace('#', '');
+    var r = parseInt(hex.length == 3 ? hex.slice(0, 1).repeat(2) : hex.slice(0, 2), 16);
+    var g = parseInt(hex.length == 3 ? hex.slice(1, 2).repeat(2) : hex.slice(2, 4), 16);
+    var b = parseInt(hex.length == 3 ? hex.slice(2, 3).repeat(2) : hex.slice(4, 6), 16);
+    if ( alpha ) {
+        return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')';
+    }
+    else {
+        return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    }
+}

@@ -59,6 +59,13 @@ class Spu_Helper {
 			);
 		}
 
+		if(  $options['param'] == 'date' ) {
+			$choices = array_merge( $choices,array(
+				'<'	=>	__("less than", 'popups' ),
+				'>'	=>	__("greater than", 'popups' ),
+			));
+		}
+
 		// allow custom operators
 		$choices = apply_filters( 'spu/metaboxes/rule_operators', $choices, $options );
 		
@@ -214,11 +221,8 @@ class Spu_Helper {
 				break;
 			
 			case "post" :
-				
-				$post_types = get_post_types();
-				
+				$post_types = apply_filters('spu/get_post_types', array());
 				unset( $post_types['page'], $post_types['attachment'], $post_types['revision'] , $post_types['nav_menu_item'], $post_types['spucpt']  );
-				
 				if( $post_types )
 				{
 					foreach( $post_types as $post_type )
@@ -425,13 +429,29 @@ class Spu_Helper {
 	{
 		$defaults = array(
 			'css' => array(
-				'position' 			=> 'centered',
 				'bgopacity'			=> '0.5',
+				'overlay_color'		=> '#000',
 				'background_color'	=> '#eeeeee',
-				'color'				=> '#333',
+				'background_opacity'=> '1',
 				'width'				=> '600px',
-				'border_color'		=> '#555',
+				'padding'			=> '25',
+				'color'				=> '#333',
+				'shadow_color'		=> '#666',
+				'shadow_type'		=> 'outset',
+				'shadow_x_offset'	=> '0',
+				'shadow_y_offset'	=> '0',
+				'shadow_blur'	    => '10',
+				'shadow_spread'	    => '1',
+				'border_color'		=> '#eee',
 				'border_width'		=> '8',
+				'border_radius'		=> '0',
+				'border_type'		=> 'none',
+				'close_color'		=> '#666',
+				'close_hover_color'	=> '#000',
+				'close_size'		=> '30px',
+				'close_position'	=> 'top_right',
+				'close_shadow_color'=> '#fff',
+				'position' 			=> 'centered',
 			),
 			'trigger'			=> 'seconds',
 			'trigger_number'	=> '5',
@@ -446,7 +466,14 @@ class Spu_Helper {
 		
 		$opts = apply_filters( 'spu/metaboxes/box_options', get_post_meta( $id, 'spu_options', true ), $id );
 
-		return wp_parse_args( $opts, apply_filters( 'spu/metaboxes/default_options', $defaults ) );
+		$opts = wp_parse_args( $opts, apply_filters( 'spu/metaboxes/default_options', $defaults ) );
+		// we added new rules as we can't merge recursively, so manual check them
+		foreach ( $defaults['css'] as $key => $value ) {
+			if( ! isset($opts['css'][$key] ) )
+				$opts['css'][$key] = $value;
+		}
+
+		return $opts;
 	}	
 
 	/**
@@ -485,5 +512,50 @@ class Spu_Helper {
 		}
 
 		
+	}
+
+	/**
+	 * Simple HEX TO RGBA converter
+	 * @param $color
+	 * @param bool $opacity
+	 *
+	 * @return string
+	 */
+	public static function hex2rgba($color, $opacity = false) {
+
+		$default = 'rgb(0,0,0)';
+
+		//Return default if no color provided
+		if(empty($color))
+			return $default;
+
+		//Sanitize $color if "#" is provided
+		if ($color[0] == '#' ) {
+			$color = substr( $color, 1 );
+		}
+
+		//Check if color has 6 or 3 characters and get values
+		if (strlen($color) == 6) {
+			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+		} elseif ( strlen( $color ) == 3 ) {
+			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+		} else {
+			return $default;
+		}
+
+		//Convert hexadec to rgb
+		$rgb =  array_map('hexdec', $hex);
+
+		//Check if opacity is set(rgba or rgb)
+		if($opacity){
+			if(abs($opacity) > 1)
+				$opacity = 1.0;
+			$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+		} else {
+			$output = 'rgb('.implode(",",$rgb).')';
+		}
+
+		//Return rgb(a) color string
+		return $output;
 	}
 }	

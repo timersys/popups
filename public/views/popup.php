@@ -40,15 +40,34 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
 
 ?>
 <style type="text/css">
+#spu-<?php echo $box->ID; ?> .spu-close{
+	font-size: <?php echo esc_attr($css['close_size']); ?>;
+	color:<?php echo esc_attr($css['close_color']); ?>;
+	text-shadow: 0 1px 0 <?php echo esc_attr($css['close_shadow_color']); ?>;
+}
+#spu-<?php echo $box->ID; ?> .spu-close:hover{
+	color:<?php echo esc_attr($css['close_hover_color']); ?>;
+}
 #spu-<?php echo $box->ID; ?> {
 	background-color: <?php echo ( !empty( $css['background_color'] ) ) ? esc_attr($css['background_color']) : 'white'; ?>;
-	<?php if ( !empty( $css['color'] ) ) { ?>color: <?php echo esc_attr($css['color']); ?>;<?php } ?>
-	<?php if ( !empty( $css['border_width'] ) ) { ?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> solid <?php echo esc_attr($css['border_color']); echo !empty( $opts['optin'] ) ? ' !important':'';?>;<?php } ?>
+	background-color: <?php echo ( !empty( $css['background_color'] ) ) ? Spu_Helper::hex2rgba(esc_attr($css['background_color']),esc_attr($css['background_opacity'] )) : 'white'; ?>;
+	color: <?php echo esc_attr($css['color']); ?>;
+	padding: <?php echo esc_attr($css['padding']); ?>px;
+	<?php if ( $css['border_type'] != 'none' ) {
+		?>border: <?php echo esc_attr($css['border_width']) . 'px' ?> <?php echo esc_attr($css['border_type']) ?> <?php echo esc_attr($css['border_color']); echo !empty( $opts['optin'] ) ? ' !important':'';?>;
+	<?php } ?>
+	border-radius: <?php echo esc_attr($css['border_radius']) . 'px' ?>;
+	-moz-border-radius: <?php echo esc_attr($css['border_radius']) . 'px' ?>;
+	-webkit-border-radius: <?php echo esc_attr($css['border_radius']) . 'px' ?>;
+	-moz-box-shadow: <?php echo $css['shadow_type'] == 'inset' ? 'inset' : ''?> <?php echo esc_attr($css['shadow_x_offset']) . 'px' ?> <?php echo esc_attr($css['shadow_y_offset']) . 'px' ?> <?php echo esc_attr($css['shadow_blur']) . 'px' ?> <?php echo esc_attr($css['shadow_spread']) . 'px' ?> <?php echo esc_attr($css['shadow_color'])?>;
+	-webkit-box-shadow: <?php echo $css['shadow_type'] == 'inset' ? 'inset' : ''?> <?php echo esc_attr($css['shadow_x_offset']) . 'px' ?> <?php echo esc_attr($css['shadow_y_offset']) . 'px' ?> <?php echo esc_attr($css['shadow_blur']) . 'px' ?> <?php echo esc_attr($css['shadow_spread']) . 'px' ?> <?php echo esc_attr($css['shadow_color'])?>;
+	box-shadow: <?php echo $css['shadow_type'] == 'inset' ? 'inset' : ''?> <?php echo esc_attr($css['shadow_x_offset']) . 'px' ?> <?php echo esc_attr($css['shadow_y_offset']) . 'px' ?> <?php echo esc_attr($css['shadow_blur']) . 'px' ?> <?php echo esc_attr($css['shadow_spread']) . 'px' ?> <?php echo esc_attr($css['shadow_color'])?>;
 	<?php echo ( empty( $opts['optin'] ) || $opts['optin'] == 'custom' ) ? 'width: ' . esc_attr( $width ) : ''; ?>;
 
 }
 #spu-bg-<?php echo $box->ID; ?> {
 	opacity: <?php echo ( !empty( $css['bgopacity'] ) ) ? esc_attr($css['bgopacity']) : 0; ?>;
+	background-color: <?php echo  esc_attr($css['overlay_color'])?>;
 }
 <?php echo isset( $css['custom_css'] ) ? $css['custom_css'] : '';?>
 <?php do_action( 'spu/popup/popup_style', $box, $opts, $css);?>
@@ -61,7 +80,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
  data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-close-on-conversion="<?php echo $opts['conversion_close'] == 1 ?'1':''; ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-total="<?php echo get_post_meta($box->ID, 'spu_social',true);?>"
  style="left:-99999px !important;" data-width="<?php echo esc_attr(str_replace('px', '', $width)); ?>" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts, $box );?>>
 	<div class="spu-content"><?php echo $content; ?></div>
-	<span class="spu-close spu-close-popup"><i class="spu-icon spu-icon-close"></i></span>
+	<span class="spu-close spu-close-popup <?php echo esc_attr($css['close_position']); ?>"><i class="spu-icon spu-icon-close"></i></span>
 	<span class="spu-timer"></span>
 	<?php if( $opts['powered_link'] == '1' ) {
 		$aff_link = !empty($this->spu_settings['aff_link']) ? $this->spu_settings['aff_link'] : 'https://timersys.com/popups/';

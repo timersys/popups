@@ -12,6 +12,7 @@ var SPU_master = function() {
 
 	var windowHeight 	= $(window).height();
 	var isAdmin 		= spuvar.is_admin;
+	var isPreview		= spuvar.is_preview;
 	var $boxes 			= [];
 
 	//remove paddings and margins from first and last items inside box
@@ -151,7 +152,7 @@ var SPU_master = function() {
 		// show box if cookie not set or if in test mode
 		var cookieValue = spuReadCookie( 'spu_box_' + id );
 
-		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) ) {
+		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) || isPreview ) {
 
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
@@ -248,7 +249,7 @@ var SPU_master = function() {
                         $('#spu-' + id ).html(response);
 
                         // check if an error was returned for m4wp
-                        if( ! $('#spu-' + id ).find('.mc4wp-form-error').length ) {
+                        if( ! $('#spu-' + id ).find('.mc4wp-alert').length ) {
 
                             // give 2 seconds for response
                             setTimeout( function(){
@@ -257,7 +258,7 @@ var SPU_master = function() {
 
                             }, spuvar.seconds_confirmation_close * 1000);
 
-                        }
+                        } 
                     };
                 // Send form by ajax and replace popup with response
                 request(data, url, success_cb, error_cb, 'html');
@@ -268,7 +269,7 @@ var SPU_master = function() {
             });
 
             // CF7 support
-            $('body').on('mailsent.wpcf7', function(){
+            $(document).on('wpcf7mailsent', function(){
                 $box.trigger('spu.form_submitted', [id]);
                 toggleBox(id, false, true );
             });
@@ -452,6 +453,11 @@ var SPU_master = function() {
 				spuCreateCookie( 'spu_box_' + id, true, days );
 			}
             $box.trigger('spu.box_close', [id]);
+			// check for videos inside and destroy it
+			var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
+			if( iframe ){
+				$box.remove();
+			}
 		} else {
             setTimeout(function(){
                 centerShortcodes($box);
@@ -475,8 +481,14 @@ var SPU_master = function() {
         if (animation === 'fade') {
             if (show === true) {
                 $box.fadeIn('slow');
+            } else if (show === false && ( (conversion_close && conversion ) || !conversion )) {
+                $box.fadeOut('slow');
+            }
+        }else if (animation === 'disable') {
+            if (show === true ) {
+                $box.show();
             } else if (show === false && ( (conversion_close && conversion ) || !conversion )  ) {
-                    $box.fadeOut('slow');
+                $box.hide();
             }
         } else {
             if (show === true ) {
@@ -488,9 +500,17 @@ var SPU_master = function() {
 
         //background
         if (show === true && $bgopa > 0) {
-            $bg.fadeIn();
+            if (animation === 'disable') {
+                $bg.show();
+            } else {
+                $bg.fadeIn();
+            }
         } else if (show === false && ( (conversion_close && conversion ) || !conversion ) ) {
-            $bg.fadeOut();
+            if (animation === 'disable') {
+                $bg.hide();
+            } else {
+                $bg.fadeOut();
+            }
         }
 
 		return show;

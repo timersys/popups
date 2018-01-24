@@ -1,7 +1,8 @@
 <?php
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;?>
-
+<div class="spu-admin-options">
+<h3>Position</h3>
 <table class="form-table">
 
 	<?php do_action( 'spu/metaboxes/before_display_options', $opts );?>
@@ -19,6 +20,11 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 		</td>
 		<td colspan="2"></td>
 	</tr>
+	<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'On  <a href="%s">Premium version</a> there are more cool positions and popup styles.','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=options_position&utm_campaign=Popups%20Premium');?></th></tr>
+	<?php do_action( 'spu/metaboxes/after_position_options', $opts );?>
+</table>
+<h3>Trigger</h3>
+<table class="form-table">
 	<tr valign="top">
 		<th><label for="spu_trigger"><?php _e( 'Trigger action', 'popups' ); ?></label></th>
 		<td class="spu-sm">
@@ -39,32 +45,12 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 	<tr>
 		<td style="margin:0;padding:0"></td><td style="position: relative;top: -15px;margin:0;padding:0 0 0 10px"><p class="help"><?php _e( 'Choose how the popup will be triggered on the page', 'popups' ); ?></p></td>
 	</tr>
-	<tr valign="top" class="auto_hide">
-		<th><label for="spu_auto_hide"><?php _e( 'Auto-hide?', 'popups' ); ?></label></th>
-		<td colspan="3">
-			<label><input type="radio" id="spu_auto_hide_1" name="spu[auto_hide]" value="1" <?php checked($opts['auto_hide'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
-			<label><input type="radio" id="spu_auto_hide_0" name="spu[auto_hide]" value="0" <?php checked($opts['auto_hide'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
-			<p class="help"><?php _e( 'Hide box again when visitors scroll back up?', 'popups' ); ?></p>
-		</td>
-	</tr>
-	<tr valign="top">
-	<th><label><?php _e( 'Animation', 'popups' ); ?></label></th>
-		<td colspan="3">
-			<select id="spu_animation" name="spu[animation]" class="widefat">
-				<option value="fade" <?php selected($opts['animation'], 'fade'); ?> > <?php _e( 'Fade In', 'popups' ); ?></option>
-				<option value="slide" <?php selected($opts['animation'], 'slide'); ?> > <?php _e( 'Slide In', 'popups' ); ?></option>
-				<?php do_action( 'spu/metaboxes/animations', $opts );?>
-			</select>
-			<p class="help"><?php _e( 'Slide will only apply when popup is on the corners', 'popups' ); ?></p>
-		</td>
-	</tr>
-
-	<tr valign="top">
-		<td colspan="4" style="padding: 0">
-			<h4><?php _e( 'Cookies', 'popups');?></h4>
-			<p><?php _e( 'We use PHP cookies to prevent popups opening for users after they closed it.', 'popups');?></p>
-		</td>
-	</tr>
+	<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'On  <a href="%s">Premium version</a> you can use exit intent trigger technology, or attach to any element that appears in the viewport.','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=options_trigger&utm_campaign=Popups%20Premium');?></th></tr>
+	<?php do_action( 'spu/metaboxes/after_trigger_options', $opts );?>
+</table>
+<h3><?php _e( 'Cookies', 'popups');?></h3>
+	<p><?php _e( 'We use PHP cookies to prevent popups opening for users after they closed it.', 'popups');?></p>
+<table class="form-table">
 	<tr valign="top">
 		<th><label for="spu_cookie"><?php _e( 'Conversion cookie', 'popups' ); ?></label></th>
 		<td colspan="3">
@@ -79,14 +65,10 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'After closing the popup, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
 	</tr>
-	<tr valign="top">
-		<th><label for="spu_test_mode"><?php _e( 'Enable test mode?', 'popups' ); ?></label></th>
-		<td colspan="3">
-			<label><input type="radio" id="spu_test_mode_1" name="spu[test_mode]" value="1" <?php checked($opts['test_mode'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
-			<label><input type="radio" id="spu_test_mode_0" name="spu[test_mode]" value="0" <?php checked($opts['test_mode'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
-			<p class="help"><?php _e( 'If test mode is enabled, the box will show up regardless of whether a cookie has been set. (To admins only)', 'popups' ); ?></p>
-		</td>
-	</tr>
+	<?php do_action( 'spu/metaboxes/after_cookie_options', $opts );?>
+</table>
+<h3>Close options</h3>
+<table class="form-table">
 	<tr valign="top" class="conversion_close">
 		<th><label for="spu_conversion_close"><?php _e( 'Close on conversion?', 'popups' ); ?></label></th>
 		<td colspan="3">
@@ -95,6 +77,39 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php _e( 'If you have a form or social shortcode, by default popup will close on submission/conversion', 'popups' ); ?></p>
 		</td>
 	</tr>
+	<?php do_action( 'spu/metaboxes/after_close_options', $opts );?>
+</table>
+<h3>Other options</h3>
+<table class="form-table">
+	<tr valign="top" class="auto_hide">
+		<th><label for="spu_auto_hide"><?php _e( 'Auto-hide?', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_auto_hide_1" name="spu[auto_hide]" value="1" <?php checked($opts['auto_hide'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_auto_hide_0" name="spu[auto_hide]" value="0" <?php checked($opts['auto_hide'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php _e( 'Hide box again when visitors scroll back up?', 'popups' ); ?></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<th><label for="spu_test_mode"><?php _e( 'Enable test mode?', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<label><input type="radio" id="spu_test_mode_1" name="spu[test_mode]" value="1" <?php checked($opts['test_mode'], 1); ?> /> <?php _e( 'Yes' ); ?></label> &nbsp;
+			<label><input type="radio" id="spu_test_mode_0" name="spu[test_mode]" value="0" <?php checked($opts['test_mode'], 0); ?> /> <?php _e( 'No' ); ?></label> &nbsp;
+			<p class="help"><?php _e( 'If test mode is enabled, the box will show up regardless of whether a cookie has been set. (To admins only)', 'popups' ); ?></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<th><label><?php _e( 'Animation', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<select id="spu_animation" name="spu[animation]" class="widefat">
+				<option value="fade" <?php selected($opts['animation'], 'fade'); ?> > <?php _e( 'Fade In', 'popups' ); ?></option>
+				<option value="slide" <?php selected($opts['animation'], 'slide'); ?> > <?php _e( 'Slide In', 'popups' ); ?></option>
+				<?php do_action( 'spu/metaboxes/animations', $opts );?>
+				<option value="disable" <?php selected($opts['animation'], 'disable'); ?> > <?php _e( 'Disable animations', 'popups' ); ?></option>
+			</select>
+			<p class="help"><?php _e( 'Slide will only apply when popup is on the corners', 'popups' ); ?></p>
+		</td>
+	</tr>
+	<tr><th colspan="2"><?php if( ! defined('SPUP_VERSION') ) echo sprintf( __( 'On  <a href="%s">Premium version</a> you have 8 new animations to play with!','popups'), 'https://timersys.com/plugins/popups-premium/?utm_source=Plugin&utm_medium=options_trigger&utm_campaign=Popups%20Premium');?></th></tr>
 	<tr valign="top" class="powered_link">
 		<th><label for="spu_powered_link"><?php _e( 'Show powered by link?', 'popups' ); ?></label></th>
 		<td colspan="3">
@@ -103,6 +118,8 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 			<p class="help"><?php echo sprintf(__( 'Shows a "powered by" link below your popup. If your affiliate link is set in the <a href="%s">settings</a>, it will be used.', 'popups' ), admin_url('edit.php?post_type=spucpt&page=spu_settings')); ?></p>
 		</td>
 	</tr>
-	<?php do_action( 'spu/metaboxes/after_display_options', $opts );?>
+	<?php do_action( 'spu/metaboxes/after_other_options', $opts );?>
 </table>
-<?php wp_nonce_field( 'spu_options', 'spu_options_nonce' ); ?>
+	<?php do_action( 'spu/metaboxes/after_options', $opts );?>
+</div>
+	<?php wp_nonce_field( 'spu_options', 'spu_options_nonce' ); ?>

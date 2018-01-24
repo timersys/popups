@@ -1,10 +1,10 @@
 === Popups - WordPress Popup ===
 Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
-Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups
+Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups, popupmaker
 Requires at least: 3.6
-Tested up to: 4.8
-Stable tag: 1.7.3
+Tested up to: 4.9.3
+Stable tag: 1.9
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,19 +62,19 @@ There are multiple display filters that can be combined:
 
 > <strong>Premium Version</strong><br>
 >
-> Check the **new premium version** available in ([https://wp.timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
+> Check the **new premium version** available in ([https://timersys.com/popups/](https://timersys.com/popups/?utm_source=readme%20file&utm_medium=readme%20links&utm_campaign=Popups%20Premium))
 >
 > * Beautiful optin forms for popular mail providers
-> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign
+> * Currently supporting MailChimp, Aweber, Postmatic, Mailpoet, Constant Contact, Newsletter plugin, Activecampaign, InfusionSoft, etc
 > * New popup positions: top/bottoms bars , fullscreen mode, after post content
 > * A/B testing. Explore which popup perform better for you
 > * More Display Rules: Show after N(numbers) of pages viewed
-> * More Display Rules: Show popup at certain time
-> * More Display Rules: Show popup at certain day
+> * More Display Rules: Show popup at certain time / day or date
 > * More Display Rules: Show/hide if another popup already converted
 > * Track impressions and Conversions of social networks and forms like CF7 or Gravity forms
 > * Track impressions and Conversions in Google Analytics ande define custom events
 > * Data sampling for heavy traffic sites
+> * Background images
 > * 8 New animations effects
 > * Exit Intent technology
 > * More trigger methods
@@ -98,20 +98,14 @@ Fork me in https://github.com/timersys/popups/
 * Russian
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
+* German
 
 = Beautiful WordPress Emails  =
 Now you can send html email in WordPress with [https://wordpress.org/plugins/email-templates/](https://wordpress.org/plugins/email-templates/)
+
 = Install Multiple plugins at once with WpFavs  =
 
 Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
-
-= Increase your twitter followers  =
-
-Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.org/extend/plugins/twitter-like-box-reloaded/](http://wordpress.org/extend/plugins/twitter-like-box-reloaded/))
-
-= Wordpress Social Invitations  =
-
-Enhance your site by letting your users send Social Invitations ([https://timersys.com/wordpress-social-invitations/](https://timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme))
 
 == Installation ==
 
@@ -159,19 +153,14 @@ You can modify everything with css. If your popup id is 120 you can add some css
 = Can I give other roles permissions to edit popups ? =
 You need to add [this code](https://gist.github.com/timersys/03067ac7594fdce288ca) to your functions.php
 
-
-= How to close the popup is a user clicks on a regular link ? =
-To use custom conversions check [this code](https://gist.github.com/timersys/7facec9c80935a0df1c6) . You need to add it in your theme javascript files
-
 = If I have multiple Gravity forms on my page, form is not working =
 On certain occasions multiple GF instances can cause problems. There is a plugin that fixes that https://wordpress.org/plugins/gravity-forms-multiple-form-instances/
 
 = How to make Popups plugin compatible with Maxbuttons Plugin (https://es.wordpress.org/plugins/maxbuttons/) =
  Check the following gists ( https://gist.github.com/timersys/e3648ba93955ddef4087 )
 
-
-= I closed the popup but youtube is still playing. How I fix it? =
-Check [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
+= I closed the popup but youtube video is still playing. How I fix it? =
+Check [this](https://gist.github.com/timersys/d3cde5a27e9f2ae4ac83d5c619e6ebfa) or [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
 
 = Can I attach my custom js events to popups plugin? =
 Yes you can attach to any of this events . id = Popup id
@@ -199,6 +188,23 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.9 =
+* Added German language
+* Fixed messages not showing for mailchinp for wordpress
+* Fixed preview mode with ajax mode turned on
+* Fixed browser rule
+* Fixed taxonomies archives rule
+* Improved performance with rules
+* Youtube/vimeo videos are automatically removed when popup it's closed
+* Updated CF7 events
+
+= 1.8 =
+* Redesigned popups admin pages
+* Added lot of new appearance options
+* New rule to match browsers
+* Added popups preview
+* Removed freemius
 
 = 1.7.3 =
 * Improved how post id is detected

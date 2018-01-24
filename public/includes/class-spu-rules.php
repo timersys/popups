@@ -74,10 +74,11 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/desktop', array($this, 'rule_match_desktop'), 10, 2);
 		add_filter('spu/rules/rule_match/referrer', array($this, 'rule_match_referrer'), 10, 2);
 		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
+		add_filter('spu/rules/rule_match/browser', array($this, 'rule_match_browser'), 10, 2);
 		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
 
 		$this->post_id 	    = get_queried_object_id();
-		$this->referrer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+		$this->referrer     = isset($_SERVER['HTTP_REFERER']) && !defined('DOING_AJAX') ? $_SERVER['HTTP_REFERER'] : '';
 		$this->query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
 
 		if( defined('DOING_AJAX') ) {
@@ -138,6 +139,9 @@ class Spu_Rules
 						if( !$match )
 						{
 							$match_group = false;
+							// if one rule fails we don't need to check the rest of the rules in the group
+							// that way if we add geo rules down it won't get executed and will save credits
+							break;
 						}
 
 					}
@@ -196,6 +200,28 @@ class Spu_Rules
 		} else {
 
 			return !$detect->isMobile();
+
+		}
+
+	}
+	/**
+	 * [rule_match_browser description]
+	 * @param  bool $match false default
+	 * @param  array $rule rule to compare
+	 * @return boolean true if match
+	 */
+	function rule_match_browser( $match, $rule ) {
+
+		$detect = new Browser();
+
+		//check $detect $browsers for valid keys
+		if ( $rule['operator'] == "==" ) {
+
+			return $detect->getBrowser() == $rule['value'];
+
+		} else {
+
+			return $detect->getBrowser() != $rule['value'];
 
 		}
 
@@ -334,7 +360,7 @@ class Spu_Rules
 	function rule_match_query_string( $match, $rule ) {
 
 
-		$found = strpos($this->query_string, $rule['value']) > -1 ? true: false;
+		$found = strpos($this->query_string, str_replace('?','', $rule['value'] ) ) > -1 ? true: false;
 
 
 		if ( $rule['operator'] == "==" )
@@ -362,7 +388,6 @@ class Spu_Rules
 			return !preg_match( '~' . $internal . '~i', $ref );
 
 		} else {
-
 			return preg_match( '~' . $internal . '~i', $ref );
 
 		}
@@ -965,13 +990,31 @@ class Spu_Rules
 		{
 			return false;
 		}
+		// if we are inside taxonomy archive page (Ajax mode)
+		if( $this->is_archive ){
+			if($rule['operator'] == "==")
+				return $rule['value'] == $this->post_id;
+			else
+				return $rule['value'] != $this->post_id;
+		}
 
+		$qo = get_queried_object();
 
-		// post type
-		$post_type = $this->get_post_type();
+		// if we are inside taxonomy archive page
+		if( isset($qo->term_id) && $qo->term_id == $this->post_id ){
+			if($rule['operator'] == "==")
+				return $rule['value'] == $qo->term_id;
+			else
+				return $rule['value'] != $qo->term_id;
+		} else {
+			// post type
+			$post_type = $this->get_post_type();
+			// vars
+			$taxonomies = get_object_taxonomies( $post_type );
+		}
 
-		// vars
-		$taxonomies = get_object_taxonomies( $post_type );
+		$terms = array();
+
 
     	if( is_array($taxonomies) )
     	{
