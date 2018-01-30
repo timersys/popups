@@ -455,7 +455,7 @@ var SPU_master = function() {
             $box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it
 			var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
-			if( iframe ){
+			if( iframe && iframe.length ){
 				$box.remove();
 			}
 		} else {
