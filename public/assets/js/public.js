@@ -275,6 +275,9 @@ var SPU_master = function() {
             });
 
             // Gravity forms support (only AJAX mode)
+            if( box_form.hasClass('gravity-form') ) {
+                box_form.attr('action', window.location.href)
+			}
             $(document).on('gform_confirmation_loaded', function(){
                 $box.trigger('spu.form_submitted', [id]);
                 toggleBox(id, false, true );
