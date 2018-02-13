@@ -9,7 +9,7 @@
  * @copyright 2014 Timersys
  */
 
-?><!-- Popups v<?php echo self::VERSION; ?> - https://wordpress.org/plugins/social-popup/ --><?php
+?><!-- Popups v<?php echo self::VERSION; ?> - https://wordpress.org/plugins/popups/ --><?php
 $box = get_post( $spu_id );
 $helper = new Spu_Helper;
 
