@@ -539,7 +539,8 @@ if( spuvar.ajax_mode ) {
         referrer : document.referrer,
         query_string : document.location.search,
         is_category : spuvar.is_category,
-        is_archive : spuvar.is_archive
+        is_archive : spuvar.is_archive,
+		is_preview: spuvar.is_preview
     }
     ,success_cb = function(response) {
 

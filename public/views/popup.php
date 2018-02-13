@@ -14,7 +14,7 @@ $box = get_post( $spu_id );
 $helper = new Spu_Helper;
 
 // has box with this id been found?
-if ( ! $box instanceof WP_Post || $box->post_status !== 'publish' ) {
+if ( ! $box instanceof WP_Post  ) {
 	return;
 }
 
