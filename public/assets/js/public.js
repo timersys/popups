@@ -64,8 +64,10 @@ var SPU_master = function() {
 		event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
 
 		$('body').on(event, function (ev) {
-			// test that event is user triggered and not programatically
-			if( ev.originalEvent !== undefined ) {
+			var $target = $(ev.target);
+			// test that event is user triggered and not programatically,
+			// and that it is not fired from input within the box
+			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) ) {
 
 				toggleBox( id, false, false );
 
@@ -301,7 +303,19 @@ var SPU_master = function() {
 			});
         }
 
+		// Ninja Forms 3 does not use a form element
+		var box_nf3 = $box.find('.nf-form-cont');
+		if ( box_nf3.length ) {
+			$(document).on('nfFormSubmitResponse', function(){
+				$box.trigger('spu.form_submitted', [id]);
 
+				// delay box close so user sees submission feedback
+				// should this delay be a config option?
+				setTimeout( function(){
+					toggleBox(id, false, true );
+	 			}, spuvar.seconds_confirmation_close * 1000);
+			});
+		}
 
     });
 
