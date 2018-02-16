@@ -470,7 +470,7 @@ class SocialPopup {
 				return $spu_ids;
 			}
 		}
-		$post_status = isset( $_REQUEST['is_preview'] ) ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
+		$post_status = isset( $_REQUEST['is_preview'] ) && $_REQUEST['is_preview'] == '1' ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
 		return $wpdb->get_results( "SELECT ID, post_content, MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
         MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
         FROM $wpdb->posts p LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)  WHERE post_type='spucpt' {$post_status} GROUP BY p.ID");
@@ -779,7 +779,7 @@ class SocialPopup {
 	 */
 	protected function get_polylang_ids( ) {
 		global $wpdb;
-		$post_status = isset( $_REQUEST['is_preview'] ) ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
+		$post_status = isset( $_REQUEST['is_preview'] ) && $_REQUEST['is_preview'] == '1'  ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
 
 		$sql = "SELECT description
 			FROM $wpdb->posts p
@@ -822,7 +822,7 @@ class SocialPopup {
 		$wpml_settings = get_option( 'icl_sitepress_settings', true);
 
 		if ( ! empty( $wpml_settings['custom_posts_sync_option']['spucpt'] ) ) {
-			$post_status = isset( $_REQUEST['is_preview'] ) ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
+			$post_status = isset( $_REQUEST['is_preview'] ) && $_REQUEST['is_preview'] == '1' ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
 			$lang_code = isset( $_GET['lang'] ) ? $_GET['lang'] : ICL_LANGUAGE_CODE;
 			$sql = "SELECT DISTINCT ID, post_content,
 			MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
