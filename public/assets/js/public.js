@@ -64,8 +64,10 @@ var SPU_master = function() {
 		event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
 
 		$('body').on(event, function (ev) {
-			// test that event is user triggered and not programatically
-			if( ev.originalEvent !== undefined ) {
+			var $target = $(ev.target);
+			// test that event is user triggered and not programatically,
+			// and that it is not fired from input within the box
+			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) ) {
 
 				toggleBox( id, false, false );
 
@@ -275,6 +277,9 @@ var SPU_master = function() {
             });
 
             // Gravity forms support (only AJAX mode)
+            if( box_form.hasClass('gravity-form') ) {
+                box_form.attr('action', window.location.href)
+			}
             $(document).on('gform_confirmation_loaded', function(){
                 $box.trigger('spu.form_submitted', [id]);
                 toggleBox(id, false, true );
@@ -301,7 +306,19 @@ var SPU_master = function() {
 			});
         }
 
+		// Ninja Forms 3 does not use a form element
+		var box_nf3 = $box.find('.nf-form-cont');
+		if ( box_nf3.length ) {
+			$(document).on('nfFormSubmitResponse', function(){
+				$box.trigger('spu.form_submitted', [id]);
 
+				// delay box close so user sees submission feedback
+				// should this delay be a config option?
+				setTimeout( function(){
+					toggleBox(id, false, true );
+	 			}, spuvar.seconds_confirmation_close * 1000);
+			});
+		}
 
     });
 
@@ -536,7 +553,8 @@ if( spuvar.ajax_mode ) {
         referrer : document.referrer,
         query_string : document.location.search,
         is_category : spuvar.is_category,
-        is_archive : spuvar.is_archive
+        is_archive : spuvar.is_archive,
+		is_preview: spuvar.is_preview
     }
     ,success_cb = function(response) {
 

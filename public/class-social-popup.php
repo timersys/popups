@@ -470,9 +470,10 @@ class SocialPopup {
 				return $spu_ids;
 			}
 		}
+		$post_status = isset( $_REQUEST['is_preview'] ) && $_REQUEST['is_preview'] == '1' ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
 		return $wpdb->get_results( "SELECT ID, post_content, MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
         MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
-        FROM $wpdb->posts p LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)  WHERE post_type='spucpt' AND post_status='publish' GROUP BY p.ID");
+        FROM $wpdb->posts p LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)  WHERE post_type='spucpt' {$post_status} GROUP BY p.ID");
 	}
 
 	/**
@@ -778,12 +779,13 @@ class SocialPopup {
 	 */
 	protected function get_polylang_ids( ) {
 		global $wpdb;
+		$post_status = isset( $_REQUEST['is_preview'] ) && $_REQUEST['is_preview'] == '1'  ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
 
-			$sql = "SELECT description
+		$sql = "SELECT description
 			FROM $wpdb->posts p
 			LEFT JOIN $wpdb->term_relationships as tr ON p.ID = tr.object_id
 			LEFT JOIN $wpdb->term_taxonomy as tt ON tt.term_taxonomy_id = tr.term_taxonomy_id
-			WHERE post_type='spucpt' AND post_status='publish' AND tt.taxonomy = 'post_translations'
+			WHERE post_type='spucpt' {$post_status} AND tt.taxonomy = 'post_translations'
 			GROUP BY p.ID";
 
 			$ids = array();
@@ -804,7 +806,7 @@ class SocialPopup {
 				MAX(CASE WHEN pm1.meta_key = 'spu_ab_parent' then pm1.meta_value ELSE NULL END) as spu_ab_parent
 				FROM $wpdb->posts p
 				LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)
-				WHERE post_type='spucpt' AND post_status='publish' AND ID IN (".implode(',',array_unique($ids)).")
+				WHERE post_type='spucpt' {$post_status} AND ID IN (".implode(',',array_unique($ids)).")
 				GROUP BY p.ID";
 				return  $wpdb->get_results( $sql );
 			}
@@ -820,7 +822,7 @@ class SocialPopup {
 		$wpml_settings = get_option( 'icl_sitepress_settings', true);
 
 		if ( ! empty( $wpml_settings['custom_posts_sync_option']['spucpt'] ) ) {
-
+			$post_status = isset( $_REQUEST['is_preview'] ) && $_REQUEST['is_preview'] == '1' ? "AND (post_status='publish' OR  post_status='draft')" : "AND post_status='publish'";
 			$lang_code = isset( $_GET['lang'] ) ? $_GET['lang'] : ICL_LANGUAGE_CODE;
 			$sql = "SELECT DISTINCT ID, post_content,
 			MAX(CASE WHEN pm1.meta_key = 'spu_rules' then pm1.meta_value ELSE NULL END) as spu_rules,
@@ -828,7 +830,7 @@ class SocialPopup {
 			FROM $wpdb->posts p
 			LEFT JOIN $wpdb->postmeta pm1 ON ( pm1.post_id = p.ID)
 			LEFT JOIN {$wpdb->prefix}icl_translations as b ON p.ID = b.element_id
-			WHERE post_type='spucpt' AND post_status='publish' AND b.language_code = '" . esc_sql( $lang_code ) . "'
+			WHERE post_type='spucpt' {$post_status} AND b.language_code = '" . esc_sql( $lang_code ) . "'
 			GROUP BY p.ID";
 
 			$ids = $wpdb->get_results( $sql );
