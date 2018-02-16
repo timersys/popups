@@ -707,8 +707,9 @@ class SocialPopup_Admin {
 		if( get_post_type() !== 'spucpt') {
 			return $args;
 		}
+		$func = '';
 		// dirty hax, WPML replace our function so let's try to get theirs and add to ours
-		if( strpos($args['setup'], 'function(ed)') !== false) {
+		if( array_key_exists('setup', $args) && strpos($args['setup'], 'function(ed)') !== false) {
 			$func = rtrim( str_replace(array('function(ed) {','function(ed){'), '', $args['setup']),'}');
 		}
 
