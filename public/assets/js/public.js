@@ -277,6 +277,9 @@ var SPU_master = function() {
             });
 
             // Gravity forms support (only AJAX mode)
+            if( box_form.hasClass('gravity-form') ) {
+                box_form.attr('action', window.location.href)
+			}
             $(document).on('gform_confirmation_loaded', function(){
                 $box.trigger('spu.form_submitted', [id]);
                 toggleBox(id, false, true );
@@ -550,7 +553,8 @@ if( spuvar.ajax_mode ) {
         referrer : document.referrer,
         query_string : document.location.search,
         is_category : spuvar.is_category,
-        is_archive : spuvar.is_archive
+        is_archive : spuvar.is_archive,
+		is_preview: spuvar.is_preview
     }
     ,success_cb = function(response) {
 
