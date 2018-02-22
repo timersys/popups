@@ -51,8 +51,8 @@ var SPU_master = function() {
         var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
         if( iframe && iframe.length) {
         	iframe.each(function () {
-				$(this).data('spusrc',$(this).attr('src'));
-				$(this).attr('src','');
+				$(this).attr('spusrc',$(this).attr('src'));
+				$(this).attr('src','http://#');
             })
 		}
         // Custom links conversion
@@ -465,7 +465,7 @@ var SPU_master = function() {
 		if( ( show === true && $box.is( ":visible" ) ) || ( show === false && $box.is( ":hidden" ) ) ) {
 			return false;
 		}
-        var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
+        
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
@@ -478,10 +478,10 @@ var SPU_master = function() {
 			}
             $box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it
-
+            var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
 			if( iframe && iframe.length ){
 				iframe.each(function () {
-					$(this).attr('src','');
+					$(this).attr('src','http://#');
                 });
 			}
 		} else {
@@ -496,9 +496,11 @@ var SPU_master = function() {
 
 			});
 			fixSize( id );
+            var iframe = $box.find('iframe');
             if( iframe && iframe.length ){
                 iframe.each(function () {
-                    $(this).attr('src',$(this).data('spusrc'));
+                	if( $(this).attr('spusrc') )
+                    	$(this).attr('src',$(this).attr('spusrc'));
                 });
             }
 
