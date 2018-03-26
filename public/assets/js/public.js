@@ -48,7 +48,8 @@ var SPU_master = function() {
 
 		facebookFix( $box );
 
-        var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
+		// search for youtube, vimeo videos
+        var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"],iframe[src*="youtu.be"]');
         if( iframe && iframe.length) {
         	iframe.each(function () {
 				$(this).attr('spusrc',$(this).attr('src'));
@@ -465,7 +466,7 @@ var SPU_master = function() {
 		if( ( show === true && $box.is( ":visible" ) ) || ( show === false && $box.is( ":hidden" ) ) ) {
 			return false;
 		}
-        
+
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
@@ -478,7 +479,7 @@ var SPU_master = function() {
 			}
             $box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it
-            var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
+            var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"],iframe[src*="youtu.be"]');
 			if( iframe && iframe.length ){
 				iframe.each(function () {
 					$(this).attr('src','http://#');
