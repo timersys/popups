@@ -78,7 +78,7 @@ do_action( 'spu/popup/before_popup', $box, $opts, $css);
  data-trigger-number="<?php echo esc_attr( absint( $opts['trigger_number'] ) ); ?>"
  data-spuanimation="<?php echo esc_attr($opts['animation']); ?>" data-cookie="<?php echo esc_attr( absint ( $opts['cookie'] ) ); ?>" data-close-cookie="<?php echo esc_attr( absint ( $opts['close-cookie'] ) ); ?>" data-test-mode="<?php echo esc_attr($opts['test_mode']); ?>"
  data-auto-hide="<?php echo esc_attr($opts['auto_hide']); ?>" data-close-on-conversion="<?php echo $opts['conversion_close'] == 1 ?'1':''; ?>" data-bgopa="<?php echo esc_attr($css['bgopacity']);?>" data-total="<?php echo get_post_meta($box->ID, 'spu_social',true);?>"
- style="left:-99999px !important;" data-width="<?php echo esc_attr(str_replace('px', '', $width)); ?>" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts, $box );?>>
+ style="left:-99999px !important;right:auto;" data-width="<?php echo esc_attr(str_replace('px', '', $width)); ?>" <?php echo apply_filters( 'spu/popup/data_attrs', $data_attrs, $opts, $box );?>>
 	<div class="spu-content"><?php echo $content; ?></div>
 	<span class="spu-close spu-close-popup <?php echo esc_attr($css['close_position']); ?>"><i class="spu-icon spu-icon-close"></i></span>
 	<span class="spu-timer"></span>

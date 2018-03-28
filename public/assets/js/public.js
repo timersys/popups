@@ -87,7 +87,7 @@ var SPU_master = function() {
 		});
 
 		//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
-		$box.hide().css('left','');
+		$box.hide().css('left','').css('right','');
 
 		// add box to global boxes array
 		$boxes[id] = $box;
