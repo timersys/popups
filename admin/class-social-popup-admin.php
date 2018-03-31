@@ -709,11 +709,32 @@ class SocialPopup_Admin {
 		}
 		$func = '';
 		// dirty hax, WPML replace our function so let's try to get theirs and add to ours
+        // same with follow up emails by woocommerce
 		if( array_key_exists('setup', $args) && strpos($args['setup'], 'function(ed)') !== false) {
-			$func = rtrim( str_replace(array('function(ed) {','function(ed){'), '', $args['setup']),'}');
+            if( $pos = strpos($args['setup'], 'function(ed){') !== false ) {
+                if( $pos < 15 ){
+                    $func .= rtrim(substr_replace($args['setup'],'',$pos,strlen('function(ed){')),'}');
+                }
+            }
+            if( $pos = strpos($args['setup'], 'function(ed) {') !== false ) {
+                if( $pos < 15 ){
+                    $func .= rtrim(substr_replace($args['setup'],'',$pos,strlen('function(ed) {')),'}');
+                }
+            }
+
 		}
 
-		$args['setup'] = 'function(ed) { if(typeof SPU_ADMIN === \'undefined\') { return; } ed.onInit.add(SPU_ADMIN.onTinyMceInit);if(typeof SPUP_ADMIN === \'undefined\') { return; } ed.onInit.add(SPUP_ADMIN.onTinyMceInit);'.$func.' }';
+		$args['setup'] = 'function(ed) { 
+		    if(typeof SPU_ADMIN === \'undefined\') { 
+		        return; 
+		    } 
+		    ed.onInit.add(SPU_ADMIN.onTinyMceInit);
+		    if(typeof SPUP_ADMIN === \'undefined\') { 
+		        return; 
+		    } 
+		    ed.onInit.add(SPUP_ADMIN.onTinyMceInit);
+		    '.$func.'
+		}';
 
 		return $args;
 	}
