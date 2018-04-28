@@ -151,10 +151,22 @@ var SPU_master = function() {
 			}, triggerSeconds * 1000);
 		}
 
-		// show box if cookie not set or if in test mode
-		var cookieValue = spuReadCookie( 'spu_box_' + id );
 
-		if( ( cookieValue == undefined || cookieValue == '' ) || ( isAdmin && testMode ) || isPreview ) {
+
+
+		// show box if cookie not set or if in test mode
+		//var cookieValue = spuReadCookie( 'spu_box_' + id );
+
+		var nclose_cookie = $box.data('nclose-cookie');
+		var nconvert_cookie = $box.data('nconvert-cookie');
+
+		var cookieValue1 = spuReadCookie( nclose_cookie + '_' + id );
+		var cookieValue2 = spuReadCookie( nconvert_cookie + '_' + id );
+
+		if( (
+				( cookieValue1 == undefined || cookieValue1 == '' ) &&
+				( cookieValue2 == undefined || cookieValue2 == '' )
+			) || ( isAdmin && testMode ) || isPreview ) {
 
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
@@ -468,12 +480,17 @@ var SPU_master = function() {
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
-			var days = parseFloat( $box.data('close-cookie') );
-			if( conversion === true )
-				days = parseFloat( $box.data('cookie') );
-
+			//var days = parseFloat( $box.data('close-cookie') );
+			var days = parseFloat( $box.data('dclose-cookie') );
+			var ncookie = $box.data('nclose-cookie');
+			
+			if( conversion === true ) {
+				days = parseFloat( $box.data('dconvert-cookie') );
+				ncookie = $box.data('nconvert-cookie');
+			}
+			
 			if( days > 0 ) {
-				spuCreateCookie( 'spu_box_' + id, true, days );
+				spuCreateCookie( ncookie + '_' + id, true, days );
 			}
 			$box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it
