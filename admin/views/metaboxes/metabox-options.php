@@ -52,16 +52,28 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 	<p><?php _e( 'We use PHP cookies to prevent popups opening for users after they closed it.', 'popups');?></p>
 <table class="form-table">
 	<tr valign="top">
-		<th><label for="spu_cookie"><?php _e( 'Conversion cookie', 'popups' ); ?></label></th>
+		<th><label for="spu_name_conversion_cookie"><?php _e( 'Name Conversion cookie', 'popups' ); ?></label></th>
 		<td colspan="3">
-			<input type="number" id="spu_cookie" name="spu[cookie]" min="0" value="<?php echo esc_attr($opts['cookie']); ?>" />
+			<input type="text" id="spu_name_conversion_cookie" name="spu[name-convert-cookie]" value="<?php echo esc_attr($opts['name-convert-cookie']); ?>" />
+		</td>
+	</tr>
+	<tr valign="top">
+		<th><label for="spu_duration_conversion_cookie"><?php _e( 'Duration Conversion cookie', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<input type="number" id="spu_duration_conversion_cookie" name="spu[duration-convert-cookie]" min="0" value="<?php echo esc_attr($opts['duration-convert-cookie']); ?>" />
 			<p class="help"><?php _e( 'When a user do a conversion like for example a click or form submission, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
 	</tr>
 	<tr valign="top">
-		<th><label for="spu_cookie"><?php _e( 'Closing cookie', 'popups' ); ?></label></th>
+		<th><label for="spu_name_closing_cookie"><?php _e( 'Name Closing cookie', 'popups' ); ?></label></th>
 		<td colspan="3">
-			<input type="number" id="spu_cookie" name="spu[close-cookie]" min="0"  value="<?php echo isset( $opts['close-cookie'] ) ? esc_attr($opts['close-cookie']) : esc_attr($opts['cookie']); ?>" />
+			<input type="text" id="spu_name_closing_cookie" name="spu[name-close-cookie]" value="<?php echo esc_attr($opts['name-close-cookie']); ?>" />
+		</td>
+	</tr>
+	<tr valign="top">
+		<th><label for="spu_duration_close_cookie"><?php _e( 'Duration Closing cookie', 'popups' ); ?></label></th>
+		<td colspan="3">
+			<input type="number" id="spu_duration_close_cookie" name="spu[duration-close-cookie]" min="0"  value="<?php echo isset( $opts['duration-close-cookie'] ) ? esc_attr($opts['duration-close-cookie']) : esc_attr($opts['duration-convert-cookie']); ?>" />
 			<p class="help"><?php _e( 'After closing the popup, how many days should it stay hidden?', 'popups' ); ?></p>
 		</td>
 	</tr>

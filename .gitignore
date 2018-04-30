@@ -17,3 +17,5 @@ wordpress-social-invitations.zip
 *.codekit
 languages/popups-it_IT.po
 languages/popups-it_IT.mo
+
+node_modules/
