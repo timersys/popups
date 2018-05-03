@@ -29,16 +29,13 @@ var SPU_master = function() {
 
 		// move to parent in safe mode
 		if( spuvar.safe_mode ){
-
 			$(this).prependTo('body');
-
 		}
 
 		// vars
 		var $box 			= $(this);
 		var triggerMethod 	= $box.data('trigger');
 		var timer 			= 0;
-		var testMode 		= (parseInt($box.data('test-mode')) === 1);
 		var id 				= $box.data('box-id');
 		var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
 		var secondsClose    = parseInt($box.data('seconds-close'));
@@ -168,13 +165,13 @@ var SPU_master = function() {
 		var nclose_cookie = $box.data('nclose-cookie');
 		var nconvert_cookie = $box.data('nconvert-cookie');
 
-		var cookieValue1 = spuReadCookie( nclose_cookie + '_' + id );
-		var cookieValue2 = spuReadCookie( nconvert_cookie + '_' + id );
+		var cookieValue1 = spuReadCookie( nclose_cookie );
+		var cookieValue2 = spuReadCookie( nconvert_cookie );
 
 		if( (
 				( cookieValue1 == undefined || cookieValue1 == '' ) &&
 				( cookieValue2 == undefined || cookieValue2 == '' )
-			) || ( isAdmin && testMode ) || isPreview ) {
+			) || isPreview ) {
 
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();
@@ -498,7 +495,7 @@ var SPU_master = function() {
 			}
 			
 			if( days > 0 ) {
-				spuCreateCookie( ncookie + '_' + id, true, days );
+				spuCreateCookie( ncookie, true, days );
 			}
 			$box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it

@@ -395,15 +395,10 @@ class SocialPopup {
 	 */
 	public function register_scripts() {
 
-		$js_url = plugins_url( 'assets/js/min/public-min.js', __FILE__ );
+		$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
 		$handle = 'spu-public';
 
 		$opts = $this->spu_settings;
-
-		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
-			$js_url = plugins_url( 'assets/js/public.js', __FILE__ );
-			$handle = 'spu-public-debug';
-		}
 
 		wp_register_style( 'spu-public-css', plugins_url( 'assets/css/public.css', __FILE__ ), array(), self::VERSION );
 
@@ -485,9 +480,6 @@ class SocialPopup {
 
 		$opts = $this->spu_settings;
 
-		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
-			$handle = 'spu-public-debug';
-		}
 		wp_enqueue_script($handle);
 		wp_enqueue_style('spu-public-css');
 		wp_localize_script( $handle, 'spuvar',
@@ -522,10 +514,6 @@ class SocialPopup {
 		$spuvar_social = array();
 
 		$handle = 'spu-public';
-
-		if( defined( 'SPU_DEBUG_MODE' ) || !empty( $opts['debug'] ) ) {
-			$handle = 'spu-public-debug';
-		}
 
 		// Check if any popup have facebook, then enqueue js
 		if( $fb = $wpdb->get_var( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = 'spu_fb' " ) ) {

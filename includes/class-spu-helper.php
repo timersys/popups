@@ -461,7 +461,6 @@ class Spu_Helper {
 			'name-convert-cookie' => 'spu_conversion',
 			'name-close-cookie'	  => 'spu_closing',
 			'auto_hide'			=> 0,
-			'test_mode'			=> 0,
 			'conversion_close'  => '1',
 			'powered_link'      => '0',
 		);

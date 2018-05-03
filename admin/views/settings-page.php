@@ -27,15 +27,6 @@
 					<p class="help"><?php _e( 'Load popups using ajax. Compatible with cache plugins, but might not work with all plugins', 'popups' ); ?></p>
 				</td>
 			</tr>
-
-			<tr valign="top" class="">
-				<th><label for="debug"><?php _e( 'Enable Debug mode?', 'popups' ); ?></label></th>
-				<td colspan="3">
-					<label><input type="checkbox" id="debug" name="spu_settings[debug]" value="1" <?php isset($opts['debug']) && checked($opts['debug'], 1); ?> />
-					<p class="help"><?php _e( 'Will use uncompressed js', 'popups' ); ?></p>
-				</td>
-
-			</tr>
 			<tr valign="top" class="">
 				<th><label for="safe"><?php _e( 'Enable safe mode?', 'popups' ); ?></label></th>
 				<td colspan="3">

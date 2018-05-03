@@ -167,17 +167,16 @@ class SocialPopup_Admin {
 	public function settings_page() {
 
 		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
-			'aff_link'         => '',
-			'ajax_mode'        => '0',
-			'debug'            => '',
-			'safe'             => '',
-			'shortcodes_style' => '',
-			'facebook'         => '',
-			'google'           => '',
-			'twitter'          => '',
-			'spu_license_key'  => '',
-			'ua_code'          => '',
-			'mc_api'           => '',
+			'aff_link'			=> '',
+			'ajax_mode'			=> '0',
+			'safe'				=> '',
+			'shortcodes_style'	=> '',
+			'facebook'			=> '',
+			'google'			=> '',
+			'twitter'			=> '',
+			'spu_license_key'	=> '',
+			'ua_code'			=> '',
+			'mc_api'			=> '',
 		));
 		$opts = apply_filters( 'spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
 
@@ -459,8 +458,8 @@ class SocialPopup_Admin {
 		$opts['css']['close_shadow_color']      = sanitize_text_field( $opts['css']['close_shadow_color'] );
 		$opts['css']['position']                = sanitize_text_field( $opts['css']['position'] );
 
-		$opts['name-convert-cookie'] 			=  sanitize_text_field( $opts['name-convert-cookie'] ) ;
-		$opts['name-close-cookie'] 			    =  sanitize_text_field( $opts['name-close-cookie'] );
+		$opts['name-convert-cookie'] 			= sanitize_text_field( $opts['name-convert-cookie'] ) ;
+		$opts['name-close-cookie'] 			    = sanitize_text_field( $opts['name-close-cookie'] );
         $opts['duration-convert-cookie']        = absint( sanitize_text_field( $opts['duration-convert-cookie'] ) );
         $opts['duration-close-cookie']          = absint( sanitize_text_field( $opts['duration-close-cookie'] ) );
 		// add popup ID to make the unique
