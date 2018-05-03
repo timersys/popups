@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups, popupmaker
 Requires at least: 3.6
 Tested up to: 4.9.4
-Stable tag: 1.9.1.1
+Stable tag: 1.9.2
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -188,6 +188,15 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.9.2 =
+* Added support for Visual Form Builder
+* Added cookie name support, so users can reset cookies for popups
+* Fix for woocommerce follow up emails
+* Fix for popup showing for a milisecond on certain themes
+* updated ID rule to accept multiple values
+* Added vimeo, youtube auto play support
+* Removed debug mode and safe mode, to make it less complicate
 
 = 1.9.1.1 =
 * Hotfix for draft popups showing
