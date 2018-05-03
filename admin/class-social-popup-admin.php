@@ -169,7 +169,6 @@ class SocialPopup_Admin {
 		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
 			'aff_link'			=> '',
 			'ajax_mode'			=> '0',
-			'safe'				=> '',
 			'shortcodes_style'	=> '',
 			'facebook'			=> '',
 			'google'			=> '',

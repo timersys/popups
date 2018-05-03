@@ -27,14 +27,7 @@
 					<p class="help"><?php _e( 'Load popups using ajax. Compatible with cache plugins, but might not work with all plugins', 'popups' ); ?></p>
 				</td>
 			</tr>
-			<tr valign="top" class="">
-				<th><label for="safe"><?php _e( 'Enable safe mode?', 'popups' ); ?></label></th>
-				<td colspan="3">
-					<label><input type="checkbox" id="safe" name="spu_settings[safe]" value="1" <?php isset($opts['safe']) && checked($opts['safe'], 1); ?> />
-					<p class="help"><?php _e( 'Will move all popups to top of the screen.', 'popups' ); ?></p>
-				</td>
-				
-			</tr>
+
 			<tr valign="top" class="">
 				<th><label for="style"><?php _e( 'Remove shortcodes style', 'popups' ); ?></label></th>
 				<td colspan="3">

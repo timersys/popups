@@ -27,15 +27,11 @@ var SPU_master = function() {
 	// loop through boxes
 	$(".spu-box").each(function() {
 
-		// move to parent in safe mode
-		if( spuvar.safe_mode ){
-			$(this).prependTo('body');
-		}
-
 		// vars
 		var $box 			= $(this);
 		var triggerMethod 	= $box.data('trigger');
 		var timer 			= 0;
+		var testMode 		= (parseInt($box.data('test-mode')) === 1);
 		var id 				= $box.data('box-id');
 		var autoHide 		= (parseInt($box.data('auto-hide')) === 1);
 		var secondsClose    = parseInt($box.data('seconds-close'));
@@ -171,7 +167,7 @@ var SPU_master = function() {
 		if( (
 				( cookieValue1 == undefined || cookieValue1 == '' ) &&
 				( cookieValue2 == undefined || cookieValue2 == '' )
-			) || isPreview ) {
+			) || ( isAdmin && testMode ) || isPreview ) {
 
 			if(triggerMethod == 'seconds') {
 				triggerSecondsCheck();

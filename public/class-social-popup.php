@@ -486,7 +486,6 @@ class SocialPopup {
 			array(
 				'is_admin' 						=> current_user_can( apply_filters( 'spu/capabilities/testmode', 'administrator' ) ),
 				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? esc_attr( $this->spu_settings['shortcodes_style'] ) : '',
-				'safe_mode'						=> isset( $this->spu_settings['safe'] ) ? esc_attr( $this->spu_settings['safe'] ) : '',
 				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? esc_attr( $this->spu_settings['ajax_mode'] ) :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
 				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
