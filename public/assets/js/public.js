@@ -27,13 +27,6 @@ var SPU_master = function() {
 	// loop through boxes
 	$(".spu-box").each(function() {
 
-		// move to parent in safe mode
-		if( spuvar.safe_mode ){
-
-			$(this).prependTo('body');
-
-		}
-
 		// vars
 		var $box 			= $(this);
 		var triggerMethod 	= $box.data('trigger');
@@ -47,12 +40,20 @@ var SPU_master = function() {
 		var triggerHeight 	= ( triggerPercentage * $(document).height() );
 
 		facebookFix( $box );
-
-		// Custom links conversion
-		$box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close, .spu-not-close a")', function(){
-			// hide the popup and track conversion
-			toggleBox( id, false, true);
-		});
+		
+		// search for youtube, vimeo videos
+        var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"],iframe[src*="youtu.be"]');
+        if( iframe && iframe.length) {
+        	iframe.each(function () {
+				$(this).attr('spusrc',$(this).attr('src'));
+				$(this).attr('src','http://#');
+            })
+		}
+        // Custom links conversion
+        $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close, .spu-not-close a")', function(){
+            // hide the popup and track conversion
+            toggleBox( id, false, true);
+        });
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
@@ -79,7 +80,7 @@ var SPU_master = function() {
 		});
 
 		//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
-		$box.hide().css('left','');
+		$box.hide().css('left','').css('right','');
 
 		// add box to global boxes array
 		$boxes[id] = $box;
@@ -160,8 +161,8 @@ var SPU_master = function() {
 		var nclose_cookie = $box.data('nclose-cookie');
 		var nconvert_cookie = $box.data('nconvert-cookie');
 
-		var cookieValue1 = spuReadCookie( nclose_cookie + '_' + id );
-		var cookieValue2 = spuReadCookie( nconvert_cookie + '_' + id );
+		var cookieValue1 = spuReadCookie( nclose_cookie );
+		var cookieValue2 = spuReadCookie( nconvert_cookie );
 
 		if( (
 				( cookieValue1 == undefined || cookieValue1 == '' ) &&
@@ -490,13 +491,15 @@ var SPU_master = function() {
 			}
 			
 			if( days > 0 ) {
-				spuCreateCookie( ncookie + '_' + id, true, days );
+				spuCreateCookie( ncookie, true, days );
 			}
 			$box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it
-			var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"]');
+            var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"],iframe[src*="youtu.be"]');
 			if( iframe && iframe.length ){
-				$box.remove();
+				iframe.each(function () {
+					$(this).attr('src','http://#');
+                });
 			}
 		} else {
 			setTimeout(function(){
@@ -510,6 +513,13 @@ var SPU_master = function() {
 
 			});
 			fixSize( id );
+            var iframe = $box.find('iframe');
+            if( iframe && iframe.length ){
+                iframe.each(function () {
+                	if( $(this).attr('spusrc') )
+                    	$(this).attr('src',$(this).attr('spusrc'));
+                });
+            }
 
 		}
 

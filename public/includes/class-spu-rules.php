@@ -431,14 +431,16 @@ class Spu_Rules
 	{
 
 		$post_id = $this->post_id;
+		// in case multiple ids are passed
+		$ids = array_map('trim',explode(',',$rule['value']));
 
         if($rule['operator'] == "==")
         {
-        	$match = ( $post_id == $rule['value'] );
+        	$match = in_array($post_id, $ids );
         }
         elseif($rule['operator'] == "!=")
         {
-        	$match = ( $post_id != $rule['value'] );
+        	$match = ! in_array($post_id, $ids );
         }
 
         return $match;

@@ -167,17 +167,15 @@ class SocialPopup_Admin {
 	public function settings_page() {
 
 		$defaults = apply_filters( 'spu/settings_page/defaults_opts', array(
-			'aff_link'         => '',
-			'ajax_mode'        => '0',
-			'debug'            => '',
-			'safe'             => '',
-			'shortcodes_style' => '',
-			'facebook'         => '',
-			'google'           => '',
-			'twitter'          => '',
-			'spu_license_key'  => '',
-			'ua_code'          => '',
-			'mc_api'           => '',
+			'aff_link'			=> '',
+			'ajax_mode'			=> '0',
+			'shortcodes_style'	=> '',
+			'facebook'			=> '',
+			'google'			=> '',
+			'twitter'			=> '',
+			'spu_license_key'	=> '',
+			'ua_code'			=> '',
+			'mc_api'			=> '',
 		));
 		$opts = apply_filters( 'spu/settings_page/opts', get_option( 'spu_settings', $defaults ) );
 
@@ -456,11 +454,20 @@ class SocialPopup_Admin {
 		$opts['css']['close_hover_color']       = sanitize_text_field( $opts['css']['close_hover_color'] );
 		$opts['css']['close_size']              = sanitize_text_field( $opts['css']['close_size'] );
 		$opts['css']['close_position']          = sanitize_text_field( $opts['css']['close_position'] );
-		$opts['css']['close_shadow_color']          = sanitize_text_field( $opts['css']['close_shadow_color'] );
+		$opts['css']['close_shadow_color']      = sanitize_text_field( $opts['css']['close_shadow_color'] );
 		$opts['css']['position']                = sanitize_text_field( $opts['css']['position'] );
 
-		$opts['cookie'] 			 = absint( sanitize_text_field( $opts['cookie'] ) );
+		$opts['name-convert-cookie'] 			= sanitize_text_field( $opts['name-convert-cookie'] ) ;
+		$opts['name-close-cookie'] 			    = sanitize_text_field( $opts['name-close-cookie'] );
+        $opts['duration-convert-cookie']        = absint( sanitize_text_field( $opts['duration-convert-cookie'] ) );
+        $opts['duration-close-cookie']          = absint( sanitize_text_field( $opts['duration-close-cookie'] ) );
+		// add popup ID to make the unique
+        $opts['name-convert-cookie']    = $opts['name-convert-cookie'] == 'spu_conversion' ? 'spu_conversion_'.$post_id :  $opts['name-convert-cookie'] ;
+        $opts['name-close-cookie']      = $opts['name-close-cookie'] == 'spu_closing' ? 'spu_closing_'.$post_id :  $opts['name-close-cookie'];
+
 		$opts['trigger_number'] 	 = absint( sanitize_text_field( $opts['trigger_number'] ) );
+
+
 
 		// Check for social shortcodes and update post meta ( we check later if we need to enqueue any social js)
 		$total_shortcodes =0;
@@ -709,11 +716,32 @@ class SocialPopup_Admin {
 		}
 		$func = '';
 		// dirty hax, WPML replace our function so let's try to get theirs and add to ours
+        // same with follow up emails by woocommerce
 		if( array_key_exists('setup', $args) && strpos($args['setup'], 'function(ed)') !== false) {
-			$func = rtrim( str_replace(array('function(ed) {','function(ed){'), '', $args['setup']),'}');
+            if( $pos = strpos($args['setup'], 'function(ed){') !== false ) {
+                if( $pos < 15 ){
+                    $func .= rtrim(substr_replace($args['setup'],'',$pos,strlen('function(ed){')),'}');
+                }
+            }
+            if( $pos = strpos($args['setup'], 'function(ed) {') !== false ) {
+                if( $pos < 15 ){
+                    $func .= rtrim(substr_replace($args['setup'],'',$pos,strlen('function(ed) {')),'}');
+                }
+            }
+
 		}
 
-		$args['setup'] = 'function(ed) { if(typeof SPU_ADMIN === \'undefined\') { return; } ed.onInit.add(SPU_ADMIN.onTinyMceInit);if(typeof SPUP_ADMIN === \'undefined\') { return; } ed.onInit.add(SPUP_ADMIN.onTinyMceInit);'.$func.' }';
+		$args['setup'] = 'function(ed) { 
+		    if(typeof SPU_ADMIN === \'undefined\') { 
+		        return; 
+		    } 
+		    ed.onInit.add(SPU_ADMIN.onTinyMceInit);
+		    if(typeof SPUP_ADMIN === \'undefined\') { 
+		        return; 
+		    } 
+		    ed.onInit.add(SPUP_ADMIN.onTinyMceInit);
+		    '.$func.'
+		}';
 
 		return $args;
 	}
