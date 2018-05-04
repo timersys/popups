@@ -573,6 +573,9 @@ var SPU_master = function() {
 		hide: function( box_id, show, conversion ) {
 			return toggleBox( box_id, false, conversion );
 		},
+		resize: function (box_id) {
+			return fixSize( box_id );
+        },
 		request: function( data, url, success_cb, error_cb ) {
 			return request( data, url, success_cb, error_cb );
 		}
