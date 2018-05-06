@@ -95,6 +95,9 @@ class SocialPopup {
 		//Register cpt
 		add_action( 'init', array( $this, 'register_cpt' ) );
 
+		//CPT frontend no public ( only admins)
+		add_action( 'template_redirect', array( $this,'frontend_redirect'), 1);
+
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
@@ -307,6 +310,20 @@ class SocialPopup {
 		register_post_type( 'spucpt', $args );
 
 	}
+
+	/*
+		Redirect 301
+	*/
+	function frontend_redirect() {
+
+		if ( ( is_archive('spucpt') || is_singular('spucpt') ) &&
+			!current_user_can( apply_filters( 'spu/capabilities/testmode', 'administrator' ))
+		) {
+			wp_redirect( esc_url_raw( site_url() ), 301 );
+			exit();
+		}
+	}
+	
 	/**
 	 * Get all blog ids of blogs in the current network that are:
 	 * - not archived
