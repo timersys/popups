@@ -95,8 +95,8 @@ class SocialPopup {
 		//Register cpt
 		add_action( 'init', array( $this, 'register_cpt' ) );
 
-		//CPT frontend no public ( only admins)
-		add_action( 'template_redirect', array( $this,'frontend_redirect'), 1);
+		// Add noindex to cpt
+		add_action('wp_head', array($this, 'add_no_index') );
 
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
@@ -311,17 +311,12 @@ class SocialPopup {
 
 	}
 
-	/*
-		Redirect 301
-	*/
-	function frontend_redirect() {
 
-		if ( ( is_archive('spucpt') || is_singular('spucpt') ) &&
-			!current_user_can( apply_filters( 'spu/capabilities/testmode', 'administrator' ))
-		) {
-			wp_redirect( esc_url_raw( site_url() ), 301 );
-			exit();
-		}
+	function add_no_index() {
+		global $post;
+
+		if( get_post_type() == 'spucpt' && is_single() )
+			echo '<meta name="robots" content="noindex, nofollow" />';
 	}
 	
 	/**
