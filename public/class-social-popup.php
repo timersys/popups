@@ -95,6 +95,9 @@ class SocialPopup {
 		//Register cpt
 		add_action( 'init', array( $this, 'register_cpt' ) );
 
+		// Add noindex to cpt
+		add_action('wp_head', array($this, 'add_no_index') );
+
 		// Activate plugin when new blog is added
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
@@ -307,6 +310,15 @@ class SocialPopup {
 		register_post_type( 'spucpt', $args );
 
 	}
+
+
+	function add_no_index() {
+		global $post;
+
+		if( get_post_type() == 'spucpt' && is_single() )
+			echo '<meta name="robots" content="noindex, nofollow" />';
+	}
+	
 	/**
 	 * Get all blog ids of blogs in the current network that are:
 	 * - not archived

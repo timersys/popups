@@ -152,9 +152,6 @@ var SPU_master = function() {
 			}, triggerSeconds * 1000);
 		}
 
-
-
-
 		// show box if cookie not set or if in test mode
 		//var cookieValue = spuReadCookie( 'spu_box_' + id );
 
