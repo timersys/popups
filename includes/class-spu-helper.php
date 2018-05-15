@@ -232,6 +232,8 @@ class Spu_Helper {
 							'post_type' => $post_type,
 							'post_status' => array('publish', 'private', 'draft', 'inherit', 'future'),
 							'suppress_filters' => false,
+                            'update_post_meta_cache' => false,
+                            'update_post_term_cache' => false,
 						);
 						$posts = get_posts(apply_filters('spu/rules/post_args', $args ));
 						
