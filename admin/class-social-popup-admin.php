@@ -632,10 +632,8 @@ class SocialPopup_Admin {
 
 		// core include / exclude
 		$spu_includes = array_merge( array(), $include );
-		$spu_excludes = array_merge( array( 'spucpt', 'acf', 'revision', 'nav_menu_item' ), $exclude );
-
-
-		// include
+		$spu_excludes = array_merge( array( 'spucpt', 'acf', 'revision', 'nav_menu_item','custom_css', 'customize_changeset', 'oembed_cache', 'wpvqgr_quiz_trivia', 'wpvqgr_quiz_perso', 'wpvqgr_user', 'popup', 'popup_theme', 'page_rating', 'sa_slider', 'faq', 'opanda-item', 'amn_smtp' ), $exclude );
+       
 		foreach( $spu_includes as $p )
 		{
 			if( post_type_exists($p) )
