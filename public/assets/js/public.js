@@ -420,7 +420,7 @@ var SPU_master = function() {
 		var $box 	= box;
 		var total = $box.data('total'); //total of shortcodes used
 		if( total ) { //if we have shortcodes
-			SPU_reload_socials();
+			//SPU_reload_socials(); //remove 20180515
 
 			//wrap them all
 			//center spu-shortcodes
