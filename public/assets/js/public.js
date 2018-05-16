@@ -54,6 +54,11 @@ var SPU_master = function() {
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
+        // Close and conver button
+        $box.on('click', 'a.spu-close-convert,.spu-close-convert a")', function(){
+            // hide the popup and track conversion
+            toggleBox( id, false, true);
+        });
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
@@ -567,7 +572,7 @@ var SPU_master = function() {
 		show: function( box_id ) {
 			return toggleBox( box_id, true, false );
 		},
-		hide: function( box_id, show, conversion ) {
+		hide: function( box_id, conversion ) {
 			return toggleBox( box_id, false, conversion );
 		},
 		resize: function (box_id) {
