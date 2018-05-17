@@ -15,6 +15,8 @@ if ( !defined( 'ABSPATH' ) ) exit;?>
 				<option value="top-right" <?php selected($opts['css']['position'], 'top-right'); ?>><?php _e( 'Top Right', 'popups' ); ?></option>
 				<option value="bottom-left" <?php selected($opts['css']['position'], 'bottom-left'); ?>><?php _e( 'Bottom Left', 'popups' ); ?></option>
 				<option value="bottom-right" <?php selected($opts['css']['position'], 'bottom-right'); ?>><?php _e( 'Bottom Right', 'popups' ); ?></option>
+				<option value="top-bar" <?php selected($opts['css']['position'], 'top-bar'); ?>><?php _e( 'Top Bar', 'popups' ); ?></option>
+				<option value="bottom-bar" <?php selected($opts['css']['position'], 'bottom-bar'); ?>><?php _e( 'Bottom Bar', 'popups' ); ?></option>
 				<?php do_action( 'spu/metaboxes/positions', $opts );?>
 			</select>
 		</td>
