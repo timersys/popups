@@ -5,6 +5,7 @@ var spu = {
 
 SPU_ADMIN = (function ( $ ) {
 
+	var spu_editor = '';
 	$(document).ready(function(){
 
 		spu.rules.init();
@@ -38,6 +39,17 @@ SPU_ADMIN = (function ( $ ) {
 		});
 
 	});
+
+	/**
+	 * When tinyMcr loads
+	 */
+	function TinyMceOptin() {
+		SPU_ADMIN.spu_editor = $("#content_ifr").contents().find('html #tinymce');
+		
+		// add position class
+		SPU_ADMIN.spu_editor.addClass(' spu-position-' + spu_js.opts.css.position).removeClass('wp-autoresize');
+		applyStyles();
+	}
 
 	function checkTriggerMethod( val ) {
 		if( val == 'pixels' || val == 'percentage' || val == 'visible') {
@@ -266,8 +278,7 @@ SPU_ADMIN = (function ( $ ) {
 
 	return {
 		onTinyMceInit: function() {
-			applyStyles();
-
+			TinyMceOptin();
 		}
 	}
 }(jQuery));

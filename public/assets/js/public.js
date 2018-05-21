@@ -29,6 +29,15 @@ var SPU_master = function() {
 
 		// vars
 		var $box 			= $(this);
+		
+		// move to parent in top bar mode
+		if( $box.hasClass('spu-top-bar') || $box.hasClass('spu-bottom-bar') ){
+
+			$box.prependTo('body');
+			if( $box.hasClass('spu-top-bar') && $('#wpadminbar').length )
+				$box.css( 'top', '32px');
+		}
+
 		var triggerMethod 	= $box.data('trigger');
 		var timer 			= 0;
 		var testMode 		= (parseInt($box.data('test-mode')) === 1);
@@ -68,7 +77,7 @@ var SPU_master = function() {
 			var $target = $(ev.target);
 			// test that event is user triggered and not programatically,
 			// and that it is not fired from input within the box
-			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) ) {
+			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) && ! $box.hasClass('spu-top-bar') && ! $box.hasClass('spu-bottom-bar') ) {
 
 				toggleBox( id, false, false );
 
@@ -549,7 +558,7 @@ var SPU_master = function() {
 		}
 
 		//background
-		if (show === true && $bgopa > 0) {
+		if (show === true && $bgopa > 0 && !$box.hasClass('spu-top-bar') && !$box.hasClass('spu-bottom-bar')) {
 			if (animation === 'disable') {
 				$bg.show();
 			} else {
