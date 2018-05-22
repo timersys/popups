@@ -29,7 +29,7 @@ var SPU_master = function() {
 
 		// vars
 		var $box 			= $(this);
-		
+
 		// move to parent in top bar mode
 		if( $box.hasClass('spu-top-bar') || $box.hasClass('spu-bottom-bar') ){
 
@@ -60,6 +60,12 @@ var SPU_master = function() {
 		}
         // Custom links conversion
         $box.on('click', 'a:not(".spu-close-popup, .flp_wrapper a, .spu-not-close, .spu-not-close a")', function(){
+            // hide the popup and track conversion
+            toggleBox( id, false, true);
+        });
+        // Close and conver button
+        $box.on('click', '.spu-close-convert,.spu-close-convert a")', function(e){
+        	e.preventDefault();
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
@@ -160,9 +166,6 @@ var SPU_master = function() {
 
 			}, triggerSeconds * 1000);
 		}
-
-
-
 
 		// show box if cookie not set or if in test mode
 		//var cookieValue = spuReadCookie( 'spu_box_' + id );
@@ -427,7 +430,7 @@ var SPU_master = function() {
 		var $box 	= box;
 		var total = $box.data('total'); //total of shortcodes used
 		if( total ) { //if we have shortcodes
-			SPU_reload_socials();
+			//SPU_reload_socials(); //remove 20180515
 
 			//wrap them all
 			//center spu-shortcodes
@@ -579,9 +582,12 @@ var SPU_master = function() {
 		show: function( box_id ) {
 			return toggleBox( box_id, true, false );
 		},
-		hide: function( box_id, show, conversion ) {
+		hide: function( box_id, conversion ) {
 			return toggleBox( box_id, false, conversion );
 		},
+		resize: function (box_id) {
+			return fixSize( box_id );
+        },
 		request: function( data, url, success_cb, error_cb ) {
 			return request( data, url, success_cb, error_cb );
 		}

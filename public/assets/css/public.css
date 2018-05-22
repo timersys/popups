@@ -215,7 +215,7 @@ p.spu-powered a{
 .spu-box.spu-bottom-bar{
     margin: 0;
     width: 100% !important;
-    padding: 10px !important;
+    padding: 10px 30px !important;
     border-left: none !important;
     border-right: none !important;
     border-radius: 0;
