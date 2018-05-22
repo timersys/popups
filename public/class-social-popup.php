@@ -677,7 +677,7 @@ class SocialPopup {
 			'text' 			=> 'Close',
             'conversion'    => false
 		), $atts ) );
-        $button_class = ! $conversion || $conversion == 'false' ? 'spu-close-popup ' : '';
+        $button_class = ! $conversion || $conversion == 'false' ? 'spu-close-popup ' : 'spu-close-convert';
 
 		return '<button class="'.$button_class.$class.'">'.$text.'</button>';
 	}
