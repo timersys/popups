@@ -661,11 +661,13 @@ class SocialPopup {
 
 	function close_shortcode( $atts, $content ) {
 		extract( shortcode_atts( array(
-			'class' 		=> 'button-primary',
+			'class' 		=> 'button-primary btn-primary',
 			'text' 			=> 'Close',
+            'conversion'    => false
 		), $atts ) );
+        $button_class = ! $conversion || $conversion == 'false' ? 'spu-close-popup ' : '';
 
-		return '<button class="spu-close-popup '.$class.'">'.$text.'</button>';
+		return '<button class="'.$button_class.$class.'">'.$text.'</button>';
 	}
 
 	/**
