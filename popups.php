@@ -75,8 +75,4 @@ if ( is_admin() ) {
 
 	if( get_option('spu_pair_plugins')  && !get_option('spu_pair_plugins_dismiss') )
 		add_action( 'admin_notices', array( 'SocialPopup_Notices', 'pair_plugins') );
-
-	if( defined('WP_CACHE') && !get_option('spu_enabled_cache') )
-			add_action( 'admin_notices', array( $spu_notices, 'enabled_cache') );
-
 }
