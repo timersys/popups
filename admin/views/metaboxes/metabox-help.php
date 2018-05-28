@@ -56,11 +56,12 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <h3 style="padding-left:0;margin: 20px 0;"><strong><?php _e('Other available Shortcodes:', 'popups' );?></strong></h3>
 <p><strong><?php _e( 'Close Button', 'popups' );?>:</strong></p>
 <p>
-[spu-close class="" text="" align=""]
+[spu-close class="" text="" align="" conversion="false"]
 </p>
 <a href="close-opts" onclick="jQuery('#close-opts').slideToggle();return false;"><?php _e( 'View Close shortcode Options', 'popups' );?></a>
 <ul id="close-opts" style="display:none;">
 	<li><b>class:</b> <?php _e( 'Pass a custom class to style your button', 'popups' );?></li>
 	<li><b>text:</b> <?php _e( 'Button label - <b>Default value:</b> Close', 'popups' );?></li>
+	<li><b>conversion:</b> <?php _e( 'Conversion button?- <b>Default value:</b> False', 'popups' );?></li>
 	<li><b>align:</b> <?php _e( 'left, right, center, none - <b>Default value:</b> center', 'popups' );?></li>
 </ul>

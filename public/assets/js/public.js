@@ -63,7 +63,7 @@ var SPU_master = function() {
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
-        // Close and conver button
+        // Close and convert button
         $box.on('click', '.spu-close-convert,.spu-close-convert a', function(e){
         	e.preventDefault();
             // hide the popup and track conversion
