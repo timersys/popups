@@ -267,14 +267,7 @@ class SocialPopup_Admin {
 			'spucpt',
 			'side'
 		);
-
-		add_meta_box(
-			'spu-links',
-			__( 'About the developer', 'popups' ),
-			array( $this, 'metabox_links' ),
-			'spucpt',
-			'side'
-		);
+        
 	}
 
 	/**
@@ -373,18 +366,6 @@ class SocialPopup_Admin {
 		include $support_metabox;
 	}
 
-	/**
-	 * Include the metabox view for links box
-	 * @param  object $post    spucpt post object
-	 * @param  array $metabox full metabox items array
-	 * @since 1.1
-	 */
-	public function metabox_links( $post, $metabox ) {
-
-		$links_metabox = apply_filters( 'spu/metaboxes/links_metabox', dirname(__FILE__) . '/views/metaboxes/metabox-links.php' );
-
-		include $links_metabox;
-	}
 
 	/**
 	 * Saves popup options and rules
