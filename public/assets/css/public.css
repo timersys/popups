@@ -208,6 +208,48 @@ p.spu-powered a{
     margin: 5px;
     display: none;
 }
+/**
+* Top Bar position
+*/
+.spu-box.spu-top-bar,
+.spu-box.spu-bottom-bar{
+    margin: 0;
+    width: 100% !important;
+    padding: 10px 30px !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0;
+    position: fixed;
+    box-shadow: none;
+    z-index: 1000;
+}
+.spu-box.spu-top-bar.with-spu-gdpr{
+    padding-bottom: 40px !important;
+}
+.spu-box.spu-top-bar{
+    top: 0;
+    border-top: none !important;
+}
+.spu-box.spu-bottom-bar{
+    bottom: 0;
+    border-bottom: none !important;
+}
+.spu-box.spu-top-bar h1,
+.spu-box.spu-top-bar h2,
+.spu-box.spu-top-bar h3,
+.spu-box.spu-top-bar h4,
+.spu-box.spu-top-bar h5,
+.spu-box.spu-top-bar h6,
+.spu-box.spu-top-bar p,
+.spu-box.spu-bottom-bar h1,
+.spu-box.spu-bottom-bar h2,
+.spu-box.spu-bottom-bar h3,
+.spu-box.spu-bottom-bar h4,
+.spu-box.spu-bottom-bar h5,
+.spu-box.spu-bottom-bar h6,
+.spu-box.spu-bottom-bar p{
+    margin: 0;
+}
 @keyframes spu-rotate {
     0% {
         transform: rotate(0);

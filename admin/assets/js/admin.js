@@ -5,7 +5,7 @@ var spu = {
 
 SPU_ADMIN = (function ( $ ) {
 
-
+	var spu_editor = '';
 	$(document).ready(function(){
 
 		spu.rules.init();
@@ -25,7 +25,31 @@ SPU_ADMIN = (function ( $ ) {
 			checkTriggerMethod( $(this).val() );
 		})
 
+		/**
+		 * Updates on position change
+		 */
+		$('#spu_position').on('change', function(){
+			var $editor     = SPU_ADMIN.spu_editor,
+				val         = $(this).val();
+			//update editor
+			$editor.alterClass('spu-position-*', 'spu-position-'+ val )
+			if( val == 'top-bar' || val == 'bottom-bar') {
+				$editor.find('.spu-box-container *:not("p, .spu-fields-container, .spu-fields-container *")').remove();
+			}
+		});
+
 	});
+
+	/**
+	 * When tinyMcr loads
+	 */
+	function TinyMceOptin() {
+		SPU_ADMIN.spu_editor = $("#content_ifr").contents().find('html #tinymce');
+		
+		// add position class
+		SPU_ADMIN.spu_editor.addClass(' spu-position-' + spu_js.opts.css.position).removeClass('wp-autoresize');
+		applyStyles();
+	}
 
 	function checkTriggerMethod( val ) {
 		if( val == 'pixels' || val == 'percentage' || val == 'visible') {
@@ -41,8 +65,7 @@ SPU_ADMIN = (function ( $ ) {
 	}
 
 	// functions
-	function getPxValue($el, retval)
-	{
+	function getPxValue($el, retval) {
 		if($el.val()) {
 			return parseInt($el.val());
 		} else {
@@ -50,8 +73,7 @@ SPU_ADMIN = (function ( $ ) {
 		}
 	}
 
-	function getColor($el, retval)
-	{
+	function getColor($el, retval) {
 		if($el.val().length > 0) {
 			return $el.wpColorPicker('color');
 		} else {
@@ -59,8 +81,7 @@ SPU_ADMIN = (function ( $ ) {
 		}
 	}
 
-	function applyStyles()
-	{
+	function applyStyles() {
 		var $editor = $("#content_ifr").contents().find('html');
         $editor.trigger('spu_tinymce_init');
 		$editor.css({
@@ -84,15 +105,14 @@ SPU_ADMIN = (function ( $ ) {
                 'max-width': '100%',
                 'margin': '8px auto 0;',
                 'box-shadow': ($("#spu-shadow-type").val() == 'inset' ? 'inset' : '') +' '+ $("#spu-shadow-x").val() + 'px ' + $("#spu-shadow-y").val() + 'px ' + $("#spu-shadow-blur").val() + 'px ' + $("#spu-shadow-spread").val() + 'px ' + getColor($("#spu-shadow-color"))
-
         });
+            
             var img_src = $('#spu_bgimage').val();
             $editor.find("#tinymce").css({
                 'background-image': 'url("'+img_src+'")',
                 'background-size' : 'cover'
             });
         }
-
 	}
 
 
@@ -104,7 +124,6 @@ SPU_ADMIN = (function ( $ ) {
 	*  @since: 1.0.0
 	*  Thanks to advanced custom fields plugin for part of this code
 	*/
-
 	spu.rules = {
 		$el : null,
 		init : function(){
@@ -112,40 +131,26 @@ SPU_ADMIN = (function ( $ ) {
 			// vars
 			var _this = this;
 
-
 			// $el
 			_this.$el = $('#spu-rules');
 
-
 			// add rule
 			_this.$el.on('click', '.rules-add-rule', function(){
-
 				_this.add_rule( $(this).closest('tr') );
-
 				return false;
-
 			});
-
 
 			// remove rule
 			_this.$el.on('click', '.rules-remove-rule', function(){
-
 				_this.remove_rule( $(this).closest('tr') );
-
 				return false;
-
 			});
-
 
 			// add rule
 			_this.$el.on('click', '.rules-add-group', function(){
-
 				_this.add_group();
-
 				return false;
-
 			});
-
 
 			// change rule
 			_this.$el.on('change', '.param select', function(){
@@ -165,11 +170,9 @@ SPU_ADMIN = (function ( $ ) {
 						'param' 	: $(this).val()
 					};
 
-
 				// add loading gif
 				var div = $('<div class="spu-loading"><img src="'+spu_js.admin_url+'/images/wpspin_light.gif"/> </div>');
 				val_td.html( div );
-
 
 				// load rules html
 				$.ajax({
@@ -178,9 +181,7 @@ SPU_ADMIN = (function ( $ ) {
 					type: 'post',
 					dataType: 'html',
 					success: function(html){
-
 						val_td.html(html);
-
 					}
 				});
 
@@ -202,14 +203,10 @@ SPU_ADMIN = (function ( $ ) {
 					type: 'post',
 					dataType: 'html',
 					success: function(html){
-
 						operator_td.html(html);
-
 					}
 				});
-
 			});
-
 		},
 		add_rule : function( $tr ){
 
@@ -218,44 +215,33 @@ SPU_ADMIN = (function ( $ ) {
 				old_id = $tr2.attr('data-id'),
 				new_id = 'rule_' + ( parseInt( old_id.replace('rule_', ''), 10 ) + 1);
 
-
 			// update names
 			$tr2.find('[name]').each(function(){
 
 				$(this).attr('name', $(this).attr('name').replace( old_id, new_id ));
 				$(this).attr('id', $(this).attr('id').replace( old_id, new_id ));
-
 			});
-
 
 			// update data-i
 			$tr2.attr( 'data-id', new_id );
 
-
 			// add tr
 			$tr.after( $tr2 );
 
-
 			return false;
-
 		},
 		remove_rule : function( $tr ){
 
 			// vars
 			var siblings = $tr.siblings('tr').length;
 
-
-			if( siblings == 0 )
-			{
+			if( siblings == 0 )	{
 				// remove group
 				this.remove_group( $tr.closest('.rules-group') );
-			}
-			else
-			{
+			} else {
 				// remove tr
 				$tr.remove();
 			}
-
 		},
 		add_group : function(){
 
@@ -265,7 +251,6 @@ SPU_ADMIN = (function ( $ ) {
 				old_id = $group2.attr('data-id'),
 				new_id = 'group_' + ( parseInt( old_id.replace('group_', ''), 10 ) + 1);
 
-
 			// update names
 			$group2.find('[name]').each(function(){
 
@@ -274,39 +259,31 @@ SPU_ADMIN = (function ( $ ) {
 
 			});
 
-
 			// update data-i
 			$group2.attr( 'data-id', new_id );
-
 
 			// update h4
 			$group2.find('h4').html( spu_js.l10n.or ).addClass('rules-or');
 
-
 			// remove all tr's except the first one
 			$group2.find('tr:not(:first)').remove();
 
-
 			// add tr
 			$group.after( $group2 );
-
-
-
 		},
 		remove_group : function( $group ){
-
 			$group.remove();
-
 		}
 	};
 
 	return {
 		onTinyMceInit: function() {
-			applyStyles();
-
+			TinyMceOptin();
 		}
 	}
 }(jQuery));
+
+
 ( function( global, $ ) {
 	var editor,
 		syncCSS = function() {
@@ -345,3 +322,41 @@ function spu_hexToRgb(hex, alpha) {
         return 'rgb(' + r + ', ' + g + ', ' + b + ')';
     }
 }
+/**
+ * jQuery alterClass plugin
+ *
+ * Remove element classes with wildcard matching. Optionally add classes:
+ *   $( '#foo' ).alterClass( 'foo-* bar-*', 'foobar' )
+ *
+ * Copyright (c) 2011 Pete Boere (the-echoplex.net)
+ * Free under terms of the MIT license: http://www.opensource.org/licenses/mit-license.php
+ *
+ */
+(function ( $ ) {
+	$.fn.alterClass = function ( removals, additions ) {
+
+		var self = this;
+		if ( removals.indexOf( '*' ) === -1 ) {
+			// Use native jQuery methods if there is no wildcard matching
+			self.removeClass( removals );
+			return !additions ? self : self.addClass( additions );
+		}
+
+		var patt = new RegExp( '\\s' +
+		removals.
+			replace( /\*/g, '[A-Za-z0-9-_]+' ).
+			split( ' ' ).
+			join( '\\s|\\s' ) +
+		'\\s', 'g' );
+
+		self.each( function ( i, it ) {
+			var cn = ' ' + it.className + ' ';
+			while ( patt.test( cn ) ) {
+				cn = cn.replace( patt, ' ' );
+			}
+			it.className = $.trim( cn );
+		});
+
+		return !additions ? self : self.addClass( additions );
+	};
+})( jQuery );

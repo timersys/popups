@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups, popupmaker
 Requires at least: 3.6
-Tested up to: 4.9.4
-Stable tag: 1.9.2
+Tested up to: 4.9.6
+Stable tag: 1.9.3
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -159,9 +159,6 @@ On certain occasions multiple GF instances can cause problems. There is a plugin
 = How to make Popups plugin compatible with Maxbuttons Plugin (https://es.wordpress.org/plugins/maxbuttons/) =
  Check the following gists ( https://gist.github.com/timersys/e3648ba93955ddef4087 )
 
-= I closed the popup but youtube video is still playing. How I fix it? =
-Check [this](https://gist.github.com/timersys/d3cde5a27e9f2ae4ac83d5c619e6ebfa) or [this gist](https://gist.github.com/timersys/99db1a8d2c8db74cb954) for instructions
-
 = Can I attach my custom js events to popups plugin? =
 Yes you can attach to any of this events . id = Popup id
 `jQuery(document).on('spu.box_close',function(e,id){ ... });
@@ -174,20 +171,23 @@ You can filter the content by using the [following function](https://gist.github
 = Can I remove js for Facebook, Twitter or Google if I already loaded mine? =
 Yes you can remove them in the settings page of the plugin
 
-= Can I use the uncommpresed popups JS in my site ? =
-Yes if you need to debug you can use uncompressed javascript by enabling debug mode in the settings page
-
 = Popup is not showing, why ? =
 Check your page source code. At the bottom of your page search for an html comment that looks something like :
 
 `<!-- Popups v1.1 - http://wordpress.org/plugins/social-popup/-->`
-If you see that comment, then the error is probably a javascript error. Use debug mode and check your browser console for problems.
+If you see that comment, then the error is probably a javascript error. Check your browser console for problems.
 
 If you are not seeing that code instead, the problem is that one of the display rules you configured is preventing it to show. Double check your display rules.
 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.9.3 =
+* New Bottom and top bar positions
+* New conversion and close button
+* Improved posts display rules for sites with thousands of posts
+* Javascript new resize method
 
 = 1.9.2 =
 * Added support for Visual Form Builder

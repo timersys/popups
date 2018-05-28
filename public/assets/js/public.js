@@ -29,6 +29,15 @@ var SPU_master = function() {
 
 		// vars
 		var $box 			= $(this);
+
+		// move to parent in top bar mode
+		if( $box.hasClass('spu-top-bar') || $box.hasClass('spu-bottom-bar') ){
+
+			$box.prependTo('body');
+			if( $box.hasClass('spu-top-bar') && $('#wpadminbar').length )
+				$box.css( 'top', '32px');
+		}
+
 		var triggerMethod 	= $box.data('trigger');
 		var timer 			= 0;
 		var testMode 		= (parseInt($box.data('test-mode')) === 1);
@@ -54,6 +63,12 @@ var SPU_master = function() {
             // hide the popup and track conversion
             toggleBox( id, false, true);
         });
+        // Close and convert button
+        $box.on('click', '.spu-close-convert,.spu-close-convert a', function(e){
+        	e.preventDefault();
+            // hide the popup and track conversion
+            toggleBox( id, false, true);
+        });
 		//close with esc
 		$(document).keyup(function(e) {
 			if (e.keyCode == 27) {
@@ -68,7 +83,7 @@ var SPU_master = function() {
 			var $target = $(ev.target);
 			// test that event is user triggered and not programatically,
 			// and that it is not fired from input within the box
-			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) ) {
+			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) && ! $box.hasClass('spu-top-bar') && ! $box.hasClass('spu-bottom-bar') ) {
 
 				toggleBox( id, false, false );
 
@@ -151,9 +166,6 @@ var SPU_master = function() {
 
 			}, triggerSeconds * 1000);
 		}
-
-
-
 
 		// show box if cookie not set or if in test mode
 		//var cookieValue = spuReadCookie( 'spu_box_' + id );
@@ -418,7 +430,7 @@ var SPU_master = function() {
 		var $box 	= box;
 		var total = $box.data('total'); //total of shortcodes used
 		if( total ) { //if we have shortcodes
-			SPU_reload_socials();
+			//SPU_reload_socials(); //remove 20180515
 
 			//wrap them all
 			//center spu-shortcodes
@@ -549,7 +561,7 @@ var SPU_master = function() {
 		}
 
 		//background
-		if (show === true && $bgopa > 0) {
+		if (show === true && $bgopa > 0 && !$box.hasClass('spu-top-bar') && !$box.hasClass('spu-bottom-bar')) {
 			if (animation === 'disable') {
 				$bg.show();
 			} else {
@@ -570,9 +582,12 @@ var SPU_master = function() {
 		show: function( box_id ) {
 			return toggleBox( box_id, true, false );
 		},
-		hide: function( box_id, show, conversion ) {
+		hide: function( box_id, conversion ) {
 			return toggleBox( box_id, false, conversion );
 		},
+		resize: function (box_id) {
+			return fixSize( box_id );
+        },
 		request: function( data, url, success_cb, error_cb ) {
 			return request( data, url, success_cb, error_cb );
 		}
