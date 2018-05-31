@@ -14,8 +14,7 @@ namespace Jaybizzle\CrawlerDetect\Fixtures;
 class Headers extends AbstractProvider
 {
     /**
-     * All possible HTTP headers that represent the
-     * User-Agent string.
+     * All possible HTTP headers that represent the user agent string.
      *
      * @var array
      */
@@ -33,5 +32,6 @@ class Headers extends AbstractProvider
         'HTTP_X_UCBROWSER_DEVICE_UA',
         // Sometimes, bots (especially Google) use a genuine user agent, but fill this header in with their email address
         'HTTP_FROM',
+        'HTTP_X_SCANNER', // Seen in use by Netsparker
     );
 }

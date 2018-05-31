@@ -30,7 +30,7 @@ class Exclusions extends AbstractProvider
         'AppleWebKit.[\d\.]*',
         'Trident.[\d\.]*',
         'Windows NT.[\d\.]*',
-        'Android.[\d\.]*',
+        'Android [\d\.]*',
         'Macintosh.',
         'Ubuntu',
         'Linux',
@@ -60,6 +60,7 @@ class Exclusions extends AbstractProvider
         'Opera Mini\/\d{1,2}\.\d{1,2}\.[\d\.]*\/\d{1,2}\.',
         'Opera',
         ' \.NET[\d\.]*',
-        '\(|\)|;|,', // Remove the following characters ( ) : ,
+        'cubot',
+        ';', // Remove the following characters ;
     );
 }
