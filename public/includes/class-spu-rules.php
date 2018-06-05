@@ -76,6 +76,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/crawlers', array($this, 'rule_match_crawlers'), 10, 2);
 		add_filter('spu/rules/rule_match/browser', array($this, 'rule_match_browser'), 10, 2);
 		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
+		add_filter('spu/rules/rule_match/custom_url', array($this, 'rule_match_custom_url'), 10, 2);
 
 		$this->post_id 	    = get_queried_object_id();
 		$this->referrer     = isset($_SERVER['HTTP_REFERER']) && !defined('DOING_AJAX') ? $_SERVER['HTTP_REFERER'] : '';
@@ -1092,5 +1093,32 @@ class Spu_Rules
 
 		return $post_type;
  	}
+
+    /**
+     * Check for custom url
+     *
+     * @param  array $rule rule to compare
+     *
+     * @return boolean true if match
+     */
+    public static function rule_match_custom_url( $rule ) {
+
+        $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+        $wide_search = strpos($rule['value'],'*') !== false ? true : false;
+
+        if( $wide_search ) {
+            if( strpos( $current_url, trim($rule['value'],'*') ) === 0 ) {
+                return ( $rule['operator'] == "==" );
+            }
+            return ! ( $rule['operator'] == "==" );
+        }
+
+        if( $rule['operator'] == "==" )
+            return ($current_url == $rule['value']);
+
+        return ! ($current_url == $rule['value']);
+
+    }
 
 }
