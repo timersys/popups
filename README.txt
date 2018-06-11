@@ -1,10 +1,11 @@
 === Popups - WordPress Popup ===
 Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
-Tags:  popup,twitter,google+, facebook,Popups, twitter follow, facebook like, google plus,social boost, social splash, postmatic, mailpoet, facebook popup, scroll popups, popups, wordpress popup, wp popups, cf7, gf, gravity forms, contact form 7, ifs, infusion soft, subscribe, login popup, ajax login popups, popupmaker
+Tags:  popup,twitter,google+,facebook,Popups,twitter follow,facebook like,mailchimp,Activecampaign,Mailpoet,Postmatic,Infusionsoft,mailerlite,constant contact,aweber,google plus,social boost,social splash,postmatic,mailpoet,facebook popup,scroll popups,popups,wordpress popup,wp popups,cf7,gf,gravity forms,contact form 7,ifs,infusion soft,subscribe,login popup,ajax login popups,popupmaker
 Requires at least: 3.6
 Tested up to: 4.9.6
 Stable tag: 1.9.3.1
+Requires PHP: 5.3
 Text Domain: popups
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -180,10 +181,6 @@ If you see that comment, then the error is probably a javascript error. Check yo
 If you are not seeing that code instead, the problem is that one of the display rules you configured is preventing it to show. Double check your display rules.
 
 If you have cache be sure to enable AJAX mode in the plugin settings page
-== Upgrade Notice ==
-
-= 1.9.3.1 =
-* This version fixes a security related bug.  Upgrade immediately.
 
 == Changelog ==
 
@@ -560,3 +557,8 @@ If you have cache be sure to enable AJAX mode in the plugin settings page
 
 * Recoded from scratch. This is a totally new plugin
 * Multiple popups are available now handled with custom post types
+
+== Upgrade Notice ==
+
+= 1.9.3.1 =
+This version fixes a security related bug.  Upgrade immediately.
