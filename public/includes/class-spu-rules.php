@@ -77,6 +77,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/browser', array($this, 'rule_match_browser'), 10, 2);
 		add_filter('spu/rules/rule_match/query_string', array($this, 'rule_match_query_string'), 10, 2);
 		add_filter('spu/rules/rule_match/custom_url', array($this, 'rule_match_custom_url'), 10, 2);
+		add_filter('spu/rules/rule_match/keyword_url', array($this, 'rule_match_keyword_url'), 10, 2);
 
 		$this->post_id 	    = get_queried_object_id();
 		$this->referrer     = isset($_SERVER['HTTP_REFERER']) && !defined('DOING_AJAX') ? $_SERVER['HTTP_REFERER'] : '';
@@ -1101,7 +1102,7 @@ class Spu_Rules
      *
      * @return boolean true if match
      */
-    public static function rule_match_custom_url( $rule ) {
+    public static function rule_match_custom_url( $match, $rule ) {
 
         $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
@@ -1121,4 +1122,25 @@ class Spu_Rules
 
     }
 
+	/**
+	 * Check for keyword url
+	 *
+	 * @param  array $rule rule to compare
+	 *
+	 * @return boolean true if match
+	*/
+	function rule_match_keyword_url($match, $rule) {
+
+		$http = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http";
+		$current_url = $http . '://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		
+		$search_url = str_replace(site_url(), '', $current_url);
+
+		if( strlen($search_url) > 0 && strpos($search_url, trim($rule['value'])) !== false )
+			$match = ($rule['operator'] == "==");
+		else
+			$match = !($rule['operator'] == "==");
+
+		return $match;
+	}
 }
