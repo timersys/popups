@@ -37,6 +37,18 @@ class Spu_Rules
 	 */
 	protected $is_search = false;
 
+	/**
+	 * Holds current url
+	 * @var string
+	 */
+	protected $current_url;
+
+	/**
+	 * Holds query string
+	 * @var
+	 */
+	protected $query_string;
+
 	/*
 	*  __construct
 	*  Add all the filters to use later
@@ -82,6 +94,8 @@ class Spu_Rules
 		$this->post_id 	    = get_queried_object_id();
 		$this->referrer     = isset($_SERVER['HTTP_REFERER']) && !defined('DOING_AJAX') ? $_SERVER['HTTP_REFERER'] : '';
 		$this->query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+		$this->current_url  = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
 
 		if( defined('DOING_AJAX') ) {
 
@@ -1102,23 +1116,21 @@ class Spu_Rules
      *
      * @return boolean true if match
      */
-    public static function rule_match_custom_url( $match, $rule ) {
-
-        $current_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    public function rule_match_custom_url( $match, $rule ) {
 
         $wide_search = strpos($rule['value'],'*') !== false ? true : false;
 
         if( $wide_search ) {
-            if( strpos( $current_url, trim($rule['value'],'*') ) === 0 ) {
+            if( strpos( $this->current_url, trim($rule['value'],'*') ) === 0 ) {
                 return ( $rule['operator'] == "==" );
             }
             return ! ( $rule['operator'] == "==" );
         }
 
         if( $rule['operator'] == "==" )
-            return ($current_url == $rule['value']);
+            return ($this->current_url == $rule['value']);
 
-        return ! ($current_url == $rule['value']);
+        return ! ($this->current_url == $rule['value']);
 
     }
 
@@ -1131,16 +1143,12 @@ class Spu_Rules
 	*/
 	function rule_match_keyword_url($match, $rule) {
 
-		$http = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http";
-		$current_url = $http . '://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-		
-		$search_url = str_replace(site_url(), '', $current_url);
+		$search_url = str_replace(site_url(), '', $this->current_url);
 
 		if( strlen($search_url) > 0 && strpos($search_url, trim($rule['value'])) !== false )
-			$match = ($rule['operator'] == "==");
+			return ($rule['operator'] == "==");
 		else
-			$match = !($rule['operator'] == "==");
-
-		return $match;
+			return !($rule['operator'] == "==");
+		
 	}
 }
