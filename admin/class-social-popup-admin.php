@@ -771,8 +771,9 @@ class SocialPopup_Admin {
 			),
 			__("Other", 'popups' ) => array(
 				'referrer'		=>	__("Referrer", 'popups' ),
-				'query_string'		=>	__("Query String", 'popups' ),
-				'custom_url'		=>	__("Custom Url", 'popups' ),
+				'query_string'	=>	__("Query String", 'popups' ),
+				'keyword_url'	=>  __("Url contains keyword", 'popups' ),
+				'custom_url'	=>	__("Custom Url", 'popups' ),
 				'mobiles'		=>	__("Mobile Phone", 'popups' ),
 				'tablets'		=>	__("Tablet", 'popups' ),
 				'desktop'		=>	__("Dekstop", 'popups' ),
@@ -818,7 +819,8 @@ class SocialPopup_Admin {
 		add_action('spu/rules/print_crawlers_field', array('Spu_Helper', 'print_select'), 10, 2);
 		add_action('spu/rules/print_referrer_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 		add_action('spu/rules/print_query_string_field', array('Spu_Helper', 'print_textfield'), 10, 1);
-		add_action('spu/rules/print_custom_rule_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+		add_action('spu/rules/print_keyword_url_field', array('Spu_Helper', 'print_textfield'), 10, 1);
+		add_action('spu/rules/print_custom_url_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 		add_action('spu/rules/print_browser_field', array('Spu_Helper', 'print_textfield'), 10, 1);
 	}
 
