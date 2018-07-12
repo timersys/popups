@@ -38,21 +38,6 @@ body {
 	margin: 0;
 }
 /** Some basic css for box content**/
-.spu-box h1{
-	margin: 1.414285714rem 0;
-	font-size: 1.4em;
-}	
-.spu-box h2{
-	margin: 1.414285714rem 0;
-	font-size: 1.2em;
-}	
-.spu-box h3{
-	margin: 1.414285714rem 0;
-	font-size: 1.0em;
-}	
-.spu-box p{
-	margin: 0 0 1.414285714rem;
-}
 .spu-box img{
     max-width: 100%;
     height: auto;
