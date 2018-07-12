@@ -79,21 +79,26 @@ var SPU_master = function() {
 		var ua = navigator.userAgent,
 		event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
 
+
 		$('body').on(event, function (ev) {
 			var $target = $(ev.target);
+			// for some reason ninja form in ajax mode not working, added this dirty workadound
+			// $.contains( $box, $target ) return false , same for .has .parents, etc
+			// so no popup closing when form is clicked
+			if($target.is('input.nf-element')) {
+                return;
+            }
+
 			// test that event is user triggered and not programatically,
 			// and that it is not fired from input within the box
 			if( ev.originalEvent !== undefined && ! ( $.contains( $box, $target ) && $target.is('input') ) && ! $box.hasClass('spu-top-bar') && ! $box.hasClass('spu-bottom-bar') ) {
-
 				toggleBox( id, false, false );
-
 			}
 		});
 		//not on the box
-		$('body' ).on(event,'.spu-box,.spu-clickable', function(event) {
-			event.stopPropagation();
-		});
-
+        $('body' ).on(event,'.spu-box,.spu-clickable', function(event) {
+            event.stopPropagation();
+        });
 		//hide boxes and remove left-99999px we cannot since beggining of facebook won't display
 		$box.hide().css('left','').css('right','');
 
