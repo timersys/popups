@@ -603,8 +603,9 @@ if( spuvar.ajax_mode ) {
 
 	var data = {
 		pid : spuvar.pid,
-		referrer : document.referrer,
-		query_string : document.location.search,
+		referrer : spuvar.referrer,
+		current_url : spuvar.current_url,
+		query_string : spuvar.query_string,
 		is_category : spuvar.is_category,
 		is_archive : spuvar.is_archive,
 		is_preview: spuvar.is_preview
