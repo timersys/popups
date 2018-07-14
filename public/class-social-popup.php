@@ -491,10 +491,6 @@ class SocialPopup {
 		$handle = 'spu-public';
 
 		$opts = $this->spu_settings;
-		
-		$referrer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-		$query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
-		$current_url  = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 		wp_enqueue_script($handle);
 		wp_enqueue_style('spu-public-css');
@@ -505,9 +501,6 @@ class SocialPopup {
 				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? esc_attr( $this->spu_settings['ajax_mode'] ) :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
 				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
-				'referrer'						=> $referrer,
-				'current_url'					=> $current_url,
-				'query_string'					=> $query_string,
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
 				'is_category'				    => is_category(),

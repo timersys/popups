@@ -92,7 +92,7 @@ class Spu_Rules
 		add_filter('spu/rules/rule_match/keyword_url', array($this, 'rule_match_keyword_url'), 10, 2);
 
 		$this->post_id 	    = get_queried_object_id();
-		$this->referrer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+		$this->referrer     = isset($_SERVER['HTTP_REFERER']) && !defined('DOING_AJAX') ? $_SERVER['HTTP_REFERER'] : '';
 		$this->query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
 		$this->current_url  = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
@@ -102,14 +102,11 @@ class Spu_Rules
 			if( isset( $_REQUEST['pid'] ) ) {
 				$this->post_id = $_REQUEST['pid'];
 			}
-			if( isset( $_REQUEST['referrer'] ) ) {
+			if( !empty( $_REQUEST['referrer'] ) ) {
 				$this->referrer = $_REQUEST['referrer'];
 			}
-			if( isset( $_REQUEST['query_string'] ) ) {
+			if( !empty( $_REQUEST['query_string'] ) ) {
 				$this->query_string = $_REQUEST['query_string'];
-			}
-			if( isset( $_REQUEST['current_url'] ) ) {
-				$this->current_url = $_REQUEST['current_url'];
 			}
 			if( !empty( $_REQUEST['is_category'] ) ) {
 				$this->is_category = true;
