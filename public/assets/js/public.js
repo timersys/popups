@@ -604,6 +604,7 @@ if( spuvar.ajax_mode ) {
 	var data = {
 		pid : spuvar.pid,
 		referrer : document.referrer,
+		current_url : document.documentURI,
 		query_string : document.location.search,
 		is_category : spuvar.is_category,
 		is_archive : spuvar.is_archive,

@@ -105,6 +105,9 @@ class Spu_Rules
 			if( !empty( $_REQUEST['referrer'] ) ) {
 				$this->referrer = $_REQUEST['referrer'];
 			}
+			if( !empty( $_REQUEST['current_url'] ) ) {
+				$this->current_url = $_REQUEST['current_url'];
+			}
 			if( !empty( $_REQUEST['query_string'] ) ) {
 				$this->query_string = $_REQUEST['query_string'];
 			}
