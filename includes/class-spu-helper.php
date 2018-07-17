@@ -333,7 +333,6 @@ class Spu_Helper {
 		{
 			die();
 		}
-								
 	}	
 
 	/**
