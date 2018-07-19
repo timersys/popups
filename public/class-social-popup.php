@@ -287,6 +287,7 @@ class SocialPopup {
 			'show_ui'            => true,
 			'show_in_menu'       => true,
 			'query_var'          => true,
+			'exclude_from_search' => true,
 			'rewrite'            => array( 'slug' => 'spucpt' ),
 			'capability_type'    => 'post',
 			'capabilities' => array(
