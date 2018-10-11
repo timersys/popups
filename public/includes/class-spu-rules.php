@@ -716,16 +716,12 @@ class Spu_Rules
 			return false;
 		}
 
+		update_option( 'rtest1', print_r($rule,true) );
 
 		// vars
 		$post = get_post( $this->post_id );
 
 		$post_parent = $post->post_parent;
-    	if( $options['page_parent'] )
-    	{
-        	$post_parent = $options['page_parent'];
-    	}
-
 
         if($rule['operator'] == "==")
         {
