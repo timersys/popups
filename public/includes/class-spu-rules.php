@@ -716,8 +716,6 @@ class Spu_Rules
 			return false;
 		}
 
-		update_option( 'rtest1', print_r($rule,true) );
-
 		// vars
 		$post = get_post( $this->post_id );
 
