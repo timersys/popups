@@ -214,7 +214,9 @@ var SPU_master = function() {
 			}
 		}	/* end check cookie */
 		//close popup
-		$box.on('click','.spu-close-popup',function() {
+		$box.on('click','.spu-close-popup',function(e) {
+
+			e.preventDefault();
 
 			// hide box
 			toggleBox( id, false, false );
