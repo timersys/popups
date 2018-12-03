@@ -786,6 +786,20 @@ function SPU_reload_forms(){
 			$(this).attr('action' , action.replace('?spu_action=spu_load',''));
 		}
 	});
+
+	// CF7 > 4.8
+	if ( typeof wpcf7 !== 'undefined' && wpcf7 !== null && wpcf7.initForm ) {
+
+		$('.spu-box div.wpcf7 > form').each(function () {
+			wpcf7.initForm( $(this) );
+
+			if ( wpcf7.cached ) {
+				wpcf7.refill( $(this) );
+			}
+		});
+	}
+
+	// Old Version CF7
 	if ($.fn.wpcf7InitForm) {
 		$('.spu-box div.wpcf7 > form').wpcf7InitForm();
 	}

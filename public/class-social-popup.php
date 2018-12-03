@@ -492,6 +492,11 @@ class SocialPopup {
 
 		$opts = $this->spu_settings;
 
+		if( isset($this->info['wpml_lang']) && !empty($this->info['wpml_lang']) )
+			$ajax_url = '/?spu_action=spu_load&lang='.$this->info['wpml_lang'];
+		else
+			$ajax_url = '/?spu_action=spu_load';
+
 		wp_enqueue_script($handle);
 		wp_enqueue_style('spu-public-css');
 		wp_localize_script( $handle, 'spuvar',
@@ -500,7 +505,7 @@ class SocialPopup {
 				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? esc_attr( $this->spu_settings['shortcodes_style'] ) : '',
 				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? esc_attr( $this->spu_settings['ajax_mode'] ) :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
-				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
+				'ajax_mode_url'					=> site_url($ajax_url),
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
 				'is_category'				    => is_category(),
