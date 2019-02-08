@@ -35,12 +35,12 @@ define( 'SPU_PLUGIN_DIR' , plugin_dir_path(__FILE__) );
 define( 'SPU_PLUGIN_URL' , plugin_dir_url(__FILE__) );
 define( 'SPU_PLUGIN_HOOK' , basename( dirname( __FILE__ ) ) . '/' . basename( __FILE__ ) );
 
-require_once( plugin_dir_path( __FILE__ ) . 'admin/includes/class-spu-upgrader.php' );
-require_once( plugin_dir_path( __FILE__ ) . 'public/class-social-popup.php' );
+require_once( SPU_PLUGIN_DIR . 'admin/includes/class-spu-upgrader.php' );
+require_once( SPU_PLUGIN_DIR . 'public/class-social-popup.php' );
 // Include Helper class
 require_once( SPU_PLUGIN_DIR . 'includes/class-spu-helper.php' );
 // Dependencies
-require_once( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' );
+require_once( SPU_PLUGIN_DIR . 'vendor/autoload.php' );
 
 /*
  * Register hooks that are fired when the plugin is activated or deactivated.
