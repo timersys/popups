@@ -716,16 +716,10 @@ class Spu_Rules
 			return false;
 		}
 
-
 		// vars
 		$post = get_post( $this->post_id );
 
 		$post_parent = $post->post_parent;
-    	if( $options['page_parent'] )
-    	{
-        	$post_parent = $options['page_parent'];
-    	}
-
 
         if($rule['operator'] == "==")
         {

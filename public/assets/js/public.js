@@ -273,7 +273,7 @@ var SPU_master = function() {
 					tail		= button ? button.attr('name')+'='+button.val() : 'button=send',
 					data 	 	= form.serialize()+"&"+tail,
 					referer 	= form.find('input[name="_wp_http_referer"]'),
-					urlref		= referer ? spuvar.site_url+referer.val() : window.location.href,
+					urlref		= referer && referer.val() !== undefined ? spuvar.site_url+referer.val() : window.location.href,
 					action 		= form.attr('action') ? form.attr('action') : urlref,
 					url  	 	= form.hasClass('mc4wp-form') ? spuvar.site_url +'/' : action,
 					error_cb 	= function (data, error, errorThrown){
@@ -786,6 +786,20 @@ function SPU_reload_forms(){
 			$(this).attr('action' , action.replace('?spu_action=spu_load',''));
 		}
 	});
+
+	// CF7 > 4.8
+	if ( typeof wpcf7 !== 'undefined' && wpcf7 !== null && wpcf7.initForm ) {
+
+		$('.spu-box div.wpcf7 > form').each(function () {
+			wpcf7.initForm( $(this) );
+
+			if ( wpcf7.cached ) {
+				wpcf7.refill( $(this) );
+			}
+		});
+	}
+
+	// Old Version CF7
 	if ($.fn.wpcf7InitForm) {
 		$('.spu-box div.wpcf7 > form').wpcf7InitForm();
 	}

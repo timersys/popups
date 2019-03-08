@@ -281,16 +281,15 @@ class SocialPopup {
 		);
 
 		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'query_var'          => true,
-			'exclude_from_search' => true,
-			'rewrite'            => array( 'slug' => 'spucpt' ),
-			'capability_type'    => 'post',
-			'capabilities' => array(
+			'labels'				=> $labels,
+			'public'				=> true,
+			'publicly_queryable'	=> true,
+			'show_ui'				=> true,
+			'show_in_menu'			=> true,
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'spucpt' ),
+			'capability_type'		=> 'post',
+			'capabilities'			=> array(
 				'publish_posts' 		=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 				'edit_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 				'edit_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
@@ -301,11 +300,12 @@ class SocialPopup {
 				'delete_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 				'read_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 			),
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => null,
-			'menu_icon'				 => 'dashicons-share-alt',
-			'supports'           => array( 'title', 'editor','author' )
+			'has_archive'			=> false,
+			'hierarchical'			=> false,
+			'menu_position'			=> null,
+			'menu_icon'				=> 'dashicons-share-alt',
+			'supports'				=> array( 'title', 'editor','author' ),
+			'show_in_rest'	=> true
 		);
 
 		register_post_type( 'spucpt', $args );
@@ -493,6 +493,11 @@ class SocialPopup {
 
 		$opts = $this->spu_settings;
 
+		if( isset($this->info['wpml_lang']) && !empty($this->info['wpml_lang']) )
+			$ajax_url = '/?spu_action=spu_load&lang='.$this->info['wpml_lang'];
+		else
+			$ajax_url = '/?spu_action=spu_load';
+
 		wp_enqueue_script($handle);
 		wp_enqueue_style('spu-public-css');
 		wp_localize_script( $handle, 'spuvar',
@@ -501,7 +506,7 @@ class SocialPopup {
 				'disable_style' 				=> isset( $this->spu_settings['shortcodes_style'] ) ? esc_attr( $this->spu_settings['shortcodes_style'] ) : '',
 				'ajax_mode'						=> isset( $this->spu_settings['ajax_mode'] ) ? esc_attr( $this->spu_settings['ajax_mode'] ) :'',
 				'ajax_url'						=> admin_url('admin-ajax.php'),
-				'ajax_mode_url'					=> site_url('/?spu_action=spu_load&lang='.$this->info['wpml_lang']),
+				'ajax_mode_url'					=> site_url($ajax_url),
 				'pid'						    => get_queried_object_id(),
 				'is_front_page'				    => is_front_page(),
 				'is_category'				    => is_category(),
