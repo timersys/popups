@@ -281,15 +281,15 @@ class SocialPopup {
 		);
 
 		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'spucpt' ),
-			'capability_type'    => 'post',
-			'capabilities' => array(
+			'labels'				=> $labels,
+			'public'				=> true,
+			'publicly_queryable'	=> true,
+			'show_ui'				=> true,
+			'show_in_menu'			=> true,
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'spucpt' ),
+			'capability_type'		=> 'post',
+			'capabilities'			=> array(
 				'publish_posts' 		=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 				'edit_posts' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 				'edit_others_posts' 	=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
@@ -300,11 +300,12 @@ class SocialPopup {
 				'delete_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 				'read_post' 			=> apply_filters( 'spu/settings_page/roles', 'manage_options'),
 			),
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => null,
-			'menu_icon'				 => 'dashicons-share-alt',
-			'supports'           => array( 'title', 'editor','author' )
+			'has_archive'			=> false,
+			'hierarchical'			=> false,
+			'menu_position'			=> null,
+			'menu_icon'				=> 'dashicons-share-alt',
+			'supports'				=> array( 'title', 'editor','author' ),
+			'show_in_rest'	=> true
 		);
 
 		register_post_type( 'spucpt', $args );

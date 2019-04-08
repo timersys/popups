@@ -3,8 +3,8 @@ Contributors: timersys
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4T6L69EV9G2Q
 Tags:  popup,twitter,google+,facebook,Popups,twitter follow,facebook like,mailchimp,Activecampaign,Mailpoet,Postmatic,Infusionsoft,mailerlite,constant contact,aweber,google plus,social boost,social splash,postmatic,mailpoet,facebook popup,scroll popups,popups,wordpress popup,wp popups,cf7,gf,gravity forms,contact form 7,ifs,infusion soft,subscribe,login popup,ajax login popups,popupmaker
 Requires at least: 3.6
-Tested up to: 5.0.2
-Stable tag: 1.9.3.4
+Tested up to: 5.1
+Stable tag: 1.9.3.5
 Requires PHP: 5.3
 Text Domain: popups
 License: GPLv2 or later
@@ -100,6 +100,7 @@ Fork me in https://github.com/timersys/popups/
 * Serbo-Croatian - Borisa - http://www.webhostinghub.com/
 * Spanish - Andrew Kurtis - http://www.webhostinghub.com/
 * German
+* Slovak - J�n "Fajo" Fajc�k
 
 = Beautiful WordPress Emails  =
 Now you can send html email in WordPress with [https://wordpress.org/plugins/email-templates/](https://wordpress.org/plugins/email-templates/)
@@ -183,6 +184,10 @@ If you are not seeing that code instead, the problem is that one of the display 
 If you have cache be sure to enable AJAX mode in the plugin settings page
 
 == Changelog ==
+
+= 1.9.3.5 =
+* Gutenberg support
+* Minor bugfixes
 
 = 1.9.3.4 =
 * Update for new contact form 7

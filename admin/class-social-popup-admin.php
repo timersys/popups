@@ -776,7 +776,7 @@ class SocialPopup_Admin {
 				'custom_url'	=>	__("Custom Url", 'popups' ),
 				'mobiles'		=>	__("Mobile Phone", 'popups' ),
 				'tablets'		=>	__("Tablet", 'popups' ),
-				'desktop'		=>	__("Dekstop", 'popups' ),
+				'desktop'		=>	__("Desktop", 'popups' ),
 				'crawlers'		=>	__("Bots/Crawlers", 'popups' ),
 				'browser'		=>	__("Browser", 'popups' ),
 			)
