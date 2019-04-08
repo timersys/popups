@@ -1,0 +1,858 @@
+# Copyright (C) 2013 TODO
+# This file is distributed under the same license as the TODO package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Popups SK\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
+"POT-Creation-Date: 2016-02-04 13:02+0100\n"
+"PO-Revision-Date: 2019-04-08 06:16+0200\n"
+"Language-Team: Fajo <ja@fajo.name>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"Last-Translator: \n"
+"Language: sk_SK\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-social-popup-admin.php:159
+msgctxt "post type singular name"
+msgid "Popups"
+msgstr "Popups"
+
+#: admin/class-social-popup-admin.php:160
+msgctxt "admin menu"
+msgid "Popups"
+msgstr "Popups"
+
+#: admin/class-social-popup-admin.php:161
+msgctxt "add new on admin bar"
+msgid "Popups"
+msgstr "Popups"
+
+#: admin/class-social-popup-admin.php:162
+msgctxt "Popups"
+msgid "Add New"
+msgstr "Pridajte nové"
+
+#: admin/class-social-popup-admin.php:163
+msgid "Add New Popups"
+msgstr "Pridajte nové Popups"
+
+#: admin/class-social-popup-admin.php:164
+msgid "New Popups"
+msgstr "Nové Popups"
+
+#: admin/class-social-popup-admin.php:165
+msgid "Edit Popups"
+msgstr "Upraviť Popups"
+
+#: admin/class-social-popup-admin.php:166
+msgid "View Popups"
+msgstr "Zobraziť Popups"
+
+#: admin/class-social-popup-admin.php:167
+msgid "All Popups"
+msgstr "Všetky Popups"
+
+#: admin/class-social-popup-admin.php:168
+msgid "Search Popups"
+msgstr "Hľadať Popups"
+
+#: admin/class-social-popup-admin.php:169
+msgid "Parent Popups:"
+msgstr "Nadradené Popups:"
+
+#: admin/class-social-popup-admin.php:170
+msgid "No Popups found."
+msgstr "Žiadne Popups nenájdené."
+
+#: admin/class-social-popup-admin.php:171
+msgid "No Popups found in Trash."
+msgstr "Žiadne Popups nenájdené v koši."
+
+#: admin/class-social-popup-admin.php:212
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: admin/class-social-popup-admin.php:260
+msgid "Popups Premium"
+msgstr "Popups Premium"
+
+#: admin/class-social-popup-admin.php:271
+msgid "PopUp Shortcodes"
+msgstr "PopUp skrátené kódy"
+
+#: admin/class-social-popup-admin.php:280
+msgid "PopUp Appearance"
+msgstr "Vzhľad PopUp"
+
+#: admin/class-social-popup-admin.php:289
+msgid "PopUp Display Rules"
+msgstr "Pravidlá zobrazenia PopUp"
+
+#: admin/class-social-popup-admin.php:298
+msgid "Display Options"
+msgstr "Možnosti zobrazenia"
+
+#: admin/class-social-popup-admin.php:307
+msgid "Need support?"
+msgstr "Potrebujete pomoc?"
+
+#: admin/class-social-popup-admin.php:315
+msgid "Donate & support"
+msgstr "Dar & podpora"
+
+#: admin/class-social-popup-admin.php:323
+msgid "About the developer"
+msgstr "O developerovi"
+
+#: admin/class-social-popup-admin.php:589
+#: admin/views/metaboxes/metabox-rules.php:33
+#: admin/views/metaboxes/metabox-rules.php:106
+msgid "or"
+msgstr "alebo"
+
+#: admin/class-social-popup-admin.php:616
+msgid "Add a Popup"
+msgstr "Pridať  Popup"
+
+#: admin/class-social-popup-admin.php:740
+msgid "User"
+msgstr "Používateľ"
+
+#: admin/class-social-popup-admin.php:741
+msgid "User role"
+msgstr "Používateľské role"
+
+#: admin/class-social-popup-admin.php:742
+msgid "User is logged"
+msgstr "Používateľ je prihlásený"
+
+#: admin/class-social-popup-admin.php:743
+msgid "User never left a comment"
+msgstr "Používateľ nikdy nezanechal komentár"
+
+#: admin/class-social-popup-admin.php:744
+msgid "User came via a search engine"
+msgstr "Používateľ prišiel cez vyhľadávací nástroj"
+
+#: admin/class-social-popup-admin.php:745
+msgid "User did not arrive via another page on your site"
+msgstr "Používateľ neprišiel cez inú stránku na vašej stránke"
+
+#: admin/class-social-popup-admin.php:747
+#: admin/class-social-popup-admin.php:748
+msgid "Post"
+msgstr "Článok"
+
+#: admin/class-social-popup-admin.php:749
+msgid "Post ID"
+msgstr "ID článku"
+
+#: admin/class-social-popup-admin.php:750
+msgid "Post Type"
+msgstr "Typ článku"
+
+#: admin/class-social-popup-admin.php:751
+msgid "Post Category"
+msgstr "Kategória článkov"
+
+#: admin/class-social-popup-admin.php:752
+msgid "Post Format"
+msgstr "Formát článkov"
+
+#: admin/class-social-popup-admin.php:753
+msgid "Post Status"
+msgstr "Stav článkov"
+
+#: admin/class-social-popup-admin.php:754
+msgid "Post Taxonomy"
+msgstr "Taxonómia článkov"
+
+#: admin/class-social-popup-admin.php:756
+#: admin/class-social-popup-admin.php:757
+msgid "Page"
+msgstr "Stránka"
+
+#: admin/class-social-popup-admin.php:758
+msgid "Page Type"
+msgstr "Typ stránky"
+
+#: admin/class-social-popup-admin.php:759
+msgid "Page Parent"
+msgstr "Nadradená stránka"
+
+#: admin/class-social-popup-admin.php:760
+msgid "Page Template"
+msgstr "Šablóna stránky"
+
+#: admin/class-social-popup-admin.php:762
+msgid "Other"
+msgstr "Iné"
+
+#: admin/class-social-popup-admin.php:763
+msgid "Referrer"
+msgstr "Referrer"
+
+#: admin/class-social-popup-admin.php:764
+msgid "Mobile Phone"
+msgstr "Mobil"
+
+#: admin/class-social-popup-admin.php:765
+msgid "Tablet"
+msgstr "Tablet"
+
+#: admin/class-social-popup-admin.php:813
+msgid "ID"
+msgstr "ID"
+
+#: admin/includes/class-spu-notices.php:30
+#, php-format
+msgid ""
+"We noticed that you have been using our plugin for a while and we would like "
+"to ask you a little favour. If you are happy with it and can take a minute "
+"please <a href=\"%s\" target=\"_blank\">leave a nice review</a> on "
+"WordPress. It will be a tremendous help for us!"
+msgstr ""
+"Všimli sme si, že ste nejaký čas používali náš plugin a chceli by sme vás "
+"požiadať o malú láskavosť. Ak ste s ním spokojní a môžete obetovať minútu, "
+"<a href=\"%s\" target=\"_blank\"> nechajte nám na stránke WordPress peknú "
+"recenziu </a>. Bude to pre nás obrovská pomoc!"
+
+#: admin/includes/class-spu-notices.php:32
+#, php-format
+msgid "<a href=\"%s\" target=\"_blank\">Leave a nice review</a>"
+msgstr "<a href=\"%s\" target=\"_blank\">Zanechajte peknú recenziu</a>"
+
+#: admin/includes/class-spu-notices.php:33
+#, php-format
+msgid "<a href=\"%s\">No, thanks</a>"
+msgstr "<a href=\"%s\">Nie, vďaka</a>"
+
+#: admin/views/metaboxes/metabox-appearance.php:10
+msgid "Background opacity"
+msgstr "Priehľadnosť pozadia"
+
+#: admin/views/metaboxes/metabox-appearance.php:12
+msgid "Leave at 0 for no background. Max value is 1"
+msgstr "Nechajte hodnotu 0 pre žiadne pozadie. Maximálna hodnota je 1"
+
+#: admin/views/metaboxes/metabox-appearance.php:18
+msgid "Background color"
+msgstr "Farba pozadia"
+
+#: admin/views/metaboxes/metabox-appearance.php:22
+msgid "Text color"
+msgstr "Farba textu"
+
+#: admin/views/metaboxes/metabox-appearance.php:26
+msgid "Box width"
+msgstr "Šírka boxu"
+
+#: admin/views/metaboxes/metabox-appearance.php:32
+msgid "Border color"
+msgstr "Farba okraja"
+
+#: admin/views/metaboxes/metabox-appearance.php:36
+msgid "Border width"
+msgstr "Šírka okraja"
+
+#: admin/views/metaboxes/metabox-donate.php:6
+msgid "If you like this plugin, consider supporting it by donating."
+msgstr "Ak sa vám páči tento plugin, zvážte jeho podporu darovaním."
+
+#: admin/views/metaboxes/metabox-donate.php:8
+msgid "Donate with PayPal"
+msgstr "Darujte s PayPal"
+
+#: admin/views/metaboxes/metabox-donate.php:10
+msgid "Some other ways to support this plugin"
+msgstr "Niektoré ďalšie spôsoby, ako podporiť tento plugin"
+
+#: admin/views/metaboxes/metabox-donate.php:12
+msgid "Leave a  &#9733;&#9733;&#9733;&#9733;&#9733; review on WordPress.org"
+msgstr ""
+"Zanechajte  &#9733;&#9733;&#9733;&#9733;&#9733; recenziu na WordPress.org"
+
+#: admin/views/metaboxes/metabox-donate.php:13
+msgid "Write about Popups on your blog"
+msgstr "Píšte o Popups na svojom blogu"
+
+#: admin/views/metaboxes/metabox-donate.php:14
+msgid "Tweet about Popups"
+msgstr "Tweetujte o Popups"
+
+#: admin/views/metaboxes/metabox-donate.php:15
+msgid "Vote \"works\" on the WordPress.org plugin page"
+msgstr "Hlasujte „funguje“ na stránke pluginu na WordPress.org"
+
+#: admin/views/metaboxes/metabox-help.php:6
+msgid ""
+"You have some social shortcodes to use that will print a Facebook like, a "
+"Google+ Follow and a Twitter follow. Check the available options and "
+"<strong>configure them with your social accounts</strong>:"
+msgstr ""
+"Skontrolujte dostupné možnosti a <strong> nakonfigurujte ich pomocou svojich "
+"účtov na sociálnych sieťach </strong>:"
+
+#: admin/views/metaboxes/metabox-help.php:8
+msgid "Facebook Page"
+msgstr "Stránka Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:12
+msgid "View Facebook Page Options"
+msgstr "Zobrazenie možností stránky Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:14
+#: admin/views/metaboxes/metabox-help.php:27
+msgid "Your Facebook page url"
+msgstr "Adresa URL vašej stránky v službe Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:15
+msgid "Your page name"
+msgstr "Názov vašej stránky"
+
+#: admin/views/metaboxes/metabox-help.php:16
+msgid "true|false <b>Default value:</b> true"
+msgstr "true|false <b>Predvolená hodnota:</b> true"
+
+#: admin/views/metaboxes/metabox-help.php:17
+msgid "true|false <b>Default value:</b> false"
+msgstr "true|false <b>Predvolená hodnota:</b> false"
+
+#: admin/views/metaboxes/metabox-help.php:18
+msgid "number <b>Default value:</b> 500"
+msgstr "number <b>Predvolená hodnota:</b> 500"
+
+#: admin/views/metaboxes/metabox-help.php:21
+msgid "Facebook Button"
+msgstr "Tlačidlo Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:25
+msgid "View Facebook Options"
+msgstr "Zobrazenie možností služby Facebook"
+
+#: admin/views/metaboxes/metabox-help.php:28
+msgid "standard, box_count, button <b>Default value:</b> button_count"
+msgstr "standard, box_count, button <b>Predvolená hodnota:</b> button_count"
+
+#: admin/views/metaboxes/metabox-help.php:29
+#: admin/views/metaboxes/metabox-help.php:30
+msgid "true <b>Default value:</b> false"
+msgstr "true <b>Predvolená hodnota:</b> false"
+
+#: admin/views/metaboxes/metabox-help.php:31
+msgid "recommend <b>Default value:</b> like"
+msgstr "recommend <b>Predvolená hodnota:</b> like"
+
+#: admin/views/metaboxes/metabox-help.php:32
+msgid "number <b>Default value:</b>"
+msgstr "number <b>Predvolená hodnota:</b>"
+
+#: admin/views/metaboxes/metabox-help.php:34
+msgid "Google+ Button"
+msgstr "Tlačidlo Google+"
+
+#: admin/views/metaboxes/metabox-help.php:38
+msgid "View Google+ Options"
+msgstr "Zobraziť možnosti služby Google+"
+
+#: admin/views/metaboxes/metabox-help.php:40
+msgid "Your Google+ url"
+msgstr "Vaša adresa URL služby Google+"
+
+#: admin/views/metaboxes/metabox-help.php:41
+msgid "small, standard, tall <b>Default value:</b> medium"
+msgstr "small, standard, tall <b>Predvolená hodnota:</b> medium"
+
+#: admin/views/metaboxes/metabox-help.php:42
+msgid "inline, none <b>Default value:</b> bubble"
+msgstr "inline, none <b>Predvolená hodnota:</b> bubble"
+
+#: admin/views/metaboxes/metabox-help.php:44
+msgid "Twitter Button"
+msgstr "Tlačidlo Twitter"
+
+#: admin/views/metaboxes/metabox-help.php:48
+msgid "View Twitter Options"
+msgstr "Zobraziť možnosti služby Twitter"
+
+#: admin/views/metaboxes/metabox-help.php:50
+msgid "Your Twitter user <b>Default chifliiiii</b>"
+msgstr "Váš používateľ služby Twitter <b>Default chifliiiii</b>"
+
+#: admin/views/metaboxes/metabox-help.php:51
+msgid "false <b>Default value:</b> true"
+msgstr "false <b>Predvolená hodnota:</b> true"
+
+#: admin/views/metaboxes/metabox-help.php:52
+msgid "large <b>Default value:</b> \"\""
+msgstr "large <b>Predvolená hodnota:</b> \"\""
+
+#: admin/views/metaboxes/metabox-help.php:55
+msgid "Other available Shortcodes:"
+msgstr "Ďalšie dostupné skrátené kódy:"
+
+#: admin/views/metaboxes/metabox-help.php:56
+msgid "Close Button"
+msgstr "Tlačidlo Zavrieť"
+
+#: admin/views/metaboxes/metabox-help.php:60
+msgid "View Close shortcode Options"
+msgstr "Zobraziť možnosti skráteného kódu tlačidla Zavrieť"
+
+#: admin/views/metaboxes/metabox-help.php:62
+msgid "Pass a custom class to style your button"
+msgstr "Vložte vlastnú triedu do štýlu, aby ste upravili svoje tlačidlo"
+
+#: admin/views/metaboxes/metabox-help.php:63
+msgid "Button label - <b>Default value:</b> Close"
+msgstr "Button label - <b>Predvolená hodnota:</b> Close"
+
+#: admin/views/metaboxes/metabox-help.php:64
+msgid "left, right, center, none - <b>Default value:</b> center"
+msgstr "left, right, center, none - <b>Predvolená hodnota:</b> center"
+
+#: admin/views/metaboxes/metabox-links.php:6
+msgid "My name is"
+msgstr "Moje meno je"
+
+#: admin/views/metaboxes/metabox-links.php:6
+msgid "I develop WordPress plugins and themes."
+msgstr "Vyvíjam WordPress pluginy a témy."
+
+#: admin/views/metaboxes/metabox-links.php:7
+#, php-format
+msgid ""
+"Take a look at my <a href=\"%s\">site</a> to see my other plugins or hire "
+"me. Subscribe to get updates!"
+msgstr ""
+"Pozrite sa na moju <a href=\"%s\">webovú stránku</a> , aby ste videli ďalšie "
+"moje pluginy alebo si ma najali. Prihlásiť sa na odber aktualizácií!"
+
+#: admin/views/metaboxes/metabox-links.php:8
+msgid "Other plugins I built:"
+msgstr "Ďalšie vytvorené pluginy:"
+
+#: admin/views/metaboxes/metabox-links.php:10
+msgid "Install multiple plugins and create collections"
+msgstr "Nainštalujte multiple plugins a vytvorte kolekcie"
+
+#: admin/views/metaboxes/metabox-links.php:11
+msgid "Geotarget your content"
+msgstr "Zamerajte zemepisne váš obsah"
+
+#: admin/views/metaboxes/metabox-links.php:12
+msgid "Invite your network friends and import contacts"
+msgstr "Pozvite priateľov zo siete a importujte kontakty"
+
+#: admin/views/metaboxes/metabox-options.php:9
+msgid "Box Position"
+msgstr "Poloha boxu"
+
+#: admin/views/metaboxes/metabox-options.php:12
+msgid "Centered"
+msgstr "Na stred"
+
+#: admin/views/metaboxes/metabox-options.php:13
+msgid "Top Left"
+msgstr "Hore vľavo"
+
+#: admin/views/metaboxes/metabox-options.php:14
+msgid "Top Right"
+msgstr "Hore vpravo"
+
+#: admin/views/metaboxes/metabox-options.php:15
+msgid "Bottom Left"
+msgstr "Dole vľavo"
+
+#: admin/views/metaboxes/metabox-options.php:16
+msgid "Bottom Right"
+msgstr "Dole vpravo"
+
+#: admin/views/metaboxes/metabox-options.php:23
+msgid "Trigger action"
+msgstr "Aktivácia spúšťania"
+
+#: admin/views/metaboxes/metabox-options.php:27
+msgid "seconds after page load"
+msgstr "sekúnd po načítaní stránky"
+
+#: admin/views/metaboxes/metabox-options.php:28
+msgid "of page height"
+msgstr "výšky stránky"
+
+#: admin/views/metaboxes/metabox-options.php:38
+msgid "Auto-hide?"
+msgstr "Automatická výška?"
+
+#: admin/views/metaboxes/metabox-options.php:40
+#: admin/views/metaboxes/metabox-options.php:68
+#: admin/views/metaboxes/metabox-options.php:76
+#: admin/views/metaboxes/metabox-options.php:84
+msgid "Yes"
+msgstr "Áno"
+
+#: admin/views/metaboxes/metabox-options.php:41
+#: admin/views/metaboxes/metabox-options.php:69
+#: admin/views/metaboxes/metabox-options.php:77
+#: admin/views/metaboxes/metabox-options.php:85
+msgid "No"
+msgstr "Nie"
+
+#: admin/views/metaboxes/metabox-options.php:42
+msgid "Hide box again when visitors scroll back up?"
+msgstr "Skryť box znova, keď návštevníci skrolujú späť na začiatok stránky?"
+
+#: admin/views/metaboxes/metabox-options.php:46
+msgid "Animation"
+msgstr "Animácia"
+
+#: admin/views/metaboxes/metabox-options.php:49
+msgid "Fade In"
+msgstr "Fade In"
+
+#: admin/views/metaboxes/metabox-options.php:50
+msgid "Slide In"
+msgstr "Slide In"
+
+#: admin/views/metaboxes/metabox-options.php:53
+msgid "Slide will only apply when popup is on the corners"
+msgstr "Slide bude použitý len v prípade, keď je vyskakovacie okno v rohoch"
+
+#: admin/views/metaboxes/metabox-options.php:58
+msgid "Cookie expiration days"
+msgstr "Dni vypršania platnosti súboru cookie"
+
+#: admin/views/metaboxes/metabox-options.php:61
+msgid "After closing the box, how many days should it stay hidden?"
+msgstr "Koľko dní by malo zostať vyskakovacie okno skryté  po jeho zatvorení?"
+
+#: admin/views/metaboxes/metabox-options.php:66
+msgid "Enable test mode?"
+msgstr "Povoliť testovací režim?"
+
+#: admin/views/metaboxes/metabox-options.php:70
+msgid ""
+"If test mode is enabled, the box will show up regardless of whether a cookie "
+"has been set. (To admins only)"
+msgstr ""
+"Ak je testovací režim povolený, box sa zobrazí bez ohľadu na to, či bol "
+"súbor cookie nastavený. (Len pre administrátorov)"
+
+#: admin/views/metaboxes/metabox-options.php:74
+msgid "Close on conversion?"
+msgstr "Zatvoriť pri konverzii?"
+
+#: admin/views/metaboxes/metabox-options.php:78
+msgid ""
+"If you have a form or social shortcode, by default popup will close on "
+"submission/conversion"
+msgstr ""
+"Ak máte formulár alebo skrátený kód sociálnej siete, vyskakovacie okno sa "
+"zatvorí pri potvrdení / konverzii"
+
+#: admin/views/metaboxes/metabox-options.php:82
+msgid "Show powered by link?"
+msgstr "Zobraziť powered by odkaz?"
+
+#: admin/views/metaboxes/metabox-options.php:86
+#, php-format
+msgid ""
+"Shows a \"powered by\" link below your popup. If your affiliate link is set "
+"in the <a href=\"%s\">settings</a>, it will be used."
+msgstr ""
+"Pod vyskakovacím oknom sa zobrazuje odkaz \"powered by\". Ak je váš "
+"partnerský odkaz nastavený v <a href=\"%s\">nastaveniach</a>, bude použitý."
+
+#: admin/views/metaboxes/metabox-premium.php:16
+msgid ""
+"Take the best WordPress Popups plugin to the next level with Popups Premium "
+"extension."
+msgstr ""
+"Posuňte ten najlepší plugin WordPress Popups na ďalšiu úroveň s rozšírením "
+"Popups Premium."
+
+#: admin/views/metaboxes/metabox-premium.php:17
+msgid "Popups Premium Features:"
+msgstr "Prémiové funkcie Popups:"
+
+#: admin/views/metaboxes/metabox-premium.php:19
+msgid "Beautiful optin forms for popular mail providers"
+msgstr "Krásne opt-in formuláre pre obľúbených poštových poskytovateľov"
+
+#: admin/views/metaboxes/metabox-premium.php:20
+msgid "Currently supporting MailChimp, Aweber, Postmatic, Mailpoet"
+msgstr "V súčasnosti s podporou MailChimp, Aweber, Postmatic, Mailpoet"
+
+#: admin/views/metaboxes/metabox-premium.php:21
+msgid ""
+"Track impressions and Conversions of social likes and forms submissions like "
+"Contact Form 7, Gravity forms, etc"
+msgstr ""
+"Sledovanie zobrazení a konverzií lajkov zo sociálnych sietí a formulárov, "
+"ako je Contact Form 7, Gravity forms atď"
+
+#: admin/views/metaboxes/metabox-premium.php:22
+msgid "Track impressions and Conversions also in Google Analytics"
+msgstr "Sledujte zobrazenia a konverzie aj v službe Google Analytics"
+
+#: admin/views/metaboxes/metabox-premium.php:23
+#: admin/views/metaboxes/metabox-premium.php:25
+msgid "Exit Intent technology"
+msgstr "Exit Intent technology"
+
+#: admin/views/metaboxes/metabox-premium.php:24
+msgid "8 New animations effects"
+msgstr "8 nových efektov animácií"
+
+#: admin/views/metaboxes/metabox-premium.php:26
+msgid "New trigger methods"
+msgstr "Nové metódy spúšťania"
+
+#: admin/views/metaboxes/metabox-premium.php:27
+msgid "Timer for auto closing"
+msgstr "Časovač pre automatické zatváranie"
+
+#: admin/views/metaboxes/metabox-premium.php:28
+msgid "Ability to disable close button"
+msgstr "Možnosť vypnúť tlačidlo Zatvoriť"
+
+#: admin/views/metaboxes/metabox-premium.php:29
+msgid ""
+"Ability to disable Advanced close methods like esc or clicking outside of "
+"the popup"
+msgstr ""
+"Možnosť vypnúť Pokročilé metódy zatvárania, ako napríklad klávesou esc alebo "
+"kliknutím mimo vyskakovacie okno"
+
+#: admin/views/metaboxes/metabox-premium.php:30
+msgid "Premium support"
+msgstr "Prémiová podpora"
+
+#: admin/views/metaboxes/metabox-premium.php:34
+msgid "Buy Now!"
+msgstr "Kúp teraz!"
+
+#: admin/views/metaboxes/metabox-rules.php:19
+msgid "Rules"
+msgstr "Pravidlá"
+
+#: admin/views/metaboxes/metabox-rules.php:20
+msgid "Create a set of rules to determine where the popup will show"
+msgstr ""
+"Vytvorte množinu pravidiel, aby ste určili, kde sa bude kontextové okno "
+"zobrazovať"
+
+#: admin/views/metaboxes/metabox-rules.php:31
+msgid "Show this popup if"
+msgstr "Zobraziť toto okno, ak"
+
+#: admin/views/metaboxes/metabox-rules.php:61
+msgid "is equal to"
+msgstr "rovná sa"
+
+#: admin/views/metaboxes/metabox-rules.php:62
+msgid "is not equal to"
+msgstr "nerovná sa"
+
+#: admin/views/metaboxes/metabox-rules.php:93
+msgid "and"
+msgstr "a"
+
+#: admin/views/metaboxes/metabox-rules.php:108
+msgid "Add rule group"
+msgstr "Pridať skupinu pravidiel"
+
+#: admin/views/metaboxes/metabox-support.php:6
+#, php-format
+msgid "You are using Popups plugin v%s"
+msgstr "Používate Popups plugin v%s"
+
+#: admin/views/metaboxes/metabox-support.php:7
+#, php-format
+msgid ""
+"If you need support please go to the WordPress.org <a href=\"%s\">support "
+"forums</a>"
+msgstr ""
+"Ak potrebujete podporu, prejdite na stránku <a href=\"%s\">fóra podpory</a> "
+"WordPress.org"
+
+#: admin/views/settings-page.php:17
+msgid "Affiliate link"
+msgstr "Affiliate odkaz"
+
+#: admin/views/settings-page.php:20
+#, php-format
+msgid ""
+"You can earn money by promoting the plugin! Join <a href=\"%s\">our "
+"affiliate program</a> and paste your affiliate link here to earn 35&#37; in "
+"commissions . Once entered, it will replace the default \"Powered by\" on "
+"the popups."
+msgstr ""
+"Môžete zarábať peniaze propagáciou tohoto pluginu! Pridajte sa k nášmu <a "
+"href=\"%s\">partnerskému programu</a> a vložte svoj partnerský odkaz, aby "
+"ste získali 35&#37; v províziách. Po zadaní nahradí predvolené \"Powered by"
+"\" na vyskakovacích oknách."
+
+#: admin/views/settings-page.php:24
+msgid "Ajax mode?"
+msgstr "Ajax režim?"
+
+#: admin/views/settings-page.php:27
+msgid ""
+"Load popups using ajax. Compatible with cache plugins, but might not work "
+"with all plugins"
+msgstr ""
+"Načítanie vyskakovacích okien pomocou metódy ajax. Je kompatibilné s "
+"pluginmi cache, ale nemusí fungovať so všetkými pluginmi"
+
+#: admin/views/settings-page.php:32
+msgid "Enable Debug mode?"
+msgstr "Povoliť režim ladenia?"
+
+#: admin/views/settings-page.php:35
+msgid "Will use uncompressed js"
+msgstr "Bude použitý nekomprimovaný javascript"
+
+#: admin/views/settings-page.php:40
+msgid "Enable safe mode?"
+msgstr "Povoliť bezpečnostný režim?"
+
+#: admin/views/settings-page.php:43
+msgid "Will move all popups to top of the screen."
+msgstr "Presunie všetky vyskakovacie okná na začiatok obrazovky."
+
+#: admin/views/settings-page.php:48
+msgid "Remove shortcodes style"
+msgstr "Odstráňte štýl skrátených kódov"
+
+#: admin/views/settings-page.php:51
+msgid ""
+"By default the plugin will apply some style to shortcodes. Check here if you "
+"want to manually style them"
+msgstr ""
+"Štandardne bude plugin aplikovať určitý štýl na skrátené kódy. Označte, ak "
+"ich chcete manuálne upraviť"
+
+#: admin/views/settings-page.php:56
+msgid "Unload Facebook javascript"
+msgstr "Uvoľniť Facebook javascript"
+
+#: admin/views/settings-page.php:59
+msgid "If you use your own Facebook script, check this"
+msgstr "Označte, ak používate vlastný Facebookuskript"
+
+#: admin/views/settings-page.php:64
+msgid "Unload Google javascript"
+msgstr "Uvoľniť Google javascript"
+
+#: admin/views/settings-page.php:67
+msgid "If you use your own Google script, check this"
+msgstr "Označte, ak používate vlastný Googleskript"
+
+#: admin/views/settings-page.php:72
+msgid "Unload Twitter javascript"
+msgstr "Uvoľniť Twitter javascript"
+
+#: admin/views/settings-page.php:75
+msgid "If you use your own Twitter script, check this"
+msgstr "Označte, ak používate vlastný Twitter skript"
+
+#: admin/views/settings-page.php:82
+msgid "Delete all data on Uninstall"
+msgstr "Odstráňte všetky údaje pri odinštalovaní"
+
+#: admin/views/settings-page.php:85
+msgid ""
+"When you uninstall the plugin all popups, settings and stats will be deleted "
+"from your db"
+msgstr ""
+"Keď odinštalujete plugin, všetky kontextové okná, nastavenia a štatistiky "
+"budú z vašej db odstránené"
+
+#: admin/views/settings-page.php:89
+msgid "Save settings"
+msgstr "Uložiť nastavenia"
+
+#: includes/class-spu-helper.php:131
+msgid "All Pages"
+msgstr "Všetky stránky"
+
+#: includes/class-spu-helper.php:132
+msgid "Front Page"
+msgstr "Titulná strana"
+
+#: includes/class-spu-helper.php:133
+msgid "Posts Page"
+msgstr "Stránka článkov"
+
+#: includes/class-spu-helper.php:134
+msgid "Category Page"
+msgstr "Stránka kategórií"
+
+#: includes/class-spu-helper.php:135
+msgid "Search Page"
+msgstr "Stránka vyhľadávania"
+
+#: includes/class-spu-helper.php:136
+msgid "Archives Page"
+msgstr "Stránka archívov"
+
+#: includes/class-spu-helper.php:137
+msgid "Top Level Page (parent of 0)"
+msgstr "Stránka najvyššej úrovne (parent of 0)"
+
+#: includes/class-spu-helper.php:138
+msgid "Parent Page (has children)"
+msgstr "Nadradená stránka (has children)"
+
+#: includes/class-spu-helper.php:139
+msgid "Child Page (has parent)"
+msgstr "Podradená stránka (has parent)"
+
+#: includes/class-spu-helper.php:147
+msgid "Default Template"
+msgstr "Predvolená šablóna"
+
+#: includes/class-spu-helper.php:220
+msgid "Publish"
+msgstr "Publikované alebo publikovať"
+
+#: includes/class-spu-helper.php:221
+msgid "Pending Review"
+msgstr "Čaká na posúdenie"
+
+#: includes/class-spu-helper.php:222
+msgid "Draft"
+msgstr "Návrh"
+
+#: includes/class-spu-helper.php:223
+msgid "Future"
+msgstr "Plánované"
+
+#: includes/class-spu-helper.php:224
+msgid "Private"
+msgstr "Súkromné"
+
+#: includes/class-spu-helper.php:225
+msgid "Revision"
+msgstr "Revízia"
+
+#: includes/class-spu-helper.php:226
+msgid "Trash"
+msgstr "Kôš"
+
+#: includes/class-spu-helper.php:239
+msgid "Super Admin"
+msgstr "Super Admin"
+
+#: includes/class-spu-helper.php:259
+msgid "True"
+msgstr "True"
