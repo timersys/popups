@@ -124,9 +124,6 @@ class SocialPopup_Admin {
 
 		add_action( 'admin_init' ,  array( $this, 'extra_checks') );
 
-		add_filter('use_block_editor_for_post_type', array( $this, 'disable_gutenberg' ), 10, 2 );
-		add_filter('gutenberg_can_edit_post_type', array( $this, 'disable_gutenberg' ), 10, 2 );
-
 		$this->set_rules_fields();
 	}
 
@@ -951,17 +948,5 @@ class SocialPopup_Admin {
 			update_option('spu_pair_plugins',true);
 			add_action( 'admin_notices', array('SocialPopup_Notices','pair_plugins' ));
 		}
-	}
-
-	/**
-	*	Disabled Gutenberg for Popup CPT
-	*/
-	public function disable_gutenberg($current_status, $post_type) {
-		
-		if ($post_type === 'spucpt') {
-			return false;
-		}
-		
-		return $current_status;
 	}
 }
