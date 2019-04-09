@@ -687,7 +687,7 @@ function spuCreateCookie(name, value, type, duration) {
 
 		var expires = "; expires=" + date.toGMTString();
 	} else var expires = "";
-	document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+	document.cookie = name + "=" + value + expires + "; path=/";
 }
 
 function spuReadCookie(name) {
