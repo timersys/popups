@@ -498,17 +498,18 @@ var SPU_master = function() {
 		//if we are closing , set cookie
 		if( show === false) {
 			// set cookie
-			//var days = parseFloat( $box.data('close-cookie') );
-			var days = parseFloat( $box.data('dclose-cookie') );
+			var tcookie = $box.data('tclose-cookie');
+			var dcookie = parseFloat( $box.data('dclose-cookie') );
 			var ncookie = $box.data('nclose-cookie');
 			
 			if( conversion === true ) {
-				days = parseFloat( $box.data('dconvert-cookie') );
+				tcookie = $box.data('tconvert-cookie');
+				dcookie = parseFloat( $box.data('dconvert-cookie') );
 				ncookie = $box.data('nconvert-cookie');
 			}
 			
-			if( days > 0 ) {
-				spuCreateCookie( ncookie, true, days );
+			if( dcookie > 0 ) {
+				spuCreateCookie( ncookie, true, tcookie, dcookie );
 			}
 			$box.trigger('spu.box_close', [id]);
 			// check for videos inside and destroy it
@@ -675,10 +676,15 @@ if( spuvar.ajax_mode ) {
 /**
  * Cookie functions
  */
-function spuCreateCookie(name, value, days) {
-	if (days) {
+function spuCreateCookie(name, value, type, duration) {
+	if (duration) {
 		var date = new Date();
-		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+
+		if( type == 'h' )
+			date.setTime(date.getTime() + (duration * 60 * 60 * 1000));
+		else
+			date.setTime(date.getTime() + (duration * 24 * 60 * 60 * 1000));
+
 		var expires = "; expires=" + date.toGMTString();
 	} else var expires = "";
 	document.cookie = name + "=" + value + expires + "; path=/";
