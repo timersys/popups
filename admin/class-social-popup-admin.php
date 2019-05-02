@@ -94,7 +94,7 @@ class SocialPopup_Admin {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 
 		//Save metaboxes
-		add_action( 'save_post_spucpt', array( $this, 'save_meta_options' ), 20 );
+		add_action( 'save_post', array( $this, 'save_meta_options' ), 20, 2 );
 
 		// Load admin style sheet and JavaScript.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
@@ -377,8 +377,11 @@ class SocialPopup_Admin {
 	 *
 	 * @return mixed
 	 */
-	public function save_meta_options( $post_id ) {
+	public function save_meta_options( $post_id, $post ) {
 		static $spu_save = 0;
+
+		if ( $post->post_type != 'spucpt' )
+			return $post_id;
 
 		// For some reason sometimes this hook run twice, until I can find the reason and reproduce error
 		// let's use a static var to prevent this
