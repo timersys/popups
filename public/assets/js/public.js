@@ -51,7 +51,7 @@ var SPU_master = function() {
 		facebookFix( $box );
 		
 		// search for youtube, vimeo videos
-        var iframe = $box.find('iframe[src*="vimeo"],iframe[src*="youtube"],iframe[src*="youtu.be"]');
+        var iframe = $box.find('iframe');
         if( iframe && iframe.length) {
         	iframe.each(function () {
 				$(this).attr('spusrc',$(this).attr('src'));
