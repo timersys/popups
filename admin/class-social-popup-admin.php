@@ -124,8 +124,8 @@ class SocialPopup_Admin {
 
 		add_action( 'admin_init' ,  array( $this, 'extra_checks') );
 
-		add_filter('use_block_editor_for_post_type', array( $this, 'disable_gutenberg' ), 10, 2 );
-		add_filter('gutenberg_can_edit_post_type', array( $this, 'disable_gutenberg' ), 10, 2 );
+		add_filter('use_block_editor_for_post_type', array( $this, 'disable_gutenberg' ), 9999, 2 );
+		add_filter('gutenberg_can_edit_post_type', array( $this, 'disable_gutenberg' ), 9999, 2 );
 
 		$this->set_rules_fields();
 	}
